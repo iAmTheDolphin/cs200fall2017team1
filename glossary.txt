@@ -22,7 +22,7 @@ Interactive Mode: the way the ChocAn Data Center is run, during which: operators
 
 Members: clients of ChocAn; chocoholics in need of ChocAn’s services
 
-Member Report: The report which is generated and given to a ChocAn member listing services received with the week of the report being generated
+Member Report: The report which is generated and given to a ChocAn member listing services received within the week of the report being generated
 
 Membership card: membership card that each member is given: includes a Member Number and the member's name; magnetic strip on the card has the above information encoded on it; scanned at the provider’s Terminal
 
