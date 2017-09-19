@@ -14,13 +14,15 @@ ChocAn Manager: an employee/user who is able to generate member reports
 
 ChocAn Data Center: the database that contains all ChocAn member and provider information and records of service
 
-Member Number: 9 digit number given to each member as a means of identification
+EFT: Electronic Funds Transfer data sent to banks for all monetary transactions
 
 Fees: monthly bill from ChocAn to the member that pays for that member’s membership in ChocAn
 
 Interactive Mode: the way the ChocAn Data Center is run, during which: operators can add new members, delete resigned members and update member records; and provider records are added, deleted, and updated.
 
 Members: clients of ChocAn; chocoholics in need of ChocAn’s services
+
+Member Number: 9 digit number given to each member as a means of identification
 
 Member Report: The report which is generated and given to a ChocAn member listing services received with the week of the report being generated
 
