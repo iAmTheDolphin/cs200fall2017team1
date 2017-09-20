@@ -44,3 +44,15 @@
 .dropdown:hover .dropbtn {
     background-color: rgb(203, 43, 33);
 }
+
+#image {
+
+    padding: 20px 20px;
+
+}
+
+.page_body {
+
+    fill: "#d3d3d3"
+
+}
