@@ -26,7 +26,7 @@ Main Success Scenario:
 1.3. Form includes Member name, mailing address and phone number
 2. The Operator assigns the next available Member number to the new Member
 2.1. The Operator opens the document containing all Member numbers
-2.2. The Operator finds the next available member number.
+2.2. The Operator finds the most recently assigned number and adds 1.
 2.3. The new Member’s name is assigned to this number
 3. The Operator updates the ChocAn Data Center’s member records
 3.1. The Operator opens the member database and creates a new record
@@ -53,16 +53,11 @@ Main Success Scenario:
 4. The Member’s record is deleted by the Operator.
 4.1. The file containing the Member’s contact information and billing history is archived for a period of 60 days to handle any outstanding payments.
 4.2. After 60 days, all files pertaining to that Member are deleted permanently.
-5. The Member number assigned to the deleted Member is made available.
-5.1. The Operator opens the document containing all Member numbers.
-5.2. The Member name is removed from its corresponding number.
-5.3. When a new Member is added, the system will recognize this opening as an available Member number.
 
 Extensions:
 1. The deleted Member wishes to be reinstated.
 1.1. If done within 60 days of cancellation, the Member’s record is removed from the archives and returned to the database. The Member may keep their previous Member number and Member ID card.
 1.2. If done after 60 days, the Member is treated like a new Member and must receive a new number and ID card.
-*****2. The deleted Member tries to use their ID card after being deleted. ONLY IF REUSE #s
 -------------------------------------------------------------------------------------
 Use Case: Update Provider Records
 Context: Throughout the day, Operators must update Provider records to match any changes in Provider information
@@ -90,7 +85,7 @@ Main Success Scenario:
 1.4. If Provider is approved by ChocAn, continue:
 2. The Operator assigns the next available Provider number to the new Provider.
 2.1. The Operator opens the document containing all Provider numbers.
-2.2. The Operator finds the next available Provider number.
+2.2. The Operator finds the most recently assigned number and adds 1.
 2,3. The new Provider’s name is assigned to this number.
 3. The Operator updates the ChocAn Data Center’s provider records.
 3.1. The Operator opens the provider database and creates a new record.
@@ -113,14 +108,9 @@ Main Success Scenario:
 4. The Provider’s record is deleted by the Operator.
 4.1. The file containing the Provider’s contact information and services given is archived for a period of 60 days to handle any outstanding transactions.
 4.2. After 60 days, all files pertaining to that Provider are deleted permanently.
-5. The Provider number assigned to the deleted Provider is made available.
-5.1. The Operator opens the document containing all Provider numbers.
-5.2. The Provider name is removed from its corresponding number.
-5.3. When a new Provider is added, the system will recognize this opening as an available Provider number.
 
 Extensions:
-1. he deleted Provider wishes to be reinstated.
+1. The deleted Provider wishes to be reinstated.
 1.1. If done within 60 days of cancellation, the Provider’s record is removed from the archives and returned to the database. The Provider may keep their previous Provider number.
 1.2. If done after 60 days, the Provider is treated like a new Provider and must receive a new number.
-****2.The deleted Provider tries to use their ID card after being deleted. ONLY IF REUSE #s
 -------------------------------------------------------------------------------------
