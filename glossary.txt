@@ -34,31 +34,9 @@ Provider: health care professional that is affiliated with ChocAn; will provide 
 
 Provider Directory: alphabetically ordered list of service names and corresponding service codes and fees
 
-Record: set of information written to a disk by software for each service. Includes:
-o	Current date and time (MM-DD-YYYY HH:MM:SS)
-o	Date service was provided (MM-DD-YYYY)
-o	Provider number (9 digits)
-o	Member number (9 digits)
-o	Service code (6 digits)
-o	Comments (100 characters) (optional)
+Record: set of information written to a disk by software for each service.
 
-Report: an e-mail attachment that contains the list of services a provider provided to a member of ChocAn. Includes:
-o	Provider name (25 characters)
-o	Provider number (9 digits)
-o	Provider street address (25 characters)
-o	Provider city (14 characters)
-o	Provider state (2 letters)
-o	Provider ZIP code (5 digits)
-o	For each service provided, the following details are required:
-♣	Date of service (MM–DD–YYYY)
-♣	Date and time received by the computer (MM–DD–YYYY HH:MM:SS)
-♣	Member name (25 characters)
-♣	Member number (9 digits)
-♣	Service code (6 digits)
-♣	Fee to be paid (up to $999.99)
-o	Total number of consultations with members (3 digits)
-o	Total fee for week (up to $99,999.99)
-
+Report: an e-mail attachment that contains the list of services a provider provided to a member of ChocAn.
 
 Service Code: a 6 digit code that corresponds to the service rendered; this is entered into the Terminal after the date is entered in the billing process.
 
