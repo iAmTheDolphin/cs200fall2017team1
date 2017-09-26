@@ -1,4 +1,11 @@
 
+#top {
+
+    position: relative;
+    left:auto;
+
+}
+
 #content {
     position: relative;
     padding-left: 10%;
@@ -20,6 +27,7 @@
 .dropdown {
     position: relative;
     display: inline-block;
+    left: 1%;
 }
 
 /* Dropdown Content (Hidden by Default) */
