@@ -1,11 +1,11 @@
 
-.allButtons {
-
+#content {
     position: relative;
-    left: 15%;
-    top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
 
 }
+
 
 .dropbtn {
     background-color: #ff3428;
