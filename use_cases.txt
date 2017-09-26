@@ -1,4 +1,101 @@
 -------------------------------------------------------------------------------------
+Use Case: Main Accounting Procedure
+Context: Every Friday at midnight, the main accounting procedure is run which reads the week’s services provided file and generates provider reports for all providers, member reports for all members, summary reports, and EFT reports
+Actors: System/System Timer
+Main Success Scenario:
+1.	The system timer requests reports to be generated for all ChocAn services provided within the week
+1.1	Requests Friday at 12:00 AM
+2.	The type of report is selected and generated with necessary information
+2.1	The system Generates Member Reports for all members that received ChocAn services that week
+2.2	The system Generates Provider Reports for all providers that provided ChocAn services that week
+2.3	The system Generates Summary Report
+3.	Each report is written to an individual file ready to be emailed as attachment
+-------------------------------------------------------------------------------------
+Use Case: Request Report
+Context: At any time a ChocAn manager can request a report be run individually
+Actors: ChocAn Data Center Manager
+Main Success Scenario:
+1.	The ChocAn manager requests a report to be generated at any time during the week
+2.	Report is selected and generated
+3.	Report is ready to be emailed as an attachment
+Extensions:
+3.a	A summary report is printed for the manager, not emailed as an attachment
+-------------------------------------------------------------------------------------
+Use Case: Generate Member Report extends Request Report
+Context: Member reports have been requested and are generated
+Actors: ChocAn Data Center Manager, System
+Main Success Scenario:
+1.	The manager selects Member Report
+2.	The member ID for the report is entered
+3.	The report is generated with the following:
+3.1	Member Name
+3.2	Member Number
+3.3	Member Street Address
+3.4	Member City
+3.5	Member State
+3.6	Member Zip Code
+3.7 List of services that member received that week
+3.7.1 Each service is listed with:
+3.7.1.1	Date of Service
+3.7.1.2	Provider Name
+3.7.1.3 Service Name
+Extensions:
+2.1.a   Main accounting procedure requests report instead of manager, use case continues at
+        step 2.2
+-------------------------------------------------------------------------------------
+Use Case: Generate Provider Report extends Request Report
+Context: Provider reports have been requested and are generated
+Actors: ChocAn Data Center Manager, System
+Main Success Scenario:
+1.	The manager selects Provider Report
+2.	The provider number for the report is entered
+3.	The report is generated with the following information:
+3.1	Provider Name
+3.2	Provider Number
+3.3	Provider Street Address
+3.4	Provider City
+3.5	Provider State
+3.6	Provider Zip Code
+3.7	List of services the provider provided
+3.7.1	For each service provided:
+3.7.1.1 Date of Service
+3.7.1.2 Date and time data were received by the computer
+3.7.1.3	Member Name
+3.7.1.4 Member Number
+3.7.1.5	Service code
+3.7.1.6	Fee to be paid
+3.8	Total number of consultations with members
+3.9	Total fee for week
+4.	EFT Record Generated for Provider
+
+Extensions:
+2.1.a   Main accounting procedure requests report instead of manager, use case continues at
+        step 2.2
+-------------------------------------------------------------------------------------
+Use Case: Generate Summary Report extends Request Report
+Context: A summary report is requested
+Actors: ChocAn Data Center Manager, System
+Main Success Scenario:
+1.	The manager selects Summary Report
+2.	A summary report for accounts payable is generated with:
+2.1	List of every provider to be paid
+2.1.1 Number of consultations each provider  had that week
+2.1.2 Total fee for provider for that week
+2.2	Total number of providers that provided services that week
+2.3	Total number of ChocAn consultations provided
+2.4	Overall fee total
+Extensions:
+2.1.a	Main accounting procedure requests report instead of manager, use case continues at
+        step 2.2
+-------------------------------------------------------------------------------------
+Use Case: Generate EFT Record
+Context: EFT Record is generated in conjunction with a provider report being generated
+Actors: Bank Computers
+Main Success Scenario:
+1.	A record consisting of electronic funds transfer (EFT) data is written to a disk
+2.	Banking computers ensure provider’s bank account is credited with the appropriate amount for the services provided
+
+-------------------------------------------------------------------------------------
 INTERACTIVE MODE:
 -------------------------------------------------------------------------------------
 Use Case: Update Member Records
