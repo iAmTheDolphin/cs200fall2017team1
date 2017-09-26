@@ -1,4 +1,6 @@
 -------------------------------------------------------------------------------------
+MAIN ACCOUNTING PROCEDURE - COLE
+-------------------------------------------------------------------------------------
 Use Case: Main Accounting Procedure
 Context: Every Friday at midnight, the main accounting procedure is run which reads the week’s services provided file and generates provider reports for all providers, member reports for all members, summary reports, and EFT reports
 Actors: System/System Timer
@@ -96,118 +98,120 @@ Main Success Scenario:
 2.	Banking computers ensure provider’s bank account is credited with the appropriate amount for the services provided
 
 -------------------------------------------------------------------------------------
-INTERACTIVE MODE:
+INTERACTIVE MODE - HUNTER
 -------------------------------------------------------------------------------------
 Use Case: Update Member Records
 Context: Throughout the day, Operators must update member records to match any changes in membership
 Actors: Operator, Member, Provider, Member Records Database
 Main Success Scenario:
 1. The Operator receives notification that someone’s membership has changed.
-1.1. If a new Member has joined, see Add New Member.
-1.2. If a member has been removed, see Delete Member.
-1.3. To change an existing Member’s information, continue:
 2. The Operator locates the Member’s individual record using their Member number.
 3. The Operator opens the Member’s file and makes the necessary changes.
 3.1. For simple changes (like address or phone number), the Operator simply edits the Member’s file and updates the information.
 3.2. For Provider visit updates, the Operator locates the form filled out by the Provider after the visit and adds the visit to the Member’s record.
 3.3. For billing updates, see Main Accounting Procedure.
 4. The Operator saves all changes and closes the Member’s record.
+
+Extensions:
+1.1a. A new Member has joined and must be added to the system.
+1.2a. A member has resigned and must be removed from the system.
 -------------------------------------------------------------------------------------
 Use Case: Add New Member extends Update Member Records
 Context: A new person registered for a ChocAn membership and must be added to the system.
 Actors: Operator, Member, Member Records Database (part of ChocAn Data Center software)
 Main Success Scenario:
-1. The new Member fills out the registration form (either online or in person)
-1.1. If in-person, the Data Center Operator manually retrieves this information
-1.2. If online, the form data is sent to the Operator.
-1.3. Form includes Member name, mailing address and phone number
-2. The Operator assigns the next available Member number to the new Member
-2.1. The Operator opens the document containing all Member numbers
-2.2. The Operator finds the most recently assigned number and adds 1.
-2.3. The new Member’s name is assigned to this number
-3. The Operator updates the ChocAn Data Center’s member records
-3.1. The Operator opens the member database and creates a new record
-3.2. The Member’s name, mailing address, phone number, and Member number are added to this unique member record
-4. The Member is sent a personalized card with their name and Member number
-4.1. If the Member filled out the registration form in person, an Operator prints out the card and gives it to the Member
-4.2. If the Member filled out the registration form online, an Operator prints out the card and mails it to the Member at their listed mailing address
-5. The Member is now ready to receive ChocAn services.
+1.1.1. The new Member fills out the registration form (either online or in person)
+1.1.1.1. If in-person, the Data Center Operator manually retrieves this information
+1.1.1.2. If online, the form data is sent to the Operator.
+1.1.1.3. Form includes Member name, mailing address and phone number
+1.1.2. The Operator assigns the next available Member number to the new Member
+1.1.2.1. The Operator opens the document containing all Member numbers
+1.1.2.2. The Operator finds the most recently assigned number and adds 1.
+1.1.2.3. The new Member’s name is assigned to this number
+1.1.3. The Operator updates the ChocAn Data Center’s member records
+1.1.3.1. The Operator opens the member database and creates a new record
+1.1.3.2. The Member’s name, mailing address, phone number, and Member number are added to this unique member record
+1.1.4. The Member is sent a personalized card with their name and Member number
+1.1.4.1. If the Member filled out the registration form in person, an Operator prints out the card and gives it to the Member
+1.1.4.2. If the Member filled out the registration form online, an Operator prints out the card and mails it to the Member at their listed mailing address
+1.1.5. The Member is now ready to receive ChocAn services.
 
 Extensions:
-1. The Member name on the registration form matches an existing record
-1.1. If the new Member is actually an existing member, the Operator does not make a new record for this Member.
-1.1. If the new Member has the same name as an existing member, the process does not change. They will be distinguished from any similar names by their Member number.
+1.1.1.3a. The Member name on the registration form matches an existing record
+1.1.1.3a.1. If the new Member is actually an existing member, the Operator does not make a new record for this Member.
+1.1.1.3a.2. If the new Member has the same name as an existing member, the process does not change. They will be distinguished from any similar names by their Member number.
 -------------------------------------------------------------------------------------
 Use Case: Delete Member extends Update Member Records
 Context: A Member is no longer a part of ChocAn, and their record must be deleted.
 Actors: Member, Operator, Member Records Database (part of ChocAn Data Center software)
 Main Success Scenario:
-1. ChocAn is notified that a Member is to be removed from ChocAn.
-1.1. If the Member is choosing to be removed, they request this either in person, on the phone or in an email to a ChocAn Provider or Operator.
-1.2. If the Member must be removed for financial reasons, an Operator is notified by the ChocAn Data Center Manager.
-2. The Operator opens the Member records database in the ChocAn Data Center software.
-3. The Operator locates the Member’s individual record using their Member number.
-4. The Member’s record is deleted by the Operator.
-4.1. The file containing the Member’s contact information and billing history is archived for a period of 60 days to handle any outstanding payments.
-4.2. After 60 days, all files pertaining to that Member are deleted permanently.
+1.2.1. ChocAn is notified that a Member is to be removed from ChocAn.
+1.2.1.1. If the Member is choosing to be removed, they request this either in person, on the phone or in an email to a ChocAn Provider or Operator.
+1.2.1.2. If the Member must be removed for financial reasons, an Operator is notified by the ChocAn Data Center Manager.
+1.2.2. The Operator opens the Member records database in the ChocAn Data Center software.
+1.2.3. The Operator locates the Member’s individual record using their Member number.
+1.2.4. The Member’s record is deleted by the Operator.
+1.2.4.1. The file containing the Member’s contact information and billing history is archived for a period of 60 days to handle any outstanding payments.
+1.2.4.2. After 60 days, all files pertaining to that Member are deleted permanently.
 
 Extensions:
-1. The deleted Member wishes to be reinstated.
-1.1. If done within 60 days of cancellation, the Member’s record is removed from the archives and returned to the database. The Member may keep their previous Member number and Member ID card.
-1.2. If done after 60 days, the Member is treated like a new Member and must receive a new number and ID card.
+1.2.5a. The deleted Member wishes to be reinstated.
+1.2.5a.1. If done within 60 days of cancellation, the Member’s record is removed from the archives and returned to the database. The Member may keep their previous Member number and Member ID card.
+1.2.5a.2. If done after 60 days, the Member is treated like a new Member and must receive a new number and ID card.
 -------------------------------------------------------------------------------------
 Use Case: Update Provider Records
 Context: Throughout the day, Operators must update Provider records to match any changes in Provider information
 Actors: Operator, Provider, Provider Records Database
 Main Success Scenario:
 1. The Operator receives notification that a Provider’s status has changed.
-1.1. If a new Provider has joined, see Add New Provider.
-1.2. If a Provider has been removed, see Delete Provider.
-1.3. To change an existing Provider’s information, continue:
 2. The Operator locates the Provider’s individual record using their Provider number.
 3. The Operator opens the Provider’s file and makes the necessary changes.
 3.1. For simple changes (like address or phone number), the Operator simply edits the Provider’s file and updates the information.
 3.2. For changes in services offered, see Add New Provider Service.
 3.3. For billing updates, see Main Accounting Procedure.
 4. The Operator saves all changes and closes the Provider’s record.
+
+Extensions:
+1.1a. A new Provider has joined and must be added to the system.
+1.2a. A Provider has resigned and must be removed from the system.
 -------------------------------------------------------------------------------------
 Use Case: Add New Provider extends Update Provider Records
 Context: A new person registered as a ChocAn Provider and must be added to the system.
 Actors: Operator, Provider, Provider Records Database (part of ChocAn Data Center software)
 Main Success Scenario:
-1. The new Provider registers via the Provider application (either online or in person)
-1.1. If in-person, the Data Center Operator manually reviews this application.
-1.2. If online, the application is sent to the Operator for review.
-1.3. Form includes Provider name, mailing address, phone number, services offered and qualifications.
-1.4. If Provider is approved by ChocAn, continue:
-2. The Operator assigns the next available Provider number to the new Provider.
-2.1. The Operator opens the document containing all Provider numbers.
-2.2. The Operator finds the most recently assigned number and adds 1.
-2,3. The new Provider’s name is assigned to this number.
-3. The Operator updates the ChocAn Data Center’s provider records.
-3.1. The Operator opens the provider database and creates a new record.
-3.2. The Provider’s name, mailing address, phone number, application information and Provider number are added to this unique provider record.
-4. The Provider is granted access to their personal Provider Terminal and given instructions for use.
-5. The Provider is now ready to provide ChocAn services.
+1.1.1 The new Provider registers via the Provider application (either online or in person)
+1.1.1.1 If in-person, the Data Center Operator manually reviews this application.
+1.1.1.2. If online, the application is sent to the Operator for review.
+1.1.1.3. Form includes Provider name, mailing address, phone number, services offered and qualifications.
+1.1.1.4. If Provider is approved by ChocAn, continue:
+1.1.2. The Operator assigns the next available Provider number to the new Provider.
+1.1.2.1. The Operator opens the document containing all Provider numbers.
+1.1.2.2. The Operator finds the most recently assigned number and adds 1.
+1.1.2.3. The new Provider’s name is assigned to this number.
+1.1.3. The Operator updates the ChocAn Data Center’s provider records.
+1.1.3.1. The Operator opens the provider database and creates a new record.
+1.1.3.2. The Provider’s name, mailing address, phone number, application information and Provider number are added to this unique provider record.
+1.1.4. The Provider is granted access to their personal Provider Terminal and given instructions for use.
+1.1.5. The Provider is now ready to provide ChocAn services.
 
 Extensions:
-1. The Provider name on the registration form matches an existing record
-1.1. If the new Provider is actually an existing provider, the Operator does not make a new record for this Provider.
-1.2. If the new Provider has the same name as an existing provider, the process does not change. They will be distinguished from any similar names by their Provider number.
+1.1.1.3a. The Provider name on the registration form matches an existing record
+1.1.1.3a.1. If the new Provider is actually an existing provider, the Operator does not make a new record for this Provider.
+1.1.1.3a.2. If the new Provider has the same name as an existing provider, the process does not change. They will be distinguished from any similar names by their Provider number.
 -------------------------------------------------------------------------------------
 Use Case: Delete Provider extends Update Provider Records
 Context: A Provider is no longer a part of ChocAn, and their record must be deleted.
 Actors: Provider, Operator, Provider Records Database (part of ChocAn Data Center software)
 Main Success Scenario:
-1. ChocAn is notified that a Provider is to be removed from ChocAn.
-2. The Operator opens the Provider records database in the ChocAn Data Center software.
-3. The Operator locates the Provider’s individual record using their Provider number.
-4. The Provider’s record is deleted by the Operator.
-4.1. The file containing the Provider’s contact information and services given is archived for a period of 60 days to handle any outstanding transactions.
-4.2. After 60 days, all files pertaining to that Provider are deleted permanently.
+1.2.1. ChocAn is notified that a Provider is to be removed from ChocAn.
+1.2.2. The Operator opens the Provider records database in the ChocAn Data Center software.
+1.2.3. The Operator locates the Provider’s individual record using their Provider number.
+1.2.4. The Provider’s record is deleted by the Operator.
+1.2.4.1. The file containing the Provider’s contact information and services given is archived for a period of 60 days to handle any outstanding transactions.
+1.2.4.2. After 60 days, all files pertaining to that Provider are deleted permanently.
 
 Extensions:
-1. The deleted Provider wishes to be reinstated.
-1.1. If done within 60 days of cancellation, the Provider’s record is removed from the archives and returned to the database. The Provider may keep their previous Provider number.
-1.2. If done after 60 days, the Provider is treated like a new Provider and must receive a new number.
+1.2.5a. The deleted Provider wishes to be reinstated.
+1.2.5a.1. If done within 60 days of cancellation, the Provider’s record is removed from the archives and returned to the database. The Provider may keep their previous Provider number.
+1.2.5a.2. If done after 60 days, the Provider is treated like a new Provider and must receive a new number.
 -------------------------------------------------------------------------------------
