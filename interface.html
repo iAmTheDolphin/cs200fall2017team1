@@ -290,8 +290,97 @@
 
 
     <!-- Aislinn's Use Case -->
+    <br/><h3> Billing ChocAn: </h3>
     <img src="Images/Terminal%20Use%20Case%20Aislinn%202.png" alt="Aislinn Use Case" border="0" class="image">
-    <p> placeholder </p>
+    <p> <br/><b>Use Case: </b>Validating Provider
+        <br/><b>Context:</b> Provider needs to turn on and unlock the terminal
+        <br/><b>Actors:</b> Provider, Software
+        <br/><b>Main Success Scenario:</b>
+        <br/>1. Terminal is turned on
+        <br/>2. Terminal prompts Provider for provider number
+        <br/>2.1. provider enters provider number
+        <br/>2.2. software validates provider’s credentials
+        <br/>3. the terminal switches to an unlocked screen
+        <br/><br/><b>Extensions:</b>
+        <br/>4.1. Invalid provider number
+        <br/><br/>-------------------------------------------------------------------------------------
+        <br/><b>Use Case:</b> Invalid Provider Number extends Validating Provider
+        <br/><b>Context:</b> The provider did not enter a valid provider number.
+        <br/><b>Actors:</b> Provider, Software
+        <br/><b>Main Success Scenario:</b>
+        <br/>1. Screen displays “Invalid Provider Number.”
+        <br/>2. Screen returns to regular lock screen until a valid provider number is entered.
+        <br/><br/><b>Extensions:</b> No extensions
+        <br/><br/>-------------------------------------------------------------------------------------
+        <br/><b>Use Case: </b>Receiving Service
+        <br/><b>Context:</b> A member wants to receive a service from a provider.
+        <br/><b>Actors: </b>Provider, Member, Software
+        <br/><b>Main Success Scenario:</b>
+        <br/>1. Provider passes member’s card through card reader
+        <br/>2. Members credentials are validated
+        <br/>3. The provider then provides the service.
+        <br/><br/><b>Extensions:</b>
+        <br/>2.1.1. Invalid member number
+        <br/>2.1.2. Member credentials are not valid: Member Suspended
+        <br/><br/>-------------------------------------------------------------------------------------
+        <br/><b>Use Case:</b> Invalid member number extends Receiving Service
+        <br/><b>Context:</b> The member desiring a service from a provider does not have a valid card.
+        <br/><b>Actors:</b> Provider, Member, Software
+        <br/><b>Main Success Scenario:</b>
+        <br/>1. The screen displays “Invalid Number” after the member’s card is swiped
+        <br/>2. If the screen continues to display this after multiple swipes, then the card is not connected to an active account
+        <br/>3. The member cannot receive a service.
+        <br/><br/><b>Extensions:</b> No extensions
+        <br/><br/>-------------------------------------------------------------------------------------
+        <br/><b>Use Case:</b> Member Suspended extends Receiving Service
+        <br/><b>Context: </b>The member desiring a service from a provider owes fees to their account.
+        <br/><b>Actors:</b> Provider, Member, Software
+        <br/><b>Main Success Scenario:</b>
+        <br/>1. The screen displays “Member Suspended” after the member’s card is swiped.
+        <br/>2. The member cannot receive services because they have not paid their monthly ChocAn membership bill.
+        <br/><br/><b>Extensions:</b> No extensions
+        <br/><br/>-------------------------------------------------------------------------------------
+        <br/><b>Use Case:</b> Billing ChocAn
+        <br/><b>Context:</b> After a service has been provided to a member, the provider bills ChocAn for compensation.
+        <br/><b>Actors:</b> Provider, Software
+        <br/><b>Main Success Scenario:</b>
+        <br/>1. Provider passes member’s card through card reader
+        <br/>2. Member’s credentials are validated
+        <br/>3. Provider is prompted to key in the date of service in mm/dd/yyyy format
+        <br/>4. Provider pulls up the Provider Directory to find the correct service code
+        <br/>4.1. Provider presses the button to pull up the Provider Directory
+        <br/>4.2. Provider searches for the correct service, and gets the service code
+        <br/>4.3. Provider closes the Provider Directory and returns to the form
+        <br/>5. Provider inputs the 6 digit service code
+        <br/>6. Software displays the name of the service referenced by the service code for authentication
+        <br/>7. The provider has the option to enter comments about the service provided
+        <br/>8. Software writes a record to disc including:
+        <br/>8.1. Current date and time (MM–DD–YYYY HH:MM:SS).
+        <br/>8.2. Date service was provided (MM–DD–YYYY).
+        <br/>8.3. Provider number (9 digits).
+        <br/>8.4. Member number (9 digits).
+        <br/>8.5. Service code (6 digits).
+        <br/>8.6. Comments (100 characters) (optional).
+        <br/>9. Software looks up fee to be paid for service from service code document and displays it on terminal
+        <br/>10. The provider fills out a form for verification purposes with: the current date and time, the date the service was provided, member name and number, service code, and fee to be paid.
+        <br/><br/><b>Extensions:</b>
+        <br/>4.2.1. The service is not found in the Provider Directory: add new service.
+        <br/><br/>-------------------------------------------------------------------------------------
+        <br/><b>Use Case:</b> Add New Service extends Billing ChocAn
+        <br/><b>Context:</b> The service a provider has provided is not listed in the Provider Directory.
+        <br/><b>Actors:</b> Provider, Software
+        <br/><b>Main Success Scenario:</b>
+        <br/>1. Provider clicks the button next to the Provider Directory button that says “add service”.
+        <br/>2. The provider is prompted to enter in two things: the service name and fee. A 6-digit number is generated.
+        <br/>3. A new row is added to the file, containing the number, name, and fee of the service.
+        <br/>4. The provider enters the new number in and continues with the billing process.
+        <br/><br/><b>Extensions:</b> No extensions
+        <br/>-------------------------------------------------------------------------------------
+        <br/>
+        <br/><br/>-------------------------------------------------------------------------------------
+
+        <br/>
+    </p>
 </div>
 
 </body>
