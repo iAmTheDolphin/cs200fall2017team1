@@ -16,20 +16,21 @@
 
 #banner {
     position:relative;
-    background: rgba(52, 208, 255, 0.5);
-    width: 70%;
+    background: rgba(191, 39, 52, 0.65);
+    width: 60%;
     height: 40%;
     padding: 16px;
+    left: 16%;
 
 }
 
 
 .dropbtn {
-    background-color: #32a1ff;
+    background-color: rgb(149, 34, 55);
     color: white;
     padding: 16px;
     font-size: 16px;
-    border: none;
+    border: 5px;
     cursor: pointer;
 }
 
@@ -73,17 +74,29 @@
     background-color: rgb(203, 43, 33);
 }
 
-#swirl {
-    max-width: 240px;
+.swirl {
     width: 15%;
     position:absolute;
-    top:0%;
+    top:0;
+
+}
+
+#swirl1 {
     right:5%;
 }
 
+#swirl2 {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    -ms-filter: "FlipH";
+}
+
+
 .image {
 
-    width: 40%;
+    width: 100%;
 
 }
 
