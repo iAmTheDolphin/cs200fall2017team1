@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project 1</title>
+
+
+    <link href="styles.css" type="text/css" rel="stylesheet"/>
+
+
+</head>
+<body class="page_body">
+<h1 id="top">CS 200 Project 1</h1>
+
+
+
+<!-- all the dropdown buttons -->
+<div id="allButtons">
+    <div class="dropdown">
+        <a class="dropbtn" href="#test">Requirements</a>
+        <div class="dropdown-content">
+            <a href="#glossary">Glossary</a>
+            <a href="#useCases">Use Cases</a>
+            <a href="#">Something else?</a>
+        </div>
+    </div>
+
+
+    <div class="dropdown">
+        <a class="dropbtn" href="#test">Analysis</a>
+        <div class="dropdown-content">
+            <a href="#">Placeholder</a>
+            <a href="#">Placehold</a>
+            <a href="#">Place</a>
+        </div>
+    </div>
+
+
+    <div class="dropdown">
+        <a class="dropbtn" href="#test">Design</a>
+        <div class="dropdown-content">
+            <a href="#">Placeholder</a>
+            <a href="#">Placehold</a>
+            <a href="#">Place</a>
+        </div>
+    </div>
+</div>
+<br/>
+
+<a href="https://imgbb.com/"><img src="https://image.ibb.co/fNi2jQ/team1.png" alt="team1" border="0"></a>
+
+
+<!-- Glossary -->
+<h1 id="glossary">Glossary</h1>
+<p>
+    <br/> Acceptance Test: the set of tasks the software must be capable of in order to be complete and accepted by
+    Chocoholics Anonymous, which includes the following: data from provider’s terminal must be simulated by keyboard
+    input, and data to be transmitted to a provider’s terminal must appear on the screen; each member report must be
+    written to its own file, and the name of the file should begin with the member name, followed by the date of the
+    report (the provider reports should be handled in the same way); the Provider Directory must also be created as a
+    file, and none of the files should actually be sent as email attachments; for EFT data, a file is to be set up
+    containing provider name, provider number and the amount to be transferred.
+    <br/>
+    <br/> Acme Accounting Services: the third-party responsible for all financial procedures, including recording
+    payments of membership fees, suspending members with overdue fees, and reinstating suspended members; as well as
+    updating relevant ChocAn Data Center computer membership records each evening at 9pm
+    <br/>
+    <br/> Bill of Service: bill from the providers to ChocAn for the services rendered to the member
+    <br/>
+    <br/> Chocoholics Anonymous: organization dedicated to help people addicted to chocolate; our client
+    <br/>
+    <br/> ChocAn: shorthand for Chocoholics Anonymous
+    <br/>
+    <br/> ChocAn Manager: an employee/user who is able to generate member reports
+    <br/>
+    <br/> ChocAn Data Center: the database that contains all ChocAn member and provider information and records of
+    service
+    <br/>
+    <br/> EFT: Electronic Funds Transfer data sent to banks for all monetary transactions
+    <br/>
+    <br/> Fees: monthly bill from ChocAn to the member that pays for that member’s membership in ChocAn
+    <br/>
+    <br/> Interactive Mode: the way the ChocAn Data Center is run, during which: operators can add new members, delete
+    resigned members and update member records; and provider records are added, deleted, and updated.
+    <br/>
+    <br/> Members: clients of ChocAn; chocoholics in need of ChocAn’s services
+    <br/>
+    <br/> Member Number: 9 digit number given to each member as a means of identification
+    <br/>
+    <br/> Member Report: The report which is generated and given to a ChocAn member listing services received with the
+    week of the report being generated
+    <br/>
+    <br/> Membership card: membership card that each member is given: includes a Member Number and the member's name;
+    magnetic strip on the card has the above information encoded on it; scanned at the provider’s Terminal
+    <br/>
+    <br/> Operators: employees of Chocoholics Anonymous who work in the ChocAn Data Center and are responsible for
+    servicing the data center and all tasks completed while in Interactive Mode.
+    <br/>
+    <br/> Provider: health care professional that is affiliated with ChocAn; will provide unlimited services for ChocAn
+    Members; each has a unique provider ID
+    <br/>
+    <br/> Provider Directory: alphabetically ordered list of service names and corresponding service codes and fees
+    <br/>
+    <br/> Record: set of information written to a disk by software for each service.
+    <br/>
+    <br/>Report: an e-mail attachment that contains the list of services a provider provided to a member of ChocAn.
+    <br/>
+    <br/>Service Code: a 6 digit code that corresponds to the service rendered; this is entered into the Terminal after
+    the date is entered in the billing process.
+    <br/>
+    <br/>Terminal: device at each of the providers’ place of business, when turned on the provider’s id must be entered;
+    scans membership card and passes the information to the software that will verify if the information is valid (If
+    card is valid, the screen says “valid,” if card is invalid, the screen says “invalid” and lists a reason)
+    <br/>
+    <a href="#top">back to top.</a>
+</p>
+
+<br/><br/><br/><br/>
+
+<!-- Use Cases -->
+<h1 id="useCases">Use Cases</h1>
+<br/>
+<!-- Hunter's Use Case -->
+<img src="Images/Interactive%20Mode%20Use%20Case%20Hunter.jpg" alt="Interactive_Mode" border="0" style="width: 40%">
+<p>
+
+    <br/>-------------------------------------------------------------------------------------
+    <br/>INTERACTIVE MODE:
+    <br/>-------------------------------------------------------------------------------------
+    <br/>Use Case: Update Member Records
+    <br/>Context: Throughout the day, Operators must update member records to match any changes in membership
+    <br/>Actors: Operator, Member, Provider, Member Records Database
+    <br/>Main Success Scenario:
+    <br/>1. The Operator receives notification that someone’s membership has changed.
+    <br/>1.1. If a new Member has joined, see Add New Member.
+    <br/>1.2. If a member has been removed, see Delete Member.
+    <br/>1.3. To change an existing Member’s information, continue:
+    <br/>2. The Operator locates the Member’s individual record using their Member number.
+    <br/>3. The Operator opens the Member’s file and makes the necessary changes.
+    <br/>3.1. For simple changes (like address or phone number), the Operator simply edits the Member’s file and updates
+    the information.
+    <br/>3.2. For Provider visit updates, the Operator locates the form filled out by the Provider after the visit and
+    adds the visit to the Member’s record.
+    <br/>3.3. For billing updates, see Main Accounting Procedure.
+    <br/>4. The Operator saves all changes and closes the Member’s record.
+    <br/>-------------------------------------------------------------------------------------
+    <br/>Use Case: Add New Member extends Update Member Records
+    <br/>Context: A new person registered for a ChocAn membership and must be added to the system.
+    <br/>Actors: Operator, Member, Member Records Database (part of ChocAn Data Center software)
+    <br/>Main Success Scenario:
+    <br/>1. The new Member fills out the registration form (either online or in person)
+    <br/>1.1. If in-person, the Data Center Operator manually retrieves this information
+    <br/>1.2. If online, the form data is sent to the Operator.
+    <br/>1.3. Form includes Member name, mailing address and phone number
+    <br/>2. The Operator assigns the next available Member number to the new Member
+    <br/>2.1. The Operator opens the document containing all Member numbers
+    <br/>2.2. The Operator finds the most recently assigned number and adds 1.
+    <br/>2.3. The new Member’s name is assigned to this number
+    <br/>3. The Operator updates the ChocAn Data Center’s member records
+    <br/>3.1. The Operator opens the member database and creates a new record
+    <br/>3.2. The Member’s name, mailing address, phone number, and Member number are added to this unique member record
+    <br/>4. The Member is sent a personalized card with their name and Member number
+    <br/>4.1. If the Member filled out the registration form in person, an Operator prints out the card and gives it to
+    the Member
+    <br/>4.2. If the Member filled out the registration form online, an Operator prints out the card and mails it to the
+    Member at their listed mailing address
+    <br/>5. The Member is now ready to receive ChocAn services.
+    <br/>
+    <br/>Extensions:
+    <br/>1. The Member name on the registration form matches an existing record
+    <br/>1.1. If the new Member is actually an existing member, the Operator does not make a new record for this Member.
+    <br/>1.1. If the new Member has the same name as an existing member, the process does not change. They will be
+    distinguished from any similar names by their Member number.
+    <br/>-------------------------------------------------------------------------------------
+    <br/>Use Case: Delete Member extends Update Member Records
+    <br/>Context: A Member is no longer a part of ChocAn, and their record must be deleted.
+    <br/>Actors: Member, Operator, Member Records Database (part of ChocAn Data Center software)
+    <br/>Main Success Scenario:
+    <br/>1. ChocAn is notified that a Member is to be removed from ChocAn.
+    <br/>1.1. If the Member is choosing to be removed, they request this either in person, on the phone or in an email
+    to a ChocAn Provider or Operator.
+    <br/>1.2. If the Member must be removed for financial reasons, an Operator is notified by the ChocAn Data Center
+    Manager.
+    <br/>2. The Operator opens the Member records database in the ChocAn Data Center software.
+    <br/>3. The Operator locates the Member’s individual record using their Member number.
+    <br/>4. The Member’s record is deleted by the Operator.
+    <br/>4.1. The file containing the Member’s contact information and billing history is archived for a period of 60
+    days to handle any outstanding payments.
+    <br/>4.2. After 60 days, all files pertaining to that Member are deleted permanently.
+    <br/>
+    <br/>Extensions:
+    <br/>1. The deleted Member wishes to be reinstated.
+    <br/>1.1. If done within 60 days of cancellation, the Member’s record is removed from the archives and returned to
+    the database. The Member may keep their previous Member number and Member ID card.
+    <br/>1.2. If done after 60 days, the Member is treated like a new Member and must receive a new number and ID card.
+    <br/>-------------------------------------------------------------------------------------
+    <br/>Use Case: Update Provider Records
+    <br/>Context: Throughout the day, Operators must update Provider records to match any changes in Provider
+    information
+    <br/>Actors: Operator, Provider, Provider Records Database
+    <br/>Main Success Scenario:
+    <br/>1. The Operator receives notification that a Provider’s status has changed.
+    <br/>1.1. If a new Provider has joined, see Add New Provider.
+    <br/>1.2. If a Provider has been removed, see Delete Provider.
+    <br/>1.3. To change an existing Provider’s information, continue:
+    <br/>2. The Operator locates the Provider’s individual record using their Provider number.
+    <br/>3. The Operator opens the Provider’s file and makes the necessary changes.
+    <br/>3.1. For simple changes (like address or phone number), the Operator simply edits the Provider’s file and
+    updates the information.
+    <br/>3.2. For changes in services offered, see Add New Provider Service.
+    <br/>3.3. For billing updates, see Main Accounting Procedure.
+    <br/>4. The Operator saves all changes and closes the Provider’s record.
+    <br/>-------------------------------------------------------------------------------------
+    <br/>Use Case: Add New Provider extends Update Provider Records
+    <br/>Context: A new person registered as a ChocAn Provider and must be added to the system.
+    <br/>Actors: Operator, Provider, Provider Records Database (part of ChocAn Data Center software)
+    <br/>Main Success Scenario:
+    <br/>1. The new Provider registers via the Provider application (either online or in person)
+    <br/>1.1. If in-person, the Data Center Operator manually reviews this application.
+    <br/>1.2. If online, the application is sent to the Operator for review.
+    <br/>1.3. Form includes Provider name, mailing address, phone number, services offered and qualifications.
+    <br/>1.4. If Provider is approved by ChocAn, continue:
+    <br/>2. The Operator assigns the next available Provider number to the new Provider.
+    <br/>2.1. The Operator opens the document containing all Provider numbers.
+    <br/>2.2. The Operator finds the most recently assigned number and adds 1.
+    <br/>2,3. The new Provider’s name is assigned to this number.
+    <br/>3. The Operator updates the ChocAn Data Center’s provider records.
+    <br/>3.1. The Operator opens the provider database and creates a new record.
+    <br/>3.2. The Provider’s name, mailing address, phone number, application information and Provider number are added
+    to this unique provider record.
+    <br/>4. The Provider is granted access to their personal Provider Terminal and given instructions for use.
+    <br/>5. The Provider is now ready to provide ChocAn services.
+    <br/>
+    <br/>Extensions:
+    <br/>1. The Provider name on the registration form matches an existing record
+    <br/>1.1. If the new Provider is actually an existing provider, the Operator does not make a new record for this
+    Provider.
+    <br/>1.2. If the new Provider has the same name as an existing provider, the process does not change. They will be
+    distinguished from any similar names by their Provider number.
+    <br/>-------------------------------------------------------------------------------------
+    <br/>Use Case: Delete Provider extends Update Provider Records
+    <br/>Context: A Provider is no longer a part of ChocAn, and their record must be deleted.
+    <br/>Actors: Provider, Operator, Provider Records Database (part of ChocAn Data Center software)
+    <br/>Main Success Scenario:
+    <br/>1. ChocAn is notified that a Provider is to be removed from ChocAn.
+    <br/>2. The Operator opens the Provider records database in the ChocAn Data Center software.
+    <br/>3. The Operator locates the Provider’s individual record using their Provider number.
+    <br/>4. The Provider’s record is deleted by the Operator.
+    <br/>4.1. The file containing the Provider’s contact information and services given is archived for a period of 60
+    days to handle any outstanding transactions.
+    <br/>4.2. After 60 days, all files pertaining to that Provider are deleted permanently.
+    <br/>
+    <br/>Extensions:
+    <br/>1. The deleted Provider wishes to be reinstated.
+    <br/>1.1. If done within 60 days of cancellation, the Provider’s record is removed from the archives and returned to
+    the database. The Provider may keep their previous Provider number.
+    <br/>1.2. If done after 60 days, the Provider is treated like a new Provider and must receive a new number.
+    <br/>-------------------------------------------------------------------------------------
+    <br/>
+    <a href="#top">back to top.</a>
+</p>
+
+
+<!-- Aislinn's Use Case -->
+<img src="Images/Terminal%20Use%20Case%20Aislinn%202.png" alt="Aislinn Use Case" border="0" style="width: 40%">
+<p>
+    <br/>
+    <br/>Use Case: Validating Provider
+    <br/>Context: Provider needs to turn on and unlock the terminal
+    <br/>Actors: Provider, Software
+    <br/>Main Success Scenario:
+    <br/>Terminal is turned on
+    <br/>Terminal prompts Provider for provider number
+    <br/>provider enters provider number
+    <br/>software validates providers credentials
+    <br/>the terminal switches to an unlocked screen
+    <br/>Extensions:
+    <br/>4.1. Invalid provider number
+    <br/>
+    <br/>Use Case: Invalid Provider Number extends Validating Provider
+    <br/>Context: The provider did not enter a valid provider number.
+    <br/>Actors: Provider, Software
+    <br/>Main Success Scenario:
+    <br/>Screen displays Invalid Provider Number.
+    <br/>Screen returns to regular lock screen until a valid provider number is entered.
+    <br/>
+    <br/>Use Case: Receiving Service
+    <br/>Context: A member wants to receive a service from a provider.
+    <br/>Actors: Provider, Member, Software
+    <br/>Main Success Scenario:
+    <br/>Provider passes members card through card reader
+    <br/>Members credentials are validated
+    <br/>The provider then provides the service.
+    <br/>Extensions:
+    <br/>2.1.1. Member credentials are not valid: Invalid number
+    <br/>2.1.2. Member credentials are not valid: Member Suspended
+    <br/>
+    <br/>Use Case: Member Credentials are not valid: Invalid number extends Receiving Service
+    <br/>Context: The member desiring a service from a provider does not have a valid card.
+    <br/>Actors: Provider, Member, Software
+    <br/>Main Success Scenario:
+    <br/>The screen displays Invalid Number after the members card is swiped
+    <br/>If the screen continues to display this after multiple swipes, then the card is not connected to an active account
+    <br/>The member cannot receive a service.
+    <br/>
+    <br/>Use Case: Member Credentials are not valid: Member Suspended extends Receiving Service
+    <br/>Context: The member desiring a service from a provider owes fees to their account.
+    <br/>Actors: Provider, Member, Software
+    <br/>Main Success Scenario:
+    <br/>The screen displays Member Suspended after the members card is swiped.
+    <br/>The member cannot receive services because they have not paid their monthly ChocAn membership bill.
+    <br/>
+    <br/>Use Case: Billing ChocAn
+    <br/>Context: After a service has been provided to a member, the provider bills ChocAn for compensation.
+    <br/>Actors: Provider, Software
+    <br/>Main Success Scenario:
+    <br/>Provider passes members card through card reader
+    <br/>Members credentials are validated
+    <br/>Provider is prompted to key in the date of service in mm/dd/yyyy format
+    <br/>Provider pulls up the provider directory to find the correct service code
+    <br/>Provider presses the button to pull up the service code document
+    <br/>Provider searches for the correct service, and gets the service code
+    <br/>Provider closes the document and returns to the form
+    <br/>Provider inputs the 6 digit service code
+    <br/>Software displays the name of the service referenced by the service code for authentication
+    <br/>The provider has the option to enter comments about the service provided
+    <br/>Software writes a record to disc including:
+    <br/>Current date and time (MMDDYYYY HH:MM:SS).
+    <br/>Date service was provided (MMDDYYYY).
+    <br/>Provider number (9 digits).
+    <br/>Member number (9 digits).
+    <br/>Service code (6 digits).
+    <br/>Comments (100 characters) (optional).
+    <br/>Software looks up fee to be paid for service from service code document and displays it on terminal
+    <br/>The provider fills out a form for verification purposes with: the current date and time, the date the service was provided, member name and number, service code, and fee to be paid.
+    <br/>Extensions:
+    <br/>4.2.1. The service is not found in the document: add new service.
+    <br/>
+    <br/>Use Case: Add New Service extends Billing ChocAn
+    <br/>Context: The service a provider has provided is not listed in the service list.
+    <br/>Actors: Provider, Software
+    <br/>Main Success Scenario:
+    <br/>Provider clicks the button next to the service list button that says add service.
+    <br/>The provider is prompted to enter in two things: the service name and fee. A 6-digit number is generated.
+    <br/>A new row is added to the file, containing the number, name, and fee of the service.
+    <br/>The provider enters the new number in and continues with the billing process.
+    <br/>
+
+    <a href="#top">back to top</a>
+</p>
+
+
+</body>
+</html>
