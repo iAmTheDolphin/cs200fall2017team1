@@ -2,7 +2,8 @@
 #top {
 
     position: relative;
-    left:auto;
+    width: 20%;
+    left:40%;
 
 }
 
@@ -13,9 +14,18 @@
 
 }
 
+#banner {
+    position:relative;
+    background: rgba(52, 208, 255, 0.5);
+    width: 70%;
+    height: 40%;
+    padding: 16px;
+
+}
+
 
 .dropbtn {
-    background-color: #ff3428;
+    background-color: #32a1ff;
     color: white;
     padding: 16px;
     font-size: 16px;
