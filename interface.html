@@ -148,8 +148,69 @@
 <h1 id="useCases">Use Cases</h1>
 <br/>
 <!-- Hunter's Use Case -->
+<h3> Interactive Mode: </h3>
 <img src="Images/InteractiveMode_UC.png" alt="Interactive_Mode" border="0" class="image">
-<p><b>BOLD:</b> placeholder</p>
+<p>
+    <br/><b>Use Case:</b> Update Member Records
+    <br/><b>Context:</b> Throughout the day, Operators must update member records to match any changes in membership
+    <br/><b>Actors:</b> Operator, Member, Provider, Member Records Database
+    <br/><b>Main Success Scenario:</b>
+        <br/>1. The Operator receives notification that someone’s membership has changed.
+        <br/>2. The Operator locates the Member’s individual record using their Member number.
+        <br/>3. The Operator opens the Member’s file and makes the necessary changes.
+        <br/>3.1. For simple changes (like address or phone number), the Operator simply edits the Member’s file and updates the information.
+        <br/>3.2. For Provider visit updates, the Operator locates the form filled out by the Provider after the visit and adds the visit to the Member’s record.
+        <br/>3.3. For billing updates, see Main Accounting Procedure.
+        <br/>4. The Operator saves all changes and closes the Member’s record.
+        <br/>
+        <br/><b>Extensions:</b>
+        <br/>1.1a. A new Member has joined and must be added to the system.
+        <br/>1.2a. A member has resigned and must be removed from the system.
+    <br/>-------------------------------------------------------------------------------------
+    <br/><b>Use Case:</b> Add New Member <b>extends</b> Update Member Records
+    <br/><b>Context:</b> A new person registered for a ChocAn membership and must be added to the system.
+    <br/><b>Actors:</b> Operator, Member, Member Records Database (part of ChocAn Data Center software)
+    <br/><b>Main Success Scenario:</b>
+    <br/>1.1.1. The new Member fills out the registration form (either online or in person)
+    <br/>1.1.1.1. If in-person, the Data Center Operator manually retrieves this information
+    <br/>1.1.1.2. If online, the form data is sent to the Operator.
+    <br/>1.1.1.3. Form includes Member name, mailing address and phone number
+    <br/>1.1.2. The Operator assigns the next available Member number to the new Member
+    <br/>1.1.2.1. The Operator opens the document containing all Member numbers
+    <br/>1.1.2.2. The Operator finds the most recently assigned number and adds 1.
+    <br/>1.1.2.3. The new Member’s name is assigned to this number
+    <br/>1.1.3. The Operator updates the ChocAn Data Center’s member records
+    <br/>1.1.3.1. The Operator opens the member database and creates a new record
+    <br/>1.1.3.2. The Member’s name, mailing address, phone number, and Member number are added to this unique member record
+    <br/>1.1.4. The Member is sent a personalized card with their name and Member number
+    <br/>1.1.4.1. If the Member filled out the registration form in person, an Operator prints out the card and gives it to the Member
+    <br/>1.1.4.2. If the Member filled out the registration form online, an Operator prints out the card and mails it to the Member at their listed mailing address
+    <br/>1.1.5. The Member is now ready to receive ChocAn services.
+    <br/>
+    <br/><b>Extensions:</b>
+    <br/>1.1.1.3a. The Member name on the registration form matches an existing record
+    <br/>1.1.1.3a.1. If the new Member is actually an existing member, the Operator does not make a new record for this Member.
+    <br/>1.1.1.3a.2. If the new Member has the same name as an existing member, the process does not change. They will be distinguished from any similar names by their Member number.
+    <br/>-------------------------------------------------------------------------------------
+    <br/><b>Use Case:</b> Delete Member <b>extends</b> Update Member Records
+    <br/><b>Context:</b> A Member is no longer a part of ChocAn, and their record must be deleted.
+    <br/><b>Actors:</b> Operator, Member, Member Records Database (part of ChocAn Data Center software)
+    <br/><b>Main Success Scenario:</b>
+    <br/>1.2.1. ChocAn is notified that a Member is to be removed from ChocAn.
+    <br/>1.2.1.1. If the Member is choosing to be removed, they request this either in person, on the phone or in an email to a ChocAn Provider or Operator.
+    <br/>1.2.1.2. If the Member must be removed for financial reasons, an Operator is notified by the ChocAn Data Center Manager.
+    <br/>1.2.2. The Operator opens the Member records database in the ChocAn Data Center software.
+    <br/>1.2.3. The Operator locates the Member’s individual record using their Member number.
+    <br/>1.2.4. The Member’s record is deleted by the Operator.
+    <br/>1.2.4.1. The file containing the Member’s contact information and billing history is archived for a period of 60 days to handle any outstanding payments.
+    <br/>1.2.4.2. After 60 days, all files pertaining to that Member are deleted permanently.
+    <br/>
+    <br/><b>Extensions:</b>
+    <br/>1.2.5a. The deleted Member wishes to be reinstated.
+    <br/>1.2.5a.1. If done within 60 days of cancellation, the Member’s record is removed from the archives and returned to the database. The Member may keep their previous Member number and Member ID card.
+    <br/>1.2.5a.2. If done after 60 days, the Member is treated like a new Member and must receive a new number and ID card.
+    <br/>-------------------------------------------------------------------------------------
+</p>
 
 
 <!-- Aislinn's Use Case -->
