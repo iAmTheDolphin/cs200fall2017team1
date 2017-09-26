@@ -5,81 +5,16 @@
     <title>Project 1</title>
 
 
-    <style>
-
-        #allButtons {
-
-            padding-right: 10%;
-
-        }
-
-        .dropbtn {
-            background-color: #ff3428;
-            color: white;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* The container <div> - needed to position the dropdown content */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Dropdown Content (Hidden by Default) */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        /* Links inside the dropdown */
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        /* Change color of dropdown links on hover */
-        .dropdown-content a:hover {
-            background-color: #f1f1f1
-        }
-
-        /* Show the dropdown menu on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Change the background color of the dropdown button when the dropdown content is shown */
-        .dropdown:hover .dropbtn {
-            background-color: rgb(203, 43, 33);
-        }
-
-        #image {
-
-            padding: 20px 20px;
-
-        }
-
-        .page_body {
-
-            background-color: #d3d3d3;
-
-        }
-
-    </style>
+    <link href="styles.css" type="text/css" rel="stylesheet"/>
 
 
 </head>
 <body class="page_body">
 <h1 id="top">CS 200 Project 1</h1>
 
+
+
+<!-- all the dropdown buttons -->
 <div id="allButtons">
     <div class="dropdown">
         <a class="dropbtn" href="#test">Requirements</a>
@@ -115,11 +50,9 @@
 <a href="https://imgbb.com/"><img src="https://image.ibb.co/fNi2jQ/team1.png" alt="team1" border="0"></a>
 
 
+<!-- Glossary -->
 <h1 id="glossary">Glossary</h1>
 <p>
-
-    Chocoholics Anonymous: Glossary of Terms<br/>
-    <br/>
     <br/> Acceptance Test: the set of tasks the software must be capable of in order to be complete and accepted by
     Chocoholics Anonymous, which includes the following: data from provider’s terminal must be simulated by keyboard
     input, and data to be transmitted to a provider’s terminal must appear on the screen; each member report must be
@@ -168,32 +101,9 @@
     <br/>
     <br/> Provider Directory: alphabetically ordered list of service names and corresponding service codes and fees
     <br/>
-    <br/> Record: set of information written to a disk by software for each service. Includes:
-    <br/> o Current date and time (MM-DD-YYYY HH:MM:SS)
-    <br/> o Date service was provided (MM-DD-YYYY)
-    <br/> o Provider number (9 digits)
-    <br/> o Member number (9 digits)
-    <br/> o Service code (6 digits)
-    <br/> o Comments (100 characters) (optional)
+    <br/> Record: set of information written to a disk by software for each service.
     <br/>
     <br/>Report: an e-mail attachment that contains the list of services a provider provided to a member of ChocAn.
-    Includes:
-    <br/>o Provider name (25 characters)
-    <br/>o Provider number (9 digits)
-    <br/>o Provider street address (25 characters)
-    <br/>o Provider city (14 characters)
-    <br/>o Provider state (2 letters)
-    <br/>o Provider ZIP code (5 digits)
-    <br/>o For each service provided, the following details are required:
-    <br/>♣ Date of service (MM–DD–YYYY)
-    <br/>♣ Date and time received by the computer (MM–DD–YYYY HH:MM:SS)
-    <br/>♣ Member name (25 characters)
-    <br/>♣ Member number (9 digits)
-    <br/>♣ Service code (6 digits)
-    <br/>♣ Fee to be paid (up to $999.99)
-    <br/>o Total number of consultations with members (3 digits)
-    <br/>o Total fee for week (up to $99,999.99)
-    <br/>
     <br/>
     <br/>Service Code: a 6 digit code that corresponds to the service rendered; this is entered into the Terminal after
     the date is entered in the billing process.
@@ -203,16 +113,15 @@
     card is valid, the screen says “valid,” if card is invalid, the screen says “invalid” and lists a reason)
     <br/>
     <a href="#top">back to top.</a>
-
 </p>
 
+<br/><br/><br/><br/>
 
+<!-- Use Cases -->
 <h1 id="useCases">Use Cases</h1>
 <br/>
-<a href="https://ibb.co/fKqMdk"><img src="https://preview.ibb.co/cU59W5/Interactive_Mode.jpg" alt="Interactive_Mode"
-                                     border="0"></a>
-
-
+<!-- Hunter's Use Case -->
+<img src="Images/Interactive%20Mode%20Use%20Case%20Hunter.jpg" alt="Interactive_Mode" border="0" style="width: 40%">
 <p>
 
     <br/>-------------------------------------------------------------------------------------
@@ -349,6 +258,95 @@
     <br/>-------------------------------------------------------------------------------------
     <br/>
     <a href="#top">back to top.</a>
+</p>
+
+
+<!-- Aislinn's Use Case -->
+<img src="Images/Terminal%20Use%20Case%20Aislinn%202.png" alt="Aislinn Use Case" border="0" style="width: 40%">
+<p>
+    <br/>
+    <br/>Use Case: Validating Provider
+    <br/>Context: Provider needs to turn on and unlock the terminal
+    <br/>Actors: Provider, Software
+    <br/>Main Success Scenario:
+    <br/>Terminal is turned on
+    <br/>Terminal prompts Provider for provider number
+    <br/>provider enters provider number
+    <br/>software validates providers credentials
+    <br/>the terminal switches to an unlocked screen
+    <br/>Extensions:
+    <br/>4.1. Invalid provider number
+    <br/>
+    <br/>Use Case: Invalid Provider Number extends Validating Provider
+    <br/>Context: The provider did not enter a valid provider number.
+    <br/>Actors: Provider, Software
+    <br/>Main Success Scenario:
+    <br/>Screen displays Invalid Provider Number.
+    <br/>Screen returns to regular lock screen until a valid provider number is entered.
+    <br/>
+    <br/>Use Case: Receiving Service
+    <br/>Context: A member wants to receive a service from a provider.
+    <br/>Actors: Provider, Member, Software
+    <br/>Main Success Scenario:
+    <br/>Provider passes members card through card reader
+    <br/>Members credentials are validated
+    <br/>The provider then provides the service.
+    <br/>Extensions:
+    <br/>2.1.1. Member credentials are not valid: Invalid number
+    <br/>2.1.2. Member credentials are not valid: Member Suspended
+    <br/>
+    <br/>Use Case: Member Credentials are not valid: Invalid number extends Receiving Service
+    <br/>Context: The member desiring a service from a provider does not have a valid card.
+    <br/>Actors: Provider, Member, Software
+    <br/>Main Success Scenario:
+    <br/>The screen displays Invalid Number after the members card is swiped
+    <br/>If the screen continues to display this after multiple swipes, then the card is not connected to an active account
+    <br/>The member cannot receive a service.
+    <br/>
+    <br/>Use Case: Member Credentials are not valid: Member Suspended extends Receiving Service
+    <br/>Context: The member desiring a service from a provider owes fees to their account.
+    <br/>Actors: Provider, Member, Software
+    <br/>Main Success Scenario:
+    <br/>The screen displays Member Suspended after the members card is swiped.
+    <br/>The member cannot receive services because they have not paid their monthly ChocAn membership bill.
+    <br/>
+    <br/>Use Case: Billing ChocAn
+    <br/>Context: After a service has been provided to a member, the provider bills ChocAn for compensation.
+    <br/>Actors: Provider, Software
+    <br/>Main Success Scenario:
+    <br/>Provider passes members card through card reader
+    <br/>Members credentials are validated
+    <br/>Provider is prompted to key in the date of service in mm/dd/yyyy format
+    <br/>Provider pulls up the provider directory to find the correct service code
+    <br/>Provider presses the button to pull up the service code document
+    <br/>Provider searches for the correct service, and gets the service code
+    <br/>Provider closes the document and returns to the form
+    <br/>Provider inputs the 6 digit service code
+    <br/>Software displays the name of the service referenced by the service code for authentication
+    <br/>The provider has the option to enter comments about the service provided
+    <br/>Software writes a record to disc including:
+    <br/>Current date and time (MMDDYYYY HH:MM:SS).
+    <br/>Date service was provided (MMDDYYYY).
+    <br/>Provider number (9 digits).
+    <br/>Member number (9 digits).
+    <br/>Service code (6 digits).
+    <br/>Comments (100 characters) (optional).
+    <br/>Software looks up fee to be paid for service from service code document and displays it on terminal
+    <br/>The provider fills out a form for verification purposes with: the current date and time, the date the service was provided, member name and number, service code, and fee to be paid.
+    <br/>Extensions:
+    <br/>4.2.1. The service is not found in the document: add new service.
+    <br/>
+    <br/>Use Case: Add New Service extends Billing ChocAn
+    <br/>Context: The service a provider has provided is not listed in the service list.
+    <br/>Actors: Provider, Software
+    <br/>Main Success Scenario:
+    <br/>Provider clicks the button next to the service list button that says add service.
+    <br/>The provider is prompted to enter in two things: the service name and fee. A 6-digit number is generated.
+    <br/>A new row is added to the file, containing the number, name, and fee of the service.
+    <br/>The provider enters the new number in and continues with the billing process.
+    <br/>
+
+    <a href="#top">back to top</a>
 </p>
 
 
