@@ -1,8 +1,8 @@
 Use Case: Main Accounting Procedure
-Context: Every Friday at midnight (12:00 AM), the main accounting procedure is run which reads the week’s services provided file and generates provider reports for all providers, member reports for all members, summary reports, and EFT reports
+Context: Every Friday at midnight (12:00 AM), the main accounting procedure is run which reads the week’s services provided file and generates provider reports for all providers, member reports for all members, summary reports, and EFT records
 Actors: System/System Timer
 Main Success Scenario:
-1.	The system timer initiates the main accounting procedure to runf
+1.	The system timer initiates the main accounting procedure to run
 1.1.	Requests reports to be generated for all ChocAn services provided within the week
 1.2.	Requests Friday at 12:00 AM
 2.	The type of report is selected and generated with necessary information
