@@ -13,6 +13,26 @@
     padding-right: 10%;
 
 }
+#Table_of_Contents {
+
+    width: 100%;
+    text-align: center;
+
+}
+#ToC_left {
+    position: relative;
+    top:0%;
+    width: 30%;
+    display: inline-block;
+}
+#ToC_Mid {
+    width: 30%;
+    display: inline-block;
+}
+#ToC_Right {
+    width: 30%;
+    display: inline-block;
+}
 
 #banner {
     position:relative;
@@ -78,6 +98,7 @@
     width: 15%;
     position:absolute;
     top:0;
+    max-height: 20%;
 
 }
 
