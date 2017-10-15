@@ -184,7 +184,7 @@
         <div id="ToC_Right">
             <h2>ChocAn Data Center</h2>
             <a href="#Main Accounting Procedure">Main Accounting Proceedure </a><br/>
-            <a href="#Request Support">Request Support </a><br/>
+            <a href="#Request Report">Request Report </a><br/>
             <a href="#Generate Member Report">Generate Member Report </a><br/>
             <a href="#Generate Provider Report">Generate Provider Report </a><br/>
             <a href="#Generate Summary Report">Generate Summary Report </a><br/>
@@ -207,7 +207,7 @@
     <p>
         <br/><a id="Update Member Records"/><b>Use Case:</b> Update Member Records
         <br/><b>Context:</b> Throughout the day, Operators must update member records to match any changes in membership
-        <br/><b>Actors:</b> Operator, Member, Provider, Member Records Database
+        <br/><b>Actors:</b> Operator, Member
         <br/><b>Main Success Scenario:</b>
         <br/>1. The Operator receives notification that someone’s membership has changed.
         <br/>2. The Operator locates the Member’s individual record using their Member number.
@@ -225,7 +225,7 @@
         <br/>-------------------------------------------------------------------------------------
         <br/><a id="Add New Member"/><b>Use Case:</b> Add New Member <b>extends</b> Update Member Records
         <br/><b>Context:</b> A new person registered for a ChocAn membership and must be added to the system.
-        <br/><b>Actors:</b> Operator, Member, Member Records Database (part of ChocAn Data Center software)
+        <br/><b>Actors:</b> Operator, Member
         <br/><b>Main Success Scenario:</b>
         <br/>1.1.1. The new Member fills out the registration form (either online or in person)
         <br/>1.1.1.1. If in-person, the Data Center Operator manually retrieves this information
@@ -255,7 +255,7 @@
         <br/>-------------------------------------------------------------------------------------
         <br/><a id="Delete Member"/><b>Use Case:</b> Delete Member <b>extends</b> Update Member Records
         <br/><b>Context:</b> A Member is no longer a part of ChocAn, and their record must be deleted.
-        <br/><b>Actors:</b> Operator, Member, Member Records Database (part of ChocAn Data Center software)
+        <br/><b>Actors:</b> Operator, Member
         <br/><b>Main Success Scenario:</b>
         <br/>1.2.1. ChocAn is notified that a Member is to be removed from ChocAn.
         <br/>1.2.1.1. If the Member is choosing to be removed, they request this either in person, on the phone or in an
@@ -279,7 +279,7 @@
         <br/><a id="Update Provider Records"/><b>Use Case:</b> Update Provider Records
         <br/><b>Context:</b> Throughout the day, Operators must update Provider records to match any changes in Provider
         information
-        <br/><b>Actors:</b> Operator, Provider, Provider Records Database
+        <br/><b>Actors:</b> Operator, Provider
         <br/><b>Main Success Scenario:</b>
         <br/>1. The Operator receives notification that a Provider’s status has changed.
         <br/>2. The Operator locates the Provider’s individual record using their Provider number.
@@ -296,7 +296,7 @@
         <br/>-------------------------------------------------------------------------------------
         <br/><a id="Add Provider"/><b>Use Case:</b> Add Provider <b>extends</b> Update Provider Records
         <br/><b>Context:</b> A new person registered as a ChocAn Provider and must be added to the system.
-        <br/><b>Actors:</b> Operator, Provider, Provider Records Database (part of ChocAn Data Center software)
+        <br/><b>Actors:</b> Operator, Provider
         <br/><b>Main Success Scenario:</b>
         <br/>1.1.1 The new Provider registers via the Provider application (either online or in person)
         <br/>1.1.1.1 If in-person, the Data Center Operator manually reviews this application.
@@ -323,7 +323,7 @@
         <br/>-------------------------------------------------------------------------------------
         <br/><a id="Delete Provider"/><b>Use Case:</b> Delete Provider <b>extends</b> Update Provider Records
         <br/><b>Context:</b> A Provider is no longer a part of ChocAn, and their record must be deleted.
-        <br/><b>Actors:</b> Provider, Operator, Provider Records Database (part of ChocAn Data Center software)
+        <br/><b>Actors:</b> Provider, Operator
         <br/><b>Main Success Scenario:</b>
         <br/>1.2.1. ChocAn is notified that a Provider is to be removed from ChocAn.
         <br/>1.2.2. The Operator opens the Provider records database in the ChocAn Data Center software.
@@ -432,8 +432,8 @@
         <br/>1. Provider clicks the button next to the Provider Directory button that says “add service”.
         <br/>2. The provider is prompted to enter in two things: the service name and fee. A 6-digit number is
         generated.
-        <br/>3. A new row is added to the file, containing the number, name, and fee of the service.
-        <br/>4. The provider enters the new number in and continues with the billing process.
+        <br/>3. A new row is added to the Provider Directory, containing the number, name, and fee of the service.
+        <br/>4. The provider enters the new service number in and continues with the billing process.
         <br/><br/><b>Extensions:</b> No extensions
         <br/>-------------------------------------------------------------------------------------
         <br/><a id="Request Provider Directory" /><b>Use Case:</b> Request Provider Directory
@@ -481,7 +481,7 @@
         <br/>
         <br/><b>Extensions:</b> None
         <br/>-------------------------------------------------------------------------------------
-        <br/><a id="Request Support" /><b>Use Case:</b> Request Report
+        <br/><a id="Request Report" /><b>Use Case:</b> Request Report
         <br/><b>Context:</b> At any time a ChocAn Manager can request a report be run individually
         <br/><b>Actors:</b> ChocAn Manager
         <br/><b>Main Success Scenario:</b>
