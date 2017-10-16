@@ -5,7 +5,7 @@
     <title>Project 1</title>
 
 
-    <link href="../project2/Styles/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="Styles/styles.css" type="text/css" rel="stylesheet"/>
 
     <link rel="icon" type="image/gif/png" href="Images/outputpic.jpg">
 
@@ -23,19 +23,21 @@
             <a class="dropbtn" href="#top">Home</a>
         </div>
 
-
         <div class="dropdown">
-            <a class="dropbtn" href="#glossary">Glossary</a>
+            <a class="dropbtn" href="#Requirements">Requirements</a>
+            <div class="dropdown-content">
+                <a href="#glossary">Glossary</a>
+                <a href="#useCases">Use Cases</a>
+            </div>
         </div>
 
 
         <div class="dropdown">
-            <a class="dropbtn" href="#useCases">Use Cases</a>
+            <a class="dropbtn" href="#Analysis">Analysis</a>
             <div class="dropdown-content">
-                <a href="#useCases">Table Of Contents</a>
-                <a href="#InteractiveMode">Interactive Mode</a>
-                <a href="#BillChocAn">Billing ChocAn</a>
-                <a href="#ChocAnDataCenter">ChocAn Data Center</a>
+                <a href="#paragraph">System Analysis Paragraph</a>
+                <a href="#stereotypeClass">Stereotype Class Diagram</a>
+                <a href="#activityDiagrams">Activity Diagrams</a>
             </div>
         </div>
     </div>
@@ -46,14 +48,14 @@
 
 
 <div id="content">
-    <!-- Header PJ -->
-    <h2>NAME: Parker Jones</h2>
-    <h3>CWID: 11616467</h3>
-    <h3>EMAIL: pajones3@crimson.ua.edu</h3>
+    <!-- Header HJ -->
+    <h2>NAME: Hunter James</h2>
+    <h3>CWID: 11706214</h3>
+    <h3>EMAIL: hajames@crimson.ua.edu</h3>
     <h3>Hours spent: 10hrs</h3>
     <h2>Task Distribution:</h2>
     <p>
-        The Use Cases and their corresponding diagrams and scenarios were split amongst four members.
+        <b>EDIT THIS</b> The Use Cases and their corresponding diagrams and scenarios were split amongst four members.
         <br/> The fifth member was responsible for creating the main HTML report and assisting in Use Case design.
         <br/>
         <br/> I (Parker) was responsible for building the HTML file used in our report, and for gathering all Use Case
@@ -71,8 +73,106 @@
         <br/>
     </p>
 
+    <!-- Analysis Header -->
+    <h1 id="Analysis">Analysis</h1>
+
+    <!-- Project 2 Paragraph -->
+    <h2 id="paragraph" style="text-align: center">System Analysis Paragraph</h2>
+    <a href="paragraph.txt">paragraph.txt</a>
+    <p>
+        The sections of the system that will be computerized will be the database of providers and members for identification, the main accounting procedure, the creation and sending of reports, the logging and billing for services, and the maintenance of the provider and member history. Data for all this will be stored on hard drives in the central servers for ChocAn. Necessary hardware will be the servers and hard drives to store the data. The ChocAn system will interact with other systems to send accounting information to ACME Accounting and send provider reports to providers. Providers and members will interact with our system through terminals placed at the provider's business and employees of ChocAn can interact with theChocAn servers directly by connecting to the server to produce reports, generate records, and add or remove members and providers.
+
+        <br/>
+    </p>
+
+    <!-- Stereotype Class Diagram -->
+    <h2 id="stereotypeClass" style="text-align: center">Stereotype Class Diagram</h2>
+    <p>
+        PLACEHOLDER FOR STEREOTYPE CLASS DIAGRAM
+        <br/>
+    </p>
+
+    <!-- Activity Diagrams -->
+    <h2 id="activityDiagrams" style="text-align: center">Activity Diagrams</h2>
+    <div id="Table_of_Contents">
+        <div id="ToC_left">
+            <h2>Manage Members</h2>
+            <a href="#manageMembers">Manage Members</a> <br/>
+            <a href="#addMember">Add Member</a> <br/>
+            <a href="#deleteMember">Delete Member</a><br/>
+            <a href="#updateMember">Update Member</a> <br/>
+            <!--<a href="#Add Provider">Add Provider </a><br/>
+            <a href="#Delete Provider">Delete Provider </a><br/>-->
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </div>
+        <div id="ToC_Mid">
+            <h2>Billing ChocAn</h2>
+            <a href="#billingChocAn">Billing ChocAn</a></br>
+            <a href="#validateProvider">Validating Provider</a><br/>
+            <a href="#requestProviderDirectory">Request Provider Directory </a><br/>
+            <a href="#receivingService">Receiving Service </a><br/>
+            <a href="#addingService">Add New Service</a><br/>
+            <br/>
+            <br/>
+            <br/>
+        </div>
+        <div id="ToC_Right">
+            <h2>Main Accounting Procedure</h2>
+            <a href="#mainAccountingProcedure">Main Accounting Procedure </a><br/>
+            <a href="#generateEFT">Generate EFT Record </a><br/>
+            <a href="#Generate Member Report">Generate Member Report </a><br/>
+            <a href="#Generate Provider Report">Generate Provider Report </a><br/>
+            <a href="#Generate Summary Report">Generate Summary Report </a><br/>
+            <a href="#Request Support">Request Support </a><br/>
+            <br/>
+            <br/>
+        </div>
+    </div>
+    <h2>Manage Members</h2>
+    <h3 id="manageMembers">Manage Members</h3>
+    <img src="activity%20diagrams/Manage%20Members/ManageMembers_activitydiagram.png" alt="Manage Members Activity Diagram" style="width:420px" border="0" class="image">
+    <h3 id="addMember">Add Member</h3>
+    <img src="activity%20diagrams/Manage%20Members/AddMember_activitydiagram.png" alt="Add Member Activity Diagram" style="width:420px" border="0" class="image">
+    <h3 id="deleteMember">Delete Member</h3>
+    <img src="activity%20diagrams/Manage%20Members/DeleteMember_activitydiagram.png" alt="Delete Member Activity Diagram" style="width:420px" border="0" class="image">
+    <h3 id="updateMember">Update Member</h3>
+    <img src="activity%20diagrams/Manage%20Members/UpdateMember_activitydiagram.png" alt="Update Member Activity Diagram" style="width:420px" border="0" class="image">
+    <p>
+        <b>MUST ADD MANAGE PROVIDER</b>
+    </p>
+    <br/>
+    <h3 id="billingChocAn">Billing ChocAn</h3>
+    <img src="activity%20diagrams/Billing/Billing%20ChocAn.jpg" alt="Billing ChocAn Activity Diagram" style="width:700px" border="0" class="image">
+    <h3 id="validateProvider">Validate Provider</h3>
+    <img src="activity%20diagrams/Billing/Validating%20Provider%20Activity%20Diagram.PNG" alt="Validating Provider Activity Diagram" style="width:550px" border="0" class="image">
+    <h3 id="requestProviderDirectory">Request Provider Directory</h3>
+    <img src="activity%20diagrams/Billing/Request%20Provider%20Directory%20Activity%20Diagram.png" alt="Request Provider Directory Activity Diagram" style="width:350px" border="0" class="image">
+    <h3 id="receivingService">Receive Service</h3>
+    <img src="activity%20diagrams/Billing/ReceivingServiceActivityDiagram.PNG" alt="Receiving Service Activity Diagram" style="width:550px" border="0" class="image">
+    <h3 id="addingService">Add New Service</h3>
+    <img src="activity%20diagrams/Billing/Adding%20Service%20Activity%20Diagram.PNG" alt="Adding New Service Activity Diagram" style="width:350px" border="0" class="image">
+    <br/>
+    <br/>
+    <h3 id="mainAccountingProcedure">Main Accounting Procedure</h3>
+    <img src="activity%20diagrams/Main%20Accounting%20Procedure/Main%20Accounting%20Procedure.jpg" alt="Main Accounting Procedure Activity Diagram" style="width:700px" class="image">
+    <h3 id="generateEFT">Generate EFT Report</h3>
+    <img src="activity%20diagrams/Main%20Accounting%20Procedure/Generate%20EFT%20Record%20Activity%20Diagram.jpg" alt="Generate EFT Record Activity Diagram" style="width:420px" class="image">
+    <h3 id="generateMemberReport">Generate Member Report</h3>
+    <img src="activity%20diagrams/Main%20Accounting%20Procedure/Generate%20Member%20Report%20Activity%20Diagram.jpg" alt="Generate Member Report Activity Diagram" style="width:420px" class="image">
+    <h3 id="generateProviderReport">Generate Provider Report</h3>
+    <img src="activity%20diagrams/Main%20Accounting%20Procedure/Generate%20Provider%20Report%20Activity%20Diagram.jpg" alt="Generate Provider Report Activity Diagram" style="width:420px" class="image">
+    <br/>
+    <br/>
+
+
+    <!-- Requirements Header -->
+    <h1 id="Requirements">Requirements</h1>
+
     <!-- Glossary -->
-    <h1 id="glossary">Glossary</h1>
+    <h2 id="glossary" style="text-align: center">Glossary</h2>
     <a href="glossary.txt">glossary.txt</a>
     <p>
         <b>Acceptance Test:</b> the set of tasks the software must be capable of in order to be complete and accepted by
@@ -155,7 +255,7 @@
 
 
     <!-- Use Cases -->
-    <h1 id="useCases" style="text-align: center">Use Cases</h1>
+    <h2 id="useCases" style="text-align: center">Use Cases</h2>
     <br/>
 
     <div id="Table_of_Contents">
