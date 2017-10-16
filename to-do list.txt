@@ -1,7 +1,0 @@
-1. Refine Billing and related use cases, specifically ones related to invalid/suspended IDs
-
-2. e) ""add new service"" and ""receiving service"" has duplication problem. (-0.5)
-
-3. Write use cases for manage member/provider records
-
-4. Main/Master Activity diagram
