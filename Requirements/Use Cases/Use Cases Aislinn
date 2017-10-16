@@ -1,80 +1,61 @@
 Use Case: Validating Provider
 Context: Provider needs to turn on and unlock the terminal
 Actors: Provider, Software
-Main Success Scenario: 
+Main Success Scenario:
 Terminal is turned on
 Terminal prompts Provider for provider number
 provider enters provider number
-software validates providerís credentials
+software validates provider‚Äôs credentials
 the terminal switches to an unlocked screen
-Extensions: 
-	4.1. Invalid provider number
-
-Use Case: Invalid Provider Number extends Validating Provider
-Context: The provider did not enter a valid provider number.
-Actors: Provider, Software
-Main Success Scenario: 
-Screen displays ìInvalid Provider Number.î
-Screen returns to regular lock screen until a valid provider number is entered. 
+Extensions:
+	4.1. a. Screen displays ‚ÄúInvalid provider number‚Äù.
+	4.1. b. Screen remains locked until a valid provider number is entered.
 
 Use Case: Receiving Service
-Context: A member wants to receive a service from a provider. 
+Context: A member wants to receive a service from a provider.
 Actors: Provider, Member, Software
 Main Success Scenario:
-Provider passes memberís card through card reader
+Provider passes member‚Äôs card through card reader
 Members credentials are validated
 The provider then provides the service.
 Extensions:
-2.1.1. Member credentials are not valid: Invalid number
-2.1.2. Member credentials are not valid: Member Suspended
-
-Use Case: Member Credentials are not valid: Invalid number extends Receiving Service
-Context: The member desiring a service from a provider does not have a valid card. 
-Actors: Provider, Member, Software
-Main Success Scenario: 
-The screen displays ìInvalid Numberî after the memberís card is swiped
-If the screen continues to display this after multiple swipes, then the card is not connected to an active account
-The member cannot receive a service. 
-
-Use Case: Member Credentials are not valid: Member Suspended extends Receiving Service
-Context: The member desiring a service from a provider owes fees to their account.
-Actors: Provider, Member, Software
-Main Success Scenario:
-The screen displays ìMember Suspendedî after the memberís card is swiped.
-The member cannot receive services because they have not paid their monthly ChocAn membership bill. 
+2.1.1. a. Screen displays ‚ÄúInvalid number‚Äù.
+2.1.1. b. The member may try to swipe the card again, but cannot receive service until it is validated.
+2.1.2. a. The screen displays ‚ÄúMember suspended‚Äù.
+2.1.2. b. The member cannot receive service due to still owing a balance on their account.
 
 Use Case: Billing ChocAn
 Context: After a service has been provided to a member, the provider bills ChocAn for compensation.
 Actors: Provider, Software
-Main Success Scenario: 
-Provider passes memberís card through card reader
-Memberís credentials are validated
+Main Success Scenario:
+Provider passes member‚Äôs card through card reader
+Member‚Äôs credentials are validated
 Provider is prompted to key in the date of service in mm/dd/yyyy format
-Provider pulls up the provider directory to find the correct service code
-Provider presses the button to pull up the service code document
+Provider requests the Provider Directory to find the correct service code
+Provider presses the button to request the Provider Directory
 Provider searches for the correct service, and gets the service code
-Provider closes the document and returns to the form
+Provider closes the Provider Directory and returns to the form
 Provider inputs the 6 digit service code
 Software displays the name of the service referenced by the service code for authentication
 The provider has the option to enter comments about the service provided
-Software writes a record to disc including: 
-Current date and time (MMñDDñYYYY HH:MM:SS). 
-Date service was provided (MMñDDñYYYY). 
-Provider number (9 digits). 
-Member number (9 digits). 
-Service code (6 digits). 
-Comments (100 characters) (optional). 
+Software writes a record to disc including:
+Current date and time (MM‚ÄìDD‚ÄìYYYY HH:MM:SS).
+Date service was provided (MM‚ÄìDD‚ÄìYYYY).
+Provider number (9 digits).
+Member number (9 digits).
+Service code (6 digits).
+Comments (100 characters) (optional).
 Software looks up fee to be paid for service from service code document and displays it on terminal
 The provider fills out a form for verification purposes with: the current date and time, the date the service was provided, member name and number, service code, and fee to be paid.
 Extensions:
-4.2.1. The service is not found in the document: add new service.
+4.2.1. The service is not found in the Provider Directory: see Add New Service.
 
 Use Case: Add New Service extends Billing ChocAn
-Context: The service a provider has provided is not listed in the service list.
+Context: The service a provider has provided is not listed in the Provider Directory.
 Actors: Provider, Software
-Main Success Scenario: 
-Provider clicks the button next to the service list button that says ìadd serviceî. 
-The provider is prompted to enter in two things: the service name and fee. A 6-digit number is generated. 
+Main Success Scenario:
+Provider clicks the button next to the Provider Directory button that says ‚Äúadd new service‚Äù.
+The provider is prompted to enter in two things: the service name and fee. A 6-digit number is generated.
 A new row is added to the file, containing the number, name, and fee of the service.
 The provider enters the new number in and continues with the billing process.
-
+Extensions: No extensions
