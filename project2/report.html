@@ -463,17 +463,10 @@
         <br/>2.2. software validates provider’s credentials
         <br/>3. the terminal switches to an unlocked screen
         <br/><br/><b>Extensions:</b>
-        <br/>4.1. Invalid provider number
+        <br/>4.1. a. Screen displays “Invalid provider number”.
+        <br/>4.1. b. Screen remains locked until a valid provider number is entered.
         <br/><br/>-------------------------------------------------------------------------------------
-        <br/><a id="Invalid Provider Number"/><b>Use Case:</b> Invalid Provider Number <b>extends</b> Validating Provider
-        <br/><b>Context:</b> The provider did not enter a valid provider number.
-        <br/><b>Actors:</b> Provider, Software
-        <br/><b>Main Success Scenario:</b>
-        <br/>1. Screen displays “Invalid Provider Number.”
-        <br/>2. Screen returns to regular lock screen until a valid provider number is entered.
-        <br/><br/><b>Extensions:</b> No extensions
-        <br/><br/>-------------------------------------------------------------------------------------
-        <br/><a id="Recieving Service"/><b>Use Case: </b>Receiving Service
+        <br/><a id="Providing Service"/><b>Use Case: </b>Providing Service
         <br/><b>Context:</b> A member wants to receive a service from a provider.
         <br/><b>Actors: </b>Provider, Member, Software
         <br/><b>Main Success Scenario:</b>
@@ -481,26 +474,10 @@
         <br/>2. Members credentials are validated
         <br/>3. The provider then provides the service.
         <br/><br/><b>Extensions:</b>
-        <br/>2.1.1. Invalid member number
-        <br/>2.1.2. Member credentials are not valid: Member Suspended
-        <br/><br/>-------------------------------------------------------------------------------------
-        <br/><a id="Invalid Member Number" /><b>Use Case:</b> Invalid member number <b>extends</b> Receiving Service
-        <br/><b>Context:</b> The member desiring a service from a provider does not have a valid card.
-        <br/><b>Actors:</b> Provider, Member, Software
-        <br/><b>Main Success Scenario:</b>
-        <br/>1. The screen displays “Invalid Number” after the member’s card is swiped
-        <br/>2. If the screen continues to display this after multiple swipes, then the card is not connected to an
-        active account
-        <br/>3. The member cannot receive a service.
-        <br/><br/><b>Extensions:</b> No extensions
-        <br/><br/>-------------------------------------------------------------------------------------
-        <br/><a id="Member Suspended" /><b>Use Case:</b> Member Suspended <b>extends</b> Receiving Service
-        <br/><b>Context: </b>The member desiring a service from a provider owes fees to their account.
-        <br/><b>Actors:</b> Provider, Member, Software
-        <br/><b>Main Success Scenario:</b>
-        <br/>1. The screen displays “Member Suspended” after the member’s card is swiped.
-        <br/>2. The member cannot receive services because they have not paid their monthly ChocAn membership bill.
-        <br/><br/><b>Extensions:</b> No extensions
+        <br/>2.1.1. a. Screen displays “Invalid number”.
+        <br/>2.1.1. b. The member may try to swipe the card again, but cannot receive service until it is validated.
+        <br/>2.1.2. a. The screen displays “Member suspended”.
+        <br/>2.1.2. b. The member cannot receive service due to still owing a balance on their account.
         <br/><br/>-------------------------------------------------------------------------------------
         <br/><a id="Billing ChocAn" /><b>Use Case:</b> Billing ChocAn
         <br/><b>Context:</b> After a service has been provided to a member, the provider bills ChocAn for compensation.
