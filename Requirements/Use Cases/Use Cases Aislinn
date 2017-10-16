@@ -11,7 +11,7 @@ Extensions:
 	4.1. a. Screen displays “Invalid provider number”.
 	4.1. b. Screen remains locked until a valid provider number is entered.
 
-Use Case: Receiving Service
+Use Case: Providing Service
 Context: A member wants to receive a service from a provider.
 Actors: Provider, Member, Software
 Main Success Scenario:
