@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project 2</title>
+
+    <link rel="icon" type="image/gif/png" href="https://image.ibb.co/gZW8R5/team1.jpg">
+
+</head>
+<body style="background-color: #d3d3d3;">
+<h1 id="top">CS 200 Project 2</h1>
+
+
+<h2>NAME:</h2> Aislinn Marsden
+<h3>CWID:</h3> 11696847
+<h3>EMAIL:</h3> asmarsden@crimson.ua.edu
+<h2>Task Distribution:</h2>
+
+<p>With this project, we decided to split the tasks into smaller groups or individual projects.
+    <br/>Everyone created activity diagrams for the use cases they created, and reviewed everyone else's to make sure they all matched up.
+    <br/>Cole and I focused on the overall activity diagram, Parker and Riley focused on the paragraph and stereotype class diagram, and
+    Hunter focused on the HTML as well as generally helping with the project.
+    <br/>We all ended up working for about ten to eleven hours each on this project, with relatively equal workloads.
+</p>
+
+<img src="https://image.ibb.co/mjfk65/team1.png" alt="" border="0" style="
+    max-width: 240px;
+    width: 15%;
+    position:absolute;
+    top:0%;
+    right:5%;"
+>
+
+
+</body>
+</html>
