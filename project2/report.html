@@ -77,10 +77,11 @@
     <h1 id="Analysis">Analysis</h1>
 
     <!-- Project 2 Paragraph -->
-    <h2 id="paragraph">System Analysis</h2>
+    <h2 id="paragraph">System Analysis Paragraph</h2>
     <a href="paragraph.txt">paragraph.txt</a>
     <p>
-        PLACEHOLDER FOR PARAGRAPH
+        The sections of the system that will be computerized will be the database of providers and members for identification, the main accounting procedure, the creation and sending of reports, the logging and billing for services, and the maintenance of the provider and member history. Data for all this will be stored on hard drives in the central servers for ChocAn. Necessary hardware will be the servers and hard drives to store the data. The ChocAn system will interact with other systems to send accounting information to ACME Accounting and send provider reports to providers. Providers and members will interact with our system through terminals placed at the provider's business and employees of ChocAn can interact with theChocAn servers directly by connecting to the server to produce reports, generate records, and add or remove members and providers.
+
         <br/>
     </p>
 
@@ -93,10 +94,60 @@
 
     <!-- Activity Diagrams -->
     <h2 id="activityDiagrams">Activity Diagrams</h2>
+    <div id="Table_of_Contents">
+        <div id="ToC_left">
+            <h2>Manage Members</h2>
+            <a href="#manageMembers">Manage Members</a> <br/>
+            <a href="#addMember">Add Member</a> <br/>
+            <a href="#deleteMember">Delete Member</a><br/>
+            <a href="#updateMember">Update Member</a> <br/>
+            <!--<a href="#Add Provider">Add Provider </a><br/>
+            <a href="#Delete Provider">Delete Provider </a><br/>-->
+            <br/>
+            <br/>
+        </div>
+        <div id="ToC_Mid">
+            <h2>Billing ChocAn</h2>
+            <a href="#Validating Provider">Validating Provider</a><br/>
+            <a href="#Invalid Provider Number">Invalid Provider Number </a><br/>
+            <a href="#Recieving Service">Recieving Service </a><br/>
+            <a href="#Invalid Member Number">Invalid Member Number </a><br/>
+            <a href="#Member Suspended">Member Suspended </a><br/>
+            <a href="#Billing ChocAn">Billing ChocAn </a><br/>
+            <a href="#Add New Service">Add New Service </a><br/>
+            <a href="#Request Provider Directory">Request Provider Directory </a><br/>
+        </div>
+        <div id="ToC_Right">
+            <h2>Main Accounting Procedure</h2>
+            <a href="#Main Accounting Procedure">Main Accounting Proceedure </a><br/>
+            <a href="#Request Support">Request Support </a><br/>
+            <a href="#Generate Member Report">Generate Member Report </a><br/>
+            <a href="#Generate Provider Report">Generate Provider Report </a><br/>
+            <a href="#Generate Summary Report">Generate Summary Report </a><br/>
+            <a href="#Generate EFT Record">Generate EFT Record </a><br/>
+            <br/>
+            <br/>
+        </div>
+    </div>
+    <h3 id="manageMembers">Manage Members</h3>
+    <img src="activity%20diagrams/Manage%20Members/ManageMembers_activitydiagram.png" alt="Manage Members Activity Diagram" style="width:420px" border="0" class="image">
+    <h3 id="addMember">Add Member</h3>
+    <img src="activity%20diagrams/Manage%20Members/AddMember_activitydiagram.png" alt="Add Member Activity Diagram" style="width:420px" border="0" class="image">
+    <p>Add Member <b>extends</b> Manage Members<br/></p>
+    <h3 id="deleteMember">Delete Member</h3>
+    <img src="activity%20diagrams/Manage%20Members/DeleteMember_activitydiagram.png" alt="Delete Member Activity Diagram" style="width:420px" border="0" class="image">
+    <p>Delete Member <b>extends</b> Manage Members<br/></p>
+    <h3 id="updateMember">Update Member</h3>
+    <img src="activity%20diagrams/Manage%20Members/UpdateMember_activitydiagram.png" alt="Update Member Activity Diagram" style="width:420px" border="0" class="image">
+    <p>Update Member <b>extends</b> Manage Members<br/></p>
     <p>
-        PLACEHOLDER FOR ACTIVITY DIAGRAMS
-        <br/>
+        <b>MUST ADD MANAGE PROVIDER</b>
     </p>
+
+
+    <br/>
+    <br/>
+
 
     <!-- Requirements Header -->
     <h1 id="Requirements">Requirements</h1>
