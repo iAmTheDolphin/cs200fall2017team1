@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Project 1</title>
+    <title>Project 2</title>
 
 
     <link href="Styles/styles.css" type="text/css" rel="stylesheet"/>
@@ -52,15 +52,14 @@
     <h2>NAME: Hunter James</h2>
     <h3>CWID: 11706214</h3>
     <h3>EMAIL: hajames@crimson.ua.edu</h3>
-    <h3>Hours spent: 10hrs</h3>
+    <h3>Hours spent: 11hrs</h3>
     <h2>Task Distribution:</h2>
     <p>
-        <b>EDIT THIS</b> The Use Cases and their corresponding diagrams and scenarios were split amongst four members.
-        <br/> The fifth member was responsible for creating the main HTML report and assisting in Use Case design.
+        The Activity Diagrams were assigned to three team members, each of whom had been responsible for certain Use Cases in Project 1.
+        <br/> The fourth and fifth members were responsible for creating the stereotype class diagram and writing the system analysis paragraph.
         <br/>
-        <br/> I (Parker) was responsible for building the HTML file used in our report, and for gathering all Use Case
-        diagrams and designs.
-        <br/> I also helped other team members solve problems or complications with their Use Case scenarios.
+        <br/> I (Hunter) was responsible for the Interactive Mode activity diagrams (8 total) and for building the HTML file used for our report.
+        <br/>
         <br/> As the team's submitter, I was also responsible for submitting our completed project and full solution.
         <br/>
         <br/> The task distribution for each group member was even and is outlined below:
@@ -78,7 +77,7 @@
 
     <!-- Project 2 Paragraph -->
     <h2 id="paragraph" style="text-align: center">System Analysis Paragraph</h2>
-    <a href="paragraph.txt" style="text-align: center">paragraph.txt</a>
+    <a href="Paragraph/paragraph.txt" style="text-align: center">paragraph.txt</a>
     <p>
         The sections of the system that will be computerized will be the database of providers and members for identification, the main accounting procedure, the creation and sending of reports, the logging and billing for services, and the maintenance of the provider and member history. Data for all this will be stored on hard drives in the central servers for ChocAn. Necessary hardware will be the servers and hard drives to store the data. The ChocAn system will interact with other systems to send accounting information to ACME Accounting and send provider reports to providers. Providers and members will interact with our system through terminals placed at the provider's business and employees of ChocAn can interact with theChocAn servers directly by connecting to the server to produce reports, generate records, and add or remove members and providers.
 
@@ -96,17 +95,15 @@
     <h2 id="activityDiagrams" style="text-align: center">Activity Diagrams</h2>
     <div id="Table_of_Contents">
         <div id="ToC_left">
-            <h2>Manage Members</h2>
+            <h2>Interactive Mode</h2>
             <a href="#manageMembers">Manage Members</a> <br/>
             <a href="#addMember">Add Member</a> <br/>
             <a href="#deleteMember">Delete Member</a><br/>
             <a href="#updateMember">Update Member</a> <br/>
-            <!--<a href="#Add Provider">Add Provider </a><br/>
-            <a href="#Delete Provider">Delete Provider </a><br/>-->
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+            <a href="#manageProviders">Manage Providers</a><br/>
+            <a href="#addProvider">Add Provider </a><br/>
+            <a href="#deleteProvider">Delete Provider </a><br/>
+            <a href="#updateProvider">Update Provider </a><br/>
         </div>
         <div id="ToC_Mid">
             <h2>Billing ChocAn</h2>
@@ -122,27 +119,39 @@
         <div id="ToC_Right">
             <h2>Main Accounting Procedure</h2>
             <a href="#mainAccountingProcedure">Main Accounting Procedure </a><br/>
-            <a href="#generateEFT">Generate EFT Record </a><br/>
+			<a href="#requestReport">Request Report </a><br/>
             <a href="#generateMemberReport">Generate Member Report </a><br/>
             <a href="#generateProviderReport">Generate Provider Report </a><br/>
+			<a href="#generateEFT">Generate EFT Record </a><br/>
             <a href="#generateSummaryReport">Generate Summary Report </a><br/>
-            <a href="#requestReport">Request Report </a><br/>
             <br/>
             <br/>
         </div>
     </div>
-    <h2>Manage Members</h2>
+    <h2>Interactive Mode</h2>
     <h3 id="manageMembers">Manage Members</h3>
     <img src="activity%20diagrams/Manage%20Members/ManageMembers_activitydiagram.png" alt="Manage Members Activity Diagram" style="width:420px" border="0" class="image">
+    <br/>
+    <a href="activity%20diagrams/Manage%20Members/ManageMembers.vpp">ManageMembers.vpp</a>
+    <p>NOTE: ManageMembers.vpp contains the activity diagram for Manage Members, as well as subdiagrams for Add, Delete, and Update Member</p>
     <h3 id="addMember">Add Member</h3>
     <img src="activity%20diagrams/Manage%20Members/AddMember_activitydiagram.png" alt="Add Member Activity Diagram" style="width:420px" border="0" class="image">
     <h3 id="deleteMember">Delete Member</h3>
     <img src="activity%20diagrams/Manage%20Members/DeleteMember_activitydiagram.png" alt="Delete Member Activity Diagram" style="width:420px" border="0" class="image">
     <h3 id="updateMember">Update Member</h3>
     <img src="activity%20diagrams/Manage%20Members/UpdateMember_activitydiagram.png" alt="Update Member Activity Diagram" style="width:420px" border="0" class="image">
-    <p>
-        <b>MUST ADD MANAGE PROVIDER</b>
-    </p>
+    <h3 id="manageProviders">Manage Providers</h3>
+    <img src="activity%20diagrams/Manage%20Providers/ManageProviders_activitydiagram.png" alt="Manage Providers Activity Diagram" style="width:420px" class="image">
+    <br/>
+    <a href="activity%20diagrams/Manage%20Providers/ManageProviders.vpp">ManageProviders.vpp</a>
+    <p>NOTE: ManageProviders.vpp contains the activity diagram for Manage Providers, as well as subdiagrams for Add, Delete, and Update Provider</p>
+    <h3 id="addProvider">Add Provider</h3>
+    <img src="activity%20diagrams/Manage%20Providers/AddProvider_activitydiagram.png" alt="Add Provider Activity Diagram" style="width:420px" class="image">
+    <h3 id="deleteProvider">Delete Provider</h3>
+    <img src="activity%20diagrams/Manage%20Providers/DeleteProvider_activitydiagram.png" alt="Delete Provider Activity Diagram" style="width:420px" class="image">
+    <h3 id="updateProvider">Update Provider</h3>
+    <img src="activity%20diagrams/Manage%20Providers/UpdateProvider_activitydiagram.png" alt="Update Provider Activity Diagram" style="width:420px" class="image">
+    <br/>
     <br/>
     <h2>Billing ChocAn</h2>
     <h3 id="billingChocAn">Billing ChocAn</h3>
@@ -160,16 +169,17 @@
     <h2>Main Accounting Procedure</h2>
     <h3 id="mainAccountingProcedure">Main Accounting Procedure</h3>
     <img src="activity%20diagrams/Main%20Accounting%20Procedure/Main%20Accounting%20Procedure.jpg" alt="Main Accounting Procedure Activity Diagram" style="width:350px" class="image">
-    <h3 id="generateEFT">Generate EFT Report</h3>
-    <img src="activity%20diagrams/Main%20Accounting%20Procedure/Generate%20EFT%20Record%20Activity%20Diagram.jpg" alt="Generate EFT Record Activity Diagram" style="width:350px" class="image">
+	<h3 id="requestReport">Request Report</h3>
+    <img src="activity%20diagrams/Main%20Accounting%20Procedure/Request%20Report%20Activity%20Diagram.jpg" alt="Request Report Activity Diagram" style="width:420px" class="image">
     <h3 id="generateMemberReport">Generate Member Report</h3>
     <img src="activity%20diagrams/Main%20Accounting%20Procedure/Generate%20Member%20Report%20Activity%20Diagram.jpg" alt="Generate Member Report Activity Diagram" style="width:420px" class="image">
     <h3 id="generateProviderReport">Generate Provider Report</h3>
     <img src="activity%20diagrams/Main%20Accounting%20Procedure/Generate%20Provider%20Report%20Activity%20Diagram.jpg" alt="Generate Provider Report Activity Diagram" style="width:420px" class="image">
+	<h3 id="generateEFT">Generate EFT Report</h3>
+    <img src="activity%20diagrams/Main%20Accounting%20Procedure/Generate%20EFT%20Record%20Activity%20Diagram.jpg" alt="Generate EFT Record Activity Diagram" style="width:350px" class="image">
     <h3 id="generateSummaryReport">Generate Summary Report</h3>
     <img src="activity%20diagrams/Main%20Accounting%20Procedure/Generate%20Summary%20Report%20Activity%20Diagram.jpg" alt="Generate Summary Report Activity Diagram" style="width:420px" class="image">
-    <h3 id="requestReport">Request Report</h3>
-    <img src="activity%20diagrams/Main%20Accounting%20Procedure/Request%20Report%20Activity%20Diagram.jpg" alt="Request Report Activity Diagram" style="width:420px" class="image">
+    
     <br/>
     <br/>
 
@@ -279,10 +289,7 @@
         <div id="ToC_Mid">
             <h2>Billing ChocAn</h2>
             <a href="#Validating Provider">Validating Provider</a><br/>
-            <a href="#Invalid Provider Number">Invalid Provider Number </a><br/>
             <a href="#Providing Service">Providing Service </a><br/>
-            <a href="#Invalid Member Number">Invalid Member Number </a><br/>
-            <a href="#Member Suspended">Member Suspended </a><br/>
             <a href="#Billing ChocAn">Billing ChocAn </a><br/>
             <a href="#Add New Service">Add New Service </a><br/>
             <a href="#Request Provider Directory">Request Provider Directory </a><br/>
@@ -301,7 +308,7 @@
     </div>
     <br/> <br/>
 
-    <img src="Images/ChocAn%20Use%20Case%20Diagram.jpg" alt="Main Use Case" border="0" class="image">
+    <img src=" alt="Main Use Case" border="0" class="image">
     <a href="VPP/ChocAn%20Project%201.vpp">./VPP/ChocAn Project 1.vpp</a>
 
 
