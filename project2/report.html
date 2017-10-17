@@ -277,10 +277,12 @@
     <div id="Table_of_Contents">
         <div id="ToC_left">
             <h2>Interactive Mode</h2>
-            <a href="#Update Member Records">Update Member Records</a> <br/>
+            <a href="#Manage Members">Manage Members</a> <br/>
+            <a href="#Update Member">Update Member</a> <br/>
             <a href="#Add New Member">Add New Member</a> <br/>
             <a href="#Delete Member">Delete Member</a><br/>
-            <a href="#Update Provider Records">Update Provider Records</a> <br/>
+            <a href="#Manage Providers">Manage Providers</a><br/>
+            <a href="#Update Provider">Update Provider Records</a> <br/>
             <a href="#Add Provider">Add Provider </a><br/>
             <a href="#Delete Provider">Delete Provider </a><br/>
             <br/>
@@ -314,31 +316,37 @@
 
     <!-- Hunter's Use Case -->
     <h3 id="InteractiveMode"> Interactive Mode: </h3>
-    <img src="Images/InteractiveMode_UC.png" alt="Interactive_Mode" border="0" class="image">
+    <img src="Images/interactivemode_UC_updated.png" alt="Interactive_Mode" border="0" class="image">
     <a href="VPP/Interactive_Mode.vpp">./VPP/Interactive_Mode.vpp</a>
 
     <p>
-        <br/><a id="Update Member Records"/><b>Use Case:</b> Update Member Records
-        <br/><b>Context:</b> Throughout the day, Operators must update member records to match any changes in membership
-        <br/><b>Actors:</b> Operator, Member, Provider, Member Records Database
+        <br/><a id="Manage Members"/><b>Use Case:</b> Manage Members
+        <br/><b>Context:</b> Throughout the day, Operators must modify member records to match any changes in membership
+        <br/><b>Actors:</b> Operator, Member
         <br/><b>Main Success Scenario:</b>
         <br/>1. The Operator receives notification that someone’s membership has changed.
-        <br/>2. The Operator locates the Member’s individual record using their Member number.
-        <br/>3. The Operator opens the Member’s file and makes the necessary changes.
-        <br/>3.1. For simple changes (like address or phone number), the Operator simply edits the Member’s file and
-        updates the information.
-        <br/>3.2. For Provider visit updates, the Operator locates the form filled out by the Provider after the visit
-        and adds the visit to the Member’s record.
-        <br/>3.3. For billing updates, see Main Accounting Procedure.
-        <br/>4. The Operator saves all changes and closes the Member’s record.
         <br/>
         <br/><b>Extensions:</b>
-        <br/>1.1a. A new Member has joined and must be added to the system.
-        <br/>1.2a. A member has resigned and must be removed from the system.
+        <br/>1a. If a new Member has been added, see <b>Add New Member</b>
+        <br/>1b. If a Member must be deleted, see <b>Delete Member</b>
+        <br/>1c. If a Member's information has changed and must be updated, see <b>Update Member.</b>
         <br/>-------------------------------------------------------------------------------------
-        <br/><a id="Add New Member"/><b>Use Case:</b> Add New Member <b>extends</b> Update Member Records
+        <br/><a id="Update Member"/><b>Use Case:</b> Update Member <b>extends</b> Manage Members
+        <br/><b>Context:</b> A Member's information has changed and their record must be updated.
+        <br/><b>Actors:</b> Operator, Member
+        <br/><b>Main Success Scenario:</b>
+        <br/>1. The Operator locates the Member’s individual record using their Member number.
+        <br/>2. The Operator opens the Member’s file and makes the necessary changes.
+        <br/>2.1. For simple changes (like address or phone number), the Operator simply edits the Member’s file and
+        updates the information.
+        <br/>2.2. For Provider visit updates, the Operator locates the form filled out by the Provider after the visit
+        and adds the visit to the Member’s record.
+        <br/>2.3. For billing updates, see Main Accounting Procedure.
+        <br/>3. The Operator saves all changes and closes the Member’s record.
+        <br/>-------------------------------------------------------------------------------------
+        <br/><a id="Add New Member"/><b>Use Case:</b> Add New Member <b>extends</b> Manage Members
         <br/><b>Context:</b> A new person registered for a ChocAn membership and must be added to the system.
-        <br/><b>Actors:</b> Operator, Member, Member Records Database (part of ChocAn Data Center software)
+        <br/><b>Actors:</b> Operator, Member
         <br/><b>Main Success Scenario:</b>
         <br/>1.1.1. The new Member fills out the registration form (either online or in person)
         <br/>1.1.1.1. If in-person, the Data Center Operator manually retrieves this information
@@ -366,9 +374,9 @@
         <br/>1.1.1.3a.2. If the new Member has the same name as an existing member, the process does not change. They
         will be distinguished from any similar names by their Member number.
         <br/>-------------------------------------------------------------------------------------
-        <br/><a id="Delete Member"/><b>Use Case:</b> Delete Member <b>extends</b> Update Member Records
+        <br/><a id="Delete Member"/><b>Use Case:</b> Delete Member <b>extends</b> Manage Members
         <br/><b>Context:</b> A Member is no longer a part of ChocAn, and their record must be deleted.
-        <br/><b>Actors:</b> Operator, Member, Member Records Database (part of ChocAn Data Center software)
+        <br/><b>Actors:</b> Operator, Member
         <br/><b>Main Success Scenario:</b>
         <br/>1.2.1. ChocAn is notified that a Member is to be removed from ChocAn.
         <br/>1.2.1.1. If the Member is choosing to be removed, they request this either in person, on the phone or in an
@@ -389,27 +397,32 @@
         <br/>1.2.5a.2. If done after 60 days, the Member is treated like a new Member and must receive a new number and
         ID card.
         <br/>-------------------------------------------------------------------------------------
-        <br/><a id="Update Provider Records"/><b>Use Case:</b> Update Provider Records
+        <br/><a id="Manage Providers"/><b>Use Case:</b> Manage Providers
         <br/><b>Context:</b> Throughout the day, Operators must update Provider records to match any changes in Provider
         information
-        <br/><b>Actors:</b> Operator, Provider, Provider Records Database
+        <br/><b>Actors:</b> Operator, Provider
         <br/><b>Main Success Scenario:</b>
         <br/>1. The Operator receives notification that a Provider’s status has changed.
-        <br/>2. The Operator locates the Provider’s individual record using their Provider number.
-        <br/>3. The Operator opens the Provider’s file and makes the necessary changes.
-        <br/>3.1. For simple changes (like address or phone number), the Operator simply edits the Provider’s file and
-        updates the information.
-        <br/>3.2. For changes in services offered, see Add New Provider Service.
-        <br/>3.3. For billing updates, see Main Accounting Procedure.
-        <br/>4. The Operator saves all changes and closes the Provider’s record.
-        <br/>
         <br/><b>Extensions:</b>
-        <br/>1.1a. A new Provider has joined and must be added to the system.
-        <br/>1.2a. A Provider has resigned and must be removed from the system.
+        <br/>1a. A new Provider has joined and must be added to the system.
+        <br/>1b. A Provider has resigned and must be removed from the system.
+        <br/>1c. A Provider's information has changed and their record must be updated.
         <br/>-------------------------------------------------------------------------------------
-        <br/><a id="Add Provider"/><b>Use Case:</b> Add Provider <b>extends</b> Update Provider Records
+        <br/><a id="Update Provider"/><b>Use Case:</b> Update Provider <b>extends</b> Manage Providers
+        <br/><b>Context:</b> A Provider's information has changed and their record must be updated.
+        <br/><b>Actors:</b> Operator, Provider
+        <br/><b>Main Success Scenario:</b>
+        <br/>1. The Operator locates the Provider’s individual record using their Provider number.
+        <br/>2. The Operator opens the Provider’s file and makes the necessary changes.
+        <br/>2.1. For simple changes (like address or phone number), the Operator simply edits the Provider’s file and
+        updates the information.
+        <br/>2.2. For changes in services offered, see Add New Provider Service.
+        <br/>2.3. For billing updates, see Main Accounting Procedure.
+        <br/>3. The Operator saves all changes and closes the Provider’s record.
+        <br/>-------------------------------------------------------------------------------------
+        <br/><a id="Add Provider"/><b>Use Case:</b> Add Provider <b>extends</b> Manage Providers
         <br/><b>Context:</b> A new person registered as a ChocAn Provider and must be added to the system.
-        <br/><b>Actors:</b> Operator, Provider, Provider Records Database (part of ChocAn Data Center software)
+        <br/><b>Actors:</b> Operator, Provider
         <br/><b>Main Success Scenario:</b>
         <br/>1.1.1 The new Provider registers via the Provider application (either online or in person)
         <br/>1.1.1.1 If in-person, the Data Center Operator manually reviews this application.
@@ -434,9 +447,9 @@
         <br/>1.1.1.3a.2. If the new Provider has the same name as an existing provider, the process does not change.
         They will be distinguished from any similar names by their Provider number.
         <br/>-------------------------------------------------------------------------------------
-        <br/><a id="Delete Provider"/><b>Use Case:</b> Delete Provider <b>extends</b> Update Provider Records
+        <br/><a id="Delete Provider"/><b>Use Case:</b> Delete Provider <b>extends</b> Manage Providers
         <br/><b>Context:</b> A Provider is no longer a part of ChocAn, and their record must be deleted.
-        <br/><b>Actors:</b> Provider, Operator, Provider Records Database (part of ChocAn Data Center software)
+        <br/><b>Actors:</b> Provider, Operator
         <br/><b>Main Success Scenario:</b>
         <br/>1.2.1. ChocAn is notified that a Provider is to be removed from ChocAn.
         <br/>1.2.2. The Operator opens the Provider records database in the ChocAn Data Center software.
@@ -460,7 +473,7 @@
     <!-- Aislinn's Use Caseee -->
     <br/>
     <h3 id="BillChocAn"> Billing ChocAn: </h3>
-    <img src="Images/Terminal%20Use%20Case%20Aislinn%202.png" alt="Aislinn Use Case" border="0" class="image">
+    <img src="Images/updatedbillingchocanusecasediagram.PNG" alt="Aislinn Use Case" border="0" class="image">
     <a href="VPP/BillingChocan.vpp">./VPP/BillingChocan.vpp</a>
     <p><br/><a id="Validating Provider"/><b>Use Case: </b>Validating Provider
         <br/><b>Context:</b> Provider needs to turn on and unlock the terminal
