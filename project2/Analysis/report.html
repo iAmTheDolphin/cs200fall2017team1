@@ -52,7 +52,7 @@
     <h2>NAME: Hunter James</h2>
     <h3>CWID: 11706214</h3>
     <h3>EMAIL: hajames@crimson.ua.edu</h3>
-    <h3>Hours spent: 11hrs</h3>
+    <h3>Hours Spent: 12 hrs</h3>
     <h2>Task Distribution:</h2>
     <p>
         The Activity Diagrams were assigned to three team members, each of whom had been responsible for certain Use Cases in Project 1.
@@ -62,12 +62,16 @@
         <br/>
         <br/> As the team's submitter, I was also responsible for submitting our completed project and full solution.
         <br/>
-        <br/> The task distribution for each group member was even and is outlined below:
+        <br/> The task distribution for each group member was even and is outlined below. Each individual's report.html is linked next to their name:
         <br/> Hunter James - 20%
         <br/> Parker Jones - 20%
+        <a href="Reports/ParkerJones_team1.html"> parkerjones_team1.html</a>
         <br/> Cole Schram - 20%
+        <a href="Reports/coleschram_team1.html"> coleschram_team1.html</a>
         <br/> Aislinn Marsden - 20%
+        <a href="Reports/aislinnmarsden_team1.html"> aislinnmarsden_team1.html</a>
         <br/> Riley Manning - 20%
+        <a href="Reports/rileymanning_team1.html"> rileymanning_team1.html</a>
         <br/>
         <br/>
     </p>
@@ -79,20 +83,33 @@
     <h2 id="paragraph" style="text-align: center">System Analysis Paragraph</h2>
     <a href="Paragraph/paragraph.txt" style="text-align: center">paragraph.txt</a>
     <p>
-        The sections of the system that will be computerized will be the database of providers and members for identification, the main accounting procedure, the creation and sending of reports, the logging and billing for services, and the maintenance of the provider and member history. Data for all this will be stored on hard drives in the central servers for ChocAn. Necessary hardware will be the servers and hard drives to store the data. The ChocAn system will interact with other systems to send accounting information to ACME Accounting and send provider reports to providers. Providers and members will interact with our system through terminals placed at the provider's business and employees of ChocAn can interact with theChocAn servers directly by connecting to the server to produce reports, generate records, and add or remove members and providers.
+        The sections of the system that will be computerized will be the database of providers and members for identification, the main accounting procedure, the creation and sending of reports, the logging and billing for services, and the maintenance of the provider and member history. Data for all this will be stored on hard drives in the central servers for ChocAn. Necessary hardware will be the servers and hard drives to store the data. The ChocAn system will interact with other systems to send accounting information to ACME Accounting and send provider reports to providers. Providers and members will interact with our system through terminals placed at the provider's business and employees of ChocAn can interact with the ChocAn servers directly by connecting to the server to produce reports, generate records, and add or remove members and providers.
+		<br/>
+		<br/>
+		Assumptions made for this project:
+		<br/>
+		-The Main Accounting Procedure prints out all of the reports to file physical copies in addition to emailing them to members and providers<br/>
+        -The summary report is only printed out for ChocAn Data Center Manager<br/>
+        -New Members must fill out a registration form either online or in person at the ChocAn office in order to join<br/>
+        -New Providers must apply and be approved before providing service (also either online or in-person)<br/>
+        -Member ID cards are printed using a machine at the ChocAn office, and may be given to new Members in-person or via mail<br/>
+
 
         <br/>
     </p>
 
     <!-- Stereotype Class Diagram -->
     <h2 id="stereotypeClass" style="text-align: center">Stereotype Class Diagram</h2>
-    <p>
-        PLACEHOLDER FOR STEREOTYPE CLASS DIAGRAM
-        <br/>
-    </p>
+    <img src="StereotypeClassDiagram/Stereotype%20Class%20Diagram.png" alt="Stereotype Class Diagram" style="text-align: center" class="image">
+    <br/><a href="StereotypeClassDiagram/Project%202.vpp">StereotypeClassDiagram.vpp</a>
 
     <!-- Activity Diagrams -->
     <h2 id="activityDiagrams" style="text-align: center">Activity Diagrams</h2>
+    <h3 style="text-align: center">ChocAn Main Activity Diagram</h3>
+    <img src="ActivityDiagrams/Main%20ChocAn%20Activity%20Diagram.jpg" alt="Master Activity Diagram" style="text-align: center" style="width:500px" class="image">
+    <br/>
+    <a href="ActivityDiagrams/ChocAn%20main%20activity.vpp">ChocAnMainActivityDiagram.vpp</a>
+    <p>NOTE: ChocAnMainActivityDiagram.vpp contains subdiagrams for all activity diagrams shown below.</p>
     <div id="Table_of_Contents">
         <div id="ToC_left">
             <h2>Interactive Mode</h2>
@@ -130,66 +147,73 @@
     </div>
     <h2>Interactive Mode</h2>
     <h3 id="manageMembers">Manage Members</h3>
-    <img src="activity%20diagrams/Manage%20Members/ManageMembers_activitydiagram.png" alt="Manage Members Activity Diagram" style="width:420px" border="0" class="image">
+    <img src="ActivityDiagrams/Manage%20Members/ManageMembers_activitydiagram.png" alt="Manage Members Activity Diagram" style="width:420px" border="0" class="image">
     <br/>
-    <a href="activity%20diagrams/Manage%20Members/ManageMembers.vpp">ManageMembers.vpp</a>
+    <a href="ActivityDiagrams/Manage%20Members/ManageMembers.vpp">ManageMembers.vpp</a>
     <p>NOTE: ManageMembers.vpp contains the activity diagram for Manage Members, as well as subdiagrams for Add, Delete, and Update Member</p>
     <h3 id="addMember">Add Member</h3>
-    <img src="activity%20diagrams/Manage%20Members/AddMember_activitydiagram.png" alt="Add Member Activity Diagram" style="width:420px" border="0" class="image">
+    <img src="ActivityDiagrams/Manage%20Members/AddMember_activitydiagram.png" alt="Add Member Activity Diagram" style="width:420px" border="0" class="image">
     <h3 id="deleteMember">Delete Member</h3>
-    <img src="activity%20diagrams/Manage%20Members/DeleteMember_activitydiagram.png" alt="Delete Member Activity Diagram" style="width:420px" border="0" class="image">
+    <img src="ActivityDiagrams/Manage%20Members/DeleteMember_activitydiagram.png" alt="Delete Member Activity Diagram" style="width:420px" border="0" class="image">
     <h3 id="updateMember">Update Member</h3>
-    <img src="activity%20diagrams/Manage%20Members/UpdateMember_activitydiagram.png" alt="Update Member Activity Diagram" style="width:420px" border="0" class="image">
+    <img src="ActivityDiagrams/Manage%20Members/UpdateMember_activitydiagram.png" alt="Update Member Activity Diagram" style="width:420px" border="0" class="image">
     <h3 id="manageProviders">Manage Providers</h3>
-    <img src="activity%20diagrams/Manage%20Providers/ManageProviders_activitydiagram.png" alt="Manage Providers Activity Diagram" style="width:420px" class="image">
+    <img src="ActivityDiagrams/Manage%20Providers/ManageProviders_activitydiagram.png" alt="Manage Providers Activity Diagram" style="width:420px" class="image">
     <br/>
-    <a href="activity%20diagrams/Manage%20Providers/ManageProviders.vpp">ManageProviders.vpp</a>
+    <a href="ActivityDiagrams/Manage%20Providers/ManageProviders.vpp">ManageProviders.vpp</a>
     <p>NOTE: ManageProviders.vpp contains the activity diagram for Manage Providers, as well as subdiagrams for Add, Delete, and Update Provider</p>
     <h3 id="addProvider">Add Provider</h3>
-    <img src="activity%20diagrams/Manage%20Providers/AddProvider_activitydiagram.png" alt="Add Provider Activity Diagram" style="width:420px" class="image">
+    <img src="ActivityDiagrams/Manage%20Providers/AddProvider_activitydiagram.png" alt="Add Provider Activity Diagram" style="width:420px" class="image">
     <h3 id="deleteProvider">Delete Provider</h3>
-    <img src="activity%20diagrams/Manage%20Providers/DeleteProvider_activitydiagram.png" alt="Delete Provider Activity Diagram" style="width:420px" class="image">
+    <img src="ActivityDiagrams/Manage%20Providers/DeleteProvider_activitydiagram.png" alt="Delete Provider Activity Diagram" style="width:420px" class="image">
     <h3 id="updateProvider">Update Provider</h3>
-    <img src="activity%20diagrams/Manage%20Providers/UpdateProvider_activitydiagram.png" alt="Update Provider Activity Diagram" style="width:420px" class="image">
+    <img src="ActivityDiagrams/Manage%20Providers/UpdateProvider_activitydiagram.png" alt="Update Provider Activity Diagram" style="width:420px" class="image">
     <br/>
     <br/>
     <h2>Billing ChocAn</h2>
     <h3 id="billingChocAn">Billing ChocAn</h3>
-    <img src="activity%20diagrams/Billing/Billing%20ChocAn.jpg" alt="Billing ChocAn Activity Diagram" style="width:550px" border="0" class="image">
+    <img src="ActivityDiagrams/Billing/Billing%20ChocAn.jpg" alt="Billing ChocAn Activity Diagram" style="width:550px" border="0" class="image">
+    <br/><a href="ActivityDiagrams/Billing/activitydiagrambillingchocan.vpp">BillingChocAn.vpp</a>
+    <p>NOTE: BillingChocAn.vpp contains the activity diagram for Billing ChocAn, as well as subdiagrams for Add New Service and Providing Service.</p>
     <h3 id="validateProvider">Validate Provider</h3>
-    <img src="activity%20diagrams/Billing/Validating%20Provider%20Activity%20Diagram.PNG" alt="Validating Provider Activity Diagram" style="width:550px" border="0" class="image">
+    <img src="ActivityDiagrams/Billing/Validating%20Provider%20Activity%20Diagram.PNG" alt="Validating Provider Activity Diagram" style="width:550px" border="0" class="image">
     <h3 id="requestProviderDirectory">Request Provider Directory</h3>
-    <img src="activity%20diagrams/Billing/Request%20Provider%20Directory%20Activity%20Diagram.png" alt="Request Provider Directory Activity Diagram" style="width:350px" border="0" class="image">
+    <img src="ActivityDiagrams/Billing/Request%20Provider%20Directory%20Activity%20Diagram.png" alt="Request Provider Directory Activity Diagram" style="width:350px" border="0" class="image">
+    <br/><a href="ActivityDiagrams/Billing/Request%20Provider%20Directory.vpp">RequestProviderDirectory.vpp</a>
     <h3 id="providingService">Providing Service</h3>
-    <img src="activity%20diagrams/Billing/ProvidingServiceActivityDiagram.PNG" alt="Providing Service Activity Diagram" style="width:550px" border="0" class="image">
+    <img src="ActivityDiagrams/Billing/ProvidingServiceActivityDiagram.PNG" alt="Providing Service Activity Diagram" style="width:550px" border="0" class="image">
     <h3 id="addingService">Add New Service</h3>
-    <img src="activity%20diagrams/Billing/Adding%20Service%20Activity%20Diagram.PNG" alt="Adding New Service Activity Diagram" style="width:350px" border="0" class="image">
+    <img src="ActivityDiagrams/Billing/Adding%20Service%20Activity%20Diagram.PNG" alt="Adding New Service Activity Diagram" style="width:350px" border="0" class="image">
     <br/>
     <br/>
     <h2>Main Accounting Procedure</h2>
     <h3 id="mainAccountingProcedure">Main Accounting Procedure</h3>
-    <img src="activity%20diagrams/Main%20Accounting%20Procedure/Main%20Accounting%20Procedure.jpg" alt="Main Accounting Procedure Activity Diagram" style="width:350px" class="image">
+    <img src="ActivityDiagrams/Main%20Accounting%20Procedure/Main%20Accounting%20Procedure.jpg" alt="Main Accounting Procedure Activity Diagram" style="width:350px" class="image">
+	<br/>
+	<a href="ActivityDiagrams/Main%20Accounting%20Procedure/Main%20Accounting%20Procedure%20Activities.vpp">Main Accounting Procedure Activities.vpp</a>
+	<p>NOTE: Main Accounting Procedure Activities.vpp contains the activity diagram for Main Accounting Procedure, as well as subdiagrams for Request Report, Generate Member/Provider/Summary report, and Generate EFT Record</p>
 	<h3 id="requestReport">Request Report</h3>
-    <img src="activity%20diagrams/Main%20Accounting%20Procedure/Request%20Report%20Activity%20Diagram.jpg" alt="Request Report Activity Diagram" style="width:420px" class="image">
+    <img src="ActivityDiagrams/Main%20Accounting%20Procedure/Request%20Report%20Activity%20Diagram.jpg" alt="Request Report Activity Diagram" style="width:420px" class="image">
     <h3 id="generateMemberReport">Generate Member Report</h3>
-    <img src="activity%20diagrams/Main%20Accounting%20Procedure/Generate%20Member%20Report%20Activity%20Diagram.jpg" alt="Generate Member Report Activity Diagram" style="width:420px" class="image">
+    <img src="ActivityDiagrams/Main%20Accounting%20Procedure/Generate%20Member%20Report%20Activity%20Diagram.jpg" alt="Generate Member Report Activity Diagram" style="width:420px" class="image">
     <h3 id="generateProviderReport">Generate Provider Report</h3>
-    <img src="activity%20diagrams/Main%20Accounting%20Procedure/Generate%20Provider%20Report%20Activity%20Diagram.jpg" alt="Generate Provider Report Activity Diagram" style="width:420px" class="image">
+    <img src="ActivityDiagrams/Main%20Accounting%20Procedure/Generate%20Provider%20Report%20Activity%20Diagram.jpg" alt="Generate Provider Report Activity Diagram" style="width:420px" class="image">
 	<h3 id="generateEFT">Generate EFT Report</h3>
-    <img src="activity%20diagrams/Main%20Accounting%20Procedure/Generate%20EFT%20Record%20Activity%20Diagram.jpg" alt="Generate EFT Record Activity Diagram" style="width:350px" class="image">
+    <img src="ActivityDiagrams/Main%20Accounting%20Procedure/Generate%20EFT%20Record%20Activity%20Diagram.jpg" alt="Generate EFT Record Activity Diagram" style="width:350px" class="image">
     <h3 id="generateSummaryReport">Generate Summary Report</h3>
-    <img src="activity%20diagrams/Main%20Accounting%20Procedure/Generate%20Summary%20Report%20Activity%20Diagram.jpg" alt="Generate Summary Report Activity Diagram" style="width:420px" class="image">
+    <img src="ActivityDiagrams/Main%20Accounting%20Procedure/Generate%20Summary%20Report%20Activity%20Diagram.jpg" alt="Generate Summary Report Activity Diagram" style="width:420px" class="image">
     
     <br/>
     <br/>
-
+    <br/>
+    <br/>
 
     <!-- Requirements Header -->
     <h1 id="Requirements">Requirements</h1>
 
     <!-- Glossary -->
     <h2 id="glossary" style="text-align: center">Glossary</h2>
-    <a href="glossary.txt">glossary.txt</a>
+    <a href="project1/Requirements/glossary.txt">glossary.txt</a>
     <p>
         <b>Acceptance Test:</b> the set of tasks the software must be capable of in order to be complete and accepted by
         Chocoholics Anonymous, which includes the following: data from provider’s terminal must be simulated by keyboard
@@ -267,20 +291,19 @@
         <a href="#top">back to top.</a>
     </p>
 
-    <br/><br/><br/><br/>
-
 
     <!-- Use Cases -->
     <h2 id="useCases" style="text-align: center">Use Cases</h2>
-    <br/>
 
     <div id="Table_of_Contents">
         <div id="ToC_left">
             <h2>Interactive Mode</h2>
-            <a href="#Update Member Records">Update Member Records</a> <br/>
+            <a href="#Manage Members">Manage Members</a> <br/>
+            <a href="#Update Member">Update Member</a> <br/>
             <a href="#Add New Member">Add New Member</a> <br/>
             <a href="#Delete Member">Delete Member</a><br/>
-            <a href="#Update Provider Records">Update Provider Records</a> <br/>
+            <a href="#Manage Providers">Manage Providers</a><br/>
+            <a href="#Update Provider">Update Provider Records</a> <br/>
             <a href="#Add Provider">Add Provider </a><br/>
             <a href="#Delete Provider">Delete Provider </a><br/>
             <br/>
@@ -293,164 +316,182 @@
             <a href="#Billing ChocAn">Billing ChocAn </a><br/>
             <a href="#Add New Service">Add New Service </a><br/>
             <a href="#Request Provider Directory">Request Provider Directory </a><br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         </div>
         <div id="ToC_Right">
             <h2>ChocAn Data Center</h2>
             <a href="#Main Accounting Procedure">Main Accounting Proceedure </a><br/>
-            <a href="#Request Support">Request Support </a><br/>
+            <a href="#Request Report">Request Report </a><br/>
             <a href="#Generate Member Report">Generate Member Report </a><br/>
             <a href="#Generate Provider Report">Generate Provider Report </a><br/>
             <a href="#Generate Summary Report">Generate Summary Report </a><br/>
             <a href="#Generate EFT Record">Generate EFT Record </a><br/>
             <br/>
             <br/>
+            <br/>
+            <br/>
         </div>
     </div>
     <br/> <br/>
 
-    <img src=" alt="Main Use Case" border="0" class="image">
+    <img src="Images/ChocAn Master Use Case Diagram.jpg" alt="Main Use Case" border="0" class="image">
     <a href="VPP/ChocAn%20Project%201.vpp">./VPP/ChocAn Project 1.vpp</a>
 
 
     <!-- Hunter's Use Case -->
     <h3 id="InteractiveMode"> Interactive Mode: </h3>
-    <img src="Images/InteractiveMode_UC.png" alt="Interactive_Mode" border="0" class="image">
+    <img src="Images/interactivemode_UC_updated.png" alt="Interactive_Mode" border="0" class="image">
     <a href="VPP/Interactive_Mode.vpp">./VPP/Interactive_Mode.vpp</a>
 
     <p>
-        <br/><a id="Update Member Records"/><b>Use Case:</b> Update Member Records
-        <br/><b>Context:</b> Throughout the day, Operators must update member records to match any changes in membership
-        <br/><b>Actors:</b> Operator, Member, Provider, Member Records Database
+        <br/><a id="Manage Members"/><b>Use Case:</b> Manage Members
+        <br/><b>Context:</b> Throughout the day, Operators must modify member records to match any changes in membership
+        <br/><b>Actors:</b> Operator, Member
         <br/><b>Main Success Scenario:</b>
         <br/>1. The Operator receives notification that someone’s membership has changed.
-        <br/>2. The Operator locates the Member’s individual record using their Member number.
-        <br/>3. The Operator opens the Member’s file and makes the necessary changes.
-        <br/>3.1. For simple changes (like address or phone number), the Operator simply edits the Member’s file and
-        updates the information.
-        <br/>3.2. For Provider visit updates, the Operator locates the form filled out by the Provider after the visit
-        and adds the visit to the Member’s record.
-        <br/>3.3. For billing updates, see Main Accounting Procedure.
-        <br/>4. The Operator saves all changes and closes the Member’s record.
         <br/>
         <br/><b>Extensions:</b>
-        <br/>1.1a. A new Member has joined and must be added to the system.
-        <br/>1.2a. A member has resigned and must be removed from the system.
+        <br/>1.1. If a Member's information has changed and must be updated, see <b>Update Member.</b>
+        <br/>1.2. If a new Member has been added, see <b>Add New Member</b>
+        <br/>1.3. If a Member must be deleted, see <b>Delete Member</b>
         <br/>-------------------------------------------------------------------------------------
-        <br/><a id="Add New Member"/><b>Use Case:</b> Add New Member <b>extends</b> Update Member Records
-        <br/><b>Context:</b> A new person registered for a ChocAn membership and must be added to the system.
-        <br/><b>Actors:</b> Operator, Member, Member Records Database (part of ChocAn Data Center software)
+        <br/><a id="Update Member"/><b>Use Case:</b> Update Member <b>extends</b> Manage Members
+        <br/><b>Context:</b> A Member's information has changed and their record must be updated.
+        <br/><b>Actors:</b> Operator, Member
         <br/><b>Main Success Scenario:</b>
-        <br/>1.1.1. The new Member fills out the registration form (either online or in person)
-        <br/>1.1.1.1. If in-person, the Data Center Operator manually retrieves this information
-        <br/>1.1.1.2. If online, the form data is sent to the Operator.
-        <br/>1.1.1.3. Form includes Member name, mailing address and phone number
-        <br/>1.1.2. The Operator assigns the next available Member number to the new Member
-        <br/>1.1.2.1. The Operator opens the document containing all Member numbers
-        <br/>1.1.2.2. The Operator finds the most recently assigned number and adds 1.
-        <br/>1.1.2.3. The new Member’s name is assigned to this number
-        <br/>1.1.3. The Operator updates the ChocAn Data Center’s member records
-        <br/>1.1.3.1. The Operator opens the member database and creates a new record
-        <br/>1.1.3.2. The Member’s name, mailing address, phone number, and Member number are added to this unique
+        <br/>1.1.1. The Operator locates the Member’s individual record using their Member number.
+        <br/>1.1.2. The Operator opens the Member’s file and makes the necessary changes.
+        <br/>1.1.2.1. For simple changes (like address or phone number), the Operator simply edits the Member’s file and
+        updates the information.
+        <br/>1.1.2.2. For Provider visit updates, the Operator locates the form filled out by the Provider after the visit
+        and adds the visit to the Member’s record.
+        <br/>1.1.2.3. For billing updates, see Main Accounting Procedure.
+        <br/>1.1.3. The Operator saves all changes and closes the Member’s record.
+        <br/>-------------------------------------------------------------------------------------
+        <br/><a id="Add New Member"/><b>Use Case:</b> Add New Member <b>extends</b> Manage Members
+        <br/><b>Context:</b> A new person registered for a ChocAn membership and must be added to the system.
+        <br/><b>Actors:</b> Operator, Member
+        <br/><b>Main Success Scenario:</b>
+        <br/>1.2.1. The new Member fills out the registration form (either online or in person)
+        <br/>1.2.1.1. If in-person, the Data Center Operator manually retrieves this information
+        <br/>1.2.1.2. If online, the form data is sent to the Operator.
+        <br/>1.2.1.3. Form includes Member name, mailing address and phone number
+        <br/>1.2.2. The Operator assigns the next available Member number to the new Member
+        <br/>1.2.2.1. The Operator opens the document containing all Member numbers
+        <br/>1.2.2.2. The Operator finds the most recently assigned number and adds 1.
+        <br/>1.2.2.3. The new Member’s name is assigned to this number
+        <br/>1.2.3. The Operator updates the ChocAn Data Center’s member records
+        <br/>1.2.3.1. The Operator opens the member database and creates a new record
+        <br/>1.2.3.2. The Member’s name, mailing address, phone number, and Member number are added to this unique
         member record
-        <br/>1.1.4. The Member is sent a personalized card with their name and Member number
-        <br/>1.1.4.1. If the Member filled out the registration form in person, an Operator prints out the card and
+        <br/>1.2.4. The Member is sent a personalized card with their name and Member number
+        <br/>1.2.4.1. If the Member filled out the registration form in person, an Operator prints out the card and
         gives it to the Member
-        <br/>1.1.4.2. If the Member filled out the registration form online, an Operator prints out the card and mails
+        <br/>1.2.4.2. If the Member filled out the registration form online, an Operator prints out the card and mails
         it to the Member at their listed mailing address
-        <br/>1.1.5. The Member is now ready to receive ChocAn services.
+        <br/>1.2.5. The Member is now ready to receive ChocAn services.
         <br/>
         <br/><b>Extensions:</b>
-        <br/>1.1.1.3a. The Member name on the registration form matches an existing record
-        <br/>1.1.1.3a.1. If the new Member is actually an existing member, the Operator does not make a new record for
+        <br/>1.2.1.3a. The Member name on the registration form matches an existing record
+        <br/>1.2.1.3a.1. If the new Member is actually an existing member, the Operator does not make a new record for
         this Member.
-        <br/>1.1.1.3a.2. If the new Member has the same name as an existing member, the process does not change. They
+        <br/>1.2.1.3a.2. If the new Member has the same name as an existing member, the process does not change. They
         will be distinguished from any similar names by their Member number.
         <br/>-------------------------------------------------------------------------------------
-        <br/><a id="Delete Member"/><b>Use Case:</b> Delete Member <b>extends</b> Update Member Records
+        <br/><a id="Delete Member"/><b>Use Case:</b> Delete Member <b>extends</b> Manage Members
         <br/><b>Context:</b> A Member is no longer a part of ChocAn, and their record must be deleted.
-        <br/><b>Actors:</b> Operator, Member, Member Records Database (part of ChocAn Data Center software)
+        <br/><b>Actors:</b> Operator, Member
         <br/><b>Main Success Scenario:</b>
-        <br/>1.2.1. ChocAn is notified that a Member is to be removed from ChocAn.
-        <br/>1.2.1.1. If the Member is choosing to be removed, they request this either in person, on the phone or in an
+        <br/>1.3.1. ChocAn is notified that a Member is to be removed from ChocAn.
+        <br/>1.3.1.1. If the Member is choosing to be removed, they request this either in person, on the phone or in an
         email to a ChocAn Provider or Operator.
-        <br/>1.2.1.2. If the Member must be removed for financial reasons, an Operator is notified by the ChocAn Data
+        <br/>1.3.1.2. If the Member must be removed for financial reasons, an Operator is notified by the ChocAn Data
         Center Manager.
-        <br/>1.2.2. The Operator opens the Member records database in the ChocAn Data Center software.
-        <br/>1.2.3. The Operator locates the Member’s individual record using their Member number.
-        <br/>1.2.4. The Member’s record is deleted by the Operator.
-        <br/>1.2.4.1. The file containing the Member’s contact information and billing history is archived for a period
+        <br/>1.3.2. The Operator opens the Member records database in the ChocAn Data Center software.
+        <br/>1.3.3. The Operator locates the Member’s individual record using their Member number.
+        <br/>1.3.4. The Member’s record is deleted by the Operator.
+        <br/>1.3.4.1. The file containing the Member’s contact information and billing history is archived for a period
         of 60 days to handle any outstanding payments.
-        <br/>1.2.4.2. After 60 days, all files pertaining to that Member are deleted permanently.
+        <br/>1.3.4.2. After 60 days, all files pertaining to that Member are deleted permanently.
         <br/>
         <br/><b>Extensions:</b>
-        <br/>1.2.5a. The deleted Member wishes to be reinstated.
-        <br/>1.2.5a.1. If done within 60 days of cancellation, the Member’s record is removed from the archives and
+        <br/>1.3.5a. The deleted Member wishes to be reinstated.
+        <br/>1.3.5a.1. If done within 60 days of cancellation, the Member’s record is removed from the archives and
         returned to the database. The Member may keep their previous Member number and Member ID card.
-        <br/>1.2.5a.2. If done after 60 days, the Member is treated like a new Member and must receive a new number and
+        <br/>1.3.5a.2. If done after 60 days, the Member is treated like a new Member and must receive a new number and
         ID card.
         <br/>-------------------------------------------------------------------------------------
-        <br/><a id="Update Provider Records"/><b>Use Case:</b> Update Provider Records
+        <br/><a id="Manage Providers"/><b>Use Case:</b> Manage Providers
         <br/><b>Context:</b> Throughout the day, Operators must update Provider records to match any changes in Provider
         information
-        <br/><b>Actors:</b> Operator, Provider, Provider Records Database
+        <br/><b>Actors:</b> Operator, Provider
         <br/><b>Main Success Scenario:</b>
         <br/>1. The Operator receives notification that a Provider’s status has changed.
-        <br/>2. The Operator locates the Provider’s individual record using their Provider number.
-        <br/>3. The Operator opens the Provider’s file and makes the necessary changes.
-        <br/>3.1. For simple changes (like address or phone number), the Operator simply edits the Provider’s file and
-        updates the information.
-        <br/>3.2. For changes in services offered, see Add New Provider Service.
-        <br/>3.3. For billing updates, see Main Accounting Procedure.
-        <br/>4. The Operator saves all changes and closes the Provider’s record.
-        <br/>
         <br/><b>Extensions:</b>
-        <br/>1.1a. A new Provider has joined and must be added to the system.
-        <br/>1.2a. A Provider has resigned and must be removed from the system.
+        <br/>1.1. A Provider's information has changed and their record must be updated.
+        <br/>1.2. A new Provider has joined and must be added to the system.
+        <br/>1.3. A Provider has resigned and must be removed from the system.
         <br/>-------------------------------------------------------------------------------------
-        <br/><a id="Add Provider"/><b>Use Case:</b> Add Provider <b>extends</b> Update Provider Records
-        <br/><b>Context:</b> A new person registered as a ChocAn Provider and must be added to the system.
-        <br/><b>Actors:</b> Operator, Provider, Provider Records Database (part of ChocAn Data Center software)
+        <br/><a id="Update Provider"/><b>Use Case:</b> Update Provider <b>extends</b> Manage Providers
+        <br/><b>Context:</b> A Provider's information has changed and their record must be updated.
+        <br/><b>Actors:</b> Operator, Provider
         <br/><b>Main Success Scenario:</b>
-        <br/>1.1.1 The new Provider registers via the Provider application (either online or in person)
-        <br/>1.1.1.1 If in-person, the Data Center Operator manually reviews this application.
-        <br/>1.1.1.2. If online, the application is sent to the Operator for review.
-        <br/>1.1.1.3. Form includes Provider name, mailing address, phone number, services offered and qualifications.
-        <br/>1.1.1.4. If Provider is approved by ChocAn, continue:
-        <br/>1.1.2. The Operator assigns the next available Provider number to the new Provider.
-        <br/>1.1.2.1. The Operator opens the document containing all Provider numbers.
-        <br/>1.1.2.2. The Operator finds the most recently assigned number and adds 1.
-        <br/>1.1.2.3. The new Provider’s name is assigned to this number.
-        <br/>1.1.3. The Operator updates the ChocAn Data Center’s provider records.
-        <br/>1.1.3.1. The Operator opens the provider database and creates a new record.
-        <br/>1.1.3.2. The Provider’s name, mailing address, phone number, application information and Provider number
+        <br/>1.1.1. The Operator locates the Provider’s individual record using their Provider number.
+        <br/>1.1.2. The Operator opens the Provider’s file and makes the necessary changes.
+        <br/>1.1.2.1. For simple changes (like address or phone number), the Operator simply edits the Provider’s file and
+        updates the information.
+        <br/>1.1.2.2. For changes in services offered, see Add New Provider Service.
+        <br/>1.1.2.3. For billing updates, see Main Accounting Procedure.
+        <br/>1.1.3. The Operator saves all changes and closes the Provider’s record.
+        <br/>-------------------------------------------------------------------------------------
+        <br/><a id="Add Provider"/><b>Use Case:</b> Add Provider <b>extends</b> Manage Providers
+        <br/><b>Context:</b> A new person registered as a ChocAn Provider and must be added to the system.
+        <br/><b>Actors:</b> Operator, Provider
+        <br/><b>Main Success Scenario:</b>
+        <br/>1.2.1 The new Provider registers via the Provider application (either online or in person)
+        <br/>1.2.1.1 If in-person, the Data Center Operator manually reviews this application.
+        <br/>1.2.1.2. If online, the application is sent to the Operator for review.
+        <br/>1.2.1.3. Form includes Provider name, mailing address, phone number, services offered and qualifications.
+        <br/>1.2.1.4. If Provider is approved by ChocAn, continue:
+        <br/>1.2.2. The Operator assigns the next available Provider number to the new Provider.
+        <br/>1.2.2.1. The Operator opens the document containing all Provider numbers.
+        <br/>1.2.2.2. The Operator finds the most recently assigned number and adds 1.
+        <br/>1.2.2.3. The new Provider’s name is assigned to this number.
+        <br/>1.2.3. The Operator updates the ChocAn Data Center’s provider records.
+        <br/>1.2.3.1. The Operator opens the provider database and creates a new record.
+        <br/>1.2.3.2. The Provider’s name, mailing address, phone number, application information and Provider number
         are added to this unique provider record.
-        <br/>1.1.4. The Provider is granted access to their personal Provider Terminal and given instructions for use.
-        <br/>1.1.5. The Provider is now ready to provide ChocAn services.
+        <br/>1.2.4. The Provider is granted access to their personal Provider Terminal and given instructions for use.
+        <br/>1.2.5. The Provider is now ready to provide ChocAn services.
         <br/>
         <br/><b>Extensions:</b>
-        <br/>1.1.1.3a. The Provider name on the registration form matches an existing record
-        <br/>1.1.1.3a.1. If the new Provider is actually an existing provider, the Operator does not make a new record
+        <br/>1.2.1.3a. The Provider name on the registration form matches an existing record
+        <br/>1.2.1.3a.1. If the new Provider is actually an existing provider, the Operator does not make a new record
         for this Provider.
-        <br/>1.1.1.3a.2. If the new Provider has the same name as an existing provider, the process does not change.
+        <br/>1.2.1.3a.2. If the new Provider has the same name as an existing provider, the process does not change.
         They will be distinguished from any similar names by their Provider number.
         <br/>-------------------------------------------------------------------------------------
-        <br/><a id="Delete Provider"/><b>Use Case:</b> Delete Provider <b>extends</b> Update Provider Records
+        <br/><a id="Delete Provider"/><b>Use Case:</b> Delete Provider <b>extends</b> Manage Providers
         <br/><b>Context:</b> A Provider is no longer a part of ChocAn, and their record must be deleted.
-        <br/><b>Actors:</b> Provider, Operator, Provider Records Database (part of ChocAn Data Center software)
+        <br/><b>Actors:</b> Provider, Operator
         <br/><b>Main Success Scenario:</b>
-        <br/>1.2.1. ChocAn is notified that a Provider is to be removed from ChocAn.
-        <br/>1.2.2. The Operator opens the Provider records database in the ChocAn Data Center software.
-        <br/>1.2.3. The Operator locates the Provider’s individual record using their Provider number.
-        <br/>1.2.4. The Provider’s record is deleted by the Operator.
-        <br/>1.2.4.1. The file containing the Provider’s contact information and services given is archived for a period
+        <br/>1.3.1. ChocAn is notified that a Provider is to be removed from ChocAn.
+        <br/>1.3.2. The Operator opens the Provider records database in the ChocAn Data Center software.
+        <br/>1.3.3. The Operator locates the Provider’s individual record using their Provider number.
+        <br/>1.3.4. The Provider’s record is deleted by the Operator.
+        <br/>1.3.4.1. The file containing the Provider’s contact information and services given is archived for a period
         of 60 days to handle any outstanding transactions.
-        <br/>1.2.4.2. After 60 days, all files pertaining to that Provider are deleted permanently.
+        <br/>1.3.4.2. After 60 days, all files pertaining to that Provider are deleted permanently.
         <br/>
         <br/><b>Extensions:</b>
-        <br/>1.2.5a. The deleted Provider wishes to be reinstated.
-        <br/>1.2.5a.1. If done within 60 days of cancellation, the Provider’s record is removed from the archives and
+        <br/>1.3.5a. The deleted Provider wishes to be reinstated.
+        <br/>1.3.5a.1. If done within 60 days of cancellation, the Provider’s record is removed from the archives and
         returned to the database. The Provider may keep their previous Provider number.
-        <br/>1.2.5a.2. If done after 60 days, the Provider is treated like a new Provider and must receive a new number.
+        <br/>1.3.5a.2. If done after 60 days, the Provider is treated like a new Provider and must receive a new number.
         <br/>-------------------------------------------------------------------------------------
         <br/>
 
@@ -460,7 +501,7 @@
     <!-- Aislinn's Use Caseee -->
     <br/>
     <h3 id="BillChocAn"> Billing ChocAn: </h3>
-    <img src="Images/Terminal%20Use%20Case%20Aislinn%202.png" alt="Aislinn Use Case" border="0" class="image">
+    <img src="Images/updatedbillingchocanusecasediagram.PNG" alt="Aislinn Use Case" border="0" class="image">
     <a href="VPP/BillingChocan.vpp">./VPP/BillingChocan.vpp</a>
     <p><br/><a id="Validating Provider"/><b>Use Case: </b>Validating Provider
         <br/><b>Context:</b> Provider needs to turn on and unlock the terminal
@@ -571,7 +612,7 @@
         <br/>
         <br/><b>Extensions:</b> None
         <br/>-------------------------------------------------------------------------------------
-        <br/><a id="Request Support" /><b>Use Case:</b> Request Report
+        <br/><a id="Request Report" /><b>Use Case:</b> Request Report
         <br/><b>Context:</b> At any time a ChocAn Manager can request a report be run individually
         <br/><b>Actors:</b> ChocAn Manager
         <br/><b>Main Success Scenario:</b>
