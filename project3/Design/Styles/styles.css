@@ -13,23 +13,23 @@
     padding-right: 10%;
 
 }
-#Table_of_Contents {
+.Table_of_Contents {
 
     width: 100%;
     text-align: center;
 
 }
-#ToC_left {
+.ToC_left {
     position: relative;
     top:0%;
     width: 30%;
     display: inline-block;
 }
-#ToC_Mid {
+.ToC_Mid {
     width: 30%;
     display: inline-block;
 }
-#ToC_Right {
+.ToC_Right {
     width: 30%;
     display: inline-block;
 }
