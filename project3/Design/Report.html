@@ -30,7 +30,18 @@
         <div class="dropdown">
             <a class="dropbtn" href="#Design">Design</a>
             <div class="dropdown-content">
-                <a href="#CCDiscussion">Coupling and Cohesion Discussion</a>
+                <a href="#CCDiscussion">Coupling and Cohesion</a>
+                <a href="#ClassDiagram">Class Diagram</a>
+                <a href="#Billing">Billing Process</a>
+                <a href="#MAP">Main Accounting Proceedure</a>
+                <a href="#ReqRep">Requesting Reports</a>
+                <a href="#EFT">Generate EFT Record</a>
+                <a href="#mem">Generate Member Report</a>
+                <a href="#prov">Generate Provider Report</a>
+                <a href="#sum">Generate Summart Report</a>
+                <a href="#manMem">Managing Members</a>
+                <a href="#manProv">Managing Providers</a>
+                <a href="#intMo">Interactive Mode</a>
             </div>
         </div>
     </div>
@@ -45,21 +56,22 @@
     <h2>NAME: Parker Jones</h2>
     <h3>CWID: 11616467</h3>
     <h3>EMAIL: pajones3@crimson.ua.edu</h3>
-    <h3>Hours Spent: 6 hrs</h3>
+    <h3>Hours Spent: 8 hrs</h3>
     <h2>Task Distribution:</h2>
     <p>
 
         <br/> I (Parker) was responsible for the Coupling and Cohesion Paragraph and for building the HTML file used for our report.
+        <br/> I also created the main class diagram and ensured that the team used the right classes in their diagrams.
         <br/>
         <br/> As the team's submitter, I was also responsible for submitting our completed project and full solution.
         <br/>
         <br/> The task distribution for each group member was even and is outlined below. Each individual's report.html is linked next to their name:
-        <br/> Parker Jones - 20%
-        <br/> Hunter James - 20%
+        <br/> Parker Jones - 25%
+        <br/> Hunter James - 25%
         <a href="Reports/HunterJames_team1.html"> HunterJames_team1.html</a>
-        <br/> Aislinn Marsden - 20%
+        <br/> Aislinn Marsden - 25%
         <a href="Reports/aislinnmarsden_team1.html"> aislinnmarsden_team1.html</a>
-        <br/> Riley Manning - 20%
+        <br/> Riley Manning - 25%
         <a href="Reports/rileymanning_team1.html"> rileymanning_team1.html</a>
         <br/>
         <br/>
@@ -68,14 +80,70 @@
 
     <!-- Design Header-->
     <h1 id="Design">Design</h1>
-    <p>Coupling and Cohesion:</p>
+    <h3 id="CCDiscussion">Coupling and Cohesion:</h3>
+    <p>The Provider Interface class manages methods and operations that the provider
+        <br/>can access from their terminal as well as attributes that store whether if
+        <br/>they are validated and what their ID is. Service Record class allows the
+        <br/>creation of objects and store all the data for a service record. Database
+        <br/>controller is a class that stores the users, service codes, and service records.
+        <br/>Database Controller also provides methods to add, remove, and search from datasets.
+        <br/>The Report class and its subclasses encapsulate relevant data into an object.
+        <br/>User and its subclasses encapsulate the data for the users and allow the management
+        <br/>of members and providers.  The software classes are formed according to function,
+        <br/>such as storing and managing data, and handling the providers information and
+        <br/>operations. The classes couple to perform operations on each others datasets.
+        <br/>By using this design, we achieve low coupling and high cohesion with out project.
+    </p>
 
 
-    <img src="../billing chocan/BillingChocanClassDiagram.png" class="image">
-    <img src="../Interactive%20Mode/hj_InteractiveMode_classdiagrams.vpp" class="image">
+    <h1 id="ClassDiagram">Class Diagram</h1>
+
+    <img src="Full Class Diagram/full%20class%20diagram.png" class="image">
+    <a href="Full%20Class%20Diagram/FullClassDiagram.vpp">Full Class Diagram/FullClassDiagram.vpp</a>
 
 
-    <h3>Sequence Diagram</h3>
+    <h1 id="Billing">Billing Process</h1>
+    <img src="billing%20chocan/Billing%20Chocan.png" class="image">
+    <a href="billing%20chocan/Stereotype%20Diagram%20vPP.vpp">billing chocan/Stereotype Diagram vPP.vpp</a>
+
+    <h1 id="MAP">Main Accounting Procedure</h1>
+    <img src="Main%20Accounting%20Procedure/Main%20Accounting%20Procedure%20Sequence%20Diagram.png" class="image">
+    <a href="Main%20Accounting%20Procedure/Main%20Accounting%20Procedure%20Sequence%20Diagram.vpp">Main Accounting Procedure/Main Accounting Procedure Sequence Diagram.vpp</a>
+
+    <h1 id="ReqRep">Request Report Proceedure</h1>
+    <img src="Main%20Accounting%20Procedure/Main%20Accounting%20Procedure%20Sequence%20Diagram.png" class="image">
+    <a href="Main%20Accounting%20Procedure/Main%20Accounting%20Procedure%20Sequence%20Diagram.vpp">Main Accounting Procedure/Main Accounting Procedure Sequence Diagram.vpp</a>
+
+    <h1 id="EFT">Generate EFT Record</h1>
+    <img src="Main%20Accounting%20Procedure/Generate%20EFT%20Record.png" class="image">
+    <a href="Main%20Accounting%20Procedure/Generate%20EFT%20Record.vpp">Main Accounting Procedure/Generate EFT Record.vpp</a>
+
+    <h1 id="mem">Generate Member Report</h1>
+    <img src="Main%20Accounting%20Procedure/Generate%20Member%20Report.png" class="image">
+    <a href="Main%20Accounting%20Procedure/Generate%20Member%20Report.vpp">Main Accounting Procedure/Generate Member Report.png</a>
+
+    <h1 id="prov">Generate Provider Report</h1>
+    <img src="Main%20Accounting%20Procedure/Generate%20Provider%20Report.png" class="image">
+    <a href="Main%20Accounting%20Procedure/Generate%20Provider%20Report.vpp">Main Accounting Procedure/Generate Provider Report.png</a>
+
+    <h1 id="sum">Generate Summary Report</h1>
+    <img src="Main%20Accounting%20Procedure/Generate%20Summary%20Report.png" class="image">
+    <a href="Main%20Accounting%20Procedure/Generate%20Summary%20Report.vpp">Main Accounting Procedure/Generate Summary Report.png</a>
+
+    <h1 id="manMem">Manage Members</h1>
+    <img src="Sequence%20Diagrams/ManageMembers_sequencediagram.png" class="image">
+    <a href="Sequence%20Diagrams/ManageMembers_sequencediagram.png">Sequence Diagrams/ManageMembers_sequencediagram.vpp</a>
+
+
+    <h1 id="manProv">Manage Providers</h1>
+    <img src="Sequence%20Diagrams/ManageProviders_sequencediagram.png" class="image">
+    <a href="Sequence%20Diagrams/ManageProviders_sequencediagram.png">Sequence Diagrams/ManageProviders_sequencediagram.vpp</a>
+
+
+    <h1 id="intMo">Interactive Mode</h1>
+    <img src="Sequence%20Diagrams/hj_InteractiveMode_SequenceDiagram.png" class="image">
+    <a href="Sequence%20Diagrams/hj_InteractiveMode_SequenceDiagram.png">Sequence Diagrams/hj_InteractiveMode_SequenceDiagram.png</a>
+
 
 
 
