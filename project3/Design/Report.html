@@ -30,7 +30,8 @@
         <div class="dropdown">
             <a class="dropbtn" href="#Design">Design</a>
             <div class="dropdown-content">
-                <a href="#CCDiscussion">Coupling and Cohesion Discussion</a>
+                <a href="#CCDiscussion">Coupling and Cohesion</a>
+                <a href="#ClassDiagram">Class `Diagram</a>
             </div>
         </div>
     </div>
@@ -68,14 +69,36 @@
 
     <!-- Design Header-->
     <h1 id="Design">Design</h1>
-    <p>Coupling and Cohesion:</p>
+    <h3 id="CCDiscussion">Coupling and Cohesion:</h3>
+    <p>The Provider Interface class manages methods and operations that the provider
+        <br/>can access from their terminal as well as attributes that store whether if
+        <br/>they are validated and what their ID is. Service Record class allows the
+        <br/>creation of objects and store all the data for a service record. Database
+        <br/>controller is a class that stores the users, service codes, and service records.
+        <br/>Database Controller also provides methods to add, remove, and search from datasets.
+        <br/>The Report class and its subclasses encapsulate relevant data into an object.
+        <br/>User and its subclasses encapsulate the data for the users and allow the management
+        <br/>of members and providers.  The software classes are formed according to function,
+        <br/>such as storing and managing data, and handling the providers information and
+        <br/>operations. The classes couple to perform operations on each others datasets.
+        <br/>By using this design, we achieve low coupling and high cohesion with out project.
+    </p>
 
 
-    <img src="../billing chocan/BillingChocanClassDiagram.png" class="image">
-    <img src="../Interactive%20Mode/hj_InteractiveMode_classdiagrams.vpp" class="image">
+    <h1 id="ClassDiagram">Class Diagram</h1>
+
+    <img src="Full Class Diagram/full%20Class%20Diagram.png" class="image">
+    <a href="Full%20Class%20Diagram/FullClassDiagram.vpp">Full Class Diagram/FullClassDiagram.vpp</a>
 
 
-    <h3>Sequence Diagram</h3>
+    <h1>Billing Process</h1>
+    <img src="billing%20chocan/Billing%20Sequence%20Diagram.png" class="image">
+    <a href="billing%20chocan/Billing%20Sequence%20Diagram.png">billing chocan/Billing Sequence Diagram.png</a>
+
+    <h1>Main Accounting Procedure</h1>
+    <img src="billing%20chocan/Billing%20Sequence%20Diagram.png" class="image">
+    <a href="billing%20chocan/Billing%20Sequence%20Diagram.png">billing chocan/Billing Sequence Diagram.png</a>
+
 
 
 
