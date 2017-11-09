@@ -12,6 +12,8 @@ public class DatabaseController {
  
  public void newMember() {
 	 
+	 
+	 
  }
 
  public void newProvider() {
