@@ -1,3 +1,3 @@
-public class Provider{
-
+public class Provider extends User {
+	
 }
