@@ -1,5 +1,5 @@
 public class Member extends Provider {
-	bool isSuspended;
+	boolean isSuspended;
 	Date lastPayDate;
 	
 	void suspend() {
