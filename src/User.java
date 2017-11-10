@@ -13,6 +13,9 @@ public class User {
 	private int phoneNumber;
 	private int userID;
 
+	public User() {
+
+	}
 
 	public User(String firstName, String lastName, String streetAddress, String city, String state, String zipCode,String email, int phoneNumber, int userID) {
 
