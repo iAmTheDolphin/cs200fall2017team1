@@ -4,7 +4,12 @@ Parker Jones
 Database Controller
  */
 
+import java.util.*;
+
 public class DatabaseController {
+
+ArrayList<User> users = new ArrayList<User>();
+
 
  public void getServiceRecord() {
 	 
