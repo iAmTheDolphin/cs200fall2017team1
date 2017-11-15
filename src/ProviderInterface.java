@@ -1,18 +1,19 @@
 
 
 public class ProviderInterface {
-
     boolean ProviderValidated = false;
+    boolean MemberValidated = false;
 
-   boolean ValidateProvider (int providerID){};
-   boolean ValidateMember(int memberID){};
+   boolean ValidateProvider (int providerID){};//checks to see if provider # is in file
+   boolean ValidateMember(int memberID){};//checks to see if member number is in file
 
-    Report requestProviderReport(){};
+    Report requestProviderReport(){};//uh... openservicerecord()?
     int lookupServiceCode(String name){
-        //this creates a service object and finds the relevant code
+        //this searches service record file for code pertaining to this
     };
 
-    void CreateServiceRecord(){//creates a service record object};
+    void CreateServiceRecord(){//creates a service record object, does GenerateServiceRecord from servicerecord class
+         };
 
 
 
