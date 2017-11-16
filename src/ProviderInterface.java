@@ -7,7 +7,7 @@ public class ProviderInterface {
    boolean ValidateProvider (int providerID){};//checks to see if provider # is in file
    boolean ValidateMember(int memberID){};//checks to see if member number is in file
 
-    Report requestProviderReport(){};//uh... openservicerecord()?
+    Report requestProviderReport(){};//uh...
     int lookupServiceCode(String name){
         //this searches service record file for code pertaining to this.....
         Service x = new Service();

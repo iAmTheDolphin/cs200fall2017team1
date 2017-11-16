@@ -2,15 +2,23 @@
 
 public class ServiceRecord {//this can only be accessed by the provider interface, probably
 
+    int ProviderNumber;
+    int MemberNumber;
+    string ProviderName;
+    string MemberName;
+    int ServiceCode;
+    double ServiceFee;
+    string ServiceName;
+
+
     void GenerateServiceRecord() { //prompts user for into, then generates file with this information
-        //the file is named ServiceRecord-providernumber-hh-ss-mm-dd-yyyy, to avoid naming errors
-        int providernumber=0;
-        int hour=0;
-        int minute=0;
-        int second=0;
+        //the file is named ServiceRecord-providernumber-Membernumber-mm-dd-yyyy, to avoid naming errors
+        //this assumes that a member can only recieve one service from a provider a day
         int month=0;
         int day=0;
         int year=0;
+
+
 
     };
     void OpenServiceRecord(){}; //prompts user to enter into and searches for a file with that name in a pop-up window
