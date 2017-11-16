@@ -13,33 +13,32 @@ public class DatabaseController {
     ArrayList<ServiceRecord> serviceRecords = new ArrayList<ServiceRecord>();
 
 
-    public void getServiceRecord() {
 
-    }
 
+    //creates another member in the list
     public void newMember(String firstName, String lastName, String streetAddress, String city, String state, String zipCode,String email, int phoneNumber, int userID) {
         members.add(new Member(firstName, lastName, streetAddress, city, state, zipCode, email, phoneNumber, userID));
     }
 
+
+    //creates a new provider in the list
     public void newProvider(String firstName, String lastName, String streetAddress, String city, String state, String zipCode,String email, int phoneNumber, int userID) {
         providers.add(new Provider(firstName, lastName, streetAddress, city, state, zipCode, email, phoneNumber, userID));
     }
 
-
+    //deletes the member with the corresponding ID
     public void deleteMember(int userID) {
         members.remove(getMember(userID));
     }
 
+
+    //suspends the member with the corresponding ID
     public void suspendMember(int userID) {
         getMember(userID).suspend();
     }
 
-    public void addServiceCode() {
 
-    }
-
-
-
+    //returns the Member object of the member with the corresponding ID
     public Member getMember(int userID) {
         for (Member member : members) {
             if (member.getUserID() == userID) {
@@ -52,6 +51,7 @@ public class DatabaseController {
     }
 
 
+    //returns the Provider object of the provider with the correspondin ID
     public Provider getProvider(int userID) {
         for (Provider provider : providers) {
             if (provider.getUserID() == userID) {
@@ -64,10 +64,11 @@ public class DatabaseController {
     }
 
 
+    public void addServiceCode() {
+
+    }
 
     public void searchServiceRecords(int userNum) {
-
-
 
 
 
