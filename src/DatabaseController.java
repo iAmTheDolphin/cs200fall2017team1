@@ -13,6 +13,9 @@ public class DatabaseController {
     ArrayList<ServiceRecord> serviceRecords = new ArrayList<ServiceRecord>();
 
 
+    public DatabaseController() {
+
+    }
 
 
     //creates another member in the list

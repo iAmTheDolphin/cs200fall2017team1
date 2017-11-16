@@ -4,6 +4,8 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
 
 
 
+
+
     void GenerateServiceRecord() { //prompts user for into, then generates file with this information
         //the file is named ServiceRecord-providernumber-hh-ss-mm-dd-yyyy, to avoid naming errors
         int providernumber=0;
