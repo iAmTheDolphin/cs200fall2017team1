@@ -9,10 +9,14 @@ public class ProviderInterface {
 
     Report requestProviderReport(){};//uh... openservicerecord()?
     int lookupServiceCode(String name){
-        //this searches service record file for code pertaining to this
+        //this searches service record file for code pertaining to this.....
+        Service x = new Service();
+        return x.FindServiceCode(String name);
     };
 
     void CreateServiceRecord(){//creates a service record object, does GenerateServiceRecord from servicerecord class
+        ServiceRecord x = new ServiceRecord();
+        x.GenerateServiceRecord();
          };
 
 
