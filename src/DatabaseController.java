@@ -87,6 +87,33 @@ public class DatabaseController {
     }
 
 
+    public ServiceCode searchServiceCodes(String name) {
+
+        ServiceCode tempCode = new ServiceCode();
+
+        for (ServiceCode serviceCode : serviceCodes) {
+            if( serviceCode.ServiceName.equals(name)) {
+                tempCode = serviceCode;
+            }
+        }
+
+        return tempCode;
+
+    }
+
+    public ServiceCode searchServiceCodes(int code) {
+
+        ServiceCode tempCode = new ServiceCode();
+
+        for (ServiceCode serviceCode : serviceCodes) {
+            if( serviceCode.ServiceCode == code) {
+                tempCode = serviceCode;
+            }
+        }
+
+        return tempCode;
+
+    }
 
 
     public ServiceRecord[] searchServiceRecords(Member member) {
@@ -135,7 +162,7 @@ public class DatabaseController {
 
     public void createMemberRecord(Member member) {
 
-        MemberReport report = new MemberReport();
+        MemberReport report = new MemberReport(member);
 
     }
 
