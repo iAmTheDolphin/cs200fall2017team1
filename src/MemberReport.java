@@ -1,4 +1,5 @@
 import java.io.File;
+//import service record information
 
 public class MemberReport extends Report {
 	//general information
@@ -7,11 +8,15 @@ public class MemberReport extends Report {
 	String memberAddress;
 	String memberCity;
 	String memberState;
-	int memberZipCode;
+	String memberZipCode;
 	String currentProvider;
 	
+	//update information for member
+	
+	memberID = getUserID();	
+	
 	//add array of classes for serviceRecord
-	MemberServiceRecord[] record = new MemberServiceRecord[100];
+	ServiceRecord record = new ServiceRecord;
 	//record[0] = new MemberServiceRecord();
 	
 	//create file
@@ -19,17 +24,18 @@ public class MemberReport extends Report {
 	
 	//writes to file
 	void writeFile() {
-		String text = "Member Name: " + memberName + '\n';
+		String text = "Member Name: " + getName() + '\n';
 		text += "Member ID: " + memberID + " " + '\n'
-				+ "Member Address: " + memberAddress + '\n'
-				+ "Member City: " + memberCity + '\n'
-				+ "Member State: " + memberState + '\n'
-				+ "Member Zip Code: " + memberZipCode + '\n';
+				+ "Member Address: " + getStreetAddress + '\n'
+				+ "Member City: " + getCity + '\n'
+				+ "Member State: " + getState + '\n'
+				+ "Member Zip Code: " + getZipCode + '\n';
 		for (record) {
 			//get memberNumber
-			text += "Service: " + serviceProvided + '\n'
-					+ "Service Date: " + serviceDate + '\n'
-					+ "Provider: " + serviceProvider + '\n';
+			text += "Service: " + ServiceName + '\n'
+					//+ "Service Date: " + serviceDate + '\n'
+					+ "Provider: " + ProviderName + '\n'
+					+ '\n';
 		}
 		file.print(string);
 	}
