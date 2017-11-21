@@ -11,10 +11,10 @@ public class DatabaseController {
     ArrayList<Member> members = new ArrayList<Member>();
     ArrayList<Provider> providers = new ArrayList<Provider>();
     ArrayList<ServiceRecord> serviceRecords = new ArrayList<ServiceRecord>();
+    ArrayList<ServiceCode> serviceCodes = new ArrayList<ServiceCode>();
 
 
     public DatabaseController() {
-
 
 
 
@@ -25,7 +25,14 @@ public class DatabaseController {
     public void newMember(String firstName, String lastName, String streetAddress,
                           String city, String state, String zipCode,String email,
                           int phoneNumber, int userID) {
-        members.add(new Member(firstName, lastName, streetAddress, city, state, zipCode, email, phoneNumber, userID));
+
+        int newUserID = 0;
+
+        if(members.size() == 0) {
+
+        }
+
+        members.add(new Member(firstName, lastName, streetAddress, city, state, zipCode, email, phoneNumber, userID ));
     }
 
 
@@ -76,18 +83,55 @@ public class DatabaseController {
 
     public void addServiceCode() {
 
-    }
-
-    public void searchServiceRecords(int userNum) {
-
-
 
     }
+
+
+
+
+    public ServiceRecord[] searchServiceRecords(Member member) {
+
+        ArrayList<ServiceRecord> tempRecords = new ArrayList<>();
+
+        for ( ServiceRecord record : serviceRecords ) {
+
+            if( record.MemberNumber == member.getUserID() ) {
+                tempRecords.add(record);
+            }
+        }
+
+        ServiceRecord[] matchingRecords = tempRecords.toArray(new ServiceRecord[tempRecords.size()]);
+
+        return matchingRecords;
+    }
+
+
+    public ServiceRecord[] searchServiceRecords(Provider provider){
+
+        ArrayList<ServiceRecord> tempRecords = new ArrayList<>();
+
+        for ( ServiceRecord record : serviceRecords ) {
+
+            if( record.ProviderNumber == provider.getUserID() ) {
+                tempRecords.add(record);
+            }
+        }
+
+        ServiceRecord[] matchingRecords = tempRecords.toArray(new ServiceRecord[tempRecords.size()]);
+
+        return matchingRecords;
+
+    }
+
 
     public void searchServiceRecords(Date start, Date end) {
 
 
+
     }
+
+
+
 
     public void createMemberRecord(Member member) {
 
