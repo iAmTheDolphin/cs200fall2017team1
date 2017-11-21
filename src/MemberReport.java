@@ -1,4 +1,5 @@
 import java.io.File;
+//import service record information
 
 public class MemberReport extends Report {
 	//general information
@@ -7,11 +8,21 @@ public class MemberReport extends Report {
 	String memberAddress;
 	String memberCity;
 	String memberState;
-	int memberZipCode;
+	String memberZipCode;
 	String currentProvider;
 	
+	//update information for member
+	
+	memberID = getUserID();
+	memberName = getName();
+	memberAddress = getStreetAddress();
+	memberCity = getCity();
+	memberState = get State();
+	memberZipCode = getZipCode();
+	
+	
 	//add array of classes for serviceRecord
-	MemberServiceRecord[] record = new MemberServiceRecord[100];
+	ServiceRecord record = new ServiceRecord;
 	//record[0] = new MemberServiceRecord();
 	
 	//create file
@@ -27,9 +38,9 @@ public class MemberReport extends Report {
 				+ "Member Zip Code: " + memberZipCode + '\n';
 		for (record) {
 			//get memberNumber
-			text += "Service: " + serviceProvided + '\n'
+			text += "Service: " + ServiceName + '\n'
 					+ "Service Date: " + serviceDate + '\n'
-					+ "Provider: " + serviceProvider + '\n';
+					+ "Provider: " + ProviderName + '\n';
 		}
 		file.print(string);
 	}
