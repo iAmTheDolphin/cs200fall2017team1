@@ -13,13 +13,7 @@ public class MemberReport extends Report {
 	
 	//update information for member
 	
-	memberID = getUserID();
-	memberName = getName();
-	memberAddress = getStreetAddress();
-	memberCity = getCity();
-	memberState = get State();
-	memberZipCode = getZipCode();
-	
+	memberID = getUserID();	
 	
 	//add array of classes for serviceRecord
 	ServiceRecord record = new ServiceRecord;
@@ -30,17 +24,18 @@ public class MemberReport extends Report {
 	
 	//writes to file
 	void writeFile() {
-		String text = "Member Name: " + memberName + '\n';
+		String text = "Member Name: " + getName() + '\n';
 		text += "Member ID: " + memberID + " " + '\n'
-				+ "Member Address: " + memberAddress + '\n'
-				+ "Member City: " + memberCity + '\n'
-				+ "Member State: " + memberState + '\n'
-				+ "Member Zip Code: " + memberZipCode + '\n';
+				+ "Member Address: " + getStreetAddress + '\n'
+				+ "Member City: " + getCity + '\n'
+				+ "Member State: " + getState + '\n'
+				+ "Member Zip Code: " + getZipCode + '\n';
 		for (record) {
 			//get memberNumber
 			text += "Service: " + ServiceName + '\n'
 					//+ "Service Date: " + serviceDate + '\n'
-					+ "Provider: " + ProviderName + '\n';
+					+ "Provider: " + ProviderName + '\n'
+					+ '\n';
 		}
 		file.print(string);
 	}
