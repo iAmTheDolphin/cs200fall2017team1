@@ -135,7 +135,7 @@ public class DatabaseController {
 
     public void createMemberRecord(Member member) {
 
-        MemberReport report = new MemberReport(member);
+        MemberReport report = new MemberReport();
 
     }
 
