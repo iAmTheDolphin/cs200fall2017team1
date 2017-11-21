@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.Scanner;
 
 //this will be like the starting thing i guess?
 
@@ -17,6 +18,9 @@ import java.awt.*;
 
 public class ProviderTerminal {
 
+    Scanner scan = new Scanner (System.in);
+    DatabaseController database = new DatabaseController();
+
 
     public void start() {
 
@@ -31,7 +35,28 @@ public class ProviderTerminal {
         System.out.println(" \\/  \\/ \\___|_|\\___\\___/|_| |_| |_|\\___(_)");
         System.out.println("");
 
-        System.out.println("this is where the provider's menu options should go");
+        System.out.println("Please enter your provider number : ");
+
+        int providerNum = -1;
+
+        providerNum = scan.nextInt();
+
+        while(providerNum < 0) {
+            System.out.println("Invalid Provider ID. Please enter in a valid ID.");
+            providerNum = scan.nextInt();
+        }
+
+        System.out.println("validating provider number...");
+
+        Provider provider = database.getProvider(providerNum);
+
+        if(provider.getUserID() != -1) {
+
+            System.out.println("continue execution here for provider");
+
+        }
+
+
 
     }
 
