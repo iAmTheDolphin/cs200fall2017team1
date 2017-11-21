@@ -26,10 +26,10 @@ public class MemberReport extends Report {
 	void writeFile() {
 		String text = "Member Name: " + getName() + '\n';
 		text += "Member ID: " + memberID + " " + '\n'
-				+ "Member Address: " + getStreetAddress + '\n'
-				+ "Member City: " + getCity + '\n'
-				+ "Member State: " + getState + '\n'
-				+ "Member Zip Code: " + getZipCode + '\n';
+				+ "Member Address: " + getStreetAddress() + '\n'
+				+ "Member City: " + getCity() + '\n'
+				+ "Member State: " + getState() + '\n'
+				+ "Member Zip Code: " + getZipCode() + '\n';
 		for (record) {
 			//get memberNumber
 			text += "Service: " + ServiceName + '\n'
@@ -37,6 +37,6 @@ public class MemberReport extends Report {
 					+ "Provider: " + ProviderName + '\n'
 					+ '\n';
 		}
-		file.print(string);
+		file.print(text);
 	}
 }
