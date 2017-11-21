@@ -37,8 +37,12 @@ public class Driver {
             userSelection = scan.nextInt();
 
             if(userSelection == 1) {
+
                 // start the Provider Terminal
                 System.out.println("starting the provider Terminal...");
+                ProviderTerminal terminal = new ProviderTerminal();
+                terminal.start();
+
             }
             else if( userSelection == 2) {
                 // start the Operator Terminal

@@ -18,7 +18,22 @@ import java.awt.*;
 public class ProviderTerminal {
 
 
+    public void start() {
 
+        //this is where controll is transfered to when it is chosen.
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+        System.out.println(" _    _      _                          _ ");
+        System.out.println("| |  | |    | |                        | |");
+        System.out.println("| |  | | ___| | ___ ___  _ __ ___   ___| |");
+        System.out.println("| |/\\| |/ _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ |");
+        System.out.println("\\  /\\  /  __/ | (_| (_) | | | | | |  __/_|");
+        System.out.println(" \\/  \\/ \\___|_|\\___\\___/|_| |_| |_|\\___(_)");
+        System.out.println("");
+
+        System.out.println("this is where the provider's menu options should go");
+
+    }
 
 
 }
