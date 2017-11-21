@@ -19,12 +19,12 @@ public class Driver {
             ProviderTerminal providerTerminal = new ProviderTerminal();
 
             System.out.println("--------------------------------------------------------------------------");
-            System.out.println(" _____ _                 ___            ");
-            System.out.println("/  __ \\ |               / _ \\         ");
-            System.out.println("| /  \\/ |__   ___   ___/ /_\\ \\_ __   ");
-            System.out.println("| |   | '_ \\ / _ \\ / __|  _  | '_ \\  ");
-            System.out.println("| \\__/\\ | | | (_) | (__| | | | | | |  ");
-            System.out.println(" \\____/_| |_|\\___/ \\___\\_| |_/_| |_|");
+            System.out.println("                 _____ _                 ___            ");
+            System.out.println("                /  __ \\ |               / _ \\         ");
+            System.out.println("                | /  \\/ |__   ___   ___/ /_\\ \\_ __   ");
+            System.out.println("                | |   | '_ \\ / _ \\ / __|  _  | '_ \\  ");
+            System.out.println("                | \\__/\\ | | | (_) | (__| | | | | | |  ");
+            System.out.println("                 \\____/_| |_|\\___/ \\___\\_| |_/_| |_|");
             System.out.println("");
             System.out.println("--------------------------------------------------------------------------");
 
@@ -32,7 +32,7 @@ public class Driver {
             System.out.println("    Menu :                                     ");
             System.out.println("       1: Provider Terminal                    ");
             System.out.println("       2: Operator Terminal                    ");
-            System.out.println("       93: GUI Mode                             ");
+            System.out.println("       3: GUI Mode                             ");
 
             userSelection = scan.nextInt();
 
@@ -43,12 +43,10 @@ public class Driver {
             else if( userSelection == 2) {
                 // start the Operator Terminal
                 System.out.println("starting the operator Terminal...");
-
             }
             else if (userSelection == 3) {
                 // start the GUI
                 System.out.println("starting the GUI...");
-
             }
             else {
                 userSelection = -1;
