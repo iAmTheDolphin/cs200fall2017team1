@@ -1,7 +1,12 @@
+//need to match up service record to id number
+
+//will receive member as parameter
+//member.get()
+
 import java.io.File;
 //import service record information
 
-public class MemberReport extends Report {
+public class MemberReport(member) extends Report {
 	//general information
 	int memberID;
 	String memberName;
@@ -13,7 +18,7 @@ public class MemberReport extends Report {
 	
 	//update information for member
 	
-	memberID = getUserID();	
+	memberID = member.getUserID();	
 	
 	//add array of classes for serviceRecord
 	ServiceRecord record = new ServiceRecord;
@@ -24,12 +29,12 @@ public class MemberReport extends Report {
 	
 	//writes to file
 	void writeFile() {
-		String text = "Member Name: " + getName() + '\n';
+		String text = "Member Name: " + member.getName() + '\n';
 		text += "Member ID: " + memberID + " " + '\n'
-				+ "Member Address: " + getStreetAddress() + '\n'
-				+ "Member City: " + getCity() + '\n'
-				+ "Member State: " + getState() + '\n'
-				+ "Member Zip Code: " + getZipCode() + '\n';
+				+ "Member Address: " + member.getStreetAddress() + '\n'
+				+ "Member City: " + member.getCity() + '\n'
+				+ "Member State: " + member.getState() + '\n'
+				+ "Member Zip Code: " + member.getZipCode() + '\n';
 		for (record) {
 			//get memberNumber
 			text += "Service: " + ServiceName + '\n'
