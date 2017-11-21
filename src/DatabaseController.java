@@ -81,18 +81,21 @@ public class DatabaseController {
     }
 
 
-    public void addServiceCode() {
 
+    public void addServiceCode(String name, int code, double fee) {
+
+        serviceCodes.add(new ServiceCode(name, code, fee));
 
     }
 
 
+    //search the service codes by name
     public ServiceCode searchServiceCodes(String name) {
 
-        ServiceCode tempCode = new ServiceCode();
+        ServiceCode tempCode = new ServiceCode("-1", -1, -1);
 
         for (ServiceCode serviceCode : serviceCodes) {
-            if( serviceCode.ServiceName.equals(name)) {
+            if( serviceCode.serviceName.equals(name)) {
                 tempCode = serviceCode;
             }
         }
@@ -101,12 +104,14 @@ public class DatabaseController {
 
     }
 
+
+    //search the service codes by the code
     public ServiceCode searchServiceCodes(int code) {
 
-        ServiceCode tempCode = new ServiceCode();
+        ServiceCode tempCode = new ServiceCode("-1", -1, -1);
 
         for (ServiceCode serviceCode : serviceCodes) {
-            if( serviceCode.ServiceCode == code) {
+            if( serviceCode.serviceCode == code) {
                 tempCode = serviceCode;
             }
         }
@@ -116,6 +121,7 @@ public class DatabaseController {
     }
 
 
+    //search the service records by member
     public ServiceRecord[] searchServiceRecords(Member member) {
 
         ArrayList<ServiceRecord> tempRecords = new ArrayList<>();
@@ -133,6 +139,7 @@ public class DatabaseController {
     }
 
 
+    //search the service records by provider
     public ServiceRecord[] searchServiceRecords(Provider provider){
 
         ArrayList<ServiceRecord> tempRecords = new ArrayList<>();
@@ -151,12 +158,12 @@ public class DatabaseController {
     }
 
 
+    //search the service records by Time period TODO this is Incomplete
     public void searchServiceRecords(Date start, Date end) {
 
 
 
     }
-
 
 
 
