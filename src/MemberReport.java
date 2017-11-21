@@ -39,7 +39,7 @@ public class MemberReport extends Report {
 		for (record) {
 			//get memberNumber
 			text += "Service: " + ServiceName + '\n'
-					+ "Service Date: " + serviceDate + '\n'
+					//+ "Service Date: " + serviceDate + '\n'
 					+ "Provider: " + ProviderName + '\n';
 		}
 		file.print(string);
