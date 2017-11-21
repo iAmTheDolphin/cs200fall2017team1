@@ -1,16 +1,10 @@
 
 
-public class Service {
+public class ServiceCode {
     String ServiceName;
     int ServiceCode;
     double ServiceFee;
 
-
-    Service<><> ImportServices(){
-        //reads file in to a vector, then returns it
-        //file name... ProviderDirectory.txt
-        //if it doesnt exist, creates it and sends null, i guess
-    }
 
     boolean AddService(string name, int code, double fee){
         //add stuff to the file. if the file doesnt exist, it creates it. just a basic text file.
