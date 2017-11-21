@@ -20,6 +20,7 @@ public class User {
 
 	}
 
+	// construct a User
 	public User(String firstName, String lastName, String streetAddress, String city, String state, String zipCode,String email, int phoneNumber, int userID) {
 
 		this.firstName = firstName;
@@ -40,11 +41,11 @@ public class User {
 		return firstName + " " + lastName;
 	}
 
-	String getStreetAddress () {
+	String getStreetAddress() {
 		return streetAddress;
 	}
 
-	String getCity () {
+	String getCity() {
 		return city;
 	}
 
