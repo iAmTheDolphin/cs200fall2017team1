@@ -4,11 +4,11 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
 
     int ProviderNumber;
     int MemberNumber;
-    string ProviderName;
-    string MemberName;
+    String ProviderName;
+    String MemberName;
     int ServiceCode;
     double ServiceFee;
-    string ServiceName;
+    String ServiceName;
 
 
     void GenerateServiceRecord() { //prompts user for into, then generates file with this information
@@ -20,8 +20,8 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
 
 
 
-    };
-    void OpenServiceRecord(){}; //prompts user to enter into and searches for a file with that name in a pop-up window
+    }
+    void OpenServiceRecord(){} //prompts user to enter into and searches for a file with that name in a pop-up window
     // if file isnt found, user can try again or choose to exit.
 
 
