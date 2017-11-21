@@ -1,7 +1,6 @@
 //need to match up service record to id number
 
 //will receive member as parameter
-//member.get()
 
 import java.io.File;
 //import service record information
