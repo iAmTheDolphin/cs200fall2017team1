@@ -37,6 +37,6 @@ public class MemberReport extends Report {
 					+ "Provider: " + ProviderName + '\n'
 					+ '\n';
 		}
-		file.print(string);
+		file.print(text);
 	}
 }
