@@ -1,5 +1,8 @@
-
-
+/*
+Hunter James
+11/08/17
+User Class
+ */
 
 public class User {
 

@@ -1,3 +1,8 @@
+/*
+Hunter James
+11/08/17
+Member Class
+ */
 
 import java.util.*;
 
@@ -9,8 +14,7 @@ public class Member extends User{
 	    super(firstName, lastName, streetAddress, city, state, zipCode, email, phoneNumber, userID);
     }
 
-
-
+	
 	void suspend() {
 		isSuspended = true;
 	}
