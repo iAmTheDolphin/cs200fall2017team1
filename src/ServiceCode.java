@@ -33,8 +33,8 @@ public class ServiceCode {
             if (temp2.serviceCode == -1) {end = true; break;}
             else {
                 System.out.println ("\nName: ", temp2.serviceName, " || ");
-                System.out.println ("\nCode: ", temp2.serviceCode, " || ");
-                System.out.println ("\nFee: $", temp2.serviceFee, " || ");
+                System.out.println ("Code: ", temp2.serviceCode, " || ");
+                System.out.println ("Fee: $", temp2.serviceFee, " || ");
             }
         }
         ProviderInterface finished = new ProviderInterface();
