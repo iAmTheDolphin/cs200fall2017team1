@@ -1,4 +1,5 @@
-
+import java.awt.*;
+import java.util.Scanner;
 
 //this will be like the starting thing i guess?
 
@@ -17,31 +18,47 @@
 
 public class ProviderTerminal {
 
-    public void Start(){
-    //char try = 'y';
-    //while (try == 0) {
-    System.out.println("\nPlease enter your Provider ID: ");
-    int ID = 0; //= input
-    ProviderInterface x = new ProviderInterface();
-    boolean check = x.ValidateProvider(ID);
-    if (check) {
-        boolean menu = false;
-        while (!menu){
-        System.out.println("\nMenu \n1. Give Service \n2. Create Service Record\n3. Log Out\n"); //add more if necessary
-        String input = "0";// = input;
-        if (input == "1"){menu=true;}
-        else if (input == "2"){menu=true;}
-        else if (input == "3"){menu=true;}
-        else {
-            System.out.println("\nSorry, that is not an option. Please try again. \n");
-        }}
+    Scanner scan = new Scanner (System.in);
+    DatabaseController database = new DatabaseController();
+
+
+    public void start() {
+
+        //this is where controll is transfered to when it is chosen.
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+        System.out.println(" _    _      _                          _ ");
+        System.out.println("| |  | |    | |                        | |");
+        System.out.println("| |  | | ___| | ___ ___  _ __ ___   ___| |");
+        System.out.println("| |/\\| |/ _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ |");
+        System.out.println("\\  /\\  /  __/ | (_| (_) | | | | | |  __/_|");
+        System.out.println(" \\/  \\/ \\___|_|\\___\\___/|_| |_| |_|\\___(_)");
+        System.out.println("");
+
+        System.out.println("Please enter your provider number : ");
+
+        int providerNum = -1;
+
+        providerNum = scan.nextInt();
+
+        while(providerNum < 0) {
+            System.out.println("Invalid Provider ID. Please enter in a valid ID.");
+            providerNum = scan.nextInt();
+        }
+
+        System.out.println("validating provider number...");
+
+        Provider provider = database.getProvider(providerNum);
+
+        if(provider.getUserID() != -1) {
+
+            System.out.println("continue execution here for provider");
+
+        }
+
+
 
     }
-    else {
-        System.out.println("\nSorry, that is an incorrect Provider ID. Try again? (Y/N) ");
-        //try = input
-    }}
-   // }
 
 
 }

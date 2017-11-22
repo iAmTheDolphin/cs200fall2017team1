@@ -1,10 +1,19 @@
 
 
 public class ServiceCode {
-    String ServiceName;
-    int ServiceCode;
-    double ServiceFee;
+    String serviceName;
+    int serviceCode;
+    double serviceFee;
 
+    public ServiceCode() {
+
+    }
+
+    public ServiceCode(String name, int code, double fee) {
+        serviceName = name;
+        serviceCode = code;
+        serviceFee = fee;
+    }
 
     boolean AddService(String name, int code, double fee){
         //add stuff to the file. if the file doesnt exist, it creates it. just a basic text file.
