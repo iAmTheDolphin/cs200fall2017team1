@@ -11,6 +11,7 @@ public class ProviderInterface {
            System.out.println("Welcome, " + check.getName());
             return true;}
        return false;}//checks to see if provider # is in file
+
    boolean ValidateMember(int memberID){       DatabaseController x = new DatabaseController();
        Member check = x.getMember(memberID);
        if (check.getName() != "-1") {
