@@ -52,6 +52,7 @@ public class ProviderTerminal {
 
         if(provider.getUserID() != -1) {
 
+            //getProvider has returned a valid provider Num and we can continue execution
             System.out.println("continue execution here for provider");
 
         }
