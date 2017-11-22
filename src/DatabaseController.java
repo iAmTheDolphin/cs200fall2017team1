@@ -80,7 +80,7 @@ public class DatabaseController {
     }
 
 
-
+    //creates a new Service Code with the next available ID
     public void addServiceCode(String name, double fee) {
 
         int newCode = 0;
