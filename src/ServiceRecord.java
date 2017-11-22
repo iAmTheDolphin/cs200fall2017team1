@@ -12,7 +12,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
     String ServiceTime;
 
 
-    void GenerateServiceRecord() { //prompts user for into, then generates file with this information
+    public void GenerateServiceRecord() { //prompts user for into, then generates file with this information
         //the file is named SR-providernumber-membernumber-date, to avoid naming errors
         //this assumes that a member can only recieve one service from a specific provider a day
 
@@ -42,7 +42,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         }
     }
 
-    System.out.println("\nThe fee for this service is : $", y.serviceFee, ". Is this correct?(Y/N)")//add a loop here
+    System.out.println("\nThe fee for this service is : $", y.serviceFee, ". Is this correct?(Y/N)");//add a loop here
 
     System.out.println("\nPlease enter the date and time of the service in mm/dd/yyyy hh-mm-ss format: ");//using date, may not need this
     ServiceTime = scan.nextString(); //this will be in the file, but the name of the file will contain the current date stamp.
@@ -60,16 +60,17 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         writer.println("\nProvider Number: ", ProviderNumber);
         writer.println("\nMember Name: ", MemberName);
         writer.println("\nMember Number: ", MemberNumber);
-        writer.println("\n Service Given: "y.serviceName);
-        writer.println("\n Service Code: "y.serviceCode);
-        writer.println("\n Service Fee: $"y.serviceFee);
+        writer.println("\n Service Given: ", y.serviceName);
+        writer.println("\n Service Code: ", y.serviceCode);
+        writer.println("\n Service Fee: $", y.serviceFee);
         writer.println("\nNotes: ", Notes);
         writer.println("\n");
         writer.close();
 
-
+    ProviderInterface temp = new ProviderInterface();
+    temp.MainMenu();
     }
-    void OpenServiceRecord(){} //prompts user to enter into and searches for a file with that name in a pop-up window
+    public void OpenServiceRecord(){} //prompts user to enter into and searches for a file with that name in a pop-up window
     // if file isnt found, user can try again or choose to exit.
     //do we even need this?
 

@@ -51,11 +51,17 @@ public class ProviderTerminal {
         Provider provider = database.getProvider(providerNum);
 
         if(provider.getUserID() != -1) {
-
-            System.out.println("continue execution here for provider");
+            ProviderInterface temp = new ProviderInterface();
+            temp.MainMenu();
 
         }
+        else {
+            System.out.println("\nSorry, that isn't a valid ID. Try again? (Y/N)");
+            char input = scan.nextChar();
+            if (input == 'y' || input == 'Y') start();
+            //else exit program??
 
+        }
 
 
     }
