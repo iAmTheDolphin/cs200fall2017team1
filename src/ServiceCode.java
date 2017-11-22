@@ -17,7 +17,7 @@ public class ServiceCode {
 
     void AddService(){
         DatabaseController temp = new DatabaseController();
-        temp.addServiceCode(serviceName, serviceCode, serviceFee);
+        temp.addServiceCode(serviceName, serviceFee);
     }
 
     void DisplayServiceFile(){} //this just opens up the file in a new window in case the user wants to just. look at em

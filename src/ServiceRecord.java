@@ -32,13 +32,12 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         System.out.println("\nIs this a new service? (Y/N)");
         char input = scan.nextChar();
         if (input == 'y' || input == 'Y'){
-            int code = 0; //= GenerateServiceCode... stuff
             int fee = 0;
 
             System.out.println("\nWhat is the fee for ", ServiceName, "?");
             fee = scan.nextDouble();
 
-            ServiceCode temp = new ServiceCode(ServiceName, code, fee);
+            ServiceCode temp = new ServiceCode(ServiceName, 0, fee);
             temp.AddService();
         }
     }
