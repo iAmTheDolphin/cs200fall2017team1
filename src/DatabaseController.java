@@ -81,9 +81,15 @@ public class DatabaseController {
 
 
 
-    public void addServiceCode(String name, int code, double fee) {
+    public void addServiceCode(String name, double fee) {
 
-        serviceCodes.add(new ServiceCode(name, code, fee));
+        int newCode = 0;
+
+        if(serviceCodes.size() > 0) {
+            newCode = serviceCodes.size();
+        }
+
+        serviceCodes.add(new ServiceCode(name, newCode, fee));
 
     }
 
