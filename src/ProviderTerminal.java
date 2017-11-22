@@ -24,7 +24,7 @@ public class ProviderTerminal {
 
     public void start() {
 
-        //this is where controll is transfered to when it is chosen.
+        //this is where control is transferred to when it is chosen.
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
         System.out.println(" _    _      _                          _ ");
