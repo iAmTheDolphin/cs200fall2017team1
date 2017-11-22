@@ -26,23 +26,8 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
     MemberName = scan.nextString();
     System.out.println("\nPlease enter the service name: ");
     ServiceName = scan.nextString();
-    DatabaseController x = new DatabaseController();
-    ServiceCode y = x.searchServiceCodes(ServiceName);
-    if (y.serviceFee == -1){
-        System.out.println("\nIs this a new service? (Y/N)");
-        char input = scan.nextChar();
-        if (input == 'y' || input == 'Y'){
-            int fee = 0;
 
-            System.out.println("\nWhat is the fee for ", ServiceName, "?");
-            fee = scan.nextDouble();
-
-            ServiceCode temp = new ServiceCode(ServiceName, 0, fee);
-            temp.AddService();
-        }
-    }
-
-    System.out.println("\nThe fee for this service is : $", y.serviceFee, ". Is this correct?(Y/N)");//add a loop here
+    ServiceCode y = FindServiceInfo();
 
     System.out.println("\nPlease enter the date and time of the service in mm/dd/yyyy hh-mm-ss format: ");//using date, may not need this
     ServiceTime = scan.nextString(); //this will be in the file, but the name of the file will contain the current date stamp.
@@ -54,9 +39,9 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
     String filename = ProviderNumber.toString()+MemberNumber.toString()+output;//is this correct? lets find out
     PrintWriter writer = new PrintWriter(filename, "UTF-8");
 
-    writer.println("Service Record\n");
+        writer.println("Service Record\n");
         writer.println("\nDate and time of service: ", ServiceTime);
-    writer.println("Provider Name: ", ProviderName);
+        writer.println("Provider Name: ", ProviderName);
         writer.println("\nProvider Number: ", ProviderNumber);
         writer.println("\nMember Name: ", MemberName);
         writer.println("\nMember Number: ", MemberNumber);
@@ -74,5 +59,37 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
     // if file isnt found, user can try again or choose to exit.
     //do we even need this?
 
+    public ServiceCode FindServiceInfo(String ServiceName){
+        DatabaseController x = new DatabaseController();
+        ServiceCode y = x.searchServiceCodes(ServiceName);
+        if (y.serviceFee == -1){
+            System.out.println("\nIs this a new service? (Y/N)");
+            char input = scan.nextChar();
+            if (input == 'y' || input == 'Y'){
+                int fee = 0;
 
+                System.out.println("\nWhat is the fee for ", ServiceName, "?");
+                fee = scan.nextDouble();
+
+                ServiceCode temp = new ServiceCode(ServiceName, 0, fee);
+                temp.AddService();
+            }
+            else {
+                System.out.println("\nPlease try entering the name again: ");
+                String tempp = scan.nextString();
+                FindServiceInfo(tempp);
+            }
+
+    }
+        System.out.println("\nThe fee for this service is : $", y.serviceFee, ". Is this correct?(Y/N)");
+            char input = scan.nextChar();
+            if (input == 'y' || input == 'Y'){return y;}
+            else {
+                System.out.println("\nPlease try re-entering the service name. ");
+                String tempp = scan.nextString();
+                FindServiceInfo(tempp);
+            }
+
+        return y;
+//will add stuff about looking up by code later
 }
