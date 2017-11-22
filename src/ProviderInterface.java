@@ -60,7 +60,7 @@ public class ProviderInterface {
             System.out.println("\nSorry, that member doesn't seem to exist. Try again? (Y/N)");
             char tempx = scan.nextChar();
             if (tempx == 'y' || tempx == 'Y'){GiveService();}//try again
-            else {MainMenu();} //return to main menu
+            else {MainMenu();}
         }
     }
 
