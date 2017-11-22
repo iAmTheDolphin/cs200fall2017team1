@@ -22,10 +22,10 @@ public class DatabaseController {
                           String city, String state, String zipCode,String email,
                           int phoneNumber) {
 
-        int newUserID = 0;
+        int newUserID = 100000;
 
         if(members.size() > 0) {
-            newUserID = members.size();
+            newUserID += members.size();
         }
 
         members.add(new Member(firstName, lastName, streetAddress, city, state, zipCode, email, phoneNumber, newUserID ));
@@ -37,14 +37,15 @@ public class DatabaseController {
                             String city, String state, String zipCode,String email,
                             int phoneNumber) {
 
-        int newProviderID = 0;
+        int newProviderID = 100000;
 
         if(providers.size() > 0) {
-            newProviderID = providers.size();
+            newProviderID += providers.size();
         }
 
         providers.add(new Provider(firstName, lastName, streetAddress, city, state, zipCode, email, phoneNumber, newProviderID));
     }
+
 
     //deletes the member with the corresponding ID
     public void deleteMember(int userID) {
@@ -87,10 +88,10 @@ public class DatabaseController {
     //creates a new Service Code with the next available ID
     public void addServiceCode(String name, double fee) {
 
-        int newCode = 0;
+        int newCode = 100000;
 
         if(serviceCodes.size() > 0) {
-            newCode = serviceCodes.size();
+            newCode += serviceCodes.size();
         }
 
         serviceCodes.add(new ServiceCode(name, newCode, fee));
