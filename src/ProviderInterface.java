@@ -44,8 +44,8 @@ public class ProviderInterface {
                 MainMenu();
             }
             else{
-                System.out.println("When you are finished, type Y to create the service record, or any other key to wait until later to create it.");
-                char input2 = scan.nextChar();
+                System.out.println("When you are finished, type Y to create the service record, or N to wait until later to create it.");
+                char input2 = TryAgain();
                 if (input2 == 'Y' || input2 == 'y'){
                     ServiceRecord newServiceRecord = new ServiceRecord();
                     newServiceRecord.GenerateServiceRecord();
@@ -58,7 +58,7 @@ public class ProviderInterface {
         }
         else {
             System.out.println("\nSorry, that member doesn't seem to exist. Try again? (Y/N)");
-            char tempx = scan.nextChar();
+            char tempx = TryAgain();
             if (tempx == 'y' || tempx == 'Y'){GiveService();}//try again
             else {MainMenu();}
         }
@@ -73,4 +73,14 @@ public class ProviderInterface {
 
 
 
-}
+
+
+    public char TryAgain() {
+        //System.out.println("\nWould you like to try again? (Y/N)");
+        char input = scan.nextChar();
+        while (input != 'y' && input != 'Y' && input != 'n' && input != 'N') {
+            System.out.println("\nThat is not a valid input. Please try again.");
+            input = scan.nextChar();
+        }
+        return input;
+    }}

@@ -26,13 +26,13 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         MemberName = scan.nextString();
         System.out.println("\nPlease enter the service name, or enter \"code\" if you want to search by code: ");
         ServiceName = scan.nextString();
-        ServiceCode y = new ServiceCode;
+        ServiceCode y = new ServiceCode();
         if (ServiceName == "code"){
             System.out.println("\nPlease enter the service code: ");
             int code = scan.nextInt();
-            ServiceCode y = FindServiceInfo(code);
+            y = FindServiceInfo(code);
         }
-        else {ServiceCode y = FindServiceInfo(ServiceName);}
+        else {y = FindServiceInfo(ServiceName);}
 
         System.out.println("\nPlease enter the date and time of the service in mm/dd/yyyy hh-mm-ss format: ");//using date, may not need this
         ServiceTime = scan.nextString(); //this will be in the file, but the name of the file will contain the current date stamp.
@@ -71,7 +71,8 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         ServiceCode y = x.searchServiceCodes(ServiceName);
         if (y.serviceFee == -1) {
             System.out.println("\nIs this a new service? (Y/N)");
-            char input = scan.nextChar();
+            ProviderInterface tempx = new ProviderInterface();
+            char input = tempx.TryAgain();
             if (input == 'y' || input == 'Y') {
                 int fee = 0;
 
@@ -88,7 +89,8 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
 
         }
         System.out.println("\nThe fee for this service is : $", y.serviceFee, ". Is this correct?(Y/N)");
-        char input = scan.nextChar();
+        ProviderInterface tempy = new ProviderInterface();
+        char input = tempy.TryAgain();
         if (input == 'y' || input == 'Y') {
             return y;
         } else {
@@ -106,7 +108,8 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         ServiceCode y = x.searchServiceCodes(ServiceCode);
         if (y.serviceFee == -1) {
             System.out.println("\nIs this a new service? (Y/N)");
-            char input = scan.nextChar();
+            ProviderInterface tempy = new ProviderInterface();
+            char input = tempy.TryAgain();
             if (input == 'y' || input == 'Y') {
                 System.out.println("\nKeep in mind that this new service may have a different code than the one you entered.");
                 int fee = 0;
@@ -127,7 +130,8 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
 
         }
         System.out.println("\nThe fee for this service is : $", y.serviceFee, ". Is this correct?(Y/N)");
-        char input = scan.nextChar();
+        ProviderInterface tempy = new ProviderInterface();
+        char input = tempy.TryAgain();
         if (input == 'y' || input == 'Y') {
             return y;
         } else {
@@ -136,7 +140,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
             FindServiceInfo(tempp);
         }
         System.out.println("\nThe name of this service is :", y.serviceName, ". Is this correct? (Y/N)");
-        char input = scan.nextChar();
+        char input = tempy.TryAgain();
         if (input == 'y' || input == 'Y') {
             return y;
         } else {
