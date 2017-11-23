@@ -56,11 +56,8 @@ public class ProviderTerminal {
 
         }
         else {
-            System.out.println("\nSorry, that isn't a valid ID. Try again? (Y/N)");
-            char input = scan.nextChar();
-            if (input == 'y' || input == 'Y') start();
-            //else exit program??
-
+            System.out.println("\nSorry, that isn't a valid ID.");
+            start();
         }
 
 
