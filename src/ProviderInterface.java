@@ -11,7 +11,7 @@ public class ProviderInterface {
     public void MainMenu() {
 
         int input = 0;
-        System.out.println("\nMenu: \n1.Give Service\n2. Create Service Record\n3. View Provider Directory\n4. Log out\n");
+        System.out.println("\nMenu: \n1. Give Service\n2. Create Service Record\n3. View Provider Directory\n4. Log out\n");
 
         input = scan.nextInt();
 

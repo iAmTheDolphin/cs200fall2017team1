@@ -23,14 +23,16 @@ public class ProviderTerminal {
     public void start() {
 
         //this is where control is transferred to when it is chosen.
-        System.out.println("\n\n\n\n");
+        System.out.println("\n\n");
 
-        System.out.println(" _    _      _                          _ ");
-        System.out.println("| |  | |    | |                        | |");
-        System.out.println("| |  | | ___| | ___ ___  _ __ ___   ___| |");
-        System.out.println("| |/\\| |/ _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ |");
-        System.out.println("\\  /\\  /  __/ | (_| (_) | | | | | |  __/_|");
-        System.out.println(" \\/  \\/ \\___|_|\\___\\___/|_| |_| |_|\\___(_)");
+        System.out.println("                      _     _           ");
+        System.out.println("                     (_)   | |          ");
+        System.out.println(" _ __  _ __ _____   ___  __| | ___ _ __ ");
+        System.out.println("| '_ \\| '__/ _ \\ \\ / / |/ _` |/ _ \\ '__|");
+        System.out.println("| |_) | | | (_) \\ V /| | (_| |  __/ |   ");
+        System.out.println("| .__/|_|  \\___/ \\_/ |_|\\__,_|\\___|_|   ");
+        System.out.println("| |                                     ");
+        System.out.println("|_|                                     ");
         System.out.println("");
 
         System.out.println("Please enter your provider number : ");

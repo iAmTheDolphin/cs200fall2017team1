@@ -47,6 +47,8 @@ public class Driver {
             else if( userSelection == 2) {
                 // start the Operator Terminal
                 System.out.println("starting the operator Terminal...");
+                OperatorInterface terminal = new OperatorInterface();
+                terminal.mainMenu();
             }
             else if (userSelection == 3) {
                 // start the GUI

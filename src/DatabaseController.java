@@ -127,7 +127,7 @@ public class DatabaseController {
 
 
     //creates another member in the list
-    public static void newMember(String firstName, String lastName, String streetAddress,
+    public static Member newMember(String firstName, String lastName, String streetAddress,
                           String city, String state, String zipCode,String email,
                           String phoneNumber) {
 
@@ -137,24 +137,30 @@ public class DatabaseController {
             newUserID += members.size();
         }
 
+        Member newMember = new Member(firstName, lastName, streetAddress, city, state, zipCode, email, phoneNumber, newUserID);
 
+        members.add(newMember);
 
-        members.add(new Member(firstName, lastName, streetAddress, city, state, zipCode, email, phoneNumber, newUserID ));
+        return newMember;
     }
 
 
     //creates a new provider in the list
-    public static void newProvider(String firstName, String lastName, String streetAddress,
+    public static Provider newProvider(String firstName, String lastName, String streetAddress,
                             String city, String state, String zipCode,String email,
                             String phoneNumber) {
 
-        int newProviderID = 100000;
+        int newProviderID = 999999;
 
         if(providers.size() > 0) {
-            newProviderID += providers.size();
+            newProviderID -= providers.size();
         }
 
-        providers.add(new Provider(firstName, lastName, streetAddress, city, state, zipCode, email, phoneNumber, newProviderID));
+        Provider provider = new Provider(firstName, lastName, streetAddress, city, state, zipCode, email, phoneNumber, newProviderID);
+
+        providers.add(provider);
+
+        return provider;
     }
 
 
