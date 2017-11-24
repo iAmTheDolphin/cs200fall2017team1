@@ -16,8 +16,6 @@ public class Driver {
 
         while (userSelection == -1) {
 
-            ProviderTerminal providerTerminal = new ProviderTerminal();
-
             System.out.println("--------------------------------------------------------------------------");
             System.out.println("                 _____ _                 ___            ");
             System.out.println("                /  __ \\ |               / _ \\         ");

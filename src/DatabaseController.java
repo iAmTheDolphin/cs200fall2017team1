@@ -9,27 +9,16 @@ import java.io.*;
 
 public class DatabaseController {
 
-    ArrayList<Member> members = new ArrayList<Member>();
-    ArrayList<Provider> providers = new ArrayList<Provider>();
-    ArrayList<ServiceRecord> serviceRecords = new ArrayList<ServiceRecord>();
-    ArrayList<ServiceCode> serviceCodes = new ArrayList<ServiceCode>();
+    static ArrayList<Member> members = new ArrayList<Member>();
+    static ArrayList<Provider> providers = new ArrayList<Provider>();
+    static ArrayList<ServiceRecord> serviceRecords = new ArrayList<ServiceRecord>();
+    static ArrayList<ServiceCode> serviceCodes = new ArrayList<ServiceCode>();
 
 
-    public DatabaseController() {
-
-        File membersIn = new File("/data/members.txt");
-        if(membersIn.exists()) {
-            System.out.println("EXISTS");
-        }
-        else {
-            System.out.println("doesnt exist");
-        }
-
-    }
 
 
     //creates another member in the list
-    public void newMember(String firstName, String lastName, String streetAddress,
+    public static void newMember(String firstName, String lastName, String streetAddress,
                           String city, String state, String zipCode,String email,
                           int phoneNumber) {
 
@@ -44,7 +33,7 @@ public class DatabaseController {
 
 
     //creates a new provider in the list
-    public void newProvider(String firstName, String lastName, String streetAddress,
+    public static void newProvider(String firstName, String lastName, String streetAddress,
                             String city, String state, String zipCode,String email,
                             int phoneNumber) {
 
@@ -59,19 +48,19 @@ public class DatabaseController {
 
 
     //deletes the member with the corresponding ID
-    public void deleteMember(int userID) {
+    public static void deleteMember(int userID) {
         members.remove(getMember(userID));
     }
 
 
     //suspends the member with the corresponding ID
-    public void suspendMember(int userID) {
+    public static void suspendMember(int userID) {
         getMember(userID).suspend();
     }
 
 
     //returns the Member object of the member with the corresponding ID
-    public Member getMember(int userID) {
+    public static Member getMember(int userID) {
         for (Member member : members) {
             if (member.getUserID() == userID) {
                 return member;
@@ -84,7 +73,7 @@ public class DatabaseController {
 
 
     //returns the Provider object of the provider with the correspondin ID
-    public Provider getProvider(int userID) {
+    public static Provider getProvider(int userID) {
         for (Provider provider : providers) {
             if (provider.getUserID() == userID) {
                 return provider;
@@ -97,7 +86,7 @@ public class DatabaseController {
 
 
     //creates a new Service Code with the next available ID
-    public void addServiceCode(String name, double fee) {
+    public static void addServiceCode(String name, double fee) {
 
         int newCode = 100000;
 
@@ -111,7 +100,7 @@ public class DatabaseController {
 
 
     //search the service codes by name
-    public ServiceCode searchServiceCodes(String name) {
+    public static ServiceCode searchServiceCodes(String name) {
 
         ServiceCode tempCode = new ServiceCode("-1", -1, -1);
 
@@ -127,7 +116,7 @@ public class DatabaseController {
 
 
     //search the service codes by the code
-    public ServiceCode searchServiceCodes(int code) {
+    public static ServiceCode searchServiceCodes(int code) {
 
         ServiceCode tempCode = new ServiceCode("-1", -1, -1);
 
@@ -143,7 +132,7 @@ public class DatabaseController {
 
 
     //search the service records by member
-    public ServiceRecord[] searchServiceRecords(Member member) {
+    public static ServiceRecord[] searchServiceRecords(Member member) {
 
         ArrayList<ServiceRecord> tempRecords = new ArrayList<>();
 
@@ -161,7 +150,7 @@ public class DatabaseController {
 
 
     //search the service records by provider
-    public ServiceRecord[] searchServiceRecords(Provider provider){
+    public static ServiceRecord[] searchServiceRecords(Provider provider){
 
         ArrayList<ServiceRecord> tempRecords = new ArrayList<>();
 
@@ -180,14 +169,14 @@ public class DatabaseController {
 
 
     //search the service records by Time period TODO this is Incomplete
-    public void searchServiceRecords(Date start, Date end) {
+    public static void searchServiceRecords(Date start, Date end) {
 
 
 
     }
 
 
-    public void createMemberRecord(Member member) {
+    public static void createMemberRecord(Member member) {
 
         MemberReport report = new MemberReport(member);
 

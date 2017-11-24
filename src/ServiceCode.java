@@ -18,18 +18,16 @@ public class ServiceCode {
     }
 
     public void AddService(){
-        DatabaseController temp = new DatabaseController();
-        temp.addServiceCode(serviceName, serviceFee);
+        DatabaseController.addServiceCode(serviceName, serviceFee);
     }
 
     public void DisplayServiceFile(){
-        DatabaseController temp = new DatabaseController();
         ServiceCode temp2 = new ServiceCode();
         int search = 100000;//this may be an issue. we shall see.
         boolean end = false;
         System.out.println("\n\nProvider Directory\n\n");
         while (!end) {
-            temp2 = temp.searchServiceCodes(search);
+            temp2 = DatabaseController.searchServiceCodes(search);
             if (temp2.serviceCode == -1) {end = true; break;}
             else {
                 System.out.println ("\nName: " + temp2.serviceName + " || ");

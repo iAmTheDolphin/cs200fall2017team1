@@ -19,13 +19,11 @@ import java.util.Scanner;
 public class ProviderTerminal {
 
     Scanner scan = new Scanner (System.in);
-    DatabaseController database = new DatabaseController();
-
 
     public void start() {
 
         //this is where control is transferred to when it is chosen.
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("\n\n\n\n");
 
         System.out.println(" _    _      _                          _ ");
         System.out.println("| |  | |    | |                        | |");
@@ -48,7 +46,7 @@ public class ProviderTerminal {
 
         System.out.println("validating provider number...");
 
-        Provider provider = database.getProvider(providerNum);
+        Provider provider = DatabaseController.getProvider(providerNum);
 
         if(provider.getUserID() != -1) {
             ProviderInterface temp = new ProviderInterface();

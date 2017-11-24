@@ -6,9 +6,6 @@ public class ProviderInterface {
     public boolean MemberValidated = false;
 
 
-    DatabaseController database = new DatabaseController();
-
-
     Scanner scan = new Scanner(System.in);
 
     public void MainMenu() {
@@ -40,7 +37,7 @@ public class ProviderInterface {
     public void GiveService() {
         System.out.println("Please enter your client's member number: ");
         int MemberNumber = scan.nextInt();
-        Member temp = database.getMember(MemberNumber);
+        Member temp = DatabaseController.getMember(MemberNumber);
         if (temp.getUserID() != -1) {
             if (temp.isSuspended) {
                 System.out.println("Sorry, this member is suspended and cannot receive service.");

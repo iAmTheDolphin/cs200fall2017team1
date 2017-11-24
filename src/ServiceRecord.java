@@ -72,8 +72,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
     //do we even need this?
 
     public ServiceCode FindServiceInfo(String ServiceName) {
-        DatabaseController x = new DatabaseController();
-        ServiceCode y = x.searchServiceCodes(ServiceName);
+        ServiceCode y = DatabaseController.searchServiceCodes(ServiceName);
         if (y.serviceFee == -1) {
             System.out.println("\nIs this a new service? (Y/N)");
             ProviderInterface tempx = new ProviderInterface();
@@ -109,8 +108,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
     }
 
     public ServiceCode FindServiceInfo(int ServiceCode) {
-        DatabaseController x = new DatabaseController();
-        ServiceCode y = x.searchServiceCodes(ServiceCode);
+        ServiceCode y = DatabaseController.searchServiceCodes(ServiceCode);
         if (y.serviceFee == -1) {
             System.out.println("\nIs this a new service? (Y/N)");
             ProviderInterface tempy = new ProviderInterface();
