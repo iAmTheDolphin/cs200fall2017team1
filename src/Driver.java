@@ -10,6 +10,8 @@ public class Driver {
 
     public static void main (String[] args) {
 
+        DatabaseController.setup();
+
         Scanner scan = new Scanner (System.in);
 
         int userSelection = -1;

@@ -13,7 +13,7 @@ public class User {
 	private String state;
 	private String zipCode;
 	private String email;
-	private int phoneNumber;
+	private String phoneNumber;
 	private int userID;
 
 	public User() {
@@ -21,7 +21,7 @@ public class User {
 	}
 
 	// construct a User
-	public User(String firstName, String lastName, String streetAddress, String city, String state, String zipCode,String email, int phoneNumber, int userID) {
+	public User(String firstName, String lastName, String streetAddress, String city, String state, String zipCode,String email, String phoneNumber, int userID) {
 
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -61,7 +61,7 @@ public class User {
 		return email;
 	}
 
-	int getPhoneNumber() {
+	String getPhoneNumber() {
 		return phoneNumber;
 	}
 
@@ -98,7 +98,7 @@ public class User {
 		return zipCode;
 	}
 
-	int setPhoneNumber(int newPhoneNum) {
+	String setPhoneNumber(String newPhoneNum) {
 		phoneNumber = newPhoneNum;
 		return phoneNumber;
 	}

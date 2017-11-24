@@ -6,6 +6,8 @@
 
 import java.util.*;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class DatabaseController {
 
@@ -15,12 +17,73 @@ public class DatabaseController {
     static ArrayList<ServiceCode> serviceCodes = new ArrayList<ServiceCode>();
 
 
+    public static void setup() {
+
+        System.out.println("Setting up database...");
+
+        System.out.println("Checking for member data...");
+
+        File memberIn = new File("./data/members.txt");
+
+        if(memberIn.exists()) {
+            System.out.println("Member Data exists. Reading data...");
+
+
+            try{
+
+                List<String> lines = Files.readAllLines(Paths.get("./data/members.txt"));
+
+                System.out.println(lines);
+
+                //parses the string for the information then adds it to the members ArrayList
+                for(int x = 0; x < lines.size(); x++) {
+                    String[] parsedMemberData = lines.get(x).split("[|]");
+                    for (int y = 0; y < parsedMemberData.length; y++) {
+                        if(parsedMemberData[y].charAt(0) == ' ') {
+                            parsedMemberData[y] = parsedMemberData[y].substring(1, parsedMemberData[y].length());
+                        }
+                        if(parsedMemberData[y].charAt(parsedMemberData[y].length()-1) == ' ') {
+                            parsedMemberData[y] = parsedMemberData[y].substring(0, parsedMemberData[y].length()-1);
+                        }
+                        System.out.println(parsedMemberData[y]);
+                    }
+                    String firstName = parsedMemberData[0];
+                    String lastName = parsedMemberData[1];
+                    String address = parsedMemberData[2];
+                    String city = parsedMemberData[3];
+                    String state = parsedMemberData[4];
+                    String zip = parsedMemberData[5];
+                    String email = parsedMemberData[6];
+                    String phone = parsedMemberData[7];
+                    int id = Integer.parseInt(parsedMemberData[8]);
+                    members.add(new Member(firstName, lastName, address, city, state, zip, email, phone, id));
+                }
+            }
+            catch (IOException e) {
+                System.out.println("Failed to read from file. Starting with empty member list. " + e);
+            }
+        }
+        else {
+            System.out.println("Member Data file doesn't exist. Creating...");
+
+            try {
+                memberIn.createNewFile();
+            }
+            catch (IOException e) {
+                System.out.println("Tried creating file but file already exists! : " + e);
+            }
+        }
+
+
+    }
+
+
 
 
     //creates another member in the list
     public static void newMember(String firstName, String lastName, String streetAddress,
                           String city, String state, String zipCode,String email,
-                          int phoneNumber) {
+                          String phoneNumber) {
 
         int newUserID = 100000;
 
@@ -35,7 +98,7 @@ public class DatabaseController {
     //creates a new provider in the list
     public static void newProvider(String firstName, String lastName, String streetAddress,
                             String city, String state, String zipCode,String email,
-                            int phoneNumber) {
+                            String phoneNumber) {
 
         int newProviderID = 100000;
 
@@ -68,7 +131,7 @@ public class DatabaseController {
         }
         System.out.println("NO USER BY THAT ID FOUND");
 
-        return new Member("-1", "-1", "-1", "-1", "-1", "-1", "-1", -1, -1);
+        return new Member("-1", "-1", "-1", "-1", "-1", "-1", "-1", "-1", -1);
     }
 
 
@@ -81,7 +144,7 @@ public class DatabaseController {
         }
         System.out.println("NO USER BY THAT ID FOUND");
 
-        return new Provider("-1", "-1", "-1", "-1", "-1", "-1", "-1", -1, -1);
+        return new Provider("-1", "-1", "-1", "-1", "-1", "-1", "-1", "-1", -1);
     }
 
 
