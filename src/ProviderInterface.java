@@ -1,8 +1,11 @@
 
+import java.util.Scanner;
 
 public class ProviderInterface {
     public boolean ProviderValidated = false;
     public boolean MemberValidated = false;
+
+    Scanner scan = new Scanner(System.in);
 
     public void MainMenu(){
 
