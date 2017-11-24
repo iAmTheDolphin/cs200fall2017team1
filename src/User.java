@@ -41,6 +41,10 @@ public class User {
 		return firstName + " " + lastName;
 	}
 
+	String getFirstName() { return firstName; }
+
+	String getLastName() { return lastName; }
+
 	String getStreetAddress() {
 		return streetAddress;
 	}

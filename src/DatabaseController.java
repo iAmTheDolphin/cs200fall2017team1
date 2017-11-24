@@ -121,11 +121,6 @@ public class DatabaseController {
                 System.out.println("Tried creating file but file already exists! : " + e);
             }
         }
-
-
-
-
-
     }
 
 
@@ -141,6 +136,8 @@ public class DatabaseController {
         if(members.size() > 0) {
             newUserID += members.size();
         }
+
+
 
         members.add(new Member(firstName, lastName, streetAddress, city, state, zipCode, email, phoneNumber, newUserID ));
     }
