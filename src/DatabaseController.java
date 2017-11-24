@@ -24,16 +24,14 @@ public class DatabaseController {
         System.out.println("Checking for member data...");
 
         File memberIn = new File("./data/members.txt");
+        File providerIn = new File("./data/providers.txt");
 
         if(memberIn.exists()) {
             System.out.println("Member Data exists. Reading data...");
 
 
             try{
-
                 List<String> lines = Files.readAllLines(Paths.get("./data/members.txt"));
-
-                System.out.println(lines);
 
                 //parses the string for the information then adds it to the members ArrayList
                 for(int x = 0; x < lines.size(); x++) {
@@ -45,7 +43,6 @@ public class DatabaseController {
                         if(parsedMemberData[y].charAt(parsedMemberData[y].length()-1) == ' ') {
                             parsedMemberData[y] = parsedMemberData[y].substring(0, parsedMemberData[y].length()-1);
                         }
-                        System.out.println(parsedMemberData[y]);
                     }
                     String firstName = parsedMemberData[0];
                     String lastName = parsedMemberData[1];
@@ -58,6 +55,9 @@ public class DatabaseController {
                     int id = Integer.parseInt(parsedMemberData[8]);
                     members.add(new Member(firstName, lastName, address, city, state, zip, email, phone, id));
                 }
+
+                System.out.println(members.size() + " members loaded from file.");
+
             }
             catch (IOException e) {
                 System.out.println("Failed to read from file. Starting with empty member list. " + e);
@@ -73,6 +73,57 @@ public class DatabaseController {
                 System.out.println("Tried creating file but file already exists! : " + e);
             }
         }
+
+
+        if(providerIn.exists()) {
+            System.out.println("Member Data exists. Reading data...");
+
+            try{
+                List<String> providerLines = Files.readAllLines(Paths.get("./data/providers.txt"));
+
+                //parses the string for the information then adds it to the members ArrayList
+                for(int x = 0; x < providerLines.size(); x++) {
+                    String[] parsedProviderData = providerLines.get(x).split("[|]");
+                    for (int y = 0; y < parsedProviderData.length; y++) {
+                        if(parsedProviderData[y].charAt(0) == ' ') {
+                            parsedProviderData[y] = parsedProviderData[y].substring(1, parsedProviderData[y].length());
+                        }
+                        if(parsedProviderData[y].charAt(parsedProviderData[y].length()-1) == ' ') {
+                            parsedProviderData[y] = parsedProviderData[y].substring(0, parsedProviderData[y].length()-1);
+                        }
+                    }
+                    String firstName = parsedProviderData[0];
+                    String lastName = parsedProviderData[1];
+                    String address = parsedProviderData[2];
+                    String city = parsedProviderData[3];
+                    String state = parsedProviderData[4];
+                    String zip = parsedProviderData[5];
+                    String email = parsedProviderData[6];
+                    String phone = parsedProviderData[7];
+                    int id = Integer.parseInt(parsedProviderData[8]);
+                    providers.add(new Provider(firstName, lastName, address, city, state, zip, email, phone, id));
+                }
+
+                System.out.println(providers.size() + " providers loaded from file.");
+
+            }
+            catch (IOException e) {
+                System.out.println("Failed to read from file. Starting with empty provider list. " + e);
+            }
+        }
+        else {
+            System.out.println("Provider Data file doesn't exist. Creating...");
+
+            try {
+                providerIn.createNewFile();
+            }
+            catch (IOException e) {
+                System.out.println("Tried creating file but file already exists! : " + e);
+            }
+        }
+
+
+
 
 
     }

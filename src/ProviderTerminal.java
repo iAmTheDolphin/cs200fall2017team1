@@ -49,6 +49,8 @@ public class ProviderTerminal {
         Provider provider = DatabaseController.getProvider(providerNum);
 
         if(provider.getUserID() != -1) {
+
+            System.out.println("Welcome, " + provider.getName());
             ProviderInterface temp = new ProviderInterface();
             temp.MainMenu();
 
