@@ -5,6 +5,7 @@
  */
 
 import java.util.*;
+import java.io.*;
 
 public class DatabaseController {
 
@@ -14,7 +15,17 @@ public class DatabaseController {
     ArrayList<ServiceCode> serviceCodes = new ArrayList<ServiceCode>();
 
 
-    public DatabaseController() { }
+    public DatabaseController() {
+
+        File membersIn = new File("/data/members.txt");
+        if(membersIn.exists()) {
+            System.out.println("EXISTS");
+        }
+        else {
+            System.out.println("doesnt exist");
+        }
+
+    }
 
 
     //creates another member in the list

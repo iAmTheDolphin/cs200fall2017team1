@@ -1,5 +1,8 @@
 
 
+import java.util.Scanner;
+import java.util.Date;
+
 public class ServiceRecord {//this can only be accessed by the provider interface, probably
 
     Scanner scan = new Scanner(System.in);
@@ -21,27 +24,28 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         System.out.println("\nPlease enter the member number: ");
         MemberNumber = scan.nextInt();
         System.out.println("\nPlease enter the provider name: ");
-        ProviderName = scan.nextString();
+        ProviderName = scan.nextLine();
         System.out.println("\nPlease enter the member name: ");
-        MemberName = scan.nextString();
+        MemberName = scan.nextLine();
         System.out.println("\nPlease enter the service name, or enter \"code\" if you want to search by code: ");
-        ServiceName = scan.nextString();
+        ServiceName = scan.nextLine();
         ServiceCode y = new ServiceCode();
-        if (ServiceName == "code"){
+        if (ServiceName == "code") {
             System.out.println("\nPlease enter the service code: ");
             int code = scan.nextInt();
             y = FindServiceInfo(code);
+        } else {
+            y = FindServiceInfo(ServiceName);
         }
-        else {y = FindServiceInfo(ServiceName);}
 
         System.out.println("\nPlease enter the date and time of the service in mm/dd/yyyy hh-mm-ss format: ");//using date, may not need this
-        ServiceTime = scan.nextString(); //this will be in the file, but the name of the file will contain the current date stamp.
+        ServiceTime = scan.nextLine(); //this will be in the file, but the name of the file will contain the current date stamp.
         System.out.println("\nPlease enter any notes you would like to add: ");
-        Notes = scan.nextString();
+        Notes = scan.nextLine();
 
-        Date currentDate = GregorianCalendar.getInstance().getTime();//add stuff needed for this
-        String output = new DateTime(currentDate).toString("yyyyMMddHHmmss");//add stuff needed for this
-        String filename = ProviderNumber.toString() + MemberNumber.toString() + output;//is this correct? lets find out
+        Date currentDate = new Date();//add stuff needed for this
+        String filename = ProviderNumber + "-" + MemberNumber + "-" + currentDate.toString();//is this correct? lets find out
+        /* TODO fix this writing to file. maybe in Database controller?
         PrintWriter writer = new PrintWriter(filename, "UTF-8");
 
         writer.println("Service Record\n");
@@ -59,6 +63,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
 
         ProviderInterface temp = new ProviderInterface();
         temp.MainMenu();
+        */
     }
 
     public void OpenServiceRecord() {
@@ -74,28 +79,28 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
             ProviderInterface tempx = new ProviderInterface();
             char input = tempx.TryAgain();
             if (input == 'y' || input == 'Y') {
-                int fee = 0;
+                double fee = 0.0;
 
-                System.out.println("\nWhat is the fee for ", ServiceName, "?");
+                System.out.println("\nWhat is the fee for " + ServiceName + "?");
                 fee = scan.nextDouble();
 
                 ServiceCode temp = new ServiceCode(ServiceName, 0, fee);
                 temp.AddService();
             } else {
                 System.out.println("\nPlease try entering the name again: ");
-                String tempp = scan.nextString();
+                String tempp = scan.nextLine();
                 FindServiceInfo(tempp);
             }
 
         }
-        System.out.println("\nThe fee for this service is : $", y.serviceFee, ". Is this correct?(Y/N)");
+        System.out.println("\nThe fee for this service is : $" + y.serviceFee + ". Is this correct?(Y/N)");
         ProviderInterface tempy = new ProviderInterface();
         char input = tempy.TryAgain();
         if (input == 'y' || input == 'Y') {
             return y;
         } else {
             System.out.println("\nPlease try re-entering the service name. ");
-            String tempp = scan.nextString();
+            String tempp = scan.nextLine();
             FindServiceInfo(tempp);
         }
 
@@ -103,7 +108,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
 
     }
 
-    public ServiceCode FindServiceInfo(int ServiceCode){
+    public ServiceCode FindServiceInfo(int ServiceCode) {
         DatabaseController x = new DatabaseController();
         ServiceCode y = x.searchServiceCodes(ServiceCode);
         if (y.serviceFee == -1) {
@@ -112,11 +117,11 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
             char input = tempy.TryAgain();
             if (input == 'y' || input == 'Y') {
                 System.out.println("\nKeep in mind that this new service may have a different code than the one you entered.");
-                int fee = 0;
+                double fee = 0.0;
                 String ServiceName;
                 System.out.println("\nWhat is the name of this service? ");
-                ServiceName = scan.nextString();
-                System.out.println("\nWhat is the fee for ", ServiceName, "?");
+                ServiceName = scan.nextLine();
+                System.out.println("\nWhat is the fee for " + ServiceName + "?");
                 fee = scan.nextDouble();
 
                 ServiceCode temp = new ServiceCode(ServiceName, 0, fee);
@@ -129,7 +134,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
             }
 
         }
-        System.out.println("\nThe fee for this service is : $", y.serviceFee, ". Is this correct?(Y/N)");
+        System.out.println("\nThe fee for this service is : $" + y.serviceFee + ". Is this correct?(Y/N)");
         ProviderInterface tempy = new ProviderInterface();
         char input = tempy.TryAgain();
         if (input == 'y' || input == 'Y') {
@@ -139,8 +144,8 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
             int tempp = scan.nextInt();
             FindServiceInfo(tempp);
         }
-        System.out.println("\nThe name of this service is :", y.serviceName, ". Is this correct? (Y/N)");
-        char input = tempy.TryAgain();
+        System.out.println("\nThe name of this service is :" + y.serviceName + ". Is this correct? (Y/N)");
+        input = tempy.TryAgain();
         if (input == 'y' || input == 'Y') {
             return y;
         } else {
