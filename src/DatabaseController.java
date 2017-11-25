@@ -335,6 +335,9 @@ public class DatabaseController {
 
     }
 
+    //generates a service record and adds it to the list as well as writes it to file
+    //public static ServiceRecord generateServiceRecord() { }
+
 
     //search the service records by Time period TODO this is Incomplete
     public static void searchServiceRecords(Date start, Date end) {

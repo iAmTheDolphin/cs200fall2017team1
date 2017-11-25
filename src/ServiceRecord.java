@@ -20,19 +20,20 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         //this assumes that a member can only recieve one service from a specific provider a day
 
         System.out.println("\nPlease enter the provider number: ");
-        ProviderNumber = scan.nextInt();
+        ProviderNumber = Integer.parseInt(scan.nextLine());
         System.out.println("\nPlease enter the member number: ");
-        MemberNumber = scan.nextInt();
-        System.out.println("\nPlease enter the provider name: ");
-        ProviderName = scan.nextLine();
-        System.out.println("\nPlease enter the member name: ");
-        MemberName = scan.nextLine();
+        MemberNumber = Integer.parseInt(scan.nextLine());
+
+        ProviderName = DatabaseController.getProvider(ProviderNumber).getName();
+
+        MemberName = DatabaseController.getMember(MemberNumber).getName();
+
         System.out.println("\nPlease enter the service name, or enter \"code\" if you want to search by code: ");
         ServiceName = scan.nextLine();
         ServiceCode y = new ServiceCode();
-        if (ServiceName == "code") {
+        if (ServiceName.equals("code")) {
             System.out.println("\nPlease enter the service code: ");
-            int code = scan.nextInt();
+            int code = Integer.parseInt(scan.nextLine());
             y = FindServiceInfo(code);
         } else {
             y = FindServiceInfo(ServiceName);
