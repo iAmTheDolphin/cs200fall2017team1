@@ -1,30 +1,42 @@
 
 
 public class ServiceCode {
-    String ServiceName;
-    int ServiceCode;
-    double ServiceFee;
+    public String serviceName;
+    public int serviceCode;
+    public double serviceFee;
 
+    public ServiceCode() {
+        serviceName = "-1";
+        serviceCode = -1;
+        serviceFee = -1;
+    }
 
-    boolean AddService(String name, int code, double fee){
-        //add stuff to the file. if the file doesnt exist, it creates it. just a basic text file.
-        //should there be different files for each provider? nah
-    return false;}
+    public ServiceCode(String name, int code, double fee) {
+        serviceName = name;
+        serviceCode = code;
+        serviceFee = fee;
+    }
 
-    int FindServiceCode(String name) {
-        //reads in the file if it exists, turning into vector 2 by x
-        //searches array for name
-        //returns code if found, if not returns }; //finds the code associated with this name
-    return 0;}
-    double FindServiceFee(String name){
-        return 0;
-    } //finds the fee associated with this name
-    double FindServiceFee(int code){
-        return 0;
-    } //finds the fee associated with this code
-    String FindServiceName(int code){
-        return "0";
-    } //finds the service name associated with this code
-    void DisplayServiceFile(){} //this just opens up the file in a new window in case the user wants to just. look at em
+    public void AddService(){
+        DatabaseController.addServiceCode(serviceName, serviceFee);
+    }
+
+    public void DisplayServiceFile(){
+        ServiceCode temp2 = new ServiceCode();
+        int search = 100000;//this may be an issue. we shall see.
+        boolean end = false;
+        System.out.println("\n\nProvider Directory\n\n");
+        while (!end) {
+            temp2 = DatabaseController.searchServiceCodes(search);
+            if (temp2.serviceCode == -1) {end = true; break;}
+            else {
+                System.out.println ("\nName: " + temp2.serviceName + " || ");
+                System.out.println ("Code: " + temp2.serviceCode + " || ");
+                System.out.println ("Fee: $" + temp2.serviceFee + " || ");
+            }
+        }
+        ProviderInterface finished = new ProviderInterface();
+        finished.MainMenu();
+    } //this just prints the services
 
 }

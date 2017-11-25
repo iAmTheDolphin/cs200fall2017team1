@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.Scanner;
 
 //this will be like the starting thing i guess?
 
@@ -17,8 +18,52 @@ import java.awt.*;
 
 public class ProviderTerminal {
 
+    Scanner scan = new Scanner (System.in);
+
+    public void start() {
+
+        //this is where control is transferred to when it is chosen.
+        System.out.println("\n\n");
+
+        System.out.println("                      _     _           ");
+        System.out.println("                     (_)   | |          ");
+        System.out.println(" _ __  _ __ _____   ___  __| | ___ _ __ ");
+        System.out.println("| '_ \\| '__/ _ \\ \\ / / |/ _` |/ _ \\ '__|");
+        System.out.println("| |_) | | | (_) \\ V /| | (_| |  __/ |   ");
+        System.out.println("| .__/|_|  \\___/ \\_/ |_|\\__,_|\\___|_|   ");
+        System.out.println("| |                                     ");
+        System.out.println("|_|                                     ");
+        System.out.println("");
+
+        System.out.println("Please enter your provider number : ");
+
+        int providerNum = -1;
+
+        providerNum = scan.nextInt();
+
+        while(providerNum < 0) {
+            System.out.println("Invalid Provider ID. Please enter in a valid ID.");
+            providerNum = scan.nextInt();
+        }
+
+        System.out.println("validating provider number...");
+
+        Provider provider = DatabaseController.getProvider(providerNum);
+
+        if(provider.getUserID() != -1) {
+
+            System.out.println("Welcome, " + provider.getName());
+            ProviderInterface temp = new ProviderInterface();
+            temp.MainMenu();
+
+        }
+        else {
+            System.out.println("\nSorry, that isn't a valid ID.");
+            start();
+        }
 
 
+    }
 
 
 }
