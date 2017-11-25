@@ -1,47 +1,30 @@
-//need to match up service record to id number
-
-//will receive member as parameter
-
-import java.io.File;
-//import service record information
-
-public class MemberReport {
-	//general information
+public class MemberReport extends Report {
 	private Member member;
-	int memberID;
-	String memberName;
-	String memberAddress;
-	String memberCity;
-	String memberState;
-	String memberZipCode;
-	String currentProvider;
+	ServiceRecord[] recordDB;
 
 	public MemberReport (Member member) {
 		this.member = member;
-		memberID = member.getUserID();
-		memberName = member.getName();
-		memberAddress = member.getStreetAddress();
+		filePath = "MemberReports\\" + member.getUserID();
+		recordDB = DatabaseController.searchServiceRecords(member);
 	}
 	
-	//update information for member
-	
-
-	
-	//add array of classes for serviceRecord
-	ServiceRecord record = new ServiceRecord();
-	//record[0] = new MemberServiceRecord();
-	
-	//create file
-	File file = new File("MemberReport" + memberID + ".txt");
-	
 	//writes to file
-	void writeFile() {
+	protected void writeToFile() {
 		String text = "Member Name: " + member.getName() + '\n';
-		text += "Member ID: " + memberID + " " + '\n'
+		text += "Member ID: " + member.getUserID() + " " + '\n'
 				+ "Member Address: " + member.getStreetAddress() + '\n'
 				+ "Member City: " + member.getCity() + '\n'
 				+ "Member State: " + member.getState() + '\n'
-				+ "Member Zip Code: " + member.getZipCode() + '\n';
-
+				+ "Member Zip Code: " + member.getZipCode() + '\n'
+				+ '\n';
+		
+		for (ServiceRecord record : recordDB) {
+			text += "Date of Service: " + record.ServiceTime + '\n'
+					+ "Provider Name: " + record.ProviderName + '\n'
+					+ "Service Name: " + record.ServiceName + '\n'
+					+ '\n';
+		}
+		reportText.write(text);
 	}
 }
+
