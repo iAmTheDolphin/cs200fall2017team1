@@ -1,3 +1,6 @@
+//need to make for past week
+//add date and time of entry
+
 public class ProviderReport extends Report {
 	private Provider provider;
 	private int numServices;
@@ -25,8 +28,11 @@ public class ProviderReport extends Report {
 				ServiceCode service = DatabaseController.searchServiceCodes(record.ServiceName);
 				totalFees += service.serviceFee;
 				text += "Date of Service: " + record.ServiceTime + '\n'
-						+ "Provider Name: " + record.ProviderName + '\n'
-						+ "Service Name: " + record.ServiceName + '\n'
+						+ "Date and Time of Entry: " + '\n'
+						+ "Member Name: " + record.MemberName + '\n'
+						+ "Member Number: " + record.MemberNumber + '\n'
+						+ "Service Code: " + service.serviceCode + '\n'
+						+ "Service Fee: " + service.serviceFee + '\n'
 						+ '\n';
 			}
 			text+= "Total Number of Consultations: " + numServices + '\n';
