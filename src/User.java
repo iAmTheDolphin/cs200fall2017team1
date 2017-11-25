@@ -108,6 +108,13 @@ public class User {
 	}
 //endregion
 
+	public String toString() {
+
+		return firstName + " | " + lastName + " | " + streetAddress + " | " + city + " | " + state + " | " +
+				zipCode + " | " + email + " | " + phoneNumber + " | " + userID;
+
+	}
+
 
 
 }
