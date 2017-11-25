@@ -7,7 +7,7 @@ Member Class
 import java.util.*;
 
 public class Member extends User{
-	boolean isSuspended;
+	boolean isSuspended = false;
 	Date lastPayDate;
 
 	// constructs a Member
@@ -25,8 +25,24 @@ public class Member extends User{
 		isSuspended = false;
 	}
 
+	void setSuspended(boolean setting)  {
+		isSuspended = setting;
+	}
+
 	// the last date a Member paid
 	void setLastPayDate(Date date) {
 		lastPayDate = date;
+	}
+
+	public String toString() {
+
+		String suspendedState = "A";
+
+		if(isSuspended) {
+			suspendedState = "S";
+		}
+
+		return super.toString() + " | " + suspendedState + ";";
+
 	}
 }

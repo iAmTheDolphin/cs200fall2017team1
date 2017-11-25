@@ -38,9 +38,8 @@ public class OperatorInterface {
         switch (scan.nextLine()) {
             case "1" : CreateMember(); break;
             case "2" : CreateProvider(); break;
-            //case 3 : SuspendMember();
-            default: mainMenu();
-
+            case "3" : SuspendMember(); break;
+            default: ;
         }
         mainMenu();
 
@@ -113,8 +112,6 @@ public class OperatorInterface {
         }
     }
 
-
-
     private void CreateProvider() {
 
         pause();
@@ -172,4 +169,25 @@ public class OperatorInterface {
 
     }
 
+    private void SuspendMember() {
+
+        System.out.println("Please enter ID of the User to be suspended. -1 to quit.");
+
+        int ID = scan.nextInt();
+        scan.nextLine(); // this is needed to soak up the newline character that the previous line doesn't pick up
+
+        if(ID != -1) {
+
+            if(DatabaseController.getMember(ID).getUserID() != -1) {
+                System.out.println("Suspend Member " + ID + " : " + DatabaseController.getMember(ID).getName() + "? Y/N");
+
+                if(scan.nextLine().toLowerCase().equals("y")) {
+                    DatabaseController.suspendMember(ID);
+                }
+                else {
+                    System.out.println("Member suspension aborted.");
+                }
+            }
+        }
+    }
 }
