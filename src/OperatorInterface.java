@@ -12,11 +12,11 @@ public class OperatorInterface {
 
     public OperatorInterface() {
 
-
-
     }
 
     public void mainMenu() {
+
+        boolean keepRunning = true;
 
         System.out.println("\n\n");
 
@@ -34,14 +34,18 @@ public class OperatorInterface {
         System.out.println("   1: Create New Member");
         System.out.println("   2: Create New Provider");
         System.out.println("   3: Suspend Member");
+        System.out.println("   4: ReActivate Member");
+        System.out.println("   -1: Quit");
 
         switch (scan.nextLine()) {
-            case "1" : CreateMember(); break;
-            case "2" : CreateProvider(); break;
-            case "3" : SuspendMember(); break;
+            case "1" : createMember(); break;
+            case "2" : createProvider(); break;
+            case "3" : suspendMember(); break;
+            case "4" : reactivateMember(); break;
+            case "-1" : keepRunning = false; break;
             default: ;
         }
-        mainMenu();
+        if (keepRunning) mainMenu();
 
     }
 
@@ -56,7 +60,7 @@ public class OperatorInterface {
         }
     }
 
-    private void CreateMember() {
+    private void createMember() {
 
         pause();
         System.out.println("Please enter the first name of the Member.");
@@ -104,7 +108,7 @@ public class OperatorInterface {
             System.out.println("Do you want to retry creating a new member? Y/N");
             String inputCont2 = scan.nextLine();
             if(inputCont2.toLowerCase().equals("y")) {
-                CreateMember();
+                createMember();
             }
             else {
                 mainMenu();
@@ -112,7 +116,7 @@ public class OperatorInterface {
         }
     }
 
-    private void CreateProvider() {
+    private void createProvider() {
 
         pause();
         System.out.println("Please enter the first name of the Provider.");
@@ -160,7 +164,7 @@ public class OperatorInterface {
             System.out.println("Do you want to retry creating a new Provider? Y/N");
             String inputCont3 = scan.nextLine();
             if(inputCont3.toLowerCase().equals("y")) {
-                CreateProvider();
+                createProvider();
             }
             else {
                 mainMenu();
@@ -169,7 +173,7 @@ public class OperatorInterface {
 
     }
 
-    private void SuspendMember() {
+    private void suspendMember() {
 
         System.out.println("Please enter ID of the User to be suspended. -1 to quit.");
 
@@ -189,5 +193,27 @@ public class OperatorInterface {
                 }
             }
         }
+    }
+
+    private void reactivateMember() {
+        System.out.println("Please enter ID of the User to be reactivated. -1 to quit.");
+
+        int ID = scan.nextInt();
+        scan.nextLine(); // this is needed to soak up the newline character that the previous line doesn't pick up
+
+        if(ID != -1) {
+
+            if(DatabaseController.getMember(ID).getUserID() != -1) {
+                System.out.println("ReActivate Member " + ID + " : " + DatabaseController.getMember(ID).getName() + "? Y/N");
+
+                if(scan.nextLine().toLowerCase().equals("y")) {
+                    DatabaseController.reactivateMember(ID);
+                }
+                else {
+                    System.out.println("Member ReActivation aborted.");
+                }
+            }
+        }
+
     }
 }

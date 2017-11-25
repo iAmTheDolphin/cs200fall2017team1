@@ -209,6 +209,24 @@ public class DatabaseController {
     }
 
 
+    //reactivates the member with the corresponding ID
+    public static void reactivateMember(int userID) {
+        getMember(userID).setActive();
+
+        Path path = Paths.get("./data/members.txt");
+        Charset charset = StandardCharsets.UTF_8;
+
+        try {
+            String content = new String(Files.readAllBytes(path), charset);
+            content = content.replace( Integer.toString(userID).concat(" | S;")  , Integer.toString(userID).concat(" | A;")  );
+            Files.write(path, content.getBytes(charset));
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Could not update member file with ReActivation. " + e);
+        }
+    }
+
+
     //returns the Member object of the member with the corresponding ID
     public static Member getMember(int userID) {
         for (Member member : members) {
