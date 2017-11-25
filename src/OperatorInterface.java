@@ -18,8 +18,6 @@ public class OperatorInterface {
 
         boolean keepRunning = true;
 
-        System.out.println("\n\n");
-
         System.out.println("                            _              ");
         System.out.println("                           | |            ");
         System.out.println("  ___  _ __   ___ _ __ __ _| |_ ___  _ __ ");
@@ -35,6 +33,8 @@ public class OperatorInterface {
         System.out.println("   2: Create New Provider");
         System.out.println("   3: Suspend Member");
         System.out.println("   4: ReActivate Member");
+        System.out.println("   5: View all members");
+        System.out.println("   6: View all providers");
         System.out.println("   -1: Quit");
 
         switch (scan.nextLine()) {
@@ -42,6 +42,8 @@ public class OperatorInterface {
             case "2" : createProvider(); break;
             case "3" : suspendMember(); break;
             case "4" : reactivateMember(); break;
+            case "5" : viewAllMembers(); break;
+            case "6" : viewAllProviders(); break;
             case "-1" : keepRunning = false; break;
             default: ;
         }
@@ -215,5 +217,17 @@ public class OperatorInterface {
             }
         }
 
+    }
+
+    private void viewAllMembers() {
+        for (Member x : DatabaseController.members) {
+            System.out.println(x.toString());
+        }
+    }
+
+    private void viewAllProviders() {
+        for (Provider x : DatabaseController.providers) {
+            System.out.println(x.toString());
+        }
     }
 }

@@ -59,7 +59,8 @@ public class DatabaseController {
                     int id = Integer.parseInt(parsedMemberData[8]);
                     Member newMember = new Member(firstName, lastName, address, city, state, zip, email, phone, id);
                     members.add(newMember);
-                    if(parsedMemberData[9].toLowerCase().equals("s")) {  newMember.suspend(); }
+                    System.out.println(parsedMemberData[9]);
+                    if(parsedMemberData[9].equals("Suspended")) {  newMember.suspend(); }
 
                 }
 
@@ -200,7 +201,7 @@ public class DatabaseController {
 
         try {
             String content = new String(Files.readAllBytes(path), charset);
-            content = content.replace( Integer.toString(userID).concat(" | A;")  , Integer.toString(userID).concat(" | S;")  );
+            content = content.replace( Integer.toString(userID).concat(" | Active;")  , Integer.toString(userID).concat(" | Suspended;")  );
             Files.write(path, content.getBytes(charset));
         }
         catch(IOException e) {
@@ -218,7 +219,7 @@ public class DatabaseController {
 
         try {
             String content = new String(Files.readAllBytes(path), charset);
-            content = content.replace( Integer.toString(userID).concat(" | S;")  , Integer.toString(userID).concat(" | A;")  );
+            content = content.replace( Integer.toString(userID).concat(" | Suspended;")  , Integer.toString(userID).concat(" | Active;")  );
             Files.write(path, content.getBytes(charset));
         }
         catch(IOException e) {

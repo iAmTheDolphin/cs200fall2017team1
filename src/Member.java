@@ -36,10 +36,10 @@ public class Member extends User{
 
 	public String toString() {
 
-		String suspendedState = "A";
+		String suspendedState = "Active";
 
 		if(isSuspended) {
-			suspendedState = "S";
+			suspendedState = "Suspended";
 		}
 
 		return super.toString() + " | " + suspendedState + ";";
