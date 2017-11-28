@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.Scanner;
 
 //this will be like the starting thing i guess?
@@ -35,35 +34,35 @@ public class ProviderTerminal {
         System.out.println("|_|                                     ");
         System.out.println("");
 
-        System.out.println("Please enter your provider number : ");
+        System.out.println("Please enter your provider number :  type \"quit\" to quit");
 
-        int providerNum = -1;
+        String firstInput = scan.nextLine();
 
-        providerNum = scan.nextInt();
-
-        while(providerNum < 0) {
-            System.out.println("Invalid Provider ID. Please enter in a valid ID.");
-            providerNum = scan.nextInt();
-        }
-
-        System.out.println("validating provider number...");
-
-        Provider provider = DatabaseController.getProvider(providerNum);
-
-        if(provider.getUserID() != -1) {
-
-            System.out.println("Welcome, " + provider.getName());
-            ProviderInterface temp = new ProviderInterface();
-            temp.MainMenu();
-
+        if(firstInput.toLowerCase().equals("quit")) {
+            //quiting the provider interface
+            System.out.println("\n\n\n\n");
         }
         else {
-            System.out.println("\nSorry, that isn't a valid ID.");
+
+            try {
+                int userID = Integer.parseInt(firstInput);
+
+                Provider attemptedProvider = DatabaseController.getProvider(userID);
+
+                if(attemptedProvider.getUserID() != -1) {
+
+                    System.out.println("Welcome, " + attemptedProvider.getName());
+
+                    ProviderInterface terminal = new ProviderInterface();
+                    terminal.MainMenu();
+                }
+
+            }
+            catch (NumberFormatException e) {
+                System.out.println("Invalid Provider ID");
+            }
+
             start();
         }
-
-
     }
-
-
 }

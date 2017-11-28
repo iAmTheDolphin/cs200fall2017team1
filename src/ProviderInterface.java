@@ -13,25 +13,22 @@ public class ProviderInterface {
         int input = 0;
         System.out.println("\nMenu: \n1. Give Service\n2. Create Service Record\n3. View Provider Directory\n4. Log out\n");
 
-        input = scan.nextInt();
-
-        if (input == 1) {
-            GiveService();
-        } else if (input == 2) {
-            CreateServiceRecord();
-        } else if (input == 3) {
-            ServiceCode temp = new ServiceCode();
-            temp.DisplayServiceFile();
-            MainMenu();
-        } else if (input == 4) {
-            ProviderTerminal temp = new ProviderTerminal();
-            temp.start();
-        } else {
-            System.out.println("Sorry, that is an invalid request. Please try again.");
-            MainMenu();
+        switch(scan.nextLine()) {
+            case "1" : GiveService(); break;
+            case "2" : CreateServiceRecord(); break;
+            case "3" : viewServiceRecords(); break;
+            case "4" : break;
+            default: System.out.println("Invalid Input"); MainMenu(); break;
         }
 
 
+
+
+    }
+
+    public void viewServiceRecords() {
+        ServiceCode temp = new ServiceCode();
+        temp.DisplayServiceFile();
     }
 
     public void GiveService() {

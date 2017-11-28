@@ -33,6 +33,7 @@ public class Driver {
             System.out.println("       1: Provider Terminal                    ");
             System.out.println("       2: Operator Terminal                    ");
             System.out.println("       3: GUI Mode                             ");
+            System.out.println("       4: Quit                                 ");
 
             userSelection = scan.nextInt();
 
@@ -42,6 +43,7 @@ public class Driver {
                 System.out.println("starting the provider Terminal...");
                 ProviderTerminal terminal = new ProviderTerminal();
                 terminal.start();
+                userSelection = -1;
 
             }
             else if( userSelection == 2) {
@@ -49,10 +51,14 @@ public class Driver {
                 System.out.println("starting the operator Terminal...");
                 OperatorInterface terminal = new OperatorInterface();
                 terminal.mainMenu();
+                userSelection = -1;
             }
             else if (userSelection == 3) {
                 // start the GUI
                 System.out.println("starting the GUI...");
+            }
+            else if(userSelection == 4) {
+                System.out.println("Thank you for using ChocAn Systems!");
             }
             else {
                 userSelection = -1;

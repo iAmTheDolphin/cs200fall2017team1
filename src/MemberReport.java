@@ -1,6 +1,3 @@
-//need to match up service record to id number
-//import service record information
-
 public class MemberReport extends Report {
 	private Member member;
 	ServiceRecord[] recordDB;

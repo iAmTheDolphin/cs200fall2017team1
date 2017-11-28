@@ -1,10 +1,16 @@
+//need to make for past week
+//add date and time of entry
 
 public class ProviderReport extends Report {
 	private Provider provider;
+	private int numServices;
+	private double totalFees;
+	ServiceRecord[] recordDB;
 	
 	public ProviderReport(Provider provider) {
 		this.provider = provider;
 		filePath = "ProviderReports\\" + provider.getUserID();
+		recordDB = DatabaseController.searchServiceRecords(provider);
 	}
 	
 	//writes to file
@@ -16,9 +22,21 @@ public class ProviderReport extends Report {
 					+ "Provider State: " + provider.getState() + '\n'
 					+ "Provider Zip Code: " + provider.getZipCode() + '\n';
 			//update services
-			
-			//text+= "Total Number of Consulations: ";
-			//text+= "Total Fee for Week: ";
+			totalFees = 0.0;
+			for (ServiceRecord record : recordDB) {
+				numServices++;
+				ServiceCode service = DatabaseController.searchServiceCodes(record.ServiceName);
+				totalFees += service.serviceFee;
+				text += "Date of Service: " + record.ServiceTime + '\n'
+						+ "Date and Time of Entry: " + '\n'
+						+ "Member Name: " + record.MemberName + '\n'
+						+ "Member Number: " + record.MemberNumber + '\n'
+						+ "Service Code: " + service.serviceCode + '\n'
+						+ "Service Fee: " + service.serviceFee + '\n'
+						+ '\n';
+			}
+			text+= "Total Number of Consultations: " + numServices + '\n';
+			text+= "Total Fees for Week: " + totalFees + '\n';
 		
 			reportText.write(text);
 		}

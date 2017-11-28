@@ -7,7 +7,10 @@
 import java.util.*;
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Files.*;
 import java.nio.file.Paths;
+import java.nio.file.Path;
+import java.nio.charset.*;
 
 public class DatabaseController {
 
@@ -16,6 +19,8 @@ public class DatabaseController {
     static ArrayList<ServiceRecord> serviceRecords = new ArrayList<ServiceRecord>();
     static ArrayList<ServiceCode> serviceCodes = new ArrayList<ServiceCode>();
 
+    private static File memberIn = new File("./data/members.txt");
+    private static File providerIn = new File("./data/providers.txt");
 
     public static void setup() {
 
@@ -23,8 +28,7 @@ public class DatabaseController {
 
         System.out.println("Checking for member data...");
 
-        File memberIn = new File("./data/members.txt");
-        File providerIn = new File("./data/providers.txt");
+
 
         if(memberIn.exists()) {
             System.out.println("Member Data exists. Reading data...");
@@ -37,7 +41,7 @@ public class DatabaseController {
                 for(int x = 0; x < lines.size(); x++) {
                     String[] parsedMemberData = lines.get(x).split("[|]");
                     for (int y = 0; y < parsedMemberData.length; y++) {
-                        if(parsedMemberData[y].charAt(0) == ' ') {
+                        if( parsedMemberData[y].charAt(0) == ' ') {
                             parsedMemberData[y] = parsedMemberData[y].substring(1, parsedMemberData[y].length());
                         }
                         if(parsedMemberData[y].charAt(parsedMemberData[y].length()-1) == ' ') {
@@ -53,7 +57,11 @@ public class DatabaseController {
                     String email = parsedMemberData[6];
                     String phone = parsedMemberData[7];
                     int id = Integer.parseInt(parsedMemberData[8]);
-                    members.add(new Member(firstName, lastName, address, city, state, zip, email, phone, id));
+                    Member newMember = new Member(firstName, lastName, address, city, state, zip, email, phone, id);
+                    members.add(newMember);
+                    System.out.println(parsedMemberData[9]);
+                    if(parsedMemberData[9].equals("Suspended")) {  newMember.suspend(); }
+
                 }
 
                 System.out.println(members.size() + " members loaded from file.");
@@ -141,6 +149,20 @@ public class DatabaseController {
 
         members.add(newMember);
 
+        Path path = Paths.get("./data/members.txt");
+        Charset charset = StandardCharsets.UTF_8;
+
+        try(FileWriter fw = new FileWriter("./data/members.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw))
+        {
+            System.out.println("Writing \n" + newMember.toString() + "\nto file");
+            out.print("\n" + newMember.toString());
+
+        } catch (IOException e) {
+            System.out.println("ERROR: FAILED TO WRITE NEW MEMBER TO FILE " + e);
+        }
+
         return newMember;
     }
 
@@ -173,6 +195,36 @@ public class DatabaseController {
     //suspends the member with the corresponding ID
     public static void suspendMember(int userID) {
         getMember(userID).suspend();
+
+        Path path = Paths.get("./data/members.txt");
+        Charset charset = StandardCharsets.UTF_8;
+
+        try {
+            String content = new String(Files.readAllBytes(path), charset);
+            content = content.replace( Integer.toString(userID).concat(" | Active;")  , Integer.toString(userID).concat(" | Suspended;")  );
+            Files.write(path, content.getBytes(charset));
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Could not update member file with suspension. " + e);
+        }
+    }
+
+
+    //reactivates the member with the corresponding ID
+    public static void reactivateMember(int userID) {
+        getMember(userID).setActive();
+
+        Path path = Paths.get("./data/members.txt");
+        Charset charset = StandardCharsets.UTF_8;
+
+        try {
+            String content = new String(Files.readAllBytes(path), charset);
+            content = content.replace( Integer.toString(userID).concat(" | Suspended;")  , Integer.toString(userID).concat(" | Active;")  );
+            Files.write(path, content.getBytes(charset));
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Could not update member file with ReActivation. " + e);
+        }
     }
 
 
@@ -283,6 +335,9 @@ public class DatabaseController {
         return matchingRecords;
 
     }
+
+    //generates a service record and adds it to the list as well as writes it to file
+    //public static ServiceRecord generateServiceRecord() { }
 
 
     //search the service records by Time period TODO this is Incomplete
