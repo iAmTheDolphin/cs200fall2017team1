@@ -35,6 +35,7 @@ public class OperatorInterface {
         System.out.println("   4: ReActivate Member");
         System.out.println("   5: View all members");
         System.out.println("   6: View all providers");
+        System.out.println("   7: Update member information");
         System.out.println("   -1: Quit");
 
         switch (scan.nextLine()) {
@@ -44,6 +45,7 @@ public class OperatorInterface {
             case "4" : reactivateMember(); break;
             case "5" : viewAllMembers(); break;
             case "6" : viewAllProviders(); break;
+            case "7" : updateMemberInformation(); break;
             case "-1" : keepRunning = false; break;
             default: ;
         }
@@ -229,5 +231,103 @@ public class OperatorInterface {
         for (Provider x : DatabaseController.providers) {
             System.out.println(x.toString());
         }
+    }
+
+    private void updateMemberInformation() {
+
+        System.out.println("Please enter the id of the member to edit. \"quit\" to exit.");
+
+        String temp = scan.nextLine().toLowerCase();
+
+        if(temp.equals("quit")) {
+            System.out.println("Exiting Member editing...");
+        }
+        else {
+
+            try{
+                Member tempMember = DatabaseController.getMember(Integer.parseInt(temp));
+                if(tempMember.getUserID() != -1) {
+                    System.out.println(tempMember.toString());
+
+                    System.out.println("Menu: ");
+                    System.out.println("   1: Change Member First Name");
+                    System.out.println("   2: Change Member Last Name");
+                    System.out.println("   3: Change Member address");
+                    System.out.println("   4: Change Member City");
+                    System.out.println("   5: Change Member State");
+                    System.out.println("   6: Change Member zipcode");
+                    System.out.println("   7: Change Member email");
+                    System.out.println("   8: Change Member phone number");
+                    System.out.println("   \"quit\" to quit ");
+
+                    switch(scan.nextLine()) {
+
+                        case "1" : updateMemberFirstName(tempMember.getUserID()); break;
+                        case "2" : updateMemberLastName(tempMember.getUserID()); break;
+                        case "3" : updateMemberAddress(tempMember.getUserID()); break;
+                        case "4" : updateMemberCity(tempMember.getUserID()); break;
+                        case "5" : updateMemberState(tempMember.getUserID()); break;
+                        case "6" : updateMemberZip(tempMember.getUserID()); break;
+                        case "7" : updateMemberEmail(tempMember.getUserID()); break;
+                        case "8" : updateMemberPhone(tempMember.getUserID()); break;
+
+                        default:
+
+                    }
+
+                }
+                else {
+                    System.out.println("That is not a valid member ID;");
+                    updateMemberInformation();
+                }
+            }
+            catch(NumberFormatException e){
+                System.out.println("Please enter a valid ID");
+                updateMemberInformation();
+            }
+        }
+    }
+
+    private void updateMemberFirstName(int userID) {
+        System.out.println("What would you like the new first name to be?");
+        DatabaseController.updateMemberFirstName(userID, scan.nextLine());
+    }
+
+    private void updateMemberLastName(int userID) {
+        System.out.println("What would you like the new last name to be?");
+        DatabaseController.updateMemberLastName(userID, scan.nextLine());
+    }
+
+    private void updateMemberAddress(int userID) {
+        System.out.println("What would you like the new address to be?");
+        DatabaseController.updateMemberAddress(userID, scan.nextLine());
+    }
+
+    private void updateMemberCity(int userID) {
+        System.out.println("What would you like the new city to be?");
+        DatabaseController.updateMemberCity(userID, scan.nextLine());
+    }
+
+    private void updateMemberState(int userID) {
+        System.out.println("What would you like the new state to be?");
+        DatabaseController.updateMemberState(userID, scan.nextLine());
+    }
+
+    private void updateMemberZip(int userID) {
+        System.out.println("What would you like the new zip code to be?");
+        DatabaseController.updateMemberZip(userID, scan.nextLine());
+    }
+
+    private void updateMemberPhone(int userID) {
+
+        System.out.println("What would you like the new Phone Number to be?");
+        DatabaseController.updateMemberPhone(userID, scan.nextLine());
+
+    }
+
+    private void updateMemberEmail(int userID) {
+        System.out.println("What would you like the new Email to be?");
+        DatabaseController.updateMemberEmail(userID, scan.nextLine());
+
     }
 }

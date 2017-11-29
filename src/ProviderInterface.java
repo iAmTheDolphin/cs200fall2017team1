@@ -20,10 +20,6 @@ public class ProviderInterface {
             case "4" : break;
             default: System.out.println("Invalid Input"); MainMenu(); break;
         }
-
-
-
-
     }
 
     public void viewServiceRecords() {
@@ -62,13 +58,11 @@ public class ProviderInterface {
         }
     }
 
-
     public void CreateServiceRecord() {//creates a service record object, does GenerateServiceRecord from servicerecord class
         ServiceRecord x = new ServiceRecord();
         x.GenerateServiceRecord();
     }
-
-
+    
     public char TryAgain() {
         //System.out.println("\nWould you like to try again? (Y/N)");
         char input = scan.nextLine().charAt(0);

@@ -14,6 +14,10 @@ import java.nio.charset.*;
 
 public class DatabaseController {
 
+    static Path membersPath = Paths.get("./data/members.txt");
+    static Charset charset = StandardCharsets.UTF_8;
+
+
     static ArrayList<Member> members = new ArrayList<Member>();
     static ArrayList<Provider> providers = new ArrayList<Provider>();
     static ArrayList<ServiceRecord> serviceRecords = new ArrayList<ServiceRecord>();
@@ -133,13 +137,12 @@ public class DatabaseController {
 
 
 
-
     //creates another member in the list
     public static Member newMember(String firstName, String lastName, String streetAddress,
                           String city, String state, String zipCode,String email,
                           String phoneNumber) {
 
-        int newUserID = 100000;
+        int newUserID = 100000000;
 
         if(members.size() > 0) {
             newUserID += members.size();
@@ -172,7 +175,7 @@ public class DatabaseController {
                             String city, String state, String zipCode,String email,
                             String phoneNumber) {
 
-        int newProviderID = 999999;
+        int newProviderID = 999999999;
 
         if(providers.size() > 0) {
             newProviderID -= providers.size();
@@ -196,13 +199,11 @@ public class DatabaseController {
     public static void suspendMember(int userID) {
         getMember(userID).suspend();
 
-        Path path = Paths.get("./data/members.txt");
-        Charset charset = StandardCharsets.UTF_8;
 
         try {
-            String content = new String(Files.readAllBytes(path), charset);
+            String content = new String(Files.readAllBytes(membersPath), charset);
             content = content.replace( Integer.toString(userID).concat(" | Active;")  , Integer.toString(userID).concat(" | Suspended;")  );
-            Files.write(path, content.getBytes(charset));
+            Files.write(membersPath, content.getBytes(charset));
         }
         catch(IOException e) {
             System.out.println("ERROR: Could not update member file with suspension. " + e);
@@ -214,13 +215,10 @@ public class DatabaseController {
     public static void reactivateMember(int userID) {
         getMember(userID).setActive();
 
-        Path path = Paths.get("./data/members.txt");
-        Charset charset = StandardCharsets.UTF_8;
-
         try {
-            String content = new String(Files.readAllBytes(path), charset);
+            String content = new String(Files.readAllBytes(membersPath), charset);
             content = content.replace( Integer.toString(userID).concat(" | Suspended;")  , Integer.toString(userID).concat(" | Active;")  );
-            Files.write(path, content.getBytes(charset));
+            Files.write(membersPath, content.getBytes(charset));
         }
         catch(IOException e) {
             System.out.println("ERROR: Could not update member file with ReActivation. " + e);
@@ -351,6 +349,151 @@ public class DatabaseController {
     public static void createMemberRecord(Member member) {
 
         MemberReport report = new MemberReport(member);
+
+    }
+
+
+    public static void updateMemberFirstName(int memberID, String newFirstName) {
+
+        Member tempMember = getMember(memberID);
+
+        try {
+            String content = new String(Files.readAllBytes(membersPath), charset);
+            content = content.replace(tempMember.getFirstName() + " | " + tempMember.getLastName() + " | " + tempMember.getStreetAddress() +
+                            " | " + tempMember.getCity() + " | " + tempMember.getState() + " | " + tempMember.getZipCode() +
+                            " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID() ,
+
+                    newFirstName + " | " + tempMember.getLastName() + " | " + tempMember.getStreetAddress() +
+                            " | " + tempMember.getCity() + " | " + tempMember.getState() + " | " + tempMember.getZipCode() +
+                            " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID());
+            Files.write(membersPath, content.getBytes(charset));
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Could not update member file with new first name" + e);
+        }
+        tempMember.setZipCode(newFirstName);
+    }
+
+    public static void updateMemberLastName(int memberID, String newLastName) {
+
+        Member tempMember = getMember(memberID);
+
+        try {
+            String content = new String(Files.readAllBytes(membersPath), charset);
+            content = content.replace(" | " + tempMember.getLastName() + " | " + tempMember.getStreetAddress() +
+                            " | " + tempMember.getCity() + " | " + tempMember.getState() + " | " + tempMember.getZipCode() +
+                            " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID() ,
+
+                    " | " + newLastName + " | " + tempMember.getStreetAddress() +
+                            " | " + tempMember.getCity() + " | " + tempMember.getState() + " | " + tempMember.getZipCode() +
+                            " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID());
+            Files.write(membersPath, content.getBytes(charset));
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Could not update member file with new last name" + e);
+        }
+        tempMember.setZipCode(newLastName);
+    }
+
+    public static void updateMemberAddress(int memberID, String newAddress) {
+
+        Member tempMember = getMember(memberID);
+
+        try {
+            String content = new String(Files.readAllBytes(membersPath), charset);
+            content = content.replace(" | " + tempMember.getStreetAddress() + " | " + tempMember.getCity() + " | "
+                            + tempMember.getState() + " | " + tempMember.getZipCode() + " | " + tempMember.getEmail() +
+                            " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID() ,
+                    " | " + newAddress + " | " + tempMember.getCity() + " | "
+                            + tempMember.getState() + " | " + tempMember.getZipCode() + " | " + tempMember.getEmail() +
+                            " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID());
+            Files.write(membersPath, content.getBytes(charset));
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Could not update member file with new address" + e);
+        }
+        tempMember.setZipCode(newAddress);
+    }
+
+    public static void updateMemberCity(int memberID, String newCity) {
+
+        Member tempMember = getMember(memberID);
+
+        try {
+            String content = new String(Files.readAllBytes(membersPath), charset);
+            content = content.replace(" | " + tempMember.getCity() + " | " + tempMember.getState() + " | " + tempMember.getZipCode() + " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID() ,
+                    " | " + newCity + " | " + tempMember.getState() + " | " + tempMember.getZipCode() + " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID());
+            Files.write(membersPath, content.getBytes(charset));
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Could not update member file with new city" + e);
+        }
+        tempMember.setZipCode(newCity);
+    }
+
+    public static void updateMemberState(int memberID, String newState) {
+
+        Member tempMember = getMember(memberID);
+
+        try {
+            String content = new String(Files.readAllBytes(membersPath), charset);
+            content = content.replace(   " | " + tempMember.getState() + " | " + tempMember.getZipCode() + " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID() ,
+                    " | " + newState + " | " + tempMember.getZipCode() + " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID());
+            Files.write(membersPath, content.getBytes(charset));
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Could not update member file with new state" + e);
+        }
+        tempMember.setZipCode(newState);
+    }
+
+    public static void updateMemberZip(int memberID, String newZip) {
+
+        Member tempMember = getMember(memberID);
+
+        try {
+            String content = new String(Files.readAllBytes(membersPath), charset);
+            content = content.replace(   " | " + tempMember.getZipCode() + " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID() ,
+                    " | " + newZip + " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID());
+            Files.write(membersPath, content.getBytes(charset));
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Could not update member file with new zip code" + e);
+        }
+        tempMember.setZipCode(newZip);
+    }
+
+    public static void updateMemberPhone(int memberID, String newPhone) {
+
+        Member tempMember = getMember(memberID);
+
+        try {
+            String content = new String(Files.readAllBytes(membersPath), charset);
+            content = content.replace(  " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID() , " | " + newPhone +" | " + tempMember.getUserID()  );
+            Files.write(membersPath, content.getBytes(charset));
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Could not update member file with new phone number" + e);
+        }
+        tempMember.setPhoneNumber(newPhone);
+    }
+
+    public static void updateMemberEmail(int memberID, String newEmail) {
+
+
+        Member tempMember = getMember(memberID);
+
+        try {
+            String content = new String(Files.readAllBytes(membersPath), charset);
+            System.out.println("|" + tempMember.getEmail() + "|");
+            content = content.replace(  " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID() , " | " + newEmail + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID());
+            Files.write(membersPath, content.getBytes(charset));
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Could not update member file with new email address" + e);
+        }
+
+        tempMember.setEmail(newEmail);
 
     }
 
