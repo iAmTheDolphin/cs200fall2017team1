@@ -41,7 +41,7 @@ public class ProviderInterface {
                 MainMenu();
             } else {
                 System.out.println("When you are finished, type Y to create the service record, or N to wait until later to create it.");
-                char input2 = TryAgain();
+                char input2 = TryAgain();//something about this line is causing issues, i think.
                 if (input2 == 'Y' || input2 == 'y') {
                     ServiceRecord newServiceRecord = new ServiceRecord();
                     newServiceRecord.GenerateServiceRecord();
@@ -78,4 +78,6 @@ public class ProviderInterface {
         }
         return input;
     }
+
+
 }
