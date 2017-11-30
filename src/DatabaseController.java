@@ -14,14 +14,14 @@ import java.nio.charset.*;
 
 public class DatabaseController {
 
-    static Path membersPath = Paths.get("./data/members.txt");
-    static Charset charset = StandardCharsets.UTF_8;
+    private static Path membersPath = Paths.get("./data/members.txt");
+    private static Charset charset = StandardCharsets.UTF_8;
 
 
-    static ArrayList<Member> members = new ArrayList<Member>();
-    static ArrayList<Provider> providers = new ArrayList<Provider>();
-    static ArrayList<ServiceRecord> serviceRecords = new ArrayList<ServiceRecord>();
-    static ArrayList<ServiceCode> serviceCodes = new ArrayList<ServiceCode>();
+    private static ArrayList<Member> members = new ArrayList<Member>();
+    private static ArrayList<Provider> providers = new ArrayList<Provider>();
+    private static ArrayList<ServiceRecord> serviceRecords = new ArrayList<ServiceRecord>();
+    private static ArrayList<ServiceCode> serviceCodes = new ArrayList<ServiceCode>();
 
     private static File memberIn = new File("./data/members.txt");
     private static File providerIn = new File("./data/providers.txt");
@@ -191,7 +191,21 @@ public class DatabaseController {
 
     //deletes the member with the corresponding ID
     public static void deleteMember(int userID) {
-        members.remove(getMember(userID));
+        Member tempMember = getMember(userID);
+
+
+        members.remove(tempMember);
+
+        try {
+            String content = new String(Files.readAllBytes(membersPath), charset);
+            content = content.replace(tempMember.getFirstName() + " | " + tempMember.getLastName() + " | " + tempMember.getStreetAddress() +
+                            " | " + tempMember.getCity() + " | " + tempMember.getState() + " | " + tempMember.getZipCode() +
+                            " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID() + " | (.*);" , "");
+            Files.write(membersPath, content.getBytes(charset));
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Could not update member file with new first name" + e);
+        }
     }
 
 
@@ -496,5 +510,7 @@ public class DatabaseController {
         tempMember.setEmail(newEmail);
 
     }
+
+
 
 }
