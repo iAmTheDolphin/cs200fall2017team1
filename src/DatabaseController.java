@@ -15,6 +15,7 @@ import java.nio.charset.*;
 public class DatabaseController {
 
     private static Path membersPath = Paths.get("./data/members.txt");
+    private static Path providersPath = Paths.get("./data/providers.txt"); // double check
     private static Charset charset = StandardCharsets.UTF_8;
 
 

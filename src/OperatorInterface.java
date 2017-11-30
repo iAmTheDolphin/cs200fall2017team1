@@ -1,5 +1,5 @@
 /*
- * Parker Jones
+ * Parker Jones and Hunter James
  * 11/24/17
  * Operator Interface
  */
@@ -35,7 +35,8 @@ public class OperatorInterface {
         System.out.println("   4: ReActivate Member");
         System.out.println("   5: View all members");
         System.out.println("   6: View all providers");
-        System.out.println("   7: Update member information");
+        System.out.println("   7: Update Member information");
+        System.out.println("   8: Update Provider information");
         System.out.println("   -1: Quit");
 
         switch (scan.nextLine()) {
@@ -46,6 +47,7 @@ public class OperatorInterface {
             case "5" : viewAllMembers(); break;
             case "6" : viewAllProviders(); break;
             case "7" : updateMemberInformation(); break;
+            case "8" : updateProviderInformation(); break;
             case "-1" : keepRunning = false; break;
             default: ;
         }
@@ -235,7 +237,7 @@ public class OperatorInterface {
 
     private void updateMemberInformation() {
 
-        System.out.println("Please enter the id of the member to edit. \"quit\" to exit.");
+        System.out.println("Please enter the ID of the member to edit. \"quit\" to exit.");
 
         String temp = scan.nextLine().toLowerCase();
 
@@ -252,12 +254,12 @@ public class OperatorInterface {
                     System.out.println("Menu: ");
                     System.out.println("   1: Change Member First Name");
                     System.out.println("   2: Change Member Last Name");
-                    System.out.println("   3: Change Member address");
+                    System.out.println("   3: Change Member Street Address");
                     System.out.println("   4: Change Member City");
                     System.out.println("   5: Change Member State");
-                    System.out.println("   6: Change Member zipcode");
-                    System.out.println("   7: Change Member email");
-                    System.out.println("   8: Change Member phone number");
+                    System.out.println("   6: Change Member Zip Code");
+                    System.out.println("   7: Change Member Email");
+                    System.out.println("   8: Change Member Phone Number");
                     System.out.println("   \"quit\" to quit ");
 
                     switch(scan.nextLine()) {
@@ -299,7 +301,7 @@ public class OperatorInterface {
     }
 
     private void updateMemberAddress(int userID) {
-        System.out.println("What would you like the new address to be?");
+        System.out.println("What would you like the new street address to be?");
         DatabaseController.updateMemberAddress(userID, scan.nextLine());
     }
 
@@ -320,14 +322,113 @@ public class OperatorInterface {
 
     private void updateMemberPhone(int userID) {
 
-        System.out.println("What would you like the new Phone Number to be?");
+        System.out.println("What would you like the new phone number to be?");
         DatabaseController.updateMemberPhone(userID, scan.nextLine());
 
     }
 
     private void updateMemberEmail(int userID) {
-        System.out.println("What would you like the new Email to be?");
+        System.out.println("What would you like the new email to be?");
         DatabaseController.updateMemberEmail(userID, scan.nextLine());
 
     }
+    private void updateProviderInformation() {
+
+        System.out.println("Please enter the ID of the Provider to edit. \"quit\" to exit.");
+
+        String temp = scan.nextLine().toLowerCase();
+
+        if(temp.equals("quit")) {
+            System.out.println("Exiting Provider editing...");
+        }
+        else {
+
+            try{
+                Provider tempProvider = DatabaseController.getProvider(Integer.parseInt(temp));
+                if(tempProvider.getUserID() != -1) {
+                    System.out.println(tempProvider.toString());
+
+                    System.out.println("Menu: ");
+                    System.out.println("   1: Change Provider First Name");
+                    System.out.println("   2: Change Provider Last Name");
+                    System.out.println("   3: Change Provider Street Address");
+                    System.out.println("   4: Change Provider City");
+                    System.out.println("   5: Change Provider State");
+                    System.out.println("   6: Change Provider Zip Code");
+                    System.out.println("   7: Change Provider Email");
+                    System.out.println("   8: Change Provider Phone Number");
+                    System.out.println("   \"quit\" to quit ");
+
+                    switch(scan.nextLine()) {
+
+                        case "1" : updateProviderFirstName(tempProvider.getUserID()); break;
+                        case "2" : updateProviderLastName(tempProvider.getUserID()); break;
+                        case "3" : updateProviderAddress(tempProvider.getUserID()); break;
+                        case "4" : updateProviderCity(tempProvider.getUserID()); break;
+                        case "5" : updateProviderState(tempProvider.getUserID()); break;
+                        case "6" : updateProviderZip(tempProvider.getUserID()); break;
+                        case "7" : updateProviderEmail(tempProvider.getUserID()); break;
+                        case "8" : updateProviderPhone(tempProvider.getUserID()); break;
+
+                        default:
+
+                    }
+
+                }
+                else {
+                    System.out.println("That is not a valid provider ID;");
+                    updateProviderInformation();
+                }
+            }
+            catch(NumberFormatException e){
+                System.out.println("Please enter a valid ID");
+                updateProviderInformation();
+            }
+        }
+    }
+
+    private void updateProviderFirstName(int userID) {
+        System.out.println("What would you like the new first name to be?");
+        DatabaseController.updateProviderFirstName(userID, scan.nextLine());
+    }
+
+    private void updateProviderLastName(int userID) {
+        System.out.println("What would you like the new last name to be?");
+        DatabaseController.updateProviderLastName(userID, scan.nextLine());
+    }
+
+    private void updateProviderAddress(int userID) {
+        System.out.println("What would you like the new street address to be?");
+        DatabaseController.updateProviderAddress(userID, scan.nextLine());
+    }
+
+    private void updateProviderCity(int userID) {
+        System.out.println("What would you like the new city to be?");
+        DatabaseController.updateProviderCity(userID, scan.nextLine());
+    }
+
+    private void updateProviderState(int userID) {
+        System.out.println("What would you like the new state to be?");
+        DatabaseController.updateProviderState(userID, scan.nextLine());
+    }
+
+    private void updateProviderZip(int userID) {
+        System.out.println("What would you like the new zip code to be?");
+        DatabaseController.updateProviderZip(userID, scan.nextLine());
+    }
+
+    private void updateProviderPhone(int userID) {
+
+        System.out.println("What would you like the new phone number to be?");
+        DatabaseController.updateProviderPhone(userID, scan.nextLine());
+
+    }
+
+    private void updateProviderEmail(int userID) {
+        System.out.println("What would you like the new email to be?");
+        DatabaseController.updateProviderEmail(userID, scan.nextLine());
+
+    }
 }
+
+
