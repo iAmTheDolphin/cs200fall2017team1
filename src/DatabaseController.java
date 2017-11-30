@@ -18,8 +18,8 @@ public class DatabaseController {
     private static Charset charset = StandardCharsets.UTF_8;
 
 
-    private static ArrayList<Member> members = new ArrayList<Member>();
-    private static ArrayList<Provider> providers = new ArrayList<Provider>();
+    static ArrayList<Member> members = new ArrayList<Member>();
+    static ArrayList<Provider> providers = new ArrayList<Provider>();
     private static ArrayList<ServiceRecord> serviceRecords = new ArrayList<ServiceRecord>();
     private static ArrayList<ServiceCode> serviceCodes = new ArrayList<ServiceCode>();
 
@@ -185,13 +185,6 @@ public class DatabaseController {
         return provider;
     }
 
-    static Object[] getAllMembers() {
-        return members.toArray();
-    }
-
-    static Object[] getAllProviders() {
-        return providers.toArray();
-    }
 
 
     //deletes the member with the corresponding ID
@@ -585,14 +578,14 @@ public class DatabaseController {
 
     
     //updates the provider's last name
-    static void updateProviderLastName(int memberID, String newLastName) {
+    static void updateProviderLastName(int providerID, String newLastName) {
 
         Provider tempProvider = getProvider(providerID);
 
         try {
             String content = new String(Files.readAllBytes(providersPath), charset);
             content = content.replace(" | " + tempProvider.getLastName() + " | " + tempProvider.getStreetAddress() +
-                            " | " + tempMember.getCity() + " | " + tempMember.getState() + " | " + tempProvider.getZipCode() +
+                            " | " + tempProvider.getCity() + " | " + tempProvider.getState() + " | " + tempProvider.getZipCode() +
                             " | " + tempProvider.getEmail() + " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID() ,
 
                     " | " + newLastName + " | " + tempProvider.getStreetAddress() +

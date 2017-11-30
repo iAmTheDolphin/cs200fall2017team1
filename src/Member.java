@@ -45,4 +45,14 @@ public class Member extends User{
 		return super.toString() + " | " + suspendedState + ";";
 
 	}
+
+	public String toDisplayString() {
+		String suspendedState = "ACTIVE : ";
+
+		if(isSuspended) {
+			suspendedState = "SUSPENDED : ";
+		}
+
+		return suspendedState + super.toDisplayString();
+	}
 }

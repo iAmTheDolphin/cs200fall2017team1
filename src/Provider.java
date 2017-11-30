@@ -13,4 +13,7 @@ public class Provider extends User {
 
     }
 
+    public String toDisplayString() {
+        return super.toDisplayString();
+    }
 }

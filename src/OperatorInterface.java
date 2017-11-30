@@ -224,14 +224,14 @@ public class OperatorInterface {
     }
 
     private void viewAllMembers() {
-        for (Object x : DatabaseController.getAllMembers()) {
-            System.out.println(x.toString());
+        for (Member x : DatabaseController.members) {
+            System.out.println( x.toDisplayString());
         }
     }
 
     private void viewAllProviders() {
-        for (Object x : DatabaseController.getAllProviders()) {
-            System.out.println(x.toString());
+        for (User x : DatabaseController.providers) {
+            System.out.println(x.toDisplayString());
         }
     }
 
@@ -290,46 +290,46 @@ public class OperatorInterface {
         }
     }
 
-    private void updateMemberFirstName(int userID) {
+    private void updateMemberFirstName(int memberID) {
         System.out.println("What would you like the new first name to be?");
-        DatabaseController.updateMemberFirstName(userID, scan.nextLine());
+        DatabaseController.updateMemberFirstName(memberID, scan.nextLine());
     }
 
-    private void updateMemberLastName(int userID) {
+    private void updateMemberLastName(int memberID) {
         System.out.println("What would you like the new last name to be?");
-        DatabaseController.updateMemberLastName(userID, scan.nextLine());
+        DatabaseController.updateMemberLastName(memberID, scan.nextLine());
     }
 
-    private void updateMemberAddress(int userID) {
+    private void updateMemberAddress(int memberID) {
         System.out.println("What would you like the new street address to be?");
-        DatabaseController.updateMemberAddress(userID, scan.nextLine());
+        DatabaseController.updateMemberAddress(memberID, scan.nextLine());
     }
 
-    private void updateMemberCity(int userID) {
+    private void updateMemberCity(int memberID) {
         System.out.println("What would you like the new city to be?");
-        DatabaseController.updateMemberCity(userID, scan.nextLine());
+        DatabaseController.updateMemberCity(memberID, scan.nextLine());
     }
 
-    private void updateMemberState(int userID) {
+    private void updateMemberState(int memberID) {
         System.out.println("What would you like the new state to be?");
-        DatabaseController.updateMemberState(userID, scan.nextLine());
+        DatabaseController.updateMemberState(memberID, scan.nextLine());
     }
 
-    private void updateMemberZip(int userID) {
+    private void updateMemberZip(int memberID) {
         System.out.println("What would you like the new zip code to be?");
-        DatabaseController.updateMemberZip(userID, scan.nextLine());
+        DatabaseController.updateMemberZip(memberID, scan.nextLine());
     }
 
-    private void updateMemberPhone(int userID) {
+    private void updateMemberPhone(int memberID) {
 
         System.out.println("What would you like the new phone number to be?");
-        DatabaseController.updateMemberPhone(userID, scan.nextLine());
+        DatabaseController.updateMemberPhone(memberID, scan.nextLine());
 
     }
 
-    private void updateMemberEmail(int userID) {
+    private void updateMemberEmail(int memberID) {
         System.out.println("What would you like the new email to be?");
-        DatabaseController.updateMemberEmail(userID, scan.nextLine());
+        DatabaseController.updateMemberEmail(memberID, scan.nextLine());
 
     }
 

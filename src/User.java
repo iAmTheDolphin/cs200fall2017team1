@@ -4,7 +4,7 @@ Hunter James
 User Class
  */
 
-public class User {
+public class User{
 
 	private String firstName;
 	private String lastName;
@@ -122,6 +122,12 @@ public class User {
 
 		return firstName + " | " + lastName + " | " + streetAddress + " | " + city + " | " + state + " | " +
 				zipCode + " | " + email + " | " + phoneNumber + " | " + userID;
+
+	}
+
+	public String toDisplayString() {
+
+		return firstName + " " + lastName + " : " + userID + "\n" + streetAddress + ", " + city + ", " + state + " " + zipCode + "\n" + email + "\n" + phoneNumber + "\n";
 
 	}
 
