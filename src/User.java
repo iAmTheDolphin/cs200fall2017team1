@@ -82,29 +82,39 @@ public class User {
 		return streetAddress;
 	}
 
-	String setCity(String newCity) {
+	User setCity(String newCity) {
 		city = newCity;
-		return city;
+		return this;
 	}
 
-	String setEmail(String newEmail) {
+	User setEmail(String newEmail) {
 		email = newEmail;
-		return email;
+		return this;
 	}
 
-	String setState(String newState) {
+	User setState(String newState) {
 		state = newState;
-		return state;
+		return this;
 	}
 
-	String setZipCode(String newZip) {
+	User setZipCode(String newZip) {
 		zipCode = newZip;
-		return zipCode;
+		return this;
 	}
 
-	String setPhoneNumber(String newPhoneNum) {
+	User setPhoneNumber(String newPhoneNum) {
 		phoneNumber = newPhoneNum;
-		return phoneNumber;
+		return this;
+	}
+
+	User setFirstName(String newFirstName) {
+		firstName = newFirstName;
+		return this;
+	}
+
+	User setLastName(String newLastName) {
+		firstName = newLastName;
+		return this;
 	}
 //endregion
 

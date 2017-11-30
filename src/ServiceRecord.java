@@ -179,7 +179,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
             } else {
                 System.out.println("\nPlease try entering the code again: ");
                 int tempp = scan.nextInt();
-                FindServiceInfo(tempp);
+                FindServiceInfo(tempp, false);//TODO change this to its proper value. I just changed it to false to stop errors -P
             }
 
         }
@@ -191,7 +191,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         } else {
             System.out.println("\nPlease try re-entering the service code. ");
             int tempp = scan.nextInt();
-            FindServiceInfo(tempp);
+            FindServiceInfo(tempp, false);//TODO change this to its proper value. I just changed it to false to stop errors -P
         }
         System.out.println("\nThe name of this service is :" + y.serviceName + ". Is this correct? (Y/N)");
         input = tempy.TryAgain();
@@ -200,7 +200,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         } else {
             System.out.println("\nPlease try re-entering the service code. ");
             int tempp = scan.nextInt();
-            FindServiceInfo(tempp);
+            FindServiceInfo(tempp, false);//TODO change this to its proper value. I just changed it to false to stop errors -P
         }
         return y;
 

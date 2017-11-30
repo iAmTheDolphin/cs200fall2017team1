@@ -47,7 +47,7 @@ public class OperatorInterface {
             case "5" : viewAllMembers(); break;
             case "6" : viewAllProviders(); break;
             case "7" : updateMemberInformation(); break;
-            case "8" : updateProviderInformation(); break;
+            //case "8" : updateProviderInformation(); break;
             case "-1" : keepRunning = false; break;
             default: ;
         }
@@ -224,13 +224,13 @@ public class OperatorInterface {
     }
 
     private void viewAllMembers() {
-        for (Member x : DatabaseController.members) {
+        for (Object x : DatabaseController.getAllMembers()) {
             System.out.println(x.toString());
         }
     }
 
     private void viewAllProviders() {
-        for (Provider x : DatabaseController.providers) {
+        for (Object x : DatabaseController.getAllProviders()) {
             System.out.println(x.toString());
         }
     }
@@ -332,6 +332,9 @@ public class OperatorInterface {
         DatabaseController.updateMemberEmail(userID, scan.nextLine());
 
     }
+
+
+    /*
     private void updateProviderInformation() {
 
         System.out.println("Please enter the ID of the Provider to edit. \"quit\" to exit.");
@@ -429,6 +432,7 @@ public class OperatorInterface {
         DatabaseController.updateProviderEmail(userID, scan.nextLine());
 
     }
+    */
 }
 
 

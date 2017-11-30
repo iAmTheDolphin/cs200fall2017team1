@@ -189,6 +189,14 @@ public class DatabaseController {
         return provider;
     }
 
+    public static Object[] getAllMembers() {
+        return members.toArray();
+    }
+
+    public static Object[] getAllProviders() {
+        return providers.toArray();
+    }
+
 
     //deletes the member with the corresponding ID
     public static void deleteMember(int userID) {
@@ -226,6 +234,7 @@ public class DatabaseController {
             System.out.println("ERROR: Could not update Provider file with new first name" + e);
         }
     }
+
 
     //suspends the member with the corresponding ID
     public static void suspendMember(int userID) {
@@ -271,6 +280,20 @@ public class DatabaseController {
     }
 
 
+    //returns the index of the member
+    private static int getMemberIndex(int userID) {
+
+        for (int x = 0; x < members.size(); x++) {
+            if (members.get(x).getUserID() == userID) {
+                return x;
+            }
+        }
+        System.out.println("NO USER BY THAT ID FOUND");
+
+        return -1;
+    }
+
+
     //returns the Provider object of the provider with the correspondin ID
     public static Provider getProvider(int userID) {
         for (Provider provider : providers) {
@@ -281,6 +304,20 @@ public class DatabaseController {
         System.out.println("NO USER BY THAT ID FOUND");
 
         return new Provider("-1", "-1", "-1", "-1", "-1", "-1", "-1", "-1", -1);
+    }
+
+
+    //returns the index of the Provider
+    private static int getProviderIndex (int userID) {
+
+        for (int x = 0; x < providers.size(); x++) {
+            if (providers.get(x).getUserID() == userID) {
+                return x;
+            }
+        }
+        System.out.println("NO USER BY THAT ID FOUND");
+
+        return -1;
     }
 
 
@@ -366,25 +403,8 @@ public class DatabaseController {
 
     }
 
-    //generates a service record and adds it to the list as well as writes it to file
-    //public static ServiceRecord generateServiceRecord() { }
 
-
-    //search the service records by Time period TODO this is Incomplete
-    public static void searchServiceRecords(Date start, Date end) {
-
-
-
-    }
-
-
-    public static void createMemberRecord(Member member) {
-
-        MemberReport report = new MemberReport(member);
-
-    }
-
-
+    //updates the members first name
     public static void updateMemberFirstName(int memberID, String newFirstName) {
 
         Member tempMember = getMember(memberID);
@@ -403,9 +423,13 @@ public class DatabaseController {
         catch(IOException e) {
             System.out.println("ERROR: Could not update member file with new first name" + e);
         }
-        tempMember.setZipCode(newFirstName);
+
+        members.get(getMemberIndex(memberID)).setFirstName(newFirstName);
+
     }
 
+
+    //updates the members last name
     public static void updateMemberLastName(int memberID, String newLastName) {
 
         Member tempMember = getMember(memberID);
@@ -424,9 +448,12 @@ public class DatabaseController {
         catch(IOException e) {
             System.out.println("ERROR: Could not update member file with new last name" + e);
         }
-        tempMember.setZipCode(newLastName);
+
+        members.get(getMemberIndex(memberID)).setLastName(newLastName);
     }
 
+
+    //updates the members address
     public static void updateMemberAddress(int memberID, String newAddress) {
 
         Member tempMember = getMember(memberID);
@@ -444,9 +471,12 @@ public class DatabaseController {
         catch(IOException e) {
             System.out.println("ERROR: Could not update member file with new address" + e);
         }
-        tempMember.setZipCode(newAddress);
+
+        members.get(getMemberIndex(memberID)).setStreetAddress(newAddress);
     }
 
+
+    //updates the members city
     public static void updateMemberCity(int memberID, String newCity) {
 
         Member tempMember = getMember(memberID);
@@ -460,9 +490,11 @@ public class DatabaseController {
         catch(IOException e) {
             System.out.println("ERROR: Could not update member file with new city" + e);
         }
-        tempMember.setZipCode(newCity);
+        members.get(getMemberIndex(memberID)).setCity(newCity);
     }
 
+
+    //updates the members state
     public static void updateMemberState(int memberID, String newState) {
 
         Member tempMember = getMember(memberID);
@@ -476,9 +508,11 @@ public class DatabaseController {
         catch(IOException e) {
             System.out.println("ERROR: Could not update member file with new state" + e);
         }
-        tempMember.setZipCode(newState);
+        members.get(getMemberIndex(memberID)).setState(newState);
     }
 
+
+    //updates the members zip code
     public static void updateMemberZip(int memberID, String newZip) {
 
         Member tempMember = getMember(memberID);
@@ -492,9 +526,11 @@ public class DatabaseController {
         catch(IOException e) {
             System.out.println("ERROR: Could not update member file with new zip code" + e);
         }
-        tempMember.setZipCode(newZip);
+        members.get(getMemberIndex(memberID)).setZipCode(newZip);
     }
 
+
+    //updates the members phone number
     public static void updateMemberPhone(int memberID, String newPhone) {
 
         Member tempMember = getMember(memberID);
@@ -507,9 +543,11 @@ public class DatabaseController {
         catch(IOException e) {
             System.out.println("ERROR: Could not update member file with new phone number" + e);
         }
-        tempMember.setPhoneNumber(newPhone);
+        members.get(getMemberIndex(memberID)).setPhoneNumber(newPhone);
     }
 
+
+    //updates the members email
     public static void updateMemberEmail(int memberID, String newEmail) {
 
 
@@ -525,9 +563,11 @@ public class DatabaseController {
             System.out.println("ERROR: Could not update member file with new email address" + e);
         }
 
-        tempMember.setEmail(newEmail);
-
+        members.get(getMemberIndex(memberID)).setEmail(newEmail);
     }
+
+
+    //updates the providers firstname
     public static void updateProviderFirstName(int providerID, String newFirstName) {
 
         Provider tempProvider = getProvider(providerID);
@@ -547,6 +587,8 @@ public class DatabaseController {
             System.out.println("ERROR: Could not update provider file with new first name" + e);
         }
         tempProvider.setZipCode(newFirstName); // why is this right??
+
+        providers.get(getProviderIndex(providerID)).setFirstName(newFirstName);
     }
 /*
     public static void updateMemberLastName(int memberID, String newLastName) {
