@@ -1,7 +1,7 @@
 /*
-Hunter James
-11/08/17
-Member Class
+ * Hunter James
+ * 11/08/17
+ * Member Class
  */
 
 import java.util.*;

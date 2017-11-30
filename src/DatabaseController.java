@@ -208,6 +208,23 @@ public class DatabaseController {
         }
     }
 
+    public static void deleteProvider(int userID) {
+        Provider tempProvider = getProvider(userID);
+
+
+        providers.remove(tempProvider);
+
+        try {
+            String content = new String(Files.readAllBytes(providersPath), charset);
+            content = content.replace(tempProvider.getFirstName() + " | " + tempProvider.getLastName() + " | " + tempProvider.getStreetAddress() +
+                            " | " + tempProvider.getCity() + " | " + tempProvider.getState() + " | " + tempProvider.getZipCode() +
+                            " | " + tempProvider.getEmail() + " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID() + " | (.*);" , "");
+            Files.write(providersPath, content.getBytes(charset));
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Could not update Provider file with new first name" + e);
+        }
+    }
 
     //suspends the member with the corresponding ID
     public static void suspendMember(int userID) {
