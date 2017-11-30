@@ -20,10 +20,6 @@ public class ProviderInterface {
             case "4" : break;
             default: System.out.println("Invalid Input"); MainMenu(); break;
         }
-
-
-
-
     }
 
     public void viewServiceRecords() {
@@ -41,7 +37,7 @@ public class ProviderInterface {
                 MainMenu();
             } else {
                 System.out.println("When you are finished, type Y to create the service record, or N to wait until later to create it.");
-                char input2 = TryAgain();
+                char input2 = TryAgain();//something about this line is causing issues, i think.
                 if (input2 == 'Y' || input2 == 'y') {
                     ServiceRecord newServiceRecord = new ServiceRecord();
                     newServiceRecord.GenerateServiceRecord();
@@ -62,13 +58,11 @@ public class ProviderInterface {
         }
     }
 
-
     public void CreateServiceRecord() {//creates a service record object, does GenerateServiceRecord from servicerecord class
         ServiceRecord x = new ServiceRecord();
         x.GenerateServiceRecord();
     }
-
-
+    
     public char TryAgain() {
         //System.out.println("\nWould you like to try again? (Y/N)");
         char input = scan.nextLine().charAt(0);
@@ -78,4 +72,6 @@ public class ProviderInterface {
         }
         return input;
     }
+
+
 }
