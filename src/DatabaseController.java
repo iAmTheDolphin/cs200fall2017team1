@@ -27,7 +27,7 @@ public class DatabaseController {
     private static File memberIn = new File("./data/members.txt");
     private static File providerIn = new File("./data/providers.txt");
 
-    public static void setup() {
+    static void setup() {
 
         System.out.println("Setting up database...");
 
@@ -80,7 +80,7 @@ public class DatabaseController {
             System.out.println("Member Data file doesn't exist. Creating...");
 
             try {
-                memberIn.createNewFile();
+                if(!memberIn.createNewFile()) System.out.println("ERROR: COULD NOT CREATE MEMBER DATA FILE");
             }
             catch (IOException e) {
                 System.out.println("Tried creating file but file already exists! : " + e);
@@ -128,7 +128,7 @@ public class DatabaseController {
             System.out.println("Provider Data file doesn't exist. Creating...");
 
             try {
-                providerIn.createNewFile();
+                if(!providerIn.createNewFile()) System.out.println("ERROR: COULD NOT CREATE PROVIDERS DATA FILE");
             }
             catch (IOException e) {
                 System.out.println("Tried creating file but file already exists! : " + e);
@@ -139,7 +139,7 @@ public class DatabaseController {
 
 
     //creates another member in the list
-    public static Member newMember(String firstName, String lastName, String streetAddress,
+    static Member newMember(String firstName, String lastName, String streetAddress,
                           String city, String state, String zipCode,String email,
                           String phoneNumber) {
 
@@ -172,7 +172,7 @@ public class DatabaseController {
 
 
     //creates a new provider in the list
-    public static Provider newProvider(String firstName, String lastName, String streetAddress,
+    static Provider newProvider(String firstName, String lastName, String streetAddress,
                             String city, String state, String zipCode,String email,
                             String phoneNumber) {
 
@@ -189,11 +189,11 @@ public class DatabaseController {
         return provider;
     }
 
-    public static Object[] getAllMembers() {
+    static Object[] getAllMembers() {
         return members.toArray();
     }
 
-    public static Object[] getAllProviders() {
+    static Object[] getAllProviders() {
         return providers.toArray();
     }
 
@@ -237,7 +237,7 @@ public class DatabaseController {
 
 
     //suspends the member with the corresponding ID
-    public static void suspendMember(int userID) {
+    static void suspendMember(int userID) {
         getMember(userID).suspend();
 
 
@@ -253,7 +253,7 @@ public class DatabaseController {
 
 
     //reactivates the member with the corresponding ID
-    public static void reactivateMember(int userID) {
+    static void reactivateMember(int userID) {
         getMember(userID).setActive();
 
         try {
@@ -268,7 +268,7 @@ public class DatabaseController {
 
 
     //returns the Member object of the member with the corresponding ID
-    public static Member getMember(int userID) {
+    static Member getMember(int userID) {
         for (Member member : members) {
             if (member.getUserID() == userID) {
                 return member;
@@ -295,7 +295,7 @@ public class DatabaseController {
 
 
     //returns the Provider object of the provider with the correspondin ID
-    public static Provider getProvider(int userID) {
+    static Provider getProvider(int userID) {
         for (Provider provider : providers) {
             if (provider.getUserID() == userID) {
                 return provider;
@@ -322,7 +322,7 @@ public class DatabaseController {
 
 
     //creates a new Service Code with the next available ID
-    public static void addServiceCode(String name, double fee) {
+    static void addServiceCode(String name, double fee) {
 
         int newCode = 100000;
 
@@ -336,7 +336,7 @@ public class DatabaseController {
 
 
     //search the service codes by name
-    public static ServiceCode searchServiceCodes(String name) {
+    static ServiceCode searchServiceCodes(String name) {
 
         ServiceCode tempCode = new ServiceCode("-1", -1, -1);
 
@@ -352,7 +352,7 @@ public class DatabaseController {
 
 
     //search the service codes by the code
-    public static ServiceCode searchServiceCodes(int code) {
+    static ServiceCode searchServiceCodes(int code) {
 
         ServiceCode tempCode = new ServiceCode("-1", -1, -1);
 
@@ -368,7 +368,7 @@ public class DatabaseController {
 
 
     //search the service records by member
-    public static ServiceRecord[] searchServiceRecords(Member member) {
+    static ServiceRecord[] searchServiceRecords(Member member) {
 
         ArrayList<ServiceRecord> tempRecords = new ArrayList<>();
 
@@ -379,14 +379,12 @@ public class DatabaseController {
             }
         }
 
-        ServiceRecord[] matchingRecords = tempRecords.toArray(new ServiceRecord[tempRecords.size()]);
-
-        return matchingRecords;
+        return tempRecords.toArray(new ServiceRecord[tempRecords.size()]);
     }
 
 
     //search the service records by provider
-    public static ServiceRecord[] searchServiceRecords(Provider provider){
+    static ServiceRecord[] searchServiceRecords(Provider provider){
 
         ArrayList<ServiceRecord> tempRecords = new ArrayList<>();
 
@@ -397,15 +395,13 @@ public class DatabaseController {
             }
         }
 
-        ServiceRecord[] matchingRecords = tempRecords.toArray(new ServiceRecord[tempRecords.size()]);
-
-        return matchingRecords;
+        return tempRecords.toArray(new ServiceRecord[tempRecords.size()]);
 
     }
 
 
     //updates the members first name
-    public static void updateMemberFirstName(int memberID, String newFirstName) {
+    static void updateMemberFirstName(int memberID, String newFirstName) {
 
         Member tempMember = getMember(memberID);
 
@@ -430,7 +426,7 @@ public class DatabaseController {
 
 
     //updates the members last name
-    public static void updateMemberLastName(int memberID, String newLastName) {
+    static void updateMemberLastName(int memberID, String newLastName) {
 
         Member tempMember = getMember(memberID);
 
@@ -454,7 +450,7 @@ public class DatabaseController {
 
 
     //updates the members address
-    public static void updateMemberAddress(int memberID, String newAddress) {
+    static void updateMemberAddress(int memberID, String newAddress) {
 
         Member tempMember = getMember(memberID);
 
@@ -477,7 +473,7 @@ public class DatabaseController {
 
 
     //updates the members city
-    public static void updateMemberCity(int memberID, String newCity) {
+    static void updateMemberCity(int memberID, String newCity) {
 
         Member tempMember = getMember(memberID);
 
@@ -495,7 +491,7 @@ public class DatabaseController {
 
 
     //updates the members state
-    public static void updateMemberState(int memberID, String newState) {
+    static void updateMemberState(int memberID, String newState) {
 
         Member tempMember = getMember(memberID);
 
@@ -513,7 +509,7 @@ public class DatabaseController {
 
 
     //updates the members zip code
-    public static void updateMemberZip(int memberID, String newZip) {
+    static void updateMemberZip(int memberID, String newZip) {
 
         Member tempMember = getMember(memberID);
 
@@ -531,7 +527,7 @@ public class DatabaseController {
 
 
     //updates the members phone number
-    public static void updateMemberPhone(int memberID, String newPhone) {
+    static void updateMemberPhone(int memberID, String newPhone) {
 
         Member tempMember = getMember(memberID);
 
@@ -548,7 +544,7 @@ public class DatabaseController {
 
 
     //updates the members email
-    public static void updateMemberEmail(int memberID, String newEmail) {
+    static void updateMemberEmail(int memberID, String newEmail) {
 
 
         Member tempMember = getMember(memberID);
