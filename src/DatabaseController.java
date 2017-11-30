@@ -7,7 +7,6 @@
 import java.util.*;
 import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Files.*;
 import java.nio.file.Paths;
 import java.nio.file.Path;
 import java.nio.charset.*;
@@ -26,6 +25,7 @@ public class DatabaseController {
 
     private static File memberIn = new File("./data/members.txt");
     private static File providerIn = new File("./data/providers.txt");
+
 
     static void setup() {
 
@@ -137,7 +137,6 @@ public class DatabaseController {
     }
 
 
-
     //creates another member in the list
     static Member newMember(String firstName, String lastName, String streetAddress,
                           String city, String state, String zipCode,String email,
@@ -152,9 +151,6 @@ public class DatabaseController {
         Member newMember = new Member(firstName, lastName, streetAddress, city, state, zipCode, email, phoneNumber, newUserID);
 
         members.add(newMember);
-
-        Path path = Paths.get("./data/members.txt");
-        Charset charset = StandardCharsets.UTF_8;
 
         try(FileWriter fw = new FileWriter("./data/members.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
