@@ -6,30 +6,47 @@ import java.util.Date;
 public class ServiceRecord {//this can only be accessed by the provider interface, probably
 
     Scanner scan = new Scanner(System.in);
-    int ProviderNumber;
-    int MemberNumber;
-    String ProviderName;
-    String MemberName;
-    String ServiceName;
-    String Notes;
-    String ServiceTime;
-    Date currentDate;
+    int ProviderNumber2;
+    int MemberNumber2;
+    String ProviderName2;
+    String MemberName2;
+    String Notes2;
+    String ServiceTime2;
+    Date currentDate2;
+    ServiceCode temporary;
+    String all;
 
+    ServiceRecord(int a, int b, String c, String d, String  e, String f, Date g, ServiceCode h){
+
+        ProviderNumber2 = a;
+        MemberNumber2 = b;
+        temporary = h;
+        currentDate2 = g;
+        ServiceTime2 = f;
+        Notes2 = e;
+        MemberName2 = d;
+        ProviderName2 = c;
+
+        //make all = all of the above, seperated by |.
+        all = ProviderName2 + " | " + ProviderNumber2 + " | " + MemberName2 + " | " + MemberNumber2 + " | " +
+                temporary.serviceName + " | " + temporary.serviceCode + " | " + temporary.serviceFee + " | " +
+                ServiceTime2 + " | " + currentDate2 + " | " + Notes2; //its so large oops
+    }
 
     public void GenerateServiceRecord() { //prompts user for into, then generates file with this information
         //the file is named SR-providernumber-membernumber-date, to avoid naming errors
         //this assumes that a member can only recieve one service from a specific provider a day
 
         System.out.println("\nPlease enter the provider number: ");
-        ProviderNumber = ValidateProvider();
+        int ProviderNumber = ValidateProvider();
         System.out.println("\nPlease enter the member number: ");
-        MemberNumber = ValidateMember();
+        int MemberNumber = ValidateMember();
 
-        ProviderName = DatabaseController.getProvider(ProviderNumber).getName();
-        MemberName = DatabaseController.getMember(MemberNumber).getName();
+        String ProviderName = DatabaseController.getProvider(ProviderNumber).getName();
+        String MemberName = DatabaseController.getMember(MemberNumber).getName();
 
         System.out.println("\nPlease enter the service name, or enter \"code\" if you want to search by code: ");
-        ServiceName = scan.nextLine();
+        String ServiceName = scan.nextLine();
         ServiceCode y = new ServiceCode();
         if (ServiceName.equals("code")) {
             System.out.println("\nPlease enter the service code: ");
@@ -40,12 +57,16 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         }
 
         System.out.println("\nPlease enter the date and time of the service in mm/dd/yyyy hh-mm-ss format: ");//using date, may not need this
-        ServiceTime = scan.nextLine(); //this will be in the file, but the name of the file will contain the current date stamp.
+        String ServiceTime = scan.nextLine(); //this will be in the file, but the name of the file will contain the current date stamp.
         System.out.println("\nPlease enter any notes you would like to add: ");
-        Notes = scan.nextLine();
+        String Notes = scan.nextLine();
+        Date currentDate = new Date();//add stuff needed for this
 
-        currentDate = new Date();//add stuff needed for this
-        String filename = ProviderNumber + "-" + MemberNumber + "-" + currentDate.toString();//is this correct? lets find out
+        ServiceRecord x = new ServiceRecord(ProviderNumber, MemberNumber, ProviderName, MemberName, Notes, ServiceTime, currentDate, y);
+        //call databasecontroller function to generate stuff
+        //String filename = ProviderNumber + "-" + MemberNumber + "-" + currentDate.toString();//is this correct? lets find out
+        //ServiceRecord x = new ServiceRecord() stuff
+
         /* TODO fix this writing to file. maybe in Database controller?
         PrintWriter writer = new PrintWriter(filename, "UTF-8");
 
