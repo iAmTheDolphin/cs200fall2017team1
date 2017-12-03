@@ -19,9 +19,9 @@ public class MemberReport extends Report {
 				+ '\n';
 		
 		for (ServiceRecord record : recordDB) {
-			text += "Date of Service: " + record.ServiceTime + '\n'
-					+ "Provider Name: " + record.ProviderName + '\n'
-					+ "Service Name: " + record.ServiceName + '\n'
+			text += "Date of Service: " + record.ServiceTime2 + '\n'
+					+ "Provider Name: " + record.ProviderName2 + '\n'
+					+ "Service Name: " + record.temporary.serviceName + '\n'
 					+ '\n';
 		}
 		reportText.write(text);
