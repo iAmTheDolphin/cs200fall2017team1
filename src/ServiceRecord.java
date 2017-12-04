@@ -1,46 +1,46 @@
 
 
 import java.util.Scanner;
-import java.util.Date;
+import java.util.Calendar;
 
 public class ServiceRecord {//this can only be accessed by the provider interface, probably
 
     Scanner scan = new Scanner(System.in);
-    int ProviderNumber2;
-    int MemberNumber2;
-    String ProviderName2;
-    String MemberName2;
-    String Notes2;
-    String ServiceTime2;
-    Date currentDate2;
-    ServiceCode temporary;
+    int ProviderNumber;
+    int MemberNumber;
+    String ProviderName;
+    String MemberName;
+    String Notes;
+    String ServiceTime;
+    Calendar currentDate;
+    ServiceCode Service;
     String all;
 
     ServiceRecord(int a, int b, String c, String d, String  e, String f, Date g, ServiceCode h){
 
-        ProviderNumber2 = a;
-        MemberNumber2 = b;
-        temporary = h;
-        currentDate2 = g;
-        ServiceTime2 = f;
-        Notes2 = e;
-        MemberName2 = d;
-        ProviderName2 = c;
+        ProviderNumber = a;
+        MemberNumber = b;
+        Service = h;
+        currentDate = g;
+        ServiceTime = f;
+        Notes = e;
+        MemberName = d;
+        ProviderName = c;
 
         //make all = all of the above, seperated by |.
-        all = ProviderName2 + " | " + ProviderNumber2 + " | " + MemberName2 + " | " + MemberNumber2 + " | " +
-                temporary.serviceName + " | " + temporary.serviceCode + " | " + temporary.serviceFee + " | " +
-                ServiceTime2 + " | " + currentDate2 + " | " + Notes2; //its so large oops
+        all = ProviderName + " | " + ProviderNumber + " | " + MemberName + " | " + MemberNumber + " | " +
+                Service.serviceName + " | " + Service.serviceCode + " | " + Service.serviceFee + " | " +
+                ServiceTime + " | " + currentDate + " | " + Notes; //its so large oops
     }
 
-    public void GenerateServiceRecord() { //prompts user for into, then generates file with this information
+    public ServiceRecord() { //prompts user for into, then generates file with this information
         //the file is named SR-providernumber-membernumber-date, to avoid naming errors
         //this assumes that a member can only recieve one service from a specific provider a day
 
         System.out.println("\nPlease enter the provider number: ");
-        int ProviderNumber = ValidateProvider();
+        ProviderNumber = ValidateProvider();
         System.out.println("\nPlease enter the member number: ");
-        int MemberNumber = ValidateMember();
+        MemberNumber = ValidateMember();
 
         String ProviderName = DatabaseController.getProvider(ProviderNumber).getName();
         String MemberName = DatabaseController.getMember(MemberNumber).getName();
@@ -51,181 +51,22 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         if (ServiceName.equals("code")) {
             System.out.println("\nPlease enter the service code: ");
             int code = Integer.parseInt(scan.nextLine());
-            y = FindServiceInfo(code, false);
+            y = ServiceRecordUtility.FindServiceInfo(code, false);
         } else {
-            y = FindServiceInfo(ServiceName, false);
+            y = ServiceRecordUtility.FindServiceInfo(ServiceName, false);
         }
+
+        Service = y;
 
         System.out.println("\nPlease enter the date and time of the service in mm/dd/yyyy hh-mm-ss format: ");//using date, may not need this
-        String ServiceTime = scan.nextLine(); //this will be in the file, but the name of the file will contain the current date stamp.
-        System.out.println("\nPlease enter any notes you would like to add: ");
-        String Notes = scan.nextLine();
-        Date currentDate = new Date();//add stuff needed for this
+        ServiceTime = scan.nextLine(); //do a check to make sure this is valid input
+        System.out.println("\nPlease enter any notes you would like to add (anything more than 200 characters will be cut off): ");
+        Notes = scan.nextLine();//change to read in next 200 characters
+        currentDate = new Calendar();//add stuff needed for this
 
-        ServiceRecord x = new ServiceRecord(ProviderNumber, MemberNumber, ProviderName, MemberName, Notes, ServiceTime, currentDate, y);
-        //call databasecontroller function to generate stuff
-        //String filename = ProviderNumber + "-" + MemberNumber + "-" + currentDate.toString();//is this correct? lets find out
-        //ServiceRecord x = new ServiceRecord() stuff
-
-        /* TODO fix this writing to file. maybe in Database controller?
-        PrintWriter writer = new PrintWriter(filename, "UTF-8");
-
-        writer.println("Service Record\n");
-        writer.println("\nDate and time of service: ", ServiceTime);
-        writer.println("Provider Name: ", ProviderName);
-        writer.println("\nProvider Number: ", ProviderNumber);
-        writer.println("\nMember Name: ", MemberName);
-        writer.println("\nMember Number: ", MemberNumber);
-        writer.println("\n Service Given: ", y.serviceName);
-        writer.println("\n Service Code: ", y.serviceCode);
-        writer.println("\n Service Fee: $", y.serviceFee);
-        writer.println("\nNotes: ", Notes);
-        writer.println("\n");
-        writer.close();
-
-        ProviderInterface temp = new ProviderInterface();
-        temp.MainMenu();
-        */
-    }
-
-    public void OpenServiceRecord() {
-    } //prompts user to enter into and searches for a file with that name in a pop-up window
-    // if file isnt found, user can try again or choose to exit.
-    //do we even need this?
-
-    public ServiceCode FindServiceInfo(String ServiceName, boolean check) {
-        ServiceCode y = DatabaseController.searchServiceCodes(ServiceName);
-        if (check){
-            if (y.serviceName == "-1"){
-                System.out.println("\nThis isn't a valid name. Try again? (Y/N)");
-                ProviderInterface tempx = new ProviderInterface();
-                char input = tempx.TryAgain();
-                if (input == 'y' || input == 'Y'){
-                    System.out.println("\nIf you would like to search by code, enter Y. If you want to try searching by name, enter N.");
-                    input = tempx.TryAgain();
-                        if (input == 'y' || input == 'Y'){
-                            System.out.println("Please enter the code.");
-                            int temp = scan.nextInt();
-                            FindServiceInfo(temp, true);
-                        }
-                        else {
-                            System.out.println("\nPlease try re-entering the name.");
-                            String temp = scan.nextLine();
-                            FindServiceInfo(temp, true);
-                        }
-                }
-                else {
-                    System.out.println("You cannot make a service record without this information. Returning to main menu.");
-                    ProviderInterface temp  = new ProviderInterface();
-                    temp.MainMenu();
-                }
-            }
-            if (y.serviceFee == -1){System.out.println("\nThis should not happen. If it does, fix later.");}
-        }
-
-        if (y.serviceFee == -1) {
-            System.out.println("\nIs this a new service? (Y/N)");
-            ProviderInterface tempx = new ProviderInterface();
-            char input = tempx.TryAgain();
-            if (input == 'y' || input == 'Y') {
-                double fee = 0.0;
-
-                System.out.println("\nWhat is the fee for " + ServiceName + "?");
-                fee = scan.nextDouble();
-
-                ServiceCode temp = new ServiceCode(ServiceName, 0, fee);
-                temp.AddService();
-                y = DatabaseController.searchServiceCodes(ServiceName);
-            } else {
-                System.out.println("\nPlease try entering the name again: ");
-                String tempp = scan.nextLine();
-                FindServiceInfo(tempp, true);
-            }
-
-        }
-        System.out.println("\nThe fee for this service is : $" + y.serviceFee + ". Is this correct?(Y/N)");
-        ProviderInterface tempy = new ProviderInterface();
-        char input = tempy.TryAgain();
-        if (input == 'y' || input == 'Y') {
-            return y;
-        } else {
-            System.out.println("\nPlease try re-entering the service name. ");
-            String tempp = scan.nextLine();
-            FindServiceInfo(tempp, false);
-        }
-
-        return y;
-
-    }
-
-    public ServiceCode FindServiceInfo(int ServiceCode, boolean check) {
-        ServiceCode y = DatabaseController.searchServiceCodes(ServiceCode);
-        if (check) {
-            if (y.serviceFee == -1) {
-                System.out.println("\nThis service does not exist. Try again? (Y/N)");
-                ProviderInterface tempx = new ProviderInterface();
-                char input = tempx.TryAgain();
-                if (input == 'y' || input == 'Y') {
-                    System.out.println("\nIf you would like to search by code, enter Y. If you want to try searching by name, enter N.");
-                    input = tempx.TryAgain();
-                    if (input == 'y' || input == 'Y') {
-                        System.out.println("Please enter the code.");
-                        int temp = scan.nextInt();
-                        FindServiceInfo(temp, true);
-                    } else {
-                        System.out.println("\nPlease try re-entering the name.");
-                        String temp = scan.nextLine();
-                        FindServiceInfo(temp, true);
-                    }
-                }
-            }
-        }
-        if (y.serviceFee == -1) {
-            System.out.println("\nIs this a new service? (Y/N)");
-            ProviderInterface tempy = new ProviderInterface();
-            char input = tempy.TryAgain();
-            if (input == 'y' || input == 'Y') {
-                System.out.println("\nKeep in mind that this new service may have a different code than the one you entered.");
-                double fee = 0.0;
-                String ServiceName;
-                System.out.println("\nWhat is the name of this service? ");
-                ServiceName = scan.nextLine();
-                System.out.println("\nWhat is the fee for " + ServiceName + "?");
-                fee = scan.nextDouble();
-
-                ServiceCode temp = new ServiceCode(ServiceName, 0, fee);
-                temp.AddService();
-                y = temp;
-                return y;
-            } else {
-                System.out.println("\nPlease try entering the code again: ");
-                int tempp = scan.nextInt();
-                FindServiceInfo(tempp, false);//TODO change this to its proper value. I just changed it to false to stop errors -P
-            }
-
-        }
-        System.out.println("\nThe fee for this service is : $" + y.serviceFee + ". Is this correct?(Y/N)");
-        ProviderInterface tempy = new ProviderInterface();
-        char input = tempy.TryAgain();
-        if (input == 'y' || input == 'Y') {
-            return y;
-        } else {
-            System.out.println("\nPlease try re-entering the service code. ");
-            int tempp = scan.nextInt();
-            FindServiceInfo(tempp, false);//TODO change this to its proper value. I just changed it to false to stop errors -P
-        }
-        System.out.println("\nThe name of this service is :" + y.serviceName + ". Is this correct? (Y/N)");
-        input = tempy.TryAgain();
-        if (input == 'y' || input == 'Y') {
-            return y;
-        } else {
-            System.out.println("\nPlease try re-entering the service code. ");
-            int tempp = scan.nextInt();
-            FindServiceInfo(tempp, false);//TODO change this to its proper value. I just changed it to false to stop errors -P
-        }
-        return y;
-
-
+        all = ProviderName + " | " + ProviderNumber + " | " + MemberName + " | " + MemberNumber + " | " +
+                Service.serviceName + " | " + Service.serviceCode + " | " + Service.serviceFee + " | " +
+                ServiceTime + " | " + currentDate + " | " + Notes;
     }
 
     public int ValidateMember(){
