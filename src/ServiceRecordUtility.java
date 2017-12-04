@@ -8,18 +8,10 @@ public class ServiceRecordUtility {//Note to self: go back and fix this. it is r
                 ProviderInterface tempx = new ProviderInterface();
                 char input = tempx.TryAgain();
                 if (input == 'y' || input == 'Y'){
-                    System.out.println("\nIf you would like to search by code, enter Y. If you want to try searching by name, enter N.");
-                    input = tempx.TryAgain();
-                    if (input == 'y' || input == 'Y'){
-                        System.out.println("Please enter the code.");
-                        int temp = scan.nextInt();
-                        FindServiceInfo(temp, true);
-                    }
-                    else {
+
                         System.out.println("\nPlease try re-entering the name.");
                         String temp = scan.nextLine();
                         FindServiceInfo(temp, true);
-                    }
                 }
                 else {
                     System.out.println("You cannot make a service record without this information. Returning to main menu.");
@@ -73,20 +65,18 @@ public class ServiceRecordUtility {//Note to self: go back and fix this. it is r
                 ProviderInterface tempx = new ProviderInterface();
                 char input = tempx.TryAgain();
                 if (input == 'y' || input == 'Y') {
-                    System.out.println("\nIf you would like to search by code, enter Y. If you want to try searching by name, enter N.");
-                    input = tempx.TryAgain();
-                    if (input == 'y' || input == 'Y') {
-                        System.out.println("Please enter the code.");
-                        int temp = scan.nextInt();
-                        FindServiceInfo(temp, true);
-                    } else {
                         System.out.println("\nPlease try re-entering the name.");
                         String temp = scan.nextLine();
                         FindServiceInfo(temp, true);
                     }
+                else {
+                    System.out.println("You cannot make a service record without this information. Returning to main menu.");
+                    ProviderInterface temp  = new ProviderInterface();
+                    temp.MainMenu();
+                }
                 }
             }
-        }
+
         if (y.serviceFee == -1) {
             System.out.println("\nIs this a new service? (Y/N)");
             ProviderInterface tempy = new ProviderInterface();
@@ -107,11 +97,12 @@ public class ServiceRecordUtility {//Note to self: go back and fix this. it is r
             } else {
                 System.out.println("\nPlease try entering the code again: ");
                 int tempp = scan.nextInt();
-                FindServiceInfo(tempp, false);//TODO change this to its proper value. I just changed it to false to stop errors -P
+                FindServiceInfo(tempp, true);//TODO change this to its proper value. I just changed it to false to stop errors -P
             }
 
         }
-        System.out.println("\nThe fee for this service is : $" + y.serviceFee + ". Is this correct?(Y/N)");
+
+        System.out.println("\nThe name of this service is :" + y.serviceName + ". Is this correct? (Y/N)");
         ProviderInterface tempy = new ProviderInterface();
         char input = tempy.TryAgain();
         if (input == 'y' || input == 'Y') {
@@ -119,16 +110,7 @@ public class ServiceRecordUtility {//Note to self: go back and fix this. it is r
         } else {
             System.out.println("\nPlease try re-entering the service code. ");
             int tempp = scan.nextInt();
-            FindServiceInfo(tempp, false);//TODO change this to its proper value. I just changed it to false to stop errors -P
-        }
-        System.out.println("\nThe name of this service is :" + y.serviceName + ". Is this correct? (Y/N)");
-        input = tempy.TryAgain();
-        if (input == 'y' || input == 'Y') {
-            return y;
-        } else {
-            System.out.println("\nPlease try re-entering the service code. ");
-            int tempp = scan.nextInt();
-            FindServiceInfo(tempp, false);//TODO change this to its proper value. I just changed it to false to stop errors -P
+            FindServiceInfo(tempp, true);//TODO change this to its proper value. I just changed it to false to stop errors -P
         }
         return y;
 
