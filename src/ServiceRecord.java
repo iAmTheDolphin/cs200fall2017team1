@@ -6,44 +6,70 @@ import java.util.Date;
 public class ServiceRecord {//this can only be accessed by the provider interface, probably
 
     Scanner scan = new Scanner(System.in);
-    int ProviderNumber2;
-    int MemberNumber2;
-    String ProviderName2;
-    String MemberName2;
-    String Notes2;
-    String ServiceTime2;
-    Date currentDate2;
-    ServiceCode temporary;
-    String all;
+    int providerNumber;
+    int memberNumber;
+    String providerName;
+    String memberName;
+    String notes;
+    Date serviceTime;
+    Date currentDate;
+    ServiceCode temporaryServiceCode;
 
-    ServiceRecord(int a, int b, String c, String d, String  e, String f, Date g, ServiceCode h){
+    ServiceRecord(int providerNum, int memberNum, String providername, String memberName, String  notes, Date ServiceTime, Date curDate, ServiceCode serveCode){
 
-        ProviderNumber2 = a;
-        MemberNumber2 = b;
-        temporary = h;
-        currentDate2 = g;
-        ServiceTime2 = f;
-        Notes2 = e;
-        MemberName2 = d;
-        ProviderName2 = c;
+        providerNumber = providerNum;
+        memberNumber = memberNum;
+        providerName = providername;
+        this.memberName = memberName;
+        this.notes = notes;
+        serviceTime = ServiceTime;
+        currentDate = curDate;
+        temporaryServiceCode = serveCode;
 
-        //make all = all of the above, seperated by |.
-        all = ProviderName2 + " | " + ProviderNumber2 + " | " + MemberName2 + " | " + MemberNumber2 + " | " +
-                temporary.serviceName + " | " + temporary.serviceCode + " | " + temporary.serviceFee + " | " +
-                ServiceTime2 + " | " + currentDate2 + " | " + Notes2; //its so large oops
     }
+
+
+
+    ServiceRecord() {
+
+        System.out.println("Creating a new Service Record.");
+        System.out.println("Please enter the Provider Number : ");
+
+        try{
+            Provider provider = DatabaseController.getProvider(Integer.parseInt(scan.nextLine()));
+
+            providerNumber = provider.getUserID();
+            providerName = provider.getName();
+
+        }
+        catch (NumberFormatException e) {
+
+        }
+
+
+    }
+
+
+    //outputs the ServiceRecord to String. Items seperated by " | "
+    public String toString() {
+        return providerName + " | " + providerNumber + " | " + memberName + " | " + memberNumber + " | " +
+                temporaryServiceCode.serviceName + " | " + temporaryServiceCode.serviceCode + " | " + temporaryServiceCode.serviceFee + " | " +
+                serviceTime + " | " + currentDate + " | " + notes;
+    }
+
+
 
     public void GenerateServiceRecord() { //prompts user for into, then generates file with this information
         //the file is named SR-providernumber-membernumber-date, to avoid naming errors
         //this assumes that a member can only recieve one service from a specific provider a day
 
         System.out.println("\nPlease enter the provider number: ");
-        int ProviderNumber = ValidateProvider();
+        int providerNumber = ValidateProvider();
         System.out.println("\nPlease enter the member number: ");
-        int MemberNumber = ValidateMember();
+        int memberNumber = ValidateMember();
 
-        String ProviderName = DatabaseController.getProvider(ProviderNumber).getName();
-        String MemberName = DatabaseController.getMember(MemberNumber).getName();
+        String providerName = DatabaseController.getProvider(providerNumber).getName();
+        String memberName = DatabaseController.getMember(memberNumber).getName();
 
         System.out.println("\nPlease enter the service name, or enter \"code\" if you want to search by code: ");
         String ServiceName = scan.nextLine();
@@ -62,9 +88,9 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         String Notes = scan.nextLine();
         Date currentDate = new Date();//add stuff needed for this
 
-        ServiceRecord x = new ServiceRecord(ProviderNumber, MemberNumber, ProviderName, MemberName, Notes, ServiceTime, currentDate, y);
+        ServiceRecord x = new ServiceRecord(providerNumber, memberNumber, providerName, memberName, Notes, ServiceTime, currentDate, y);
         //call databasecontroller function to generate stuff
-        //String filename = ProviderNumber + "-" + MemberNumber + "-" + currentDate.toString();//is this correct? lets find out
+        //String filename = providerNumber + "-" + memberNumber + "-" + currentDate.toString();//is this correct? lets find out
         //ServiceRecord x = new ServiceRecord() stuff
 
         /* TODO fix this writing to file. maybe in Database controller?
@@ -72,10 +98,10 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
 
         writer.println("Service Record\n");
         writer.println("\nDate and time of service: ", ServiceTime);
-        writer.println("Provider Name: ", ProviderName);
-        writer.println("\nProvider Number: ", ProviderNumber);
-        writer.println("\nMember Name: ", MemberName);
-        writer.println("\nMember Number: ", MemberNumber);
+        writer.println("Provider Name: ", providerName);
+        writer.println("\nProvider Number: ", providerNumber);
+        writer.println("\nMember Name: ", memberName);
+        writer.println("\nMember Number: ", memberNumber);
         writer.println("\n Service Given: ", y.serviceName);
         writer.println("\n Service Code: ", y.serviceCode);
         writer.println("\n Service Fee: $", y.serviceFee);
@@ -248,22 +274,30 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
     }
 
     public int ValidateProvider(){
-        int ID = Integer.parseInt(scan.nextLine());
-        String name = DatabaseController.getProvider(ID).getName();
-        if (name == "-1"){
-            System.out.println("\nSorry, that provider number is invalid. Would you like to try again?");
-            ProviderInterface temp = new ProviderInterface();
-            char response = temp.TryAgain();
-            if (response == 'y' || response == 'Y'){
-                ValidateProvider();
+        try {
+            int ID = Integer.parseInt(scan.nextLine());
+            String name = DatabaseController.getProvider(ID).getName();
+            if (name.equals("-1")){
+                System.out.println("\nSorry, that provider number is invalid. Would you like to try again?");
+                ProviderInterface temp = new ProviderInterface();
+                char response = temp.TryAgain();
+                if (response == 'y' || response == 'Y'){
+                    ValidateProvider();
+                }
+                else {
+                    System.out.println("\nSorry, you cannot make a service record without this. Returning to main menu.");
+                    ProviderTerminal x = new ProviderTerminal();
+                    x.start();
+                }
             }
-            else {
-                System.out.println("\nSorry, you cannot make a service record without this. Returning to main menu.");
-                ProviderTerminal x = new ProviderTerminal();
-                x.start();
-            }
+            return ID;
+
         }
-        return ID;
+        catch(NumberFormatException e) {
+            System.out.println("ERROR: INVALID INPUT");
+            return -1;
+        }
+
     }
 
 }

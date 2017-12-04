@@ -283,6 +283,18 @@ public class DatabaseController {
     }
 
 
+    public static Provider validateProvider(int providerID) {
+
+        Provider returnedProvider = getProvider(providerID);
+
+        if(returnedProvider.getName().equals("-1")) {
+            return null;
+        }
+        else return returnedProvider;
+
+    }
+
+
     //returns the Provider object of the provider with the correspondin ID
     static Provider getProvider(int userID) {
         for (Provider provider : providers) {
@@ -363,7 +375,7 @@ public class DatabaseController {
 
         for ( ServiceRecord record : serviceRecords ) {
 
-            if( record.MemberNumber == member.getUserID() ) {
+            if( record.memberNumber == member.getUserID() ) {
                 tempRecords.add(record);
             }
         }
@@ -379,7 +391,7 @@ public class DatabaseController {
 
         for ( ServiceRecord record : serviceRecords ) {
 
-            if( record.ProviderNumber == provider.getUserID() ) {
+            if( record.providerNumber == provider.getUserID() ) {
                 tempRecords.add(record);
             }
         }
@@ -622,6 +634,7 @@ public class DatabaseController {
 
         providers.get(getProviderIndex(providerID)).setStreetAddress(newAddress);
     }
+
 
     //updates the provider's city
     static void updateProviderCity(int providerID, String newCity) {
