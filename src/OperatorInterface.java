@@ -37,6 +37,8 @@ public class OperatorInterface {
         System.out.println("   6: View all providers");
         System.out.println("   7: Update Member information");
         System.out.println("   8: Update Provider information");
+        System.out.println("   9: Delete Member");
+        System.out.println("  10: Delete Provider");
         System.out.println("   -1: Quit");
 
         switch (scan.nextLine()) {
@@ -47,7 +49,9 @@ public class OperatorInterface {
             case "5" : viewAllMembers(); break;
             case "6" : viewAllProviders(); break;
             case "7" : updateMemberInformation(); break;
-            //case "8" : updateProviderInformation(); break;
+            case "8" : updateProviderInformation(); break;
+            case "9" : deleteMember(); break;
+            case "10": deleteProvider(); break;
             case "-1" : keepRunning = false; break;
             default: ;
         }
@@ -432,6 +436,59 @@ public class OperatorInterface {
 
     }
 
+    private void deleteMember() {
+    		System.out.println("Please enter the ID of the Member to delete. Enter \"quit\" to exit.");
+        String temp = scan.nextLine().toLowerCase();
+        if(temp.equals("quit")) {
+            System.out.println("Exiting Member deletion...");
+        }
+        else {
+        		try{ 
+                Member tempMember = DatabaseController.getMember(Integer.parseInt(temp));
+                if(tempMember.getUserID() != -1) {
+                    System.out.println("Deleting Member: " + tempMember.toString());
+//                		System.out.println(tempMember.toString());
+                		DatabaseController.deleteMember(tempMember.getUserID());
+                }
+                else {
+                    System.out.println("That is not a valid member ID;");
+                    deleteMember();
+                }
+        		}
+            
+            catch(NumberFormatException e) {
+                System.out.println("Please enter a valid ID");
+                deleteMember();
+            	}		
+        	}
+    }
+    
+    private void deleteProvider() {
+		System.out.println("Please enter the ID of the Provider to delete. Enter \"quit\" to exit.");
+		String temp = scan.nextLine().toLowerCase();
+		if(temp.equals("quit")) {
+			System.out.println("Exiting Provider deletion...");
+		}
+		else {
+    			try{ 
+    				Provider tempProvider = DatabaseController.getProvider(Integer.parseInt(temp));
+    				if(tempProvider.getUserID() != -1) {
+    					System.out.println("Deleting Provider: " + tempProvider.toString());
+//            		System.out.println(tempProvider.toString());
+    					DatabaseController.deleteProvider(tempProvider.getUserID());
+    				}
+    				else {
+    					System.out.println("That is not a valid provider ID;");
+    					deleteProvider();
+    				}
+    			}
+        
+    			catch(NumberFormatException e) {
+    				System.out.println("Please enter a valid ID");
+    				deleteProvider();
+    			}		
+		}
+    }
 }
 
 
