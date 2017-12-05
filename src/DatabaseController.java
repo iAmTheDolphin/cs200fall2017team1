@@ -25,6 +25,7 @@ public class DatabaseController {
 
     private static File memberIn = new File("./data/members.txt");
     private static File providerIn = new File("./data/providers.txt");
+    private static File serviceCodesIn = new File("./data/serviceCodes.txt");
 
 
     static void setup() {
@@ -89,7 +90,7 @@ public class DatabaseController {
 
 
         if(providerIn.exists()) {
-            System.out.println("Member Data exists. Reading data...");
+            System.out.println("Provider Data exists. Reading data...");
 
             try{
                 List<String> providerLines = Files.readAllLines(Paths.get("./data/providers.txt"));
@@ -129,6 +130,52 @@ public class DatabaseController {
 
             try {
                 if(!providerIn.createNewFile()) System.out.println("ERROR: COULD NOT CREATE PROVIDERS DATA FILE");
+            }
+            catch (IOException e) {
+                System.out.println("Tried creating file but file already exists! : " + e);
+            }
+        }
+
+
+
+        if(serviceCodesIn.exists()) {
+            System.out.println("Service Code Data exists. Reading data...");
+
+
+            try{
+                List<String> lines = Files.readAllLines(Paths.get("./data/serviceCodes.txt"));
+
+                //parses the string for the information then adds it to the members ArrayList
+                for(int x = 0; x < lines.size(); x++) {
+                    String[] parsedServiceData = lines.get(x).split("[|]");
+                    for (int y = 0; y < parsedServiceData.length; y++) {
+                        if( parsedServiceData[y].charAt(0) == ' ') {
+                            parsedServiceData[y] = parsedServiceData[y].substring(1, parsedServiceData[y].length());
+                        }
+                        if(parsedServiceData[y].charAt(parsedServiceData[y].length()-1) == ' ') {
+                            parsedServiceData[y] = parsedServiceData[y].substring(0, parsedServiceData[y].length()-1);
+                        }
+                    }
+                    String serviceName = parsedServiceData[0];
+                    int serviceCode = Integer.parseInt(parsedServiceData[1]);
+                    Double fee = Double.parseDouble( parsedServiceData[2]);
+
+                    ServiceCode newService = new ServiceCode(serviceName, serviceCode, fee);
+                    serviceCodes.add(newService);
+                }
+
+                System.out.println(serviceCodes.size() + " services loaded from file.");
+
+            }
+            catch (IOException e) {
+                System.out.println("Failed to read from file. Starting with empty service list. " + e);
+            }
+        }
+        else {
+            System.out.println("Service Data file doesn't exist. Creating...");
+
+            try {
+                if(!serviceCodesIn.createNewFile()) System.out.println("ERROR: COULD NOT CREATE SERVICE CODE DATA FILE");
             }
             catch (IOException e) {
                 System.out.println("Tried creating file but file already exists! : " + e);
@@ -178,9 +225,22 @@ public class DatabaseController {
             newProviderID -= providers.size();
         }
 
+
+
         Provider provider = new Provider(firstName, lastName, streetAddress, city, state, zipCode, email, phoneNumber, newProviderID);
 
         providers.add(provider);
+
+        try(FileWriter fw = new FileWriter("./data/providers.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw))
+        {
+            System.out.println("Writing \n" + provider.toString() + "\nto file");
+            out.print("\n" + provider.toString());
+
+        } catch (IOException e) {
+            System.out.println("ERROR: FAILED TO WRITE NEW PROVIDER TO FILE " + e);
+        }
 
         return provider;
     }
@@ -331,8 +391,20 @@ public class DatabaseController {
             newCode += serviceCodes.size();
         }
 
-        serviceCodes.add(new ServiceCode(name, newCode, fee));
+        ServiceCode serviceCode = new ServiceCode(name, newCode, fee);
 
+        serviceCodes.add(serviceCode);
+
+        try(FileWriter fw = new FileWriter("./data/serviceCodes.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw))
+        {
+            System.out.println("Writing \n" + serviceCode.toString() + "\nto file");
+            out.print("\n" + serviceCode.toString());
+
+        } catch (IOException e) {
+            System.out.println("ERROR: FAILED TO WRITE NEW SERVICE CODE TO FILE " + e);
+        }
     }
 
 
@@ -367,6 +439,8 @@ public class DatabaseController {
 
     }
 
+
+    //displays all the serviceCodes
     static void displayServiceCodes() {
 
         System.out.println("\n\nProvider Directory\n\n");
@@ -597,7 +671,7 @@ public class DatabaseController {
         catch(IOException e) {
             System.out.println("ERROR: Could not update provider file with new first name" + e);
         }
-        tempProvider.setZipCode(newFirstName); // why 
+        tempProvider.setFirstName(newFirstName);
 
         providers.get(getProviderIndex(providerID)).setFirstName(newFirstName);
     }

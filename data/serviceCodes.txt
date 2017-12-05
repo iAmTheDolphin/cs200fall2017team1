@@ -1,0 +1,2 @@
+Teeth Cleaning | 100000 | 50.00
+hair brushing | 100001 | 70.0

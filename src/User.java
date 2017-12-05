@@ -202,7 +202,7 @@ public class User{
 	 * @return User
 	 */
 	User setLastName(String newLastName) {
-		firstName = newLastName;
+		lastName = newLastName;
 		return this;
 	}
 //endregion
