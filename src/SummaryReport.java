@@ -23,7 +23,7 @@ public class SummaryReport extends Report {
             provFees = 0.0;
             for (ServiceRecord record : recordDB) {
                 provServices++;
-                ServiceCode service = DatabaseController.searchServiceCodes(record.temporary.serviceName);
+                ServiceCode service = DatabaseController.searchServiceCodes(record.Service.serviceName);
                 provFees += service.serviceFee;
             }
             totalProviders++;
