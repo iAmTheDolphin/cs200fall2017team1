@@ -482,7 +482,6 @@ public class OperatorInterface {
     					System.out.println("Delete Provider " + tempProvider.getUserID() + ": " + DatabaseController.getProvider(tempProvider.getUserID()).getName() + "? Y/N");
             			if(scan.nextLine().toLowerCase().equals("y")) {
             				System.out.println("Deleting Provider...");
-//                    		System.out.println(tempMember.toString());
                     		DatabaseController.deleteProvider(tempProvider.getUserID());
                     }
                     else {
