@@ -89,7 +89,7 @@ public class DatabaseController {
 
 
         if(providerIn.exists()) {
-            System.out.println("Member Data exists. Reading data...");
+            System.out.println("Provider Data exists. Reading data...");
 
             try{
                 List<String> providerLines = Files.readAllLines(Paths.get("./data/providers.txt"));

@@ -32,7 +32,6 @@ public class Driver {
             System.out.println("    Menu :                                     ");
             System.out.println("       1: Provider Terminal                    ");
             System.out.println("       2: Operator Terminal                    ");
-            System.out.println("       3: GUI Mode                             ");
             System.out.println("       -1: Quit                                 ");
 
             try{
