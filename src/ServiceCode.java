@@ -30,6 +30,10 @@ public class ServiceCode {
         serviceFee = fee;
     }
 
+    public String toString() {
+        return serviceName + " | " + serviceCode + " | " + serviceFee;
+    }
+
 
 /*
     public void DisplayServiceFile(){

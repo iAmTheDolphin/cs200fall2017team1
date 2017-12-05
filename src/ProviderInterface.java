@@ -19,11 +19,13 @@ public class ProviderInterface {
 
     int ProviderNum;
 
-    public ProviderInterface (int providerNum) {
+    public ProviderInterface(int providerNum) {
         ProviderNum = providerNum;
     }
 
-    public ProviderInterface () {ProviderNum = -1;}
+    public ProviderInterface() {
+        ProviderNum = -1;
+    }
 
     Scanner scan = new Scanner(System.in);
 
@@ -35,13 +37,25 @@ public class ProviderInterface {
         int input = 0;
         System.out.println("\nMenu: \n1. Give Service\n2. Create Service Record\n3. View Provider Directory\n4. Add Service to Directory\n5. Log out");
 
-        switch(scan.nextLine()) {
-            case "1" : GiveService(); break;
-            case "2" : CreateServiceRecord(); break;
-            case "3" : viewServiceCodes(); break;
-            case "4" : AddService(); break;
-            case "5" : break;
-            default: System.out.println("Invalid Input"); MainMenu(); break;
+        switch (scan.nextLine()) {
+            case "1":
+                GiveService();
+                break;
+            case "2":
+                CreateServiceRecord();
+                break;
+            case "3":
+                viewServiceCodes();
+                break;
+            case "4":
+                AddService();
+                break;
+            case "5":
+                break;
+            default:
+                System.out.println("Invalid Input");
+                MainMenu();
+                break;
         }
     }
 
@@ -49,19 +63,21 @@ public class ProviderInterface {
      * This lets someone add a service.
      */
 
-    public void AddService(){
+    public void AddService() {
         String serviceName;
         double serviceFee = 0.0;
 
         System.out.println("\nWhat is the name of the service?");
         serviceName = scan.nextLine();
-        try{
-        serviceFee = Double.parseDouble(scan.nextLine());}
-        catch (NumberFormatException e){
+        System.out.println("What is the fee of the service?");
+        try {
+            serviceFee = Double.parseDouble(scan.nextLine());
+        } catch (NumberFormatException e) {
             System.out.println("Error: incorrect input\n" + e);
         }
 
         DatabaseController.addServiceCode(serviceName, serviceFee);
+        MainMenu();
     }
 
 
@@ -83,8 +99,7 @@ public class ProviderInterface {
         System.out.println("Please enter your client's member number: ");
         try {
             MemberNumber = Integer.parseInt(scan.nextLine());
-        }
-        catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             System.out.println("Please enter a valid number.");
         }
 
@@ -96,24 +111,22 @@ public class ProviderInterface {
 
                 int serviceCode = -1;
                 System.out.println("Please enter in the Service Code");
-                try{
+                try {
                     serviceCode = Integer.parseInt(scan.nextLine());
-                }
-                catch (NumberFormatException e){
+                } catch (NumberFormatException e) {
                     System.out.println("ERROR: INVALID INPUT");
                 }
-                if(serviceCode != -1) {
+                if (serviceCode != -1) {
 
                     System.out.println("When was this service rendered?");
 
                     SimpleDateFormat parserSDF = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy", Locale.ENGLISH);
                     System.out.println("Please enter Date in the form : \"Wed Oct 16 12:30:00 CEST 2013\"");
-                    try{
+                    try {
                         Date date = parserSDF.parse(scan.nextLine());
 
                         System.out.println(date.toString());
-                    }
-                    catch (ParseException e) {
+                    } catch (ParseException e) {
                         System.out.println("ERROR: Date format was incorrect. " + e);
                     }
 
