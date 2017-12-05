@@ -6,35 +6,67 @@
 
 import java.util.*;
 
+/**
+ * This class contains all data specific to Members; inherits the User class.
+ * @author Hunter James
+ */
+
 public class Member extends User{
 	boolean isSuspended = false;
 	Date lastPayDate;
 
 	// constructs a Member
+	/**
+	 * Constructs a Member
+	 * @param firstName
+	 * @param lastName
+	 * @param streetAddress
+	 * @param city
+	 * @param state
+	 * @param zipCode
+	 * @param email
+	 * @param phoneNumber
+	 * @param userID
+	 */
 	public Member(String firstName, String lastName, String streetAddress, String city, String state, String zipCode,String email, String phoneNumber, int userID) {
 	    super(firstName, lastName, streetAddress, city, state, zipCode, email, phoneNumber, userID);
     }
 
-	// when a Member is suspended
+	/**
+	 * Suspends Member
+	 * 
+	 */
 	void suspend() {
 		System.out.println("Suspending " + getName() + "...");
 		isSuspended = true;
 	}
 
-	// when a Member is no longer suspended
+	/**
+	 * Reactivates Member when they are no longer suspended
+	 */
 	void setActive() {
 		isSuspended = false;
 	}
 
+	/**
+	 * Sets User's suspension status
+	 * 
+	 */
 	void setSuspended(boolean setting)  {
 		isSuspended = setting;
 	}
 
-	// the last date a Member paid
+	/**
+	 * Sets last time Member paid
+	 */
 	void setLastPayDate(Date date) {
 		lastPayDate = date;
 	}
 
+	/**
+	 * Adds Member's suspension status to the readable string
+	 * @return String
+	 */
 	public String toString() {
 
 		String suspendedState = "Active";
@@ -47,6 +79,10 @@ public class Member extends User{
 
 	}
 
+	/**
+	 * Adds Member's suspension status to the displayed Member data string
+	 * @return String
+	 */
 	public String toDisplayString() {
 		String suspendedState = "ACTIVE : ";
 
