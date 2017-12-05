@@ -16,18 +16,18 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
     ServiceCode Service;
     String all;
 
-    ServiceRecord(int a, int b, String c, String d, String  e, String f, Date g, ServiceCode h){
+    ServiceRecord(int providerNumber, int memberNumber, String providerName, String memberName, String  notes, String serviceTime, Calendar time, ServiceCode ser){
 
-        ProviderNumber = a;
-        MemberNumber = b;
-        Service = h;
-        currentDate = g;
-        ServiceTime = f;
-        Notes = e;
-        MemberName = d;
-        ProviderName = c;
+        ProviderNumber = providerNumber;
+        MemberNumber = memberNumber;
+        Service = ser;
+        currentDate = time;
+        ServiceTime = serviceTime;
+        Notes = notes;
+        MemberName = memberName;
+        ProviderName = providerName;
 
-        //make all = all of the above, seperated by |.
+        //make all = all of the above, separated by |.
         all = ProviderName + " | " + ProviderNumber + " | " + MemberName + " | " + MemberNumber + " | " +
                 Service.serviceName + " | " + Service.serviceCode + " | " + Service.serviceFee + " | " +
                 ServiceTime + " | " + currentDate + " | " + Notes; //its so large oops
@@ -62,7 +62,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         ServiceTime = scan.nextLine(); //do a check to make sure this is valid input
         System.out.println("\nPlease enter any notes you would like to add (anything more than 200 characters will be cut off): ");
         Notes = scan.nextLine();//change to read in next 200 characters
-        currentDate = new Calendar();//add stuff needed for this
+        currentDate = Calendar.getInstance();//add stuff needed for this
 
         all = ProviderName + " | " + ProviderNumber + " | " + MemberName + " | " + MemberNumber + " | " +
                 Service.serviceName + " | " + Service.serviceCode + " | " + Service.serviceFee + " | " +
@@ -91,7 +91,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
     public int ValidateProvider(){
         int ID = Integer.parseInt(scan.nextLine());
         String name = DatabaseController.getProvider(ID).getName();
-        if (name == "-1"){
+        if (name.equals("-1")){
             System.out.println("\nSorry, that provider number is invalid. Would you like to try again?");
             ProviderInterface temp = new ProviderInterface();
             char response = temp.TryAgain();
