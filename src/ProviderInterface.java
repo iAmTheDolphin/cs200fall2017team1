@@ -32,8 +32,16 @@ public class ProviderInterface {
 
     //allows provider to give service
     private void GiveService() {
+        int MemberNumber = -1;
+
         System.out.println("Please enter your client's member number: ");
-        int MemberNumber = scan.nextInt();
+        try {
+            MemberNumber = Integer.parseInt(scan.nextLine());
+        }
+        catch(NumberFormatException e) {
+            System.out.println("Please enter a valid number.");
+        }
+
         Member temp = DatabaseController.getMember(MemberNumber);
         if (temp.getUserID() != -1) {
             if (temp.isSuspended) {
@@ -71,7 +79,10 @@ public class ProviderInterface {
 
     //utility that checks to make sure input is valid when doing y/n
     public char TryAgain() {
-        char input = scan.nextLine().charAt(0);
+
+        System.out.println(scan.nextLine());
+        char input = scan.nextLine()
+                .charAt(0);
         while (input != 'y' && input != 'Y' && input != 'n' && input != 'N') {
             System.out.println("\nThat is not a valid input. Please try again.");
             input = scan.nextLine().charAt(0);

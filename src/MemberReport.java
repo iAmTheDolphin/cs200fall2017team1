@@ -7,6 +7,7 @@ public class MemberReport extends Report {
 		filePath = "MemberReports\\" + member.getUserID();
 		recordDB = DatabaseController.searchServiceRecords(member);
 	}
+	/*
 	
 	//writes to file
 	protected void writeToFile() {
@@ -26,5 +27,6 @@ public class MemberReport extends Report {
 		}
 		reportText.write(text);
 	}
+	*/
 }
 

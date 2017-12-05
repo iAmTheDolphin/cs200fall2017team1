@@ -35,7 +35,13 @@ public class Driver {
             System.out.println("       3: GUI Mode                             ");
             System.out.println("       -1: Quit                                 ");
 
-            userSelection = scan.nextInt();
+            try{
+                userSelection = Integer.parseInt(scan.nextLine());
+            }
+            catch (NumberFormatException e ) {
+                System.out.println("ERROR: NUMBER INPUT EXCEPTION. " + e);
+                userSelection = -1;
+            }
 
             if(userSelection == 1) {
 
@@ -59,6 +65,7 @@ public class Driver {
             }
             else if(userSelection == -1) {
                 System.out.println("Thank you for using ChocAn Systems!");
+                break;
             }
             else {
                 userSelection = -1;

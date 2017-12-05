@@ -65,7 +65,7 @@ public class DatabaseController {
                     Member newMember = new Member(firstName, lastName, address, city, state, zip, email, phone, id);
                     members.add(newMember);
                     System.out.println(parsedMemberData[9]);
-                    if(parsedMemberData[9].equals("Suspended")) {  newMember.suspend(); }
+                    if(parsedMemberData[9].equals("Suspended;")) {  newMember.suspend(); }
 
                 }
 
