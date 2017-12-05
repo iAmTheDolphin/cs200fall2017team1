@@ -28,7 +28,7 @@ public class ProviderInterface {
 
         switch(scan.nextLine()) {
             case "1" : GiveService(); break;
-            //case "2" : CreateServiceRecord(); break;
+            case "2" : CreateServiceRecord(); break;
             case "3" : viewServiceCodes(); break;
             case "4" : break;
             default: System.out.println("Invalid Input"); MainMenu(); break;
@@ -94,14 +94,14 @@ public class ProviderInterface {
         }
     }
 
-    /*
+
     //allows provider to create a service record after providing a service
     private void CreateServiceRecord() {//creates a service record object, does GenerateServiceRecord from servicerecord class
-        ServiceRecord x = new ServiceRecord();//....lemme double check on this
+        ServiceRecord x = new ServiceRecord(ProviderNum);
         //insert function call in database controller that writes this in necessary files
 
     }
-    */
+
 
     //utility that checks to make sure input is valid when doing y/n
     public char TryAgain() {
