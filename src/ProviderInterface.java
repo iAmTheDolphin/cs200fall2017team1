@@ -57,7 +57,6 @@ public class ProviderInterface {
         if (temp.getUserID() != -1) {
             if (temp.isSuspended) {
                 System.out.println("Sorry, this member is suspended and cannot receive service.");
-                MainMenu();
             } else {
 
                 int serviceCode = -1;
@@ -91,9 +90,7 @@ public class ProviderInterface {
             if (tempx == 'y' || tempx == 'Y') {
                 GiveService();
             }//try again
-            else {
-                MainMenu();
-            }
+
         }
     }
 
