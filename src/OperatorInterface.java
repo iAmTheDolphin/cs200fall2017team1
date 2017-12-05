@@ -47,7 +47,7 @@ public class OperatorInterface {
             case "5" : viewAllMembers(); break;
             case "6" : viewAllProviders(); break;
             case "7" : updateMemberInformation(); break;
-            //case "8" : updateProviderInformation(); break;
+            case "8" : updateProviderInformation(); break;
             case "-1" : keepRunning = false; break;
             default: ;
         }

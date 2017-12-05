@@ -24,7 +24,6 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         ProviderName = providerName;
     }
 
-
 }
 
 
