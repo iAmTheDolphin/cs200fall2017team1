@@ -334,7 +334,6 @@ public class OperatorInterface {
     }
 
 
-    /*
     private void updateProviderInformation() {
 
         System.out.println("Please enter the ID of the Provider to edit. \"quit\" to exit.");
@@ -432,7 +431,7 @@ public class OperatorInterface {
         DatabaseController.updateProviderEmail(userID, scan.nextLine());
 
     }
-    */
+
 }
 
 
