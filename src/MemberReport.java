@@ -7,8 +7,8 @@ public class MemberReport extends Report {
 		filePath = "MemberReports\\" + member.getUserID();
 		recordDB = DatabaseController.searchServiceRecords(member);
 	}
-	/*
 	
+	/*
 	//writes to file
 	protected void writeToFile() {
 		String text = "Member Name: " + member.getName() + '\n';
@@ -20,9 +20,9 @@ public class MemberReport extends Report {
 				+ '\n';
 		
 		for (ServiceRecord record : recordDB) {
-			text += "Date of Service: " + record.ServiceTime2 + '\n'
-					+ "Provider Name: " + record.ProviderName2 + '\n'
-					+ "Service Name: " + record.temporary.serviceName + '\n'
+			text += "Date of Service: " + record.ServiceTime + '\n'
+					+ "Provider Name: " + record.ProviderName + '\n'
+					+ "Service Name: " + record.Service.serviceName + '\n'
 					+ '\n';
 		}
 		reportText.write(text);

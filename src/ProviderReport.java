@@ -26,12 +26,12 @@ public class ProviderReport extends Report {
         totalFees = 0.0;
         for (ServiceRecord record : recordDB) {
             numServices++;
-            ServiceCode service = DatabaseController.searchServiceCodes(record.temporary.serviceName);
+            ServiceCode service = DatabaseController.searchServiceCodes(record.Service.serviceName);
             totalFees += service.serviceFee;
-            text += "Date of Service: " + record.ServiceTime2 + '\n'
+            text += "Date of Service: " + record.ServiceTime + '\n'
                     + "Date and Time of Entry: " + '\n'
-                    + "Member Name: " + record.MemberName2 + '\n'
-                    + "Member Number: " + record.MemberNumber2 + '\n'
+                    + "Member Name: " + record.MemberName + '\n'
+                    + "Member Number: " + record.MemberNumber + '\n'
                     + "Service Code: " + service.serviceCode + '\n'
                     + "Service Fee: " + service.serviceFee + '\n'
                     + '\n';
