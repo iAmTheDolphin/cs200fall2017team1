@@ -1,4 +1,5 @@
 
+import javax.xml.crypto.Data;
 import java.util.Scanner;
 
 public class ProviderInterface {
@@ -25,8 +26,8 @@ public class ProviderInterface {
 
     //prints the service directory for viewing
     public void viewServiceCodes() {
-        ServiceCode temp = new ServiceCode();
-        temp.DisplayServiceFile();
+        DatabaseController.displayServiceCodes();
+        MainMenu();
     }
 
     //allows provider to give service

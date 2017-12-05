@@ -30,7 +30,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         //make all = all of the above, separated by |.
         all = ProviderName + " | " + ProviderNumber + " | " + MemberName + " | " + MemberNumber + " | " +
                 Service.serviceName + " | " + Service.serviceCode + " | " + Service.serviceFee + " | " +
-                ServiceTime + " | " + currentDate + " | " + Notes; //its so large oops
+                ServiceTime + " | " + currentDate + " | " + Notes + ";"; //its so large oops
     }
 
     public ServiceRecord() { //prompts user for into, then generates file with this information
@@ -49,7 +49,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         ProviderInterface x = new ProviderInterface();
         char input = x.TryAgain();
         if (input == 'y'|| input == 'Y'){
-            x.viewServiceCodes();
+            DatabaseController.displayServiceCodes();
         }
 
         System.out.println("\nPlease enter the service name, or enter \"code\" if you want to search by code: ");
