@@ -654,7 +654,7 @@ public class DatabaseController {
     }
 
 
-    //updates the providers state
+    //updates the provider's state
     static void updateProviderState(int providerID, String newState) {
 
         Provider tempProvider = getProvider(providerID);
@@ -672,7 +672,7 @@ public class DatabaseController {
     }
 
 
-    //updates the members zip code
+    //updates the provider's zip code
     static void updateProviderZip(int providerID, String newZip) {
 
         Provider tempProvider = getProvider(providerID);
@@ -690,7 +690,7 @@ public class DatabaseController {
     }
 
 
-    //updates the members phone number
+    //updates the provider's phone number
     static void updateProviderPhone(int providerID, String newPhone) {
 
         Provider tempProvider = getProvider(providerID);
@@ -707,7 +707,7 @@ public class DatabaseController {
     }
 
 
-    //updates the members email
+    //updates the provider's email
     static void updateProviderEmail(int providerID, String newEmail) {
 
         Provider tempProvider = getProvider(providerID);
