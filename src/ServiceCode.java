@@ -35,8 +35,7 @@ public class ServiceCode {
                 System.out.println ("Fee: $" + temp2.serviceFee + " || ");
             }
         }
-        ProviderInterface finished = new ProviderInterface();
-        finished.MainMenu();
+
     } //this just prints the services
 
 }

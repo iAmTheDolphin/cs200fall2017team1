@@ -9,63 +9,63 @@ public class ServiceRecordUtility {//Note to self: go back and fix this. it is r
 
     public static ServiceCode FindServiceInfo(String ServiceName, boolean check) {
         ServiceCode y = DatabaseController.searchServiceCodes(ServiceName);
-        if (check){
-            if (y.serviceName == "-1"){
-                System.out.println("\nThis isn't a valid name. Try again? (Y/N)");
-                ProviderInterface tempx = new ProviderInterface();
-                char input = tempx.TryAgain();
-                if (input == 'y' || input == 'Y'){
+        do {
+            if (check) {
+                if (y.serviceName.equals("-1")) {
+                    System.out.println("\nThis isn't a valid name. Try again? (Y/N)");
+                    ProviderInterface tempx = new ProviderInterface();
+                    char input = tempx.TryAgain();
+                    if (input == 'y' || input == 'Y') {
 
                         System.out.println("\nPlease try re-entering the name.");
                         String temp = scan.nextLine();
                         FindServiceInfo(temp, true);
-                }
-                else {
-                    System.out.println("You cannot make a service record without this information. Returning to main menu.");
-                    ProviderInterface temp  = new ProviderInterface();
-                    temp.MainMenu();
+                    } else {
+                        System.out.println("You cannot make a service record without this information. Returning to main menu.");
+                        break;
+                    }
                 }
             }
-            if (y.serviceFee == -1){System.out.println("\nThis should not happen. If it does, fix later.");}
-        }
 
-        if (y.serviceFee == -1) {
-            System.out.println("\nIs this a new service? (Y/N)");
-            ProviderInterface tempx = new ProviderInterface();
-            char input = tempx.TryAgain();
+            if (y.serviceFee == -1) {
+                System.out.println("\nIs this a new service? (Y/N)");
+                ProviderInterface tempx = new ProviderInterface();
+                char input = tempx.TryAgain();
+                if (input == 'y' || input == 'Y') {
+                    double fee = 0.0;
+
+                    System.out.println("\nWhat is the fee for " + ServiceName + "?");
+                    fee = scan.nextDouble();
+
+                    ServiceCode temp = new ServiceCode(ServiceName, 0, fee);
+                    temp.AddService();
+                    y = DatabaseController.searchServiceCodes(ServiceName);
+                } else {
+                    System.out.println("\nPlease try entering the name again: ");
+                    String tempp = scan.nextLine();
+                    FindServiceInfo(tempp, true);
+                }
+
+            }
+            System.out.println("\nThe fee for this service is : $" + y.serviceFee + ". Is this correct?(Y/N)");
+            ProviderInterface tempy = new ProviderInterface();
+            char input = tempy.TryAgain();
             if (input == 'y' || input == 'Y') {
-                double fee = 0.0;
-
-                System.out.println("\nWhat is the fee for " + ServiceName + "?");
-                fee = scan.nextDouble();
-
-                ServiceCode temp = new ServiceCode(ServiceName, 0, fee);
-                temp.AddService();
-                y = DatabaseController.searchServiceCodes(ServiceName);
+                return y;
             } else {
-                System.out.println("\nPlease try entering the name again: ");
+                System.out.println("\nPlease try re-entering the service name. ");
                 String tempp = scan.nextLine();
-                FindServiceInfo(tempp, true);
+                FindServiceInfo(tempp, false);
             }
 
-        }
-        System.out.println("\nThe fee for this service is : $" + y.serviceFee + ". Is this correct?(Y/N)");
-        ProviderInterface tempy = new ProviderInterface();
-        char input = tempy.TryAgain();
-        if (input == 'y' || input == 'Y') {
             return y;
-        } else {
-            System.out.println("\nPlease try re-entering the service name. ");
-            String tempp = scan.nextLine();
-            FindServiceInfo(tempp, false);
-        }
 
-        return y;
-
-    }
+        } while (1==1);
+    return y;}
 
     public static ServiceCode FindServiceInfo(int ServiceCode, boolean check) {
         ServiceCode y = DatabaseController.searchServiceCodes(ServiceCode);
+        do{
         if (check) {
             if (y.serviceFee == -1) {
                 System.out.println("\nThis service does not exist. Try again? (Y/N)");
@@ -78,8 +78,7 @@ public class ServiceRecordUtility {//Note to self: go back and fix this. it is r
                     }
                 else {
                     System.out.println("You cannot make a service record without this information. Returning to main menu.");
-                    ProviderInterface temp  = new ProviderInterface();
-                    temp.MainMenu();
+                    break;
                 }
                 }
             }
@@ -122,7 +121,7 @@ public class ServiceRecordUtility {//Note to self: go back and fix this. it is r
         return y;
 
 
-    }
+    } while (1==1); return y;}
 
 
 }

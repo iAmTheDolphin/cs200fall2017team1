@@ -36,44 +36,48 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
     public ServiceRecord() { //prompts user for into, then generates file with this information
         //the file is named SR-providernumber-membernumber-date, to avoid naming errors
         //this assumes that a member can only recieve one service from a specific provider a day
+        do {
+            System.out.println("\nPlease enter the provider number: ");
+            ProviderNumber = ValidateProvider();
+            if (ProviderNumber == -1) break;
+            System.out.println("\nPlease enter the member number: ");
+            MemberNumber = ValidateMember();
+            if (MemberNumber ==  -1) break;
 
-        System.out.println("\nPlease enter the provider number: ");
-        ProviderNumber = ValidateProvider();
-        System.out.println("\nPlease enter the member number: ");
-        MemberNumber = ValidateMember();
+            String ProviderName = DatabaseController.getProvider(ProviderNumber).getName();
+            String MemberName = DatabaseController.getMember(MemberNumber).getName();
 
-        String ProviderName = DatabaseController.getProvider(ProviderNumber).getName();
-        String MemberName = DatabaseController.getMember(MemberNumber).getName();
+            System.out.println("\nNext you will enter the service information. Would you like to view the list of services first? (Y/N)");
+            ProviderInterface x = new ProviderInterface();
+            char input = x.TryAgain();
+            if (input == 'y' || input == 'Y') {
+                x.viewServiceCodes();
+            }
 
-        System.out.println("\nNext you will enter the service information. Would you like to view the list of services first? (Y/N)");
-        ProviderInterface x = new ProviderInterface();
-        char input = x.TryAgain();
-        if (input == 'y'|| input == 'Y'){
-            x.viewServiceCodes();
-        }
+            System.out.println("\nPlease enter the service name, or enter \"code\" if you want to search by code: ");
+            String ServiceName = scan.nextLine();
+            ServiceCode y = new ServiceCode();
+            if (ServiceName.equals("code")) {
+                System.out.println("\nPlease enter the service code: ");
+                int code = Integer.parseInt(scan.nextLine());
+                y = ServiceRecordUtility.FindServiceInfo(code, false);
+            } else {
+                y = ServiceRecordUtility.FindServiceInfo(ServiceName, false);
+            }
 
-        System.out.println("\nPlease enter the service name, or enter \"code\" if you want to search by code: ");
-        String ServiceName = scan.nextLine();
-        ServiceCode y = new ServiceCode();
-        if (ServiceName.equals("code")) {
-            System.out.println("\nPlease enter the service code: ");
-            int code = Integer.parseInt(scan.nextLine());
-            y = ServiceRecordUtility.FindServiceInfo(code, false);
-        } else {
-            y = ServiceRecordUtility.FindServiceInfo(ServiceName, false);
-        }
+            Service = y;
+            if (y.serviceFee == -1) break;
 
-        Service = y;
+            System.out.println("\nPlease enter the date and time of the service in mm/dd/yyyy hh-mm-ss format: ");//using date, may not need this
+            ServiceTime = scan.nextLine(); //do a check to make sure this is valid input
+            System.out.println("\nPlease enter any notes you would like to add (anything more than 200 characters will be cut off): ");
+            Notes = scan.nextLine();//change to read in next 200 characters
+            currentDate = Calendar.getInstance();//add stuff needed for this
 
-        System.out.println("\nPlease enter the date and time of the service in mm/dd/yyyy hh-mm-ss format: ");//using date, may not need this
-        ServiceTime = scan.nextLine(); //do a check to make sure this is valid input
-        System.out.println("\nPlease enter any notes you would like to add (anything more than 200 characters will be cut off): ");
-        Notes = scan.nextLine();//change to read in next 200 characters
-        currentDate = Calendar.getInstance();//add stuff needed for this
-
-        all = ProviderName + " | " + ProviderNumber + " | " + MemberName + " | " + MemberNumber + " | " +
-                Service.serviceName + " | " + Service.serviceCode + " | " + Service.serviceFee + " | " +
-                ServiceTime + " | " + currentDate + " | " + Notes;
+            all = ProviderName + " | " + ProviderNumber + " | " + MemberName + " | " + MemberNumber + " | " +
+                    Service.serviceName + " | " + Service.serviceCode + " | " + Service.serviceFee + " | " +
+                    ServiceTime + " | " + currentDate + " | " + Notes;
+        } while (1==1);
     }
 
     public int ValidateMember(){
@@ -89,7 +93,8 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
             else {
                 System.out.println("\nSorry, you cannot make a service record without this. Returning to main menu.");
                 ProviderTerminal x = new ProviderTerminal();
-                x.start();
+                //TODO break out of function
+                ID = -1;
             }
         }
         return ID;
@@ -108,7 +113,8 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
             else {
                 System.out.println("\nSorry, you cannot make a service record without this. Returning to main menu.");
                 ProviderTerminal x = new ProviderTerminal();
-                x.start();
+                //TODO break out of function
+                ID = -1;
             }
         }
         return ID;
