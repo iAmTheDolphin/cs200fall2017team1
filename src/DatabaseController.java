@@ -663,7 +663,7 @@ public class DatabaseController {
             String content = new String(Files.readAllBytes(providersPath), charset);
             content = content.replace(   " | " + tempProvider.getState() + " | " + tempProvider.getZipCode() + " | " + tempProvider.getEmail() + " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID() ,
                     " | " + newState + " | " + tempProvider.getZipCode() + " | " + tempProvider.getEmail() + " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID());
-            Files.write(membersPath, content.getBytes(charset));
+            Files.write(providersPath, content.getBytes(charset));
         }
         catch(IOException e) {
             System.out.println("ERROR: Could not update provider file with new state" + e);
@@ -681,7 +681,7 @@ public class DatabaseController {
             String content = new String(Files.readAllBytes(membersPath), charset);
             content = content.replace(   " | " + tempProvider.getZipCode() + " | " + tempProvider.getEmail() + " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID() ,
                     " | " + newZip + " | " + tempProvider.getEmail() + " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID());
-            Files.write(membersPath, content.getBytes(charset));
+            Files.write(providersPath, content.getBytes(charset));
         }
         catch(IOException e) {
             System.out.println("ERROR: Could not update provider file with new zip code" + e);
@@ -698,7 +698,7 @@ public class DatabaseController {
         try {
             String content = new String(Files.readAllBytes(membersPath), charset);
             content = content.replace(  " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID() , " | " + newPhone +" | " + tempProvider.getUserID()  );
-            Files.write(membersPath, content.getBytes(charset));
+            Files.write(providersPath, content.getBytes(charset));
         }
         catch(IOException e) {
             System.out.println("ERROR: Could not update provider file with new phone number" + e);
@@ -716,7 +716,7 @@ public class DatabaseController {
             String content = new String(Files.readAllBytes(membersPath), charset);
             System.out.println("|" + tempProvider.getEmail() + "|");
             content = content.replace(  " | " + tempProvider.getEmail() + " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID() , " | " + newEmail + " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID());
-            Files.write(membersPath, content.getBytes(charset));
+            Files.write(providersPath, content.getBytes(charset));
         }
         catch(IOException e) {
             System.out.println("ERROR: Could not update provider file with new email address" + e);
