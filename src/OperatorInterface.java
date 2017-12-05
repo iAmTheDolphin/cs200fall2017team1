@@ -193,7 +193,7 @@ public class OperatorInterface {
         if(ID != -1) {
 
             if(DatabaseController.getMember(ID).getUserID() != -1) {
-                System.out.println("Suspend Member " + ID + " : " + DatabaseController.getMember(ID).getName() + "? Y/N");
+                System.out.println("Suspend Member " + ID + ": " + DatabaseController.getMember(ID).getName() + "? Y/N");
 
                 if(scan.nextLine().toLowerCase().equals("y")) {
                     DatabaseController.suspendMember(ID);
@@ -446,10 +446,16 @@ public class OperatorInterface {
         		try{ 
                 Member tempMember = DatabaseController.getMember(Integer.parseInt(temp));
                 if(tempMember.getUserID() != -1) {
-                    System.out.println("Deleting Member: " + tempMember.toString());
-//                		System.out.println(tempMember.toString());
-                		DatabaseController.deleteMember(tempMember.getUserID());
-                }
+                		System.out.println("Delete Member " + tempMember.getUserID() + ": " + DatabaseController.getMember(tempMember.getUserID()).getName() + "? Y/N");
+                			if(scan.nextLine().toLowerCase().equals("y")) {
+                				System.out.println("Deleting Member...");
+//                        		System.out.println(tempMember.toString());
+                        		DatabaseController.deleteMember(tempMember.getUserID());
+                        }
+                        else {
+                            System.out.println("Member deletion aborted.");
+                        }
+                    }
                 else {
                     System.out.println("That is not a valid member ID;");
                     deleteMember();
@@ -473,9 +479,15 @@ public class OperatorInterface {
     			try{ 
     				Provider tempProvider = DatabaseController.getProvider(Integer.parseInt(temp));
     				if(tempProvider.getUserID() != -1) {
-    					System.out.println("Deleting Provider: " + tempProvider.toString());
-//            		System.out.println(tempProvider.toString());
-    					DatabaseController.deleteProvider(tempProvider.getUserID());
+    					System.out.println("Delete Provider " + tempProvider.getUserID() + ": " + DatabaseController.getProvider(tempProvider.getUserID()).getName() + "? Y/N");
+            			if(scan.nextLine().toLowerCase().equals("y")) {
+            				System.out.println("Deleting Provider...");
+//                    		System.out.println(tempMember.toString());
+                    		DatabaseController.deleteProvider(tempProvider.getUserID());
+                    }
+                    else {
+                        System.out.println("Provider deletion aborted.");
+                    }
     				}
     				else {
     					System.out.println("That is not a valid provider ID;");
