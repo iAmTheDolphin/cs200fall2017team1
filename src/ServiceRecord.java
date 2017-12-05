@@ -5,6 +5,12 @@ import java.util.Locale;
 import java.util.Date;
 
 
+/**
+ * This class generates service records and contains some utility functions to help the process.
+ *
+ * @author Aislinn
+ * @version 1.0
+ */
 
 public class ServiceRecord {//this can only be accessed by the provider interface, probably
 
@@ -18,6 +24,10 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
     Date currentDate;
     ServiceCode Service;
     String all;
+
+    /**
+     * This generates a service record without prompting the user at all.
+     */
 
     ServiceRecord(int providerNumber, int memberNumber, String providerName, String memberName, String notes, Date serviceTime, ServiceCode ser) {
         ProviderNumber = providerNumber;
@@ -33,6 +43,10 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
                 ServiceTime + " | " + currentDate + " | " + Notes;
     }
 
+
+    /**
+     * This generates a service record by prompting the user.
+     */
 
     public ServiceRecord(int providerNumber) { //prompts user for into, then generates file with this information
 
@@ -91,6 +105,12 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
 
     } while (1==1);}
 
+    /**
+     * This validates a member.
+     *
+     * @return int
+     */
+
     public int ValidateMember(){
         int ID = Integer.parseInt(scan.nextLine());
         String name = DatabaseController.getMember(ID).getName();
@@ -109,6 +129,12 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         }
         return ID;
     }
+
+    /**
+     * This creates a string for printing usage of a service record.
+     *
+     * @return String
+     */
 
     public String toString() {
 

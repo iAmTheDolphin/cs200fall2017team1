@@ -6,6 +6,13 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.Date;
 
+/**
+ * This class holds most of the functionality for what Providers can do.
+ *
+ * @author Aislinn
+ * @version 1.0
+ */
+
 public class ProviderInterface {
     public boolean ProviderValidated = false;
     public boolean MemberValidated = false;
@@ -20,28 +27,55 @@ public class ProviderInterface {
 
     Scanner scan = new Scanner(System.in);
 
-    //displays options for provider
+    /**
+     * This displays all provider's options.
+     */
     public void MainMenu() {
 
         int input = 0;
-        System.out.println("\nMenu: \n1. Give Service\n2. Create Service Record\n3. View Provider Directory\n4. Log out\n");
+        System.out.println("\nMenu: \n1. Give Service\n2. Create Service Record\n3. View Provider Directory\n4. Add Service to Directory\n5. Log out");
 
         switch(scan.nextLine()) {
             case "1" : GiveService(); break;
             case "2" : CreateServiceRecord(); break;
             case "3" : viewServiceCodes(); break;
-            case "4" : break;
+            case "4" : AddService(); break;
+            case "5" : break;
             default: System.out.println("Invalid Input"); MainMenu(); break;
         }
     }
 
-    //prints the service directory for viewing
+    /**
+     * This lets someone add a service.
+     */
+    public void AddService(){
+        String serviceName;
+        double serviceFee;
+
+        System.out.println("\nWhat is the name of the service?");
+        serviceName = scan.nextLine();
+        try{
+        serviceFee = Double.parseDouble(scan.nextLine());}
+        catch (NumberFormatException e){
+            System.out.println("Error: incorrect input\n" + e);
+        }
+
+        DatabaseController.addServiceCode(serviceName, serviceFee);
+    }
+
+
+    /**
+     * This displays all of the service codes.
+     */
+
     private void viewServiceCodes() {
         DatabaseController.displayServiceCodes();
         MainMenu();
     }
 
-    //allows provider to give service
+    /**
+     * This allows the provider to give a service.
+     */
     private void GiveService() {
         int MemberNumber = -1;
 
@@ -95,7 +129,9 @@ public class ProviderInterface {
     }
 
 
-    //allows provider to create a service record after providing a service
+    /**
+     * This allows the provider to create a service record.
+     */
     private void CreateServiceRecord() {//creates a service record object, does GenerateServiceRecord from servicerecord class
         ServiceRecord x = new ServiceRecord(ProviderNum);
         //insert function call in database controller that writes this in necessary files
@@ -103,7 +139,11 @@ public class ProviderInterface {
     }
 
 
-    //utility that checks to make sure input is valid when doing y/n
+    /**
+     * This checks for valid y/n input.
+     *
+     * @return char
+     */
     public char TryAgain() {
 
         System.out.println(scan.nextLine());

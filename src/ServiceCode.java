@@ -1,9 +1,18 @@
-
+/**
+ * This class holds ServiceCode objects and allows Service data to be found easily.
+ *
+ * @author Aislinn
+ * @version 1.0
+ */
 
 public class ServiceCode {
     public String serviceName;
     public int serviceCode;
     public double serviceFee;
+
+    /**
+     * this generates a 'blank' service code object.
+     */
 
     public ServiceCode() {
         serviceName = "-1";
@@ -11,16 +20,18 @@ public class ServiceCode {
         serviceFee = -1;
     }
 
+    /**
+     * This generates a service code object with valid input.
+     */
+
     public ServiceCode(String name, int code, double fee) {
         serviceName = name;
         serviceCode = code;
         serviceFee = fee;
     }
 
-    public void AddService(){
-        DatabaseController.addServiceCode(serviceName, serviceFee);
-    }
 
+/*
     public void DisplayServiceFile(){
         ServiceCode temp2 = new ServiceCode();
         int search = 100000;//this may be an issue. we shall see.
@@ -36,6 +47,6 @@ public class ServiceCode {
             }
         }
 
-    } //this just prints the services
+    } //this just prints the services*/
 
 }
