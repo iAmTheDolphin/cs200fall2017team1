@@ -8,6 +8,7 @@ public class ProviderInterface {
 
     Scanner scan = new Scanner(System.in);
 
+    //displays options for provider
     public void MainMenu() {
 
         int input = 0;
@@ -16,17 +17,19 @@ public class ProviderInterface {
         switch(scan.nextLine()) {
             case "1" : GiveService(); break;
             case "2" : CreateServiceRecord(); break;
-            case "3" : viewServiceRecords(); break;
+            case "3" : viewServiceCodes(); break;
             case "4" : break;
             default: System.out.println("Invalid Input"); MainMenu(); break;
         }
     }
 
+    //prints the service directory for viewing
     public void viewServiceCodes() {
         ServiceCode temp = new ServiceCode();
         temp.DisplayServiceFile();
     }
 
+    //allows provider to give service
     public void GiveService() {
         System.out.println("Please enter your client's member number: ");
         int MemberNumber = scan.nextInt();
@@ -40,7 +43,7 @@ public class ProviderInterface {
                 char input2 = TryAgain();//something about this line is causing issues, i think.
                 if (input2 == 'Y' || input2 == 'y') {
                     ServiceRecord newServiceRecord = new ServiceRecord();
-                    newServiceRecord.GenerateServiceRecord();
+                    //newServiceRecord.GenerateServiceRecord();
                 } else {
                     System.out.println("\nYou may create a service record at any time in the main menu.");
                     MainMenu();
@@ -58,12 +61,14 @@ public class ProviderInterface {
         }
     }
 
+    //allows provider to create a service record after providing a service
     public void CreateServiceRecord() {//creates a service record object, does GenerateServiceRecord from servicerecord class
         ServiceRecord x = new ServiceRecord();//....lemme double check on this
         //insert function call in database controller that writes this in necessary files
 
     }
-    
+
+    //utility that checks to make sure input is valid when doing y/n
     public char TryAgain() {
         char input = scan.nextLine().charAt(0);
         while (input != 'y' && input != 'Y' && input != 'n' && input != 'N') {

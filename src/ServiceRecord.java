@@ -45,6 +45,13 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         String ProviderName = DatabaseController.getProvider(ProviderNumber).getName();
         String MemberName = DatabaseController.getMember(MemberNumber).getName();
 
+        System.out.println("\nNext you will enter the service information. Would you like to view the list of services first? (Y/N)");
+        ProviderInterface x = new ProviderInterface();
+        char input = x.TryAgain();
+        if (input == 'y'|| input == 'Y'){
+            x.viewServiceCodes();
+        }
+
         System.out.println("\nPlease enter the service name, or enter \"code\" if you want to search by code: ");
         String ServiceName = scan.nextLine();
         ServiceCode y = new ServiceCode();
