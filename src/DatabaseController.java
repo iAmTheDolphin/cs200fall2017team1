@@ -283,6 +283,18 @@ public class DatabaseController {
     }
 
 
+    public static Provider validateProvider(int providerID) {
+
+        Provider returnedProvider = getProvider(providerID);
+
+        if(returnedProvider.getName().equals("-1")) {
+            return null;
+        }
+        else return returnedProvider;
+
+    }
+
+
     //returns the Provider object of the provider with the correspondin ID
     static Provider getProvider(int userID) {
         for (Provider provider : providers) {
@@ -623,6 +635,7 @@ public class DatabaseController {
         providers.get(getProviderIndex(providerID)).setStreetAddress(newAddress);
     }
 
+
     //updates the provider's city
     static void updateProviderCity(int providerID, String newCity) {
 
@@ -639,80 +652,79 @@ public class DatabaseController {
         }
         providers.get(getProviderIndex(providerID)).setCity(newCity);
     }
-/*
 
-    //updates the members state
-    static void updateMemberState(int memberID, String newState) {
 
-        Member tempMember = getMember(memberID);
+    //updates the provider's state
+    static void updateProviderState(int providerID, String newState) {
+
+        Provider tempProvider = getProvider(providerID);
 
         try {
-            String content = new String(Files.readAllBytes(membersPath), charset);
-            content = content.replace(   " | " + tempMember.getState() + " | " + tempMember.getZipCode() + " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID() ,
-                    " | " + newState + " | " + tempMember.getZipCode() + " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID());
-            Files.write(membersPath, content.getBytes(charset));
+            String content = new String(Files.readAllBytes(providersPath), charset);
+            content = content.replace(   " | " + tempProvider.getState() + " | " + tempProvider.getZipCode() + " | " + tempProvider.getEmail() + " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID() ,
+                    " | " + newState + " | " + tempProvider.getZipCode() + " | " + tempProvider.getEmail() + " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID());
+            Files.write(providersPath, content.getBytes(charset));
         }
         catch(IOException e) {
-            System.out.println("ERROR: Could not update member file with new state" + e);
+            System.out.println("ERROR: Could not update provider file with new state" + e);
         }
-        members.get(getMemberIndex(memberID)).setState(newState);
+        providers.get(getProviderIndex(providerID)).setState(newState);
     }
 
 
-    //updates the members zip code
-    static void updateMemberZip(int memberID, String newZip) {
+    //updates the provider's zip code
+    static void updateProviderZip(int providerID, String newZip) {
 
-        Member tempMember = getMember(memberID);
-
-        try {
-            String content = new String(Files.readAllBytes(membersPath), charset);
-            content = content.replace(   " | " + tempMember.getZipCode() + " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID() ,
-                    " | " + newZip + " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID());
-            Files.write(membersPath, content.getBytes(charset));
-        }
-        catch(IOException e) {
-            System.out.println("ERROR: Could not update member file with new zip code" + e);
-        }
-        members.get(getMemberIndex(memberID)).setZipCode(newZip);
-    }
-
-
-    //updates the members phone number
-    static void updateMemberPhone(int memberID, String newPhone) {
-
-        Member tempMember = getMember(memberID);
+        Provider tempProvider = getProvider(providerID);
 
         try {
             String content = new String(Files.readAllBytes(membersPath), charset);
-            content = content.replace(  " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID() , " | " + newPhone +" | " + tempMember.getUserID()  );
-            Files.write(membersPath, content.getBytes(charset));
+            content = content.replace(   " | " + tempProvider.getZipCode() + " | " + tempProvider.getEmail() + " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID() ,
+                    " | " + newZip + " | " + tempProvider.getEmail() + " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID());
+            Files.write(providersPath, content.getBytes(charset));
         }
         catch(IOException e) {
-            System.out.println("ERROR: Could not update member file with new phone number" + e);
+            System.out.println("ERROR: Could not update provider file with new zip code" + e);
         }
-        members.get(getMemberIndex(memberID)).setPhoneNumber(newPhone);
+        providers.get(getProviderIndex(providerID)).setZipCode(newZip);
     }
 
 
-    //updates the members email
-    static void updateMemberEmail(int memberID, String newEmail) {
+    //updates the provider's phone number
+    static void updateProviderPhone(int providerID, String newPhone) {
 
-
-        Member tempMember = getMember(memberID);
+        Provider tempProvider = getProvider(providerID);
 
         try {
             String content = new String(Files.readAllBytes(membersPath), charset);
-            System.out.println("|" + tempMember.getEmail() + "|");
-            content = content.replace(  " | " + tempMember.getEmail() + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID() , " | " + newEmail + " | " + tempMember.getPhoneNumber() + " | " + tempMember.getUserID());
-            Files.write(membersPath, content.getBytes(charset));
+            content = content.replace(  " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID() , " | " + newPhone +" | " + tempProvider.getUserID()  );
+            Files.write(providersPath, content.getBytes(charset));
         }
         catch(IOException e) {
-            System.out.println("ERROR: Could not update member file with new email address" + e);
+            System.out.println("ERROR: Could not update provider file with new phone number" + e);
+        }
+        providers.get(getProviderIndex(providerID)).setPhoneNumber(newPhone);
+    }
+
+
+    //updates the provider's email
+    static void updateProviderEmail(int providerID, String newEmail) {
+
+        Provider tempProvider = getProvider(providerID);
+
+        try {
+            String content = new String(Files.readAllBytes(membersPath), charset);
+            System.out.println("|" + tempProvider.getEmail() + "|");
+            content = content.replace(  " | " + tempProvider.getEmail() + " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID() , " | " + newEmail + " | " + tempProvider.getPhoneNumber() + " | " + tempProvider.getUserID());
+            Files.write(providersPath, content.getBytes(charset));
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Could not update provider file with new email address" + e);
         }
 
-        members.get(getMemberIndex(memberID)).setEmail(newEmail);
+        providers.get(getProviderIndex(providerID)).setEmail(newEmail);
     }
-    */
+
 
 
 }
