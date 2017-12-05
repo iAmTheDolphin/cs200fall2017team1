@@ -70,7 +70,7 @@ public class ProviderInterface {
     }
 
     //utility that checks to make sure input is valid when doing y/n
-    private char TryAgain() {
+    public char TryAgain() {
         char input = scan.nextLine().charAt(0);
         while (input != 'y' && input != 'Y' && input != 'n' && input != 'N') {
             System.out.println("\nThat is not a valid input. Please try again.");
