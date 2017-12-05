@@ -28,7 +28,7 @@ public class ProviderInterface {
 
         switch(scan.nextLine()) {
             case "1" : GiveService(); break;
-            //case "2" : CreateServiceRecord(); break;
+            case "2" : CreateServiceRecord(); break;
             case "3" : viewServiceCodes(); break;
             case "4" : break;
             default: System.out.println("Invalid Input"); MainMenu(); break;
@@ -57,7 +57,6 @@ public class ProviderInterface {
         if (temp.getUserID() != -1) {
             if (temp.isSuspended) {
                 System.out.println("Sorry, this member is suspended and cannot receive service.");
-                MainMenu();
             } else {
 
                 int serviceCode = -1;
@@ -91,20 +90,18 @@ public class ProviderInterface {
             if (tempx == 'y' || tempx == 'Y') {
                 GiveService();
             }//try again
-            else {
-                MainMenu();
-            }
+
         }
     }
 
-    /*
+
     //allows provider to create a service record after providing a service
     private void CreateServiceRecord() {//creates a service record object, does GenerateServiceRecord from servicerecord class
-        ServiceRecord x = new ServiceRecord();//....lemme double check on this
+        ServiceRecord x = new ServiceRecord(ProviderNum);
         //insert function call in database controller that writes this in necessary files
 
     }
-    */
+
 
     //utility that checks to make sure input is valid when doing y/n
     public char TryAgain() {
