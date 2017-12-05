@@ -16,16 +16,16 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
     ServiceCode Service;
     String all;
 
-    ServiceRecord(int a, int b, String c, String d, String  e, String f, Date g, ServiceCode h){
+    ServiceRecord(int providerNumber, int memberNumber, String providerName, String memberName, String  notes, String serviceTime, Calendar time, ServiceCode ser){
 
-        ProviderNumber = a;
-        MemberNumber = b;
-        Service = h;
-        currentDate = g;
-        ServiceTime = f;
-        Notes = e;
-        MemberName = d;
-        ProviderName = c;
+        ProviderNumber = providerNumber;
+        MemberNumber = memberNumber;
+        Service = ser;
+        currentDate = time;
+        ServiceTime = serviceTime;
+        Notes = notes;
+        MemberName = memberName;
+        ProviderName = providerName;
 
         //make all = all of the above, seperated by |.
         all = ProviderName + " | " + ProviderNumber + " | " + MemberName + " | " + MemberNumber + " | " +
