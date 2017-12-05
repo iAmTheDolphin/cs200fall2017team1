@@ -107,4 +107,11 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         return ID;
     }
 
+    public String toString() {
+
+        return ProviderName + " : " + ProviderNumber + " \n" + MemberName + " : " + MemberNumber + " \n" +
+                Service.serviceName + " : " + Service.serviceCode + " -->$" + Service.serviceFee + " \n Given at : " +
+                ServiceTime + " \nCurrent Date is : " + currentDate + " \n" + Notes;
+
+    }
 }
