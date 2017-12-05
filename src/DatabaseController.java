@@ -599,7 +599,7 @@ public class DatabaseController {
         catch(IOException e) {
             System.out.println("ERROR: Could not update provider file with new first name" + e);
         }
-        tempProvider.setZipCode(newFirstName); // why 
+        tempProvider.setFirstName(newFirstName);
 
         providers.get(getProviderIndex(providerID)).setFirstName(newFirstName);
     }
