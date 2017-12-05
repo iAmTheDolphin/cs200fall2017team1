@@ -1,11 +1,22 @@
 
 import javax.xml.crypto.Data;
+import java.text.ParseException;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.Date;
 
 public class ProviderInterface {
     public boolean ProviderValidated = false;
     public boolean MemberValidated = false;
 
+    int ProviderNum;
+
+    public ProviderInterface (int providerNum) {
+        ProviderNum = providerNum;
+    }
+
+    public ProviderInterface () {ProviderNum = -1;}
 
     Scanner scan = new Scanner(System.in);
 
@@ -17,7 +28,7 @@ public class ProviderInterface {
 
         switch(scan.nextLine()) {
             case "1" : GiveService(); break;
-            case "2" : CreateServiceRecord(); break;
+            //case "2" : CreateServiceRecord(); break;
             case "3" : viewServiceCodes(); break;
             case "4" : break;
             default: System.out.println("Invalid Input"); MainMenu(); break;
@@ -48,14 +59,30 @@ public class ProviderInterface {
                 System.out.println("Sorry, this member is suspended and cannot receive service.");
                 MainMenu();
             } else {
-                System.out.println("When you are finished, type Y to create the service record, or N to wait until later to create it.");
-                char input2 = TryAgain();//something about this line is causing issues, i think.
-                if (input2 == 'Y' || input2 == 'y') {
-                    ServiceRecord newServiceRecord = new ServiceRecord();
-                    //newServiceRecord.GenerateServiceRecord();
-                } else {
-                    System.out.println("\nYou may create a service record at any time in the main menu.");
-                    MainMenu();
+
+                int serviceCode = -1;
+                System.out.println("Please enter in the Service Code");
+                try{
+                    serviceCode = Integer.parseInt(scan.nextLine());
+                }
+                catch (NumberFormatException e){
+                    System.out.println("ERROR: INVALID INPUT");
+                }
+                if(serviceCode != -1) {
+
+                    System.out.println("When was this service rendered?");
+
+                    SimpleDateFormat parserSDF = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy", Locale.ENGLISH);
+                    System.out.println("Please enter Date in the form : \"Wed Oct 16 12:30:00 CEST 2013\"");
+                    try{
+                        Date date = parserSDF.parse(scan.nextLine());
+
+                        System.out.println(date.toString());
+                    }
+                    catch (ParseException e) {
+                        System.out.println("ERROR: Date format was incorrect. " + e);
+                    }
+
                 }
             }
         } else {
@@ -70,12 +97,14 @@ public class ProviderInterface {
         }
     }
 
+    /*
     //allows provider to create a service record after providing a service
     private void CreateServiceRecord() {//creates a service record object, does GenerateServiceRecord from servicerecord class
         ServiceRecord x = new ServiceRecord();//....lemme double check on this
         //insert function call in database controller that writes this in necessary files
 
     }
+    */
 
     //utility that checks to make sure input is valid when doing y/n
     public char TryAgain() {

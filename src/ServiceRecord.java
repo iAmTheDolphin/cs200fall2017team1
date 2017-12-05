@@ -1,5 +1,34 @@
+import java.util.Scanner;
+import java.util.Date;
+
+public class ServiceRecord {//this can only be accessed by the provider interface, probably
+
+    Scanner scan = new Scanner(System.in);
+    int ProviderNumber;
+    int MemberNumber;
+    String ProviderName;
+    String MemberName;
+    String Notes;
+    Date ServiceTime;
+    Date currentDate;
+    ServiceCode Service;
+
+    ServiceRecord(int providerNumber, int memberNumber, String providerName, String memberName, String notes, Date serviceTime, ServiceCode ser) {
+        ProviderNumber = providerNumber;
+        MemberNumber = memberNumber;
+        Service = ser;
+        currentDate = new Date();
+        ServiceTime = serviceTime;
+        Notes = notes;
+        MemberName = memberName;
+        ProviderName = providerName;
+    }
 
 
+}
+
+
+/*
 import java.util.Scanner;
 import java.util.Calendar;
 
@@ -33,14 +62,12 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
                 ServiceTime + " | " + currentDate + " | " + Notes + ";"; //its so large oops
     }
 
-    public ServiceRecord() { //prompts user for into, then generates file with this information
+    public ServiceRecord(int providerNumber, int memberNumber) { //prompts user for into, then generates file with this information
         //the file is named SR-providernumber-membernumber-date, to avoid naming errors
         //this assumes that a member can only recieve one service from a specific provider a day
 
-        System.out.println("\nPlease enter the provider number: ");
-        ProviderNumber = ValidateProvider();
-        System.out.println("\nPlease enter the member number: ");
-        MemberNumber = ValidateMember();
+        ProviderNumber = providerNumber;
+        MemberNumber = memberNumber;
 
         String ProviderName = DatabaseController.getProvider(ProviderNumber).getName();
         String MemberName = DatabaseController.getMember(MemberNumber).getName();
@@ -122,3 +149,5 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
 
     }
 }
+*/
+

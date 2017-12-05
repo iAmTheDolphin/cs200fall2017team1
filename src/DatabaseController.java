@@ -367,6 +367,8 @@ public class DatabaseController {
 
     }
 
+
+    //displays all the serviceCodes
     static void displayServiceCodes() {
 
         System.out.println("\n\nProvider Directory\n\n");
