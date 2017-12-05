@@ -48,9 +48,10 @@ public class ProviderInterface {
     /**
      * This lets someone add a service.
      */
+
     public void AddService(){
         String serviceName;
-        double serviceFee;
+        double serviceFee = 0.0;
 
         System.out.println("\nWhat is the name of the service?");
         serviceName = scan.nextLine();
