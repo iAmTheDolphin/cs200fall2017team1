@@ -55,7 +55,8 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         ProviderNumber = providerNumber;
 
         System.out.println("Please enter the member number: ");
-        MemberNumber = ValidateMember();
+        ProviderInterface temporary = new ProviderInterface();
+        MemberNumber = temporary.ValidateMember();
 
 
         String ProviderName = DatabaseController.getProvider(ProviderNumber).getName();
@@ -105,30 +106,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
 
     } while (1==1);}
 
-    /**
-     * This validates a member.
-     *
-     * @return int
-     */
 
-    public int ValidateMember(){
-        int ID = Integer.parseInt(scan.nextLine());
-        String name = DatabaseController.getMember(ID).getName();
-        if (name.equals("-1")){
-            System.out.println("\nSorry, that member number is invalid. Would you like to try again?");
-            ProviderInterface temp = new ProviderInterface();
-            char response = temp.TryAgain();
-            if (response == 'y' || response == 'Y'){
-                    ValidateMember();
-            }
-            else {
-                System.out.println("\nSorry, you cannot make a service record without this. Returning to main menu.");
-                ProviderTerminal x = new ProviderTerminal();
-                x.start();
-            }
-        }
-        return ID;
-    }
 
     /**
      * This creates a string for printing usage of a service record.

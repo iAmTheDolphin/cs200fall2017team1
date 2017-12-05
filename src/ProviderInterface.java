@@ -96,51 +96,24 @@ public class ProviderInterface {
     private void GiveService() {
         int MemberNumber = -1;
 
-        System.out.println("Please enter your client's member number: ");
-        try {
-            MemberNumber = Integer.parseInt(scan.nextLine());
-        } catch (NumberFormatException e) {
-            System.out.println("Please enter a valid number.");
-        }
+        MemberNumber = ValidateMember();
 
         Member temp = DatabaseController.getMember(MemberNumber);
-        if (temp.getUserID() != -1) {
             if (temp.isSuspended) {
                 System.out.println("Sorry, this member is suspended and cannot receive service.");
-            } else {
-
-                int serviceCode = -1;
-                System.out.println("Please enter in the Service Code");
-                try {
-                    serviceCode = Integer.parseInt(scan.nextLine());
-                } catch (NumberFormatException e) {
-                    System.out.println("ERROR: INVALID INPUT");
-                }
-                if (serviceCode != -1) {
-
-                    System.out.println("When was this service rendered?");
-
-                    SimpleDateFormat parserSDF = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy", Locale.ENGLISH);
-                    System.out.println("Please enter Date in the form : \"Wed Oct 16 12:30:00 CEST 2013\"");
-                    try {
-                        Date date = parserSDF.parse(scan.nextLine());
-
-                        System.out.println(date.toString());
-                    } catch (ParseException e) {
-                        System.out.println("ERROR: Date format was incorrect. " + e);
-                    }
-
-                }
             }
-        } else {
-            System.out.println("\nSorry, that member doesn't seem to exist. Try again? (Y/N)");
-            char tempx = TryAgain();
-            if (tempx == 'y' || tempx == 'Y') {
-                GiveService();
-            }//try again
+            else {
+                System.out.println("\nNow give the service. When done, enter 'Y' to create a service record, or 'N' to wait until later.");
+                char input = TryAgain();
+                if (input == 'Y' || input == 'y') {
+                    CreateServiceRecord();
+                }
 
-        }
+
+            }
+
     }
+
 
 
     /**
@@ -170,5 +143,36 @@ public class ProviderInterface {
         return input;
     }
 
+    /**
+     * This validates a member.
+     *
+     * @return int
+     */
+
+    public int ValidateMember(){
+        System.out.println("Please enter your client's member number: ");
+        int ID = 0;
+        try {
+            ID = Integer.parseInt(scan.nextLine());
+        }
+        catch(NumberFormatException e) {
+            System.out.println("Please enter a valid number.");
+        }
+        String name = DatabaseController.getMember(ID).getName();
+        if (name.equals("-1")){
+            System.out.println("\nSorry, that member number is invalid. Would you like to try again?");
+            ProviderInterface temp = new ProviderInterface();
+            char response = temp.TryAgain();
+            if (response == 'y' || response == 'Y'){
+                ValidateMember();
+            }
+            else {
+                System.out.println("\nSorry, you cannot make a service record without this. Returning to main menu.");
+                ProviderTerminal x = new ProviderTerminal();
+                x.start();
+            }
+        }
+        return ID;
+    }
 
 }
