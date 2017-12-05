@@ -1,4 +1,11 @@
+import java.util.Scanner;
+
+import java.util.Scanner;
+import java.util.Calendar;
+
 public class ServiceRecordUtility {//Note to self: go back and fix this. it is redundant.
+
+    static Scanner scan = new Scanner(System.in);
 
     public static ServiceCode FindServiceInfo(String ServiceName, boolean check) {
         ServiceCode y = DatabaseController.searchServiceCodes(ServiceName);
