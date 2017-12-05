@@ -367,6 +367,20 @@ public class DatabaseController {
 
     }
 
+    static void displayServiceCodes() {
+
+        System.out.println("\n\nProvider Directory\n\n");
+
+        for (ServiceCode serviceCode : serviceCodes) {
+
+            System.out.println ("\nName: " + serviceCode.serviceName + " || ");
+            System.out.println ("Code: " + serviceCode.serviceCode + " || ");
+            System.out.println ("Fee: $" + serviceCode.serviceFee + " || ");
+
+        }
+
+    }
+
 
     //search the service records by member
     static ServiceRecord[] searchServiceRecords(Member member) {

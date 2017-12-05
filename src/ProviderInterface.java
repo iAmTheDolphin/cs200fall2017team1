@@ -1,4 +1,5 @@
 
+import javax.xml.crypto.Data;
 import java.util.Scanner;
 
 public class ProviderInterface {
@@ -24,13 +25,13 @@ public class ProviderInterface {
     }
 
     //prints the service directory for viewing
-    public void viewServiceCodes() {
-        ServiceCode temp = new ServiceCode();
-        temp.DisplayServiceFile();
+    private void viewServiceCodes() {
+        DatabaseController.displayServiceCodes();
+        MainMenu();
     }
 
     //allows provider to give service
-    public void GiveService() {
+    private void GiveService() {
         System.out.println("Please enter your client's member number: ");
         int MemberNumber = scan.nextInt();
         Member temp = DatabaseController.getMember(MemberNumber);
@@ -62,14 +63,14 @@ public class ProviderInterface {
     }
 
     //allows provider to create a service record after providing a service
-    public void CreateServiceRecord() {//creates a service record object, does GenerateServiceRecord from servicerecord class
+    private void CreateServiceRecord() {//creates a service record object, does GenerateServiceRecord from servicerecord class
         ServiceRecord x = new ServiceRecord();//....lemme double check on this
         //insert function call in database controller that writes this in necessary files
 
     }
 
     //utility that checks to make sure input is valid when doing y/n
-    public char TryAgain() {
+    private char TryAgain() {
         char input = scan.nextLine().charAt(0);
         while (input != 'y' && input != 'Y' && input != 'n' && input != 'N') {
             System.out.println("\nThat is not a valid input. Please try again.");
