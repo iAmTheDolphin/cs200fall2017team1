@@ -22,7 +22,7 @@ public class ProviderInterface {
         }
     }
 
-    public void viewServiceRecords() {
+    public void viewServiceCodes() {
         ServiceCode temp = new ServiceCode();
         temp.DisplayServiceFile();
     }
@@ -59,12 +59,12 @@ public class ProviderInterface {
     }
 
     public void CreateServiceRecord() {//creates a service record object, does GenerateServiceRecord from servicerecord class
-        ServiceRecord x = new ServiceRecord();
-        x.GenerateServiceRecord();
+        ServiceRecord x = new ServiceRecord();//....lemme double check on this
+        //insert function call in database controller that writes this in necessary files
+
     }
     
     public char TryAgain() {
-        //System.out.println("\nWould you like to try again? (Y/N)");
         char input = scan.nextLine().charAt(0);
         while (input != 'y' && input != 'Y' && input != 'n' && input != 'N') {
             System.out.println("\nThat is not a valid input. Please try again.");
