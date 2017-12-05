@@ -1,0 +1,9 @@
+Some notes on Persistence:
+
+The things we need to save upon exiting the software:
+- Provider ID list
+- Member ID list
+- Individual Provider records
+- Individual Member records
+- Reports?
+
