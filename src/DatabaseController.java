@@ -269,7 +269,7 @@ public class DatabaseController {
      * @param zipCode Member's zip code
      * @param email Member's email
      * @param phoneNumber Member's phone number
-     * @return Member
+     * @return Member object of newly created member
      */
     static Member newMember(String firstName, String lastName, String streetAddress,
                           String city, String state, String zipCode,String email,
@@ -310,7 +310,7 @@ public class DatabaseController {
      * @param zipCode Provider's zip code
      * @param email Provider's email
      * @param phoneNumber Provider's phone number
-     * @return Provider
+     * @return Provider object of newly created provider
      */
     static Provider newProvider(String firstName, String lastName, String streetAddress,
                             String city, String state, String zipCode,String email,
@@ -429,7 +429,7 @@ public class DatabaseController {
     /**
      * returns the member object represented by the ID
      * @param userID The User's identification number
-     * @return Member
+     * @return Member object having given id number
      */
     static Member getMember(int userID) {
         for (Member member : members) {
@@ -446,7 +446,7 @@ public class DatabaseController {
     /**
      * returns the index of the Member with the given ID in the ArrayList
      * @param userID The User's identification number
-     * @return int
+     * @return int either the member's index in the array or -1 if member is not found
      */
     private static int getMemberIndex(int userID) {
 
@@ -464,7 +464,7 @@ public class DatabaseController {
     /**
      * returns the provider Object associated with the given ID
      * @param userID The User's identification number
-     * @return Provider
+     * @return Provider object matching that userID
      */
     static Provider getProvider(int userID) {
         for (Provider provider : providers) {
@@ -481,7 +481,7 @@ public class DatabaseController {
     /**
      * returns the index of the provider with the given ID
      * @param userID The User's identification number
-     * @return int
+     * @return int either the provider's index in provider array or -1 if not found
      */
     private static int getProviderIndex (int userID) {
 
@@ -529,7 +529,7 @@ public class DatabaseController {
     /**
      * searches for a serviceCode by name
      * @param name The name of the service
-     * @return ServiceCode
+     * @return ServiceCode object for given name
      */
     static ServiceCode searchServiceCodes(String name) {
 
@@ -549,7 +549,7 @@ public class DatabaseController {
     /**
      * search the ServiceCodes by the actual service code
      * @param code The numeric code assigned to a service
-     * @return
+     * @return ServiceCode object for given numeric code
      */
     static ServiceCode searchServiceCodes(int code) {
 
@@ -587,7 +587,7 @@ public class DatabaseController {
     /**
      * this searches the service records by the member associated with that record
      * @param member The member associated to the service record
-     * @return
+     * @return array of service records associated with given member
      */
     static ServiceRecord[] searchServiceRecords(Member member) {
 
@@ -607,7 +607,7 @@ public class DatabaseController {
     /**
      * this searches the service records by the provider associated with that record
      * @param provider The provider associated to the service record
-     * @return
+     * @return array of Service Records associated with given provider
      */
     static ServiceRecord[] searchServiceRecords(Provider provider){
 
