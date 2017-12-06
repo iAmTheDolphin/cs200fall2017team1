@@ -98,7 +98,8 @@ public class ProviderInterface {
 
         MemberNumber = ValidateMember();
         String name = DatabaseController.getMember(MemberNumber).getName();
-
+        int i = 1;
+        if (name == "-1") i = 0;
         do {
             if (name.equals("-1")) break;
             Member temp = DatabaseController.getMember(MemberNumber);
@@ -114,7 +115,7 @@ public class ProviderInterface {
 
             }
 
-        } while (1==1);
+        } while (i==1);
     }
 
 
