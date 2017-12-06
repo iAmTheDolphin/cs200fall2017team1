@@ -31,6 +31,8 @@ public class ProviderInterface {
 
     /**
      * This displays all provider's options.
+     *
+     * @param providerNumber the provider's userID
      */
     public void MainMenu(int providerNumber) {
         ProviderNum = providerNumber;

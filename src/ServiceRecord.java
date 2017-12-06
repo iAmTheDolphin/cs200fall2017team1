@@ -13,7 +13,7 @@ import java.util.Calendar;
  * @version 1.0
  */
 
-public class ServiceRecord {//this can only be accessed by the provider interface, probably
+public class ServiceRecord {
 
     Scanner scan = new Scanner(System.in);
     int ProviderNumber;
@@ -28,6 +28,15 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
 
     /**
      * This generates a service record without prompting the user at all.
+     *
+     * @param providerNumber the provider's userID
+     * @param dateCreated the date the service record was created
+     * @param memberName the name of the member
+     * @param memberNumber the member's userID
+     * @param notes any notes the provider added
+     * @param providerName the name of the provider
+     * @param ser the service provided
+     * @param serviceTime the date the service was provided
      */
 
     ServiceRecord(int providerNumber, int memberNumber, String providerName, String memberName, String notes, Date serviceTime, Date dateCreated, ServiceCode ser) {
@@ -47,6 +56,8 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
 
     /**
      * This generates a service record by prompting the user.
+     *
+     * @param providerNumber the provider's userID
      */
 
     public ServiceRecord(int providerNumber) { //prompts user for into, then generates file with this information
@@ -93,7 +104,13 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
             }
             Service = y;
             SimpleDateFormat parserSDF = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy", Locale.ENGLISH);
-            System.out.println("Please enter Date in the form : \"Wed Oct 16 12:30:00 CEST 2013\"");
+            System.out.println("\nEnter Y to use the current time, or N to enter a different time of service.");
+            ProviderInterface z = new ProviderInterface();
+            char input2 = z.TryAgain();
+            boolean d = false;
+            if (input2 == 'y' || input2 == 'Y') d = true;
+            else{
+            System.out.println("\nPlease enter Date in the form : \"Wed Oct 16 12:30:00 CEST 2013\"");
             boolean check = false;
             try {
                 ServiceTime = parserSDF.parse(scan.nextLine());
@@ -106,11 +123,18 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
             if (check) {
                 i = 0;
                 break;
-            }//will set up a loop if time allows, but for now it just exits the thing
+            }}
             System.out.println("\nPlease enter any notes you would like to add (anything more than 200 characters will be cut off): ");
-            Notes = scan.nextLine();//change to read in next 200 characters
+            String str = scan.nextLine();//change to read in next 200 characters
+            char[] charArray = new char[200];
+            for (int j = 0; i < 200; i++)
+                charArray[i]=str.charAt(i);
+            Notes = new String(charArray);
+
+
 
             currentDate = new Date();
+            if (d) ServiceTime = currentDate;
             all = ProviderName + " | " + ProviderNumber + " | " + MemberName + " | " + MemberNumber + " | " +
                     Service.serviceName + " | " + Service.serviceCode + " | " + Service.serviceFee + " | " +
                     ServiceTime + " | " + currentDate + " | " + Notes + " ;";
@@ -134,6 +158,12 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
                 ServiceTime + " \nCurrent Date is : " + currentDate + " \n" + Notes;
 
     }
+
+    /**
+     * This creates a string for file printing usage of a service record.
+     *
+     * @return String
+     */
 
     public String toFileString() {
         SimpleDateFormat formatter = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy", Locale.ENGLISH);
