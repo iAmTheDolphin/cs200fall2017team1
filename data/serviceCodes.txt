@@ -1,2 +1,4 @@
 Teeth Cleaning | 100000 | 50.00
 hair brushing | 100001 | 70.0
+Fitness Class | 100002 | 0.0
+Fitness Class | 100003 | 60.0
