@@ -10,6 +10,12 @@ import java.util.Date;
 import ChocAn.ServiceRecord;
 import ChocAn.*;
 
+/**
+ * Tests the Member Report class
+ * @author Parker Jones
+ *
+ */
+
 class MemberReportTest {
 
 	MemberReport report;

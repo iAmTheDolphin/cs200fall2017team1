@@ -6,6 +6,12 @@ import ChocAn.Member;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Tests Member class
+ * @author Riley Manning
+ *
+ */
+
 public class MemberTest {
 
 	Member member;

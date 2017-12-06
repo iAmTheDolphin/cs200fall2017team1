@@ -7,6 +7,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import ChocAn.ServiceCode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+/**
+ * Tests Service Code class
+ * @author Hunter James
+ *
+ */
 
 class ServiceCodeTest {
 	ServiceCode serviceCode;
