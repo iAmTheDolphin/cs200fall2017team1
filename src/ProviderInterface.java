@@ -104,18 +104,15 @@ public class ProviderInterface {
         while (i == 1) {
             if (temp.isSuspended) {
                 System.out.println("Sorry, this member is suspended and cannot receive service."); i = 0;
-            } else {
+            }
+            else {
                 System.out.println("\nNow give the service. When done, enter 'Y' to create a service record, or 'N' to wait until later.");
                 char input = TryAgain();
                 if (input == 'Y' || input == 'y') {
-                    CreateServiceRecord();
+                    CreateServiceRecord(); i=0;
                 }
-
-
             }
-
         }
-        //MainMenu();
     }
 
 
@@ -126,6 +123,7 @@ public class ProviderInterface {
     private void CreateServiceRecord() {//creates a service record object, does GenerateServiceRecord from servicerecord class
         ServiceRecord x = new ServiceRecord(ProviderNum);
         //insert function call in database controller that writes this in necessary files
+        System.out.println("\nService record has been created!");
 
     }
 
@@ -167,7 +165,7 @@ public class ProviderInterface {
             System.out.println("\nSorry, that member number is invalid. Would you like to try again?");
             char response = TryAgain();
             if (response == 'y' || response == 'Y'){
-                ValidateMember();
+            ValidateMember();
             }
             else {
                 System.out.println("\nSorry, returning to main menu.");

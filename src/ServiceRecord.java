@@ -49,8 +49,8 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
      */
 
     public ServiceRecord(int providerNumber) { //prompts user for into, then generates file with this information
-
-        do{
+        int i = 1;
+        while (i == 1){
 
         ProviderNumber = providerNumber;
 
@@ -65,7 +65,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         Member member = DatabaseController.getMember(MemberNumber);
 
 
-        if (member.getUserID() == -1) break;
+        if (member.getUserID() == -1){i = 0; break;}
 
         System.out.println("\nNext you will enter the service information. Would you like to view the list of services first? (Y/N)");
         ProviderInterface x = new ProviderInterface();
@@ -81,17 +81,10 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
             }
         catch(NumberFormatException e){
             System.out.println("Please enter a valid integer." +e);}
-        System.out.println("test1");
         y = DatabaseController.searchServiceCodes(TempCode);
-        System.out.println("test2");
         if (y.serviceFee == -1) {
-            System.out.println("\nSorry, that is an invalid input."); break;}
-
-        Service.serviceFee = y.serviceFee;
-        Service.serviceCode = y.serviceCode;
-        Service.serviceName = y.serviceName;
-
-
+            System.out.println("\nSorry, that is an invalid input."); i = 0; break;}
+        Service = y;
         SimpleDateFormat parserSDF = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy", Locale.ENGLISH);
                     System.out.println("Please enter Date in the form : \"Wed Oct 16 12:30:00 CEST 2013\"");
                     try{
@@ -110,7 +103,10 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
                 Service.serviceName + " | " + Service.serviceCode + " | " + Service.serviceFee + " | " +
                 ServiceTime + " | " + currentDate + " | " + Notes;
 
-    } while (1==1);}
+        i = 0;
+
+        }
+    }
 
 
 
