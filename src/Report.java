@@ -16,7 +16,7 @@ public abstract class Report {
 	File file = new File(".\\files\\" + filePath + ".txt");
 	
 	/**
-	 * @param reportData takes report info to be added
+	 * @param reportData is report info to be added
 	 */
 	
 	public void writeReport(String reportData) throws IOException {

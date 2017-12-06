@@ -5,7 +5,7 @@ import java.util.Date;
  * @author Riley Manning
  */
 
-//name filePath based on current date & time
+//name filePath based on current date/time
 
 public class SummaryReport extends Report {
     private int provServices;

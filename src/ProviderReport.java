@@ -27,7 +27,7 @@ public class ProviderReport extends Report {
     }
 
     /**
-     * Determines what information should be written to file
+     * Finds information to write to file
      */
     
     protected void writeToFile() {

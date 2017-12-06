@@ -28,7 +28,7 @@ public class MemberReport extends Report {
 	}
 	
 	/**
-	 * Writes information to file
+	 * Finds information to write to file
 	 */
 	
 	protected void writeToFile() {
