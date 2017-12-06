@@ -122,7 +122,7 @@ public class ProviderInterface {
      */
     private void CreateServiceRecord() {//creates a service record object, does GenerateServiceRecord from servicerecord class
         ServiceRecord x = new ServiceRecord(ProviderNum);
-        //insert function call in database controller that writes this in necessary files
+        DatabaseController.addServiceRecord(x);
         System.out.println("\nService record has been created!");
 
     }
