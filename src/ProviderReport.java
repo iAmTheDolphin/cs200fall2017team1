@@ -1,6 +1,9 @@
 import java.util.Date;
 
-//add date and time of entry
+/**
+ * This generates a Provider Report and determines what information should be written to the report
+ * @author Riley Manning
+ */
 
 public class ProviderReport extends Report {
     private Provider provider;
@@ -11,14 +14,22 @@ public class ProviderReport extends Report {
 	Date checkDate = new Date(System.currentTimeMillis()-(7*ONE_DAY));
 	Date servDate = new Date();
 
+	
+	/**
+	 * Assigns provider and determines file path
+	 * @param provider passes in the provider whose report should be generated
+	 */
+	
     public ProviderReport(Provider provider) {
         this.provider = provider;
         filePath = "ProviderReports\\" + provider.getUserID();
         recordDB = DatabaseController.searchServiceRecords(provider);
     }
 
+    /**
+     * Determines what information should be written to file
+     */
     
-    //writes to file
     protected void writeToFile() {
         String text = "Provider Name: " + provider.getName() + '\n';
         text += "Provider ID: " + provider.getUserID() + " " + '\n'
@@ -26,7 +37,6 @@ public class ProviderReport extends Report {
                 + "Provider City: " + provider.getCity() + '\n'
                 + "Provider State: " + provider.getState() + '\n'
                 + "Provider Zip Code: " + provider.getZipCode() + '\n';
-        //update services
         totalFees = 0.0;
         for (ServiceRecord record : recordDB) {
             numServices++;

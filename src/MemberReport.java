@@ -1,6 +1,12 @@
 import java.util.Date;
-/*
- * Riley Manning
+
+/**
+ * This generates a Member Report and determines what information to write to the report
+ * @author Riley Manning
+ */
+
+/**
+ * Declares and initializes necessary variables
  */
 
 public class MemberReport extends Report {
@@ -10,15 +16,21 @@ public class MemberReport extends Report {
 	Date checkDate = new Date(System.currentTimeMillis()-(7*ONE_DAY));
 	Date servDate = new Date();
 	
+	/**
+	 * Accesses correct member/member info
+	 * @param member is the member class for the requested report
+	 */
 	
-	//assigns correct member
 	public MemberReport (Member member) {
 		this.member = member;
 		filePath = "MemberReports\\" + member.getUserID();
 		recordDB = DatabaseController.searchServiceRecords(member);
 	}
 	
-	//writes to file
+	/**
+	 * Writes information to file
+	 */
+	
 	protected void writeToFile() {
 		String text = "Member Name: " + member.getName() + '\n';
 		text += "Member ID: " + member.getUserID() + " " + '\n'

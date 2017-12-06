@@ -1,7 +1,8 @@
 import java.util.Date;
 
-/*
- * Riley Manning
+/**
+ * Creates a Summary Report for the past week and determines what information should be written in it
+ * @author Riley Manning
  */
 
 //name filePath based on current date & time
@@ -18,10 +19,18 @@ public class SummaryReport extends Report {
 	Date checkDate = new Date(System.currentTimeMillis()-(7*ONE_DAY));
 	Date servDate = new Date();
 
-    public SummaryReport() {
+    /**
+     * Assigns correct file path
+     */
+	
+	public SummaryReport() {
         filePath = "SummaryReports\\SummaryReport";
     }
-
+    
+	/**
+	 * Determines what information should be written to file
+	 */
+    
     protected void writeToFile() {
         String text = "";
         totalFees = 0.0;
