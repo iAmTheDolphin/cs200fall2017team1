@@ -560,6 +560,23 @@ public class DatabaseController {
 
     }
 
+    /**
+     * adds a service record to the arrayList
+     * @param record
+     */
+    static void addServiceRecord(ServiceRecord record) {
+        serviceRecords.add(record);
+        try(FileWriter fw = new FileWriter("./data/serviceRecords.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw))
+        {
+            System.out.println("Writing \n" + record.toString() + "\nto file");
+            out.print("\n" + record.toFileString());
+
+        } catch (IOException e) {
+            System.out.println("ERROR: FAILED TO WRITE NEW SERVICE CODE TO FILE " + e);
+        }
+    }
 
     /**
      * this updates the corresponding members first name in the arrayList and the data file
