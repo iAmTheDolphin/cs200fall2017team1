@@ -685,7 +685,7 @@ public class OperatorInterface {
                 			if(scan.nextLine().toLowerCase().equals("y")) {
                 				System.out.println("Generating Provider Report...");
                         		ProviderReport providerReport = new ProviderReport(tempProvider);
-                        		providerReport.writeToFile();
+                        		providerReport.writeReport();
                         }
                         else {
                             System.out.println("Report generation aborted.");
@@ -711,7 +711,7 @@ public class OperatorInterface {
 		System.out.println("Generating Summary Report...");
 		SummaryReport summaryReport = new SummaryReport();
 		//summaryReport.writeReport(reportData);
-		summaryReport.writeToFile();
+		summaryReport.writeReport();
     }
 }
 

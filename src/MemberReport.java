@@ -21,9 +21,9 @@ public class MemberReport extends Report {
 	 * @param member is the member class for the requested report
 	 */
 	
-	public MemberReport (Member member) {
+	public MemberReport (Member member)  {
 		this.member = member;
-		filePath = "MemberReports\\" + member.getUserID();
+		filePath = "MemberReports/" + member.getUserID();
 		recordDB = DatabaseController.searchServiceRecords(member);
 	}
 	
@@ -49,8 +49,8 @@ public class MemberReport extends Report {
 						+ '\n';
 			}
 		}
-		System.out.println(text);
-		//reportText.write(text);
+		//System.out.println(text);
+		reportText.write(text);
 	}
 	
 }

@@ -22,7 +22,7 @@ public class ProviderReport extends Report {
 	
     public ProviderReport(Provider provider) {
         this.provider = provider;
-        filePath = "ProviderReports\\" + provider.getUserID();
+        filePath = "ProviderReports/" + provider.getUserID();
         recordDB = DatabaseController.searchServiceRecords(provider);
     }
 
@@ -55,8 +55,8 @@ public class ProviderReport extends Report {
         }
         text += "Total Number of Consultations: " + numServices + '\n';
         text += "Total Fees for Week: " + totalFees + '\n';
-		System.out.println(text);
-        //reportText.write(text);
+		//System.out.println(text);
+        reportText.write(text);
     }
    
 }

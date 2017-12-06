@@ -17,14 +17,14 @@ public abstract class Report {
 	/**
 	 * @param reportData is report info to be added
 	 */
-	
+	/*
 	public void writeReport() {
 		writeToFile();
-	}
+	}*/
 	
-	/*public void writeReport() {
-		File file = new File(".\\files\\" + filePath + ".txt");
-		file.mkdirs();
+	public void writeReport() {
+		File file = new File("./files/" + filePath + ".txt");
+		file.getParentFile().mkdirs();
 		try {
 			file.createNewFile();
 			reportText = new PrintWriter(file);
@@ -35,7 +35,7 @@ public abstract class Report {
 		}
 	
 	}
-	*/
+	
 	
 	/**
 	 * Declaration of function (for compilation purposes)
