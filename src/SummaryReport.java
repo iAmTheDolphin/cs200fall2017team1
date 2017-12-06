@@ -1,4 +1,9 @@
-//need to make for past week
+import java.util.Date;
+
+/*
+ * Riley Manning
+ */
+
 //name filePath based on current date & time
 
 public class SummaryReport extends Report {
@@ -9,30 +14,38 @@ public class SummaryReport extends Report {
     private double totalFees;
     private ServiceRecord[] recordDB;
     private Provider[] providerList;
+    private long ONE_DAY = 1000*60*60*24;
+	Date checkDate = new Date(System.currentTimeMillis()-(7*ONE_DAY));
+	Date servDate = new Date();
 
     public SummaryReport() {
         filePath = "SummaryReports\\SummaryReport";
     }
 
-
     protected void writeToFile() {
         String text = "";
         totalFees = 0.0;
         for (Provider provider : providerList) {
-            provServices = 0;
+        	recordDB = DatabaseController.searchServiceRecords(provider);
+        	provServices = 0;
             provFees = 0.0;
             for (ServiceRecord record : recordDB) {
-                provServices++;
-                ServiceCode service = DatabaseController.searchServiceCodes(record.Service.serviceName);
-                provFees += service.serviceFee;
+    			servDate = record.ServiceTime;
+    			if (servDate.after(checkDate)) {
+	            	provServices++;
+	                ServiceCode service = DatabaseController.searchServiceCodes(record.Service.serviceName);
+	                provFees += service.serviceFee;
+    			}
             }
-            totalProviders++;
-            totalServices += provServices;
-            totalFees += provFees;
-            text += "Provider Name:" + provider.getName() + '\n'
-                    + "Number of Consultations This Week: " + provServices + '\n'
-                    + "Total Fees This Week: " + provFees + '\n'
-                    + '\n';
+            if (provServices > 0) {
+	            totalProviders++;
+	            totalServices += provServices;
+	            totalFees += provFees;
+	            text += "Provider Name:" + provider.getName() + '\n'
+	                    + "Number of Consultations This Week: " + provServices + '\n'
+	                    + "Total Fees This Week: " + provFees + '\n'
+	                    + '\n';
+            }
         }
 
         text += '\n'
@@ -42,5 +55,5 @@ public class SummaryReport extends Report {
 
         reportText.write(text);
     }
-
+    
 }
