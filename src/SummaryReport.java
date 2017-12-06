@@ -14,7 +14,7 @@ public class SummaryReport extends Report {
         filePath = "SummaryReports\\SummaryReport";
     }
 
-/*
+
     protected void writeToFile() {
         String text = "";
         totalFees = 0.0;
@@ -42,5 +42,5 @@ public class SummaryReport extends Report {
 
         reportText.write(text);
     }
-    */
+
 }

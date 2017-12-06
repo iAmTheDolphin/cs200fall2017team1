@@ -13,7 +13,7 @@ public class ProviderReport extends Report {
         recordDB = DatabaseController.searchServiceRecords(provider);
     }
 
-    /*
+
     //writes to file
     protected void writeToFile() {
         String text = "Provider Name: " + provider.getName() + '\n';
@@ -41,5 +41,5 @@ public class ProviderReport extends Report {
 
         reportText.write(text);
     }
-    */
+
 }

@@ -11,6 +11,13 @@ import java.nio.file.Paths;
 import java.nio.file.Path;
 import java.nio.charset.*;
 
+/**
+ * This class maintains and controlls access to the data
+ *
+ * @author Parker Jones
+ *
+ */
+
 public class DatabaseController {
 
     private static Path membersPath = Paths.get("./data/members.txt");
@@ -28,6 +35,9 @@ public class DatabaseController {
     private static File serviceCodesIn = new File("./data/serviceCodes.txt");
 
 
+    /**
+     * This method sets up the database initially by importing the data from the files
+     */
     static void setup() {
 
         System.out.println("Setting up database...");
@@ -185,6 +195,19 @@ public class DatabaseController {
 
 
     //creates another member in the list
+
+    /**
+     *  This method creates a new member object in the member arrayList
+     * @param firstName
+     * @param lastName
+     * @param streetAddress
+     * @param city
+     * @param state
+     * @param zipCode
+     * @param email
+     * @param phoneNumber
+     * @return Member
+     */
     static Member newMember(String firstName, String lastName, String streetAddress,
                           String city, String state, String zipCode,String email,
                           String phoneNumber) {
