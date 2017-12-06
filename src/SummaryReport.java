@@ -4,7 +4,6 @@ import java.util.Date;
  * Riley Manning
  */
 
-//need to make for past week
 //name filePath based on current date & time
 
 public class SummaryReport extends Report {
