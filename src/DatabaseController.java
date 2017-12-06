@@ -49,7 +49,6 @@ public class DatabaseController {
         System.out.println("Checking for member data...");
 
 
-
         if(memberIn.exists()) {
             System.out.println("Member Data exists. Reading data...");
 
