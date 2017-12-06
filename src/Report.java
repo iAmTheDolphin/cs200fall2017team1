@@ -15,7 +15,7 @@ public abstract class Report {
 	
 	
 	/**
-	 * @param reportData is report info to be added
+	 * Writes data to a report file
 	 */
 	/*
 	public void writeReport() {

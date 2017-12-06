@@ -10,7 +10,7 @@ import java.util.Date;
  */
 
 public class MemberReport extends Report {
-	private Member member;
+	public Member member;
 	ServiceRecord[] recordDB;
 	private final long ONE_DAY = 1000*60*60*24;
 	Date checkDate = new Date(System.currentTimeMillis()-(7*ONE_DAY));
