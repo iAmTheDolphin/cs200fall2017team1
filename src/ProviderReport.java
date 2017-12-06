@@ -44,8 +44,8 @@ public class ProviderReport extends Report {
             totalFees += service.serviceFee;
 			servDate = record.ServiceTime;
 			if (servDate.after(checkDate)) {
-	            text += "Date of Service: " + record.ServiceTime + '\n'
-	                    + "Date and Time of Entry: " + '\n'
+	            text += '\n' + "Date of Service: " + record.ServiceTime + '\n'
+	                    + "Date and Time of Entry: " + record.currentDate + '\n'
 	                    + "Member Name: " + record.MemberName + '\n'
 	                    + "Member Number: " + record.MemberNumber + '\n'
 	                    + "Service Code: " + service.serviceCode + '\n'

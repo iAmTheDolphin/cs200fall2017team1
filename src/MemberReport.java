@@ -32,7 +32,7 @@ public class MemberReport extends Report {
 	 */
 	@Override
 	protected void writeToFile() {
-		String text = "Member Name: " + member.getName() + '\n'
+		String text = '\n' + "Member Name: " + member.getName() + '\n'
 		        + "Member ID: " + member.getUserID() + " " + '\n'
 				+ "Member Address: " + member.getStreetAddress() + '\n'
 				+ "Member City: " + member.getCity() + '\n'
