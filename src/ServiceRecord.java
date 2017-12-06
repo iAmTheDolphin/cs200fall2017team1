@@ -59,10 +59,13 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         MemberNumber = temporary.ValidateMember();
 
 
-        String ProviderName = DatabaseController.getProvider(ProviderNumber).getName();
-        String MemberName = DatabaseController.getMember(MemberNumber).getName();
+        ProviderName = DatabaseController.getProvider(ProviderNumber).getName();
+        MemberName = DatabaseController.getMember(MemberNumber).getName();
 
-        if (MemberName == "-1") break;
+        Member member = DatabaseController.getMember(MemberNumber);
+
+
+        if (member.getUserID() == -1) break;
 
         System.out.println("\nNext you will enter the service information. Would you like to view the list of services first? (Y/N)");
         ProviderInterface x = new ProviderInterface();
