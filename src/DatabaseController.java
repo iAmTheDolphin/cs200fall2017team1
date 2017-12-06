@@ -17,6 +17,7 @@ import java.nio.charset.*;
  * This class maintains and controlls access to the data
  *
  * @author Parker Jones
+ * @version 1.0
  *
  */
 
