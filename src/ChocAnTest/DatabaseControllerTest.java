@@ -7,6 +7,11 @@ import ChocAn.Member;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Tests Database Controller method
+ * @author Aislinn
+ *
+ */
 public class DatabaseControllerTest {
 
     @Before
