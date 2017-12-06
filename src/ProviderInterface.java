@@ -100,7 +100,7 @@ public class ProviderInterface {
         Member temp = DatabaseController.getMember(MemberNumber);
         int i = 1;
         if (temp.getUserID() == -1) i = 0;
-        do {
+        while (i == 1) {
             if (temp.isSuspended) {
                 System.out.println("Sorry, this member is suspended and cannot receive service.");
             } else {
@@ -113,7 +113,7 @@ public class ProviderInterface {
 
             }
 
-        } while (i==1);
+        };
 
     }
 
