@@ -36,7 +36,7 @@ public class ProviderInterface {
 
         int input = 0;
         System.out.println("\nMenu: \n1. Give Service\n2. Create Service Record\n3. View Provider Directory\n4. Add Service to Directory\n5. Log out");
-
+        boolean logout = false;
         switch (scan.nextLine()) {
             case "1":
                 GiveService();
@@ -51,12 +51,13 @@ public class ProviderInterface {
                 AddService();
                 break;
             case "5":
+                logout = true;
                 break;
             default:
                 System.out.println("Invalid Input");
                 MainMenu();
                 break;
-        }
+        } if (!logout) MainMenu();
     }
 
     /**
