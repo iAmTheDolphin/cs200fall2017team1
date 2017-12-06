@@ -27,7 +27,7 @@ public class ProviderReport extends Report {
     }
 
     /**
-     * Finds information to write to file
+     * Finds information to write to file and writes to command line
      */
     @Override
     protected void writeToFile() {

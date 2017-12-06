@@ -28,7 +28,7 @@ public class MemberReport extends Report {
 	}
 	
 	/**
-	 * Finds information to write to file
+	 * Finds information to write to file and prints to command line
 	 */
 	@Override
 	protected void writeToFile() {

@@ -27,7 +27,7 @@ public class SummaryReport extends Report {
     }
     
 	/**
-	 * Determines what information should be written to file
+	 * Determines what information should be written to file and writes to command line
 	 */
     @Override
     protected void writeToFile() {
