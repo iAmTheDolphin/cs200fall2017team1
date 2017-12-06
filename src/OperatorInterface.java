@@ -62,6 +62,10 @@ public class OperatorInterface {
             case "6" : viewAllProviders(); break;
             case "7" : updateMemberInformation(); break;
             case "8" : updateProviderInformation(); break;
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
             case "9" : deleteMember(); break;
             case "10": deleteProvider(); break;
             case "-1" : keepRunning = false; break;

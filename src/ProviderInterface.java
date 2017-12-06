@@ -36,7 +36,7 @@ public class ProviderInterface {
 
         int input = 0;
         System.out.println("\nMenu: \n1. Give Service\n2. Create Service Record\n3. View Provider Directory\n4. Add Service to Directory\n5. Log out");
-
+        boolean logout = false;
         switch (scan.nextLine()) {
             case "1":
                 GiveService();
@@ -51,12 +51,13 @@ public class ProviderInterface {
                 AddService();
                 break;
             case "5":
+                logout = true;
                 break;
             default:
                 System.out.println("Invalid Input");
                 MainMenu();
                 break;
-        }
+        } if (!logout) MainMenu();
     }
 
     /**
@@ -97,12 +98,13 @@ public class ProviderInterface {
         int MemberNumber = -1;
 
         MemberNumber = ValidateMember();
-
         Member temp = DatabaseController.getMember(MemberNumber);
+        int i = 1;
+        if (temp.getUserID() == -1) i = 0;
+        while (i == 1) {
             if (temp.isSuspended) {
                 System.out.println("Sorry, this member is suspended and cannot receive service.");
-            }
-            else {
+            } else {
                 System.out.println("\nNow give the service. When done, enter 'Y' to create a service record, or 'N' to wait until later.");
                 char input = TryAgain();
                 if (input == 'Y' || input == 'y') {
@@ -112,6 +114,8 @@ public class ProviderInterface {
 
             }
 
+        };
+        MainMenu();
     }
 
 
@@ -133,7 +137,7 @@ public class ProviderInterface {
      */
     public char TryAgain() {
 
-        System.out.println(scan.nextLine());
+        //System.out.println(scan.nextLine());
         char input = scan.nextLine()
                 .charAt(0);
         while (input != 'y' && input != 'Y' && input != 'n' && input != 'N') {
@@ -158,18 +162,15 @@ public class ProviderInterface {
         catch(NumberFormatException e) {
             System.out.println("Please enter a valid number.");
         }
-        String name = DatabaseController.getMember(ID).getName();
-        if (name.equals("-1")){
+        Member temp = DatabaseController.getMember(ID);
+        if (temp.getUserID()==-1){
             System.out.println("\nSorry, that member number is invalid. Would you like to try again?");
-            ProviderInterface temp = new ProviderInterface();
-            char response = temp.TryAgain();
+            char response = TryAgain();
             if (response == 'y' || response == 'Y'){
                 ValidateMember();
             }
             else {
-                System.out.println("\nSorry, you cannot make a service record without this. Returning to main menu.");
-                ProviderTerminal x = new ProviderTerminal();
-                x.start();
+                System.out.println("\nSorry, returning to main menu.");
             }
         }
         return ID;
