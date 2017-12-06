@@ -37,7 +37,6 @@ public class Member extends User{
 	 * 
 	 */
 	void suspend() {
-		System.out.println("Suspending " + getName() + "...");
 		isSuspended = true;
 	}
 

@@ -79,9 +79,7 @@ public class DatabaseController {
                     int id = Integer.parseInt(parsedMemberData[8]);
                     Member newMember = new Member(firstName, lastName, address, city, state, zip, email, phone, id);
                     members.add(newMember);
-                    System.out.println(parsedMemberData[9]);
                     if(parsedMemberData[9].equals("Suspended;")) {  newMember.suspend(); }
-
                 }
 
                 System.out.println(members.size() + " members loaded from file.");
