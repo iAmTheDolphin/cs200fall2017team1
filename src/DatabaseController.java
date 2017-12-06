@@ -1010,7 +1010,7 @@ public class DatabaseController {
     /**
      * this updates the corresponding provider's email in the arrayList and the data file
      * @param providerID The Provider's identification number
-     * @param newEmail Provider's updated email
+     * @param newEmail Provider's updated email 
      */
     static void updateProviderEmail(int providerID, String newEmail) {
 
