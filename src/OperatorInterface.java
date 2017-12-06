@@ -51,6 +51,7 @@ public class OperatorInterface {
         System.out.println("   8: Update Provider information");
         System.out.println("   9: Delete Member");
         System.out.println("  10: Delete Provider");
+        System.out.println("  11: Generate Reports");
         System.out.println("   -1: Quit");
 
         switch (scan.nextLine()) {
@@ -64,6 +65,7 @@ public class OperatorInterface {
             case "8" : updateProviderInformation(); break;
             case "9" : deleteMember(); break;
             case "10": deleteProvider(); break;
+            case "11": generateReport(); break;
             case "-1" : keepRunning = false; break;
             default: ;
         }
