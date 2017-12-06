@@ -608,6 +608,108 @@ public class OperatorInterface {
     			}		
 		}
     }
+    /**
+     * Generates reports
+     */
+    public void generateReport() {
+    		boolean keepRunning = true;
+    		System.out.println("Welcome to the Report Generator! Select an option from below:"); 
+    		System.out.println("   1: Generate Member Report");
+    	    System.out.println("   2: Generate Provider Report");
+    	    System.out.println("   3: Generate Summary Report");
+    	    //System.out.println("   4: Generate EFT Report");
+    	    System.out.println("  -1: Quit");
+
+    	        switch (scan.nextLine()) {
+    	            case "1" : generateMemberReport(); break;
+    	            case "2" : generateProviderReport(); break;
+    	            case "3" : generateSummaryReport(); break;
+    	            //case "4" : generateEFTReport(); break;
+    	            case "-1" : keepRunning = false; break;
+    	            default: ;
+    	        }
+    }
+    
+    /**
+     * Generates member report
+     */
+    public void generateMemberReport() {
+    		System.out.println("Please enter the ID of the Member to be reported on. Enter \"quit\" to quit");
+    		String temp = scan.nextLine().toLowerCase();
+    		if(temp.equals("quit")) {
+    			System.out.println("Exiting Member report generation...");
+    		}
+    		else {
+        			try{ 
+        				Member tempMember = DatabaseController.getMember(Integer.parseInt(temp));
+        				if(tempMember.getUserID() != -1) {
+        					System.out.println("Generate Member Report for " + DatabaseController.getMember(tempMember.getUserID()).getName() + "? Y/N");
+                			if(scan.nextLine().toLowerCase().equals("y")) {
+                				System.out.println("Generating Member Report...");
+                        		MemberReport memberReport = new MemberReport(tempMember);
+                        		memberReport.writeToFile();
+                        }
+                        else {
+                            System.out.println("Report generation aborted.");
+                        }
+        				}
+        				else {
+        					System.out.println("That is not a valid member ID;");
+        					generateMemberReport();
+        				}
+        			}
+            
+        			catch(NumberFormatException e) {
+        				System.out.println("Please enter a valid ID");
+        				generateMemberReport();
+        			}		
+    		}
+    }
+    /**
+     * Generates provider report
+     */
+    public void generateProviderReport() {
+    		System.out.println("Please enter the ID of the Provider to be reported on. Enter \"quit\" to quit");
+    		String temp = scan.nextLine().toLowerCase();
+    		if(temp.equals("quit")) {
+    			System.out.println("Exiting Provider report generation...");
+    		}
+    		else {
+        			try{ 
+        				Provider tempProvider = DatabaseController.getProvider(Integer.parseInt(temp));
+        				if(tempProvider.getUserID() != -1) {
+        					System.out.println("Generate Provider Report for " + DatabaseController.getProvider(tempProvider.getUserID()).getName() + "? Y/N");
+                			if(scan.nextLine().toLowerCase().equals("y")) {
+                				System.out.println("Generating Provider Report...");
+                        		ProviderReport providerReport = new ProviderReport(tempProvider);
+                        		providerReport.writeToFile();
+                        }
+                        else {
+                            System.out.println("Report generation aborted.");
+                        }
+        				}
+        				else {
+        					System.out.println("That is not a valid provider ID;");
+        					generateProviderReport();
+        				}
+        			}
+            
+        			catch(NumberFormatException e) {
+        				System.out.println("Please enter a valid ID");
+        				generateProviderReport();
+        			}		
+    		}
+    }
+    
+    /**
+     * Generates summary report
+     */
+    public void generateSummaryReport() {
+		System.out.println("Generating Summary Report...");
+		SummaryReport summaryReport = new SummaryReport();
+		//summaryReport.writeReport(reportData);
+		summaryReport.writeToFile();
+    }
 }
 
 
