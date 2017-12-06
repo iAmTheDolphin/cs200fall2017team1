@@ -49,7 +49,7 @@ public class SummaryReport extends Report {
 	            totalProviders++;
 	            totalServices += provServices;
 	            totalFees += provFees;
-	            text += "Provider Name:" + provider.getName() + '\n'
+	            text += '\n' + "Provider Name:" + provider.getName() + '\n'
 	                    + "Number of Consultations This Week: " + provServices + '\n'
 	                    + "Total Fees This Week: " + provFees + '\n'
 	                    + '\n';
