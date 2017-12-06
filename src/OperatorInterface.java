@@ -608,6 +608,7 @@ public class OperatorInterface {
     			}		
 		}
     }
+    
     /**
      * Generates reports
      */
