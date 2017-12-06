@@ -1,10 +1,6 @@
+package ChocAn;
 
-import javax.xml.crypto.Data;
-import java.text.ParseException;
 import java.util.Scanner;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-import java.util.Date;
 
 /**
  * This class holds most of the functionality for what Providers can do.

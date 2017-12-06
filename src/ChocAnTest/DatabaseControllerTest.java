@@ -1,6 +1,9 @@
+package ChocAnTest;
 
 import static org.junit.Assert.*;
 
+import ChocAn.DatabaseController;
+import ChocAn.Member;
 import org.junit.Before;
 import org.junit.Test;
 

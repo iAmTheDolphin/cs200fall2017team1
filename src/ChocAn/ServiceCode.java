@@ -1,3 +1,5 @@
+package ChocAn;
+
 /**
  * This class holds ServiceCode objects and allows Service data to be found easily.
  *

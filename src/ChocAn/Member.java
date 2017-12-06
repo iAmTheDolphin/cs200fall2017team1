@@ -1,4 +1,4 @@
-/*
+package ChocAn;/*
  * Hunter James
  * 11/08/17
  * Member Class
@@ -12,7 +12,7 @@ import java.util.*;
  */
 
 public class Member extends User{
-	boolean isSuspended = false;
+	public boolean isSuspended = false;
 	Date lastPayDate;
 
 	// constructs a Member
@@ -52,7 +52,7 @@ public class Member extends User{
 	 * Sets User's suspension status
 	 * 
 	 */
-	void setSuspended(boolean setting)  {
+	public void setSuspended(boolean setting)  {
 		isSuspended = setting;
 	}
 

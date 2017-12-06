@@ -1,9 +1,10 @@
+package ChocAn;
+
 import java.text.ParseException;
 import java.util.Scanner;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.Date;
-import java.util.Calendar;
 
 
 /**

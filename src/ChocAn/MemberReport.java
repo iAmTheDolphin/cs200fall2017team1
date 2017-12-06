@@ -1,3 +1,5 @@
+package ChocAn;
+
 import java.util.Date;
 
 /**
@@ -11,17 +13,17 @@ import java.util.Date;
 
 public class MemberReport extends Report {
 	public Member member;
-	ServiceRecord[] recordDB;
+	public ServiceRecord[] recordDB;
 	private final long ONE_DAY = 1000*60*60*24;
 	Date checkDate = new Date(System.currentTimeMillis()-(7*ONE_DAY));
-	Date servDate = new Date();
+	public Date servDate = new Date();
 	
 	/**
 	 * Accesses correct member/member info
 	 * @param member is the member class for the requested report
 	 */
 	
-	public MemberReport (Member member)  {
+	 public MemberReport (Member member)  {
 		this.member = member;
 		filePath = "MemberReports/" + member.getUserID();
 		recordDB = DatabaseController.searchServiceRecords(member);

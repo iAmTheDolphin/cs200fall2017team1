@@ -1,4 +1,4 @@
-
+package ChocAn;
 /* 
 * Parker Jones
  * 11/09/17
@@ -271,7 +271,7 @@ public class DatabaseController {
      * @param phoneNumber Member's phone number
      * @return Member object of newly created member
      */
-    static Member newMember(String firstName, String lastName, String streetAddress,
+    public static Member newMember(String firstName, String lastName, String streetAddress,
                           String city, String state, String zipCode,String email,
                           String phoneNumber) {
 
@@ -628,7 +628,7 @@ public class DatabaseController {
      * adds a service record to the arrayList
      * @param record The service record being added
      */
-    static void addServiceRecord(ServiceRecord record) {
+    public static void addServiceRecord(ServiceRecord record) {
         serviceRecords.add(record);
         try(FileWriter fw = new FileWriter("./data/serviceRecords.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
@@ -647,7 +647,7 @@ public class DatabaseController {
      * @param memberID The Member's identification number
      * @param newFirstName The Member's new first name
      */
-    static void updateMemberFirstName(int memberID, String newFirstName) {
+    public static void updateMemberFirstName(int memberID, String newFirstName) {
 
         Member tempMember = getMember(memberID);
 

@@ -1,3 +1,5 @@
+package ChocAn;
+
 import java.util.Scanner;
 
 /**

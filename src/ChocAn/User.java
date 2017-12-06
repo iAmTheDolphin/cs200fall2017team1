@@ -1,4 +1,4 @@
-/*
+package ChocAn;/*
  * Hunter James
  * 11/08/17
  * User Class
@@ -66,7 +66,7 @@ public class User{
 	 * Accesses User's first name
 	 * @return String
 	 */
-	String getFirstName() { return firstName; }
+	public String getFirstName() { return firstName; }
 	
 	/**
 	 * Accesses User's last name
@@ -86,7 +86,7 @@ public class User{
 	 * Accesses User's city
 	 * @return String
 	 */
-	String getCity() {
+	public String getCity() {
 		return city;
 	}
 
@@ -126,7 +126,7 @@ public class User{
 	 * Accesses User's userID
 	 * @return Int
 	 */
-	int getUserID() {
+	public int getUserID() {
 		return userID;
 	}
 
@@ -147,7 +147,7 @@ public class User{
 	 * Edits User's city
 	 * @return User
 	 */
-	User setCity(String newCity) {
+	public User setCity(String newCity) {
 		city = newCity;
 		return this;
 	}
