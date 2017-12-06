@@ -114,7 +114,7 @@ public class ProviderInterface {
             }
 
         };
-
+        MainMenu();
     }
 
 
