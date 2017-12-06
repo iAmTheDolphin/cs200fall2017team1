@@ -87,14 +87,15 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         Service = y;
         SimpleDateFormat parserSDF = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy", Locale.ENGLISH);
                     System.out.println("Please enter Date in the form : \"Wed Oct 16 12:30:00 CEST 2013\"");
+                    boolean check = false;
                     try{
                         ServiceTime = parserSDF.parse(scan.nextLine());
 
                         System.out.println(parserSDF.format(ServiceTime));
                     }
                     catch (ParseException e) {
-                        System.out.println("ERROR: Date format was incorrect. " + e);
-                    }
+                        System.out.println("ERROR: Date format was incorrect. " + e); check=true;
+                    } if (check) {i=0; break;}//will set up a loop if time allows, but for now it just exits the thing
         System.out.println("\nPlease enter any notes you would like to add (anything more than 200 characters will be cut off): ");
         Notes = scan.nextLine();//change to read in next 200 characters
         Date currentDate = new Date();
