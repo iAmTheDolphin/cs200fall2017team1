@@ -34,6 +34,5 @@ class ServiceCodeTest {
 		serviceCode.serviceFee = 100.00;
 		serviceCode = new ServiceCode();
 		assertTrue(serviceCode.serviceFee == -1);
-		
 	}
 }
