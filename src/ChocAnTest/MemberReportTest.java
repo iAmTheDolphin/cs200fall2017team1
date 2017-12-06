@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
+import ChocAn.ServiceRecord;
+import ChocAn.*;
 
 class MemberReportTest {
 

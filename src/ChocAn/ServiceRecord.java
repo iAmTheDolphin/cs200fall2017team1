@@ -40,7 +40,7 @@ public class ServiceRecord {
      * @param serviceTime the date the service was provided
      */
 
-    ServiceRecord(int providerNumber, int memberNumber, String providerName, String memberName, String notes, Date serviceTime, Date dateCreated, ServiceCode ser) {
+    public ServiceRecord(int providerNumber, int memberNumber, String providerName, String memberName, String notes, Date serviceTime, Date dateCreated, ServiceCode ser) {
         ProviderNumber = providerNumber;
         MemberNumber = memberNumber;
         Service = ser;
