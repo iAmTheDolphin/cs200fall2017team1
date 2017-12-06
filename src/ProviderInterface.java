@@ -81,12 +81,14 @@ public class ProviderInterface {
         int MemberNumber = -1;
 
         MemberNumber = ValidateMember();
+        String name = DatabaseController.getMember(MemberNumber).getName();
 
-        Member temp = DatabaseController.getMember(MemberNumber);
+        do {
+            if (name.equals("-1")) break;
+            Member temp = DatabaseController.getMember(MemberNumber);
             if (temp.isSuspended) {
                 System.out.println("Sorry, this member is suspended and cannot receive service.");
-            }
-            else {
+            } else {
                 System.out.println("\nNow give the service. When done, enter 'Y' to create a service record, or 'N' to wait until later.");
                 char input = TryAgain();
                 if (input == 'Y' || input == 'y') {
@@ -96,6 +98,7 @@ public class ProviderInterface {
 
             }
 
+        } while (1==1);
     }
 
 
@@ -145,15 +148,12 @@ public class ProviderInterface {
         String name = DatabaseController.getMember(ID).getName();
         if (name.equals("-1")){
             System.out.println("\nSorry, that member number is invalid. Would you like to try again?");
-            ProviderInterface temp = new ProviderInterface();
-            char response = temp.TryAgain();
+            char response = TryAgain();
             if (response == 'y' || response == 'Y'){
                 ValidateMember();
             }
             else {
-                System.out.println("\nSorry, you cannot make a service record without this. Returning to main menu.");
-                ProviderTerminal x = new ProviderTerminal();
-                x.start();
+                System.out.println("\nSorry, returning to main menu.");
             }
         }
         return ID;
