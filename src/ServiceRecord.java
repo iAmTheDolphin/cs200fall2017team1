@@ -81,15 +81,16 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
             }
         catch(NumberFormatException e){
             System.out.println("Please enter a valid integer." +e);}
-
+        System.out.println("test1");
         y = DatabaseController.searchServiceCodes(TempCode);
-
+        System.out.println("test2");
         if (y.serviceFee == -1) {
             System.out.println("\nSorry, that is an invalid input."); break;}
 
         Service.serviceFee = y.serviceFee;
         Service.serviceCode = y.serviceCode;
         Service.serviceName = y.serviceName;
+
 
         SimpleDateFormat parserSDF = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy", Locale.ENGLISH);
                     System.out.println("Please enter Date in the form : \"Wed Oct 16 12:30:00 CEST 2013\"");
