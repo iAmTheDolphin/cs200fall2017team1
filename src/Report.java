@@ -13,18 +13,29 @@ public abstract class Report {
 	 * Creates file and sets file path
 	 */
 	
-	File file = new File(".\\files\\" + filePath + ".txt");
 	
 	/**
 	 * @param reportData is report info to be added
 	 */
 	
-	public void writeReport(String reportData) throws IOException {
-		file.createNewFile();
-		reportText = new PrintWriter(file);
+	public void writeReport() {
 		writeToFile();
-		reportText.close();
 	}
+	
+	/*public void writeReport() {
+		File file = new File(".\\files\\" + filePath + ".txt");
+		file.mkdirs();
+		try {
+			file.createNewFile();
+			reportText = new PrintWriter(file);
+			writeToFile();
+			reportText.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	
+	}
+	*/
 	
 	/**
 	 * Declaration of function (for compilation purposes)

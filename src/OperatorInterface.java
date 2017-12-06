@@ -650,7 +650,7 @@ public class OperatorInterface {
                 			if(scan.nextLine().toLowerCase().equals("y")) {
                 				System.out.println("Generating Member Report...");
                         		MemberReport memberReport = new MemberReport(tempMember);
-                        		memberReport.writeToFile();
+                        		memberReport.writeReport();
                         }
                         else {
                             System.out.println("Report generation aborted.");

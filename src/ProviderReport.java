@@ -29,7 +29,7 @@ public class ProviderReport extends Report {
     /**
      * Finds information to write to file
      */
-    
+    @Override
     protected void writeToFile() {
         String text = "Provider Name: " + provider.getName() + '\n';
         text += "Provider ID: " + provider.getUserID() + " " + '\n'
@@ -55,8 +55,8 @@ public class ProviderReport extends Report {
         }
         text += "Total Number of Consultations: " + numServices + '\n';
         text += "Total Fees for Week: " + totalFees + '\n';
-
-        reportText.write(text);
+		System.out.println(text);
+        //reportText.write(text);
     }
    
 }

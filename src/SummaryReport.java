@@ -14,7 +14,6 @@ public class SummaryReport extends Report {
     private int totalServices = 0;
     private double totalFees;
     private ServiceRecord[] recordDB;
-    private Provider[] providerList;
     private long ONE_DAY = 1000*60*60*24;
 	Date checkDate = new Date(System.currentTimeMillis()-(7*ONE_DAY));
 	Date servDate = new Date();
@@ -30,11 +29,11 @@ public class SummaryReport extends Report {
 	/**
 	 * Determines what information should be written to file
 	 */
-    
+    @Override
     protected void writeToFile() {
         String text = "";
         totalFees = 0.0;
-        for (Provider provider : providerList) {
+        for (Provider provider : DatabaseController.providers) {
         	recordDB = DatabaseController.searchServiceRecords(provider);
         	provServices = 0;
             provFees = 0.0;
@@ -62,7 +61,8 @@ public class SummaryReport extends Report {
                 + "Total Number of Consultations This Week: " + totalServices + '\n'
                 + "Total Fees to be Paid This Week: " + totalFees + '\n';
 
-        reportText.write(text);
+		System.out.println(text);
+        //reportText.write(text);
     }
     
 }

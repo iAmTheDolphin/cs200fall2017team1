@@ -30,7 +30,7 @@ public class MemberReport extends Report {
 	/**
 	 * Finds information to write to file
 	 */
-	
+	@Override
 	protected void writeToFile() {
 		String text = "Member Name: " + member.getName() + '\n';
 		text += "Member ID: " + member.getUserID() + " " + '\n'
@@ -49,7 +49,8 @@ public class MemberReport extends Report {
 						+ '\n';
 			}
 		}
-		reportText.write(text);
+		System.out.println(text);
+		//reportText.write(text);
 	}
 	
 }
