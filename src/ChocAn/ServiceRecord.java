@@ -126,11 +126,11 @@ public class ServiceRecord {
                 break;
             }}
             System.out.println("\nPlease enter any notes you would like to add (anything more than 200 characters will be cut off): ");
-            String str = scan.nextLine();//change to read in next 200 characters
-            char[] charArray = new char[200];
-            for (int j = 0; i < 200; i++)
-                charArray[i]=str.charAt(i);
-            Notes = new String(charArray);
+            Notes= scan.nextLine();//change to read in next 200 characters
+            //char[] charArray = new char[200];
+            //for (int j = 0; i < 200; i++)
+            //    charArray[i]=str.charAt(i);
+            //Notes = new String(charArray);
 
 
 
