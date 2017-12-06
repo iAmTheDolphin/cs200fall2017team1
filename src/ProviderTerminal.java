@@ -50,7 +50,7 @@ public class ProviderTerminal {
                     System.out.println("Welcome, " + attemptedProvider.getName());
 
                     ProviderInterface terminal = new ProviderInterface();
-                    terminal.MainMenu();
+                    terminal.MainMenu(userID);
                 }
 
             }

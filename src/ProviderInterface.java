@@ -32,8 +32,8 @@ public class ProviderInterface {
     /**
      * This displays all provider's options.
      */
-    public void MainMenu() {
-
+    public void MainMenu(int providerNumber) {
+        ProviderNum = providerNumber;
         int input = 0;
         System.out.println("\nMenu: \n1. Give Service\n2. Create Service Record\n3. View Provider Directory\n4. Add Service to Directory\n5. Log out");
         boolean logout = false;
@@ -55,9 +55,9 @@ public class ProviderInterface {
                 break;
             default:
                 System.out.println("Invalid Input");
-                MainMenu();
+
                 break;
-        } if (!logout) MainMenu();
+        } if (!logout) MainMenu(ProviderNum);
     }
 
     /**
@@ -78,7 +78,7 @@ public class ProviderInterface {
         }
 
         DatabaseController.addServiceCode(serviceName, serviceFee);
-        MainMenu();
+
     }
 
 
@@ -88,7 +88,7 @@ public class ProviderInterface {
 
     private void viewServiceCodes() {
         DatabaseController.displayServiceCodes();
-        MainMenu();
+
     }
 
     /**
@@ -115,7 +115,7 @@ public class ProviderInterface {
             }
 
         }
-        MainMenu();
+        //MainMenu();
     }
 
 
