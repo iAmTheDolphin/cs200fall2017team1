@@ -1,4 +1,4 @@
-/*
+
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -29,4 +29,4 @@ public class MemberTest {
 		member.setSuspended(true);
 		assertEquals(true, member.isSuspended);
 	}
-}*/
+}
