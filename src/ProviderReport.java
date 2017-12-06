@@ -55,7 +55,7 @@ public class ProviderReport extends Report {
         }
         text += "Total Number of Consultations: " + numServices + '\n';
         text += "Total Fees for Week: " + totalFees + '\n';
-		//System.out.println(text);
+		System.out.println(text);
         reportText.write(text);
     }
    

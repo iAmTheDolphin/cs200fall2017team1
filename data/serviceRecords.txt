@@ -1,2 +1,1 @@
-
-awesome Jones | 999999999 | testy mctestface | 100000001 | Teeth Cleaning | 100000 | 50.0 | Wed Dec 06 12:30:00 -0600 2017 | Wed Dec 06 08:08:05 -0600 2017 | notes go here;
+awesome Jones | 999999999 | testy mctestface | 100000001 | Teeth Cleaning | 100000 | 50.0 | Wed Dec 06 12:30:00 -0600 2017 | Wed Dec 06 08:08:05 -0600 2017 | notes go here ;

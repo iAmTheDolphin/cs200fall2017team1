@@ -22,7 +22,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
     String MemberName;
     String Notes;
     Date ServiceTime;
-    Date currentDate  = new Date();;
+    Date currentDate;
     ServiceCode Service;
     String all;
 
@@ -30,11 +30,11 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
      * This generates a service record without prompting the user at all.
      */
 
-    ServiceRecord(int providerNumber, int memberNumber, String providerName, String memberName, String notes, Date serviceTime, ServiceCode ser) {
+    ServiceRecord(int providerNumber, int memberNumber, String providerName, String memberName, String notes, Date serviceTime, Date dateCreated, ServiceCode ser) {
         ProviderNumber = providerNumber;
         MemberNumber = memberNumber;
         Service = ser;
-        currentDate = new Date();
+        currentDate = dateCreated;
         ServiceTime = serviceTime;
         Notes = notes;
         MemberName = memberName;
@@ -110,9 +110,10 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
             System.out.println("\nPlease enter any notes you would like to add (anything more than 200 characters will be cut off): ");
             Notes = scan.nextLine();//change to read in next 200 characters
 
+            currentDate = new Date();
             all = ProviderName + " | " + ProviderNumber + " | " + MemberName + " | " + MemberNumber + " | " +
                     Service.serviceName + " | " + Service.serviceCode + " | " + Service.serviceFee + " | " +
-                    ServiceTime + " | " + currentDate + " | " + Notes;
+                    ServiceTime + " | " + currentDate + " | " + Notes + " ;";
 
             i = 0;
 
@@ -139,7 +140,7 @@ public class ServiceRecord {//this can only be accessed by the provider interfac
         return ProviderName + " | " + ProviderNumber + " | " + MemberName +
                 " | " + MemberNumber + " | " + Service.serviceName + " | " +
                 Service.serviceCode + " | " + Service.serviceFee + " | " +
-                formatter.format(ServiceTime) + " | " + formatter.format(currentDate) + " | " + Notes + ";";
+                formatter.format(ServiceTime) + " | " + formatter.format(currentDate) + " | " + Notes + " ;";
     }
 }
 

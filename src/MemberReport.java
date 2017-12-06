@@ -32,8 +32,8 @@ public class MemberReport extends Report {
 	 */
 	@Override
 	protected void writeToFile() {
-		String text = "Member Name: " + member.getName() + '\n';
-		text += "Member ID: " + member.getUserID() + " " + '\n'
+		String text = "Member Name: " + member.getName() + '\n'
+		        + "Member ID: " + member.getUserID() + " " + '\n'
 				+ "Member Address: " + member.getStreetAddress() + '\n'
 				+ "Member City: " + member.getCity() + '\n'
 				+ "Member State: " + member.getState() + '\n'
@@ -49,7 +49,7 @@ public class MemberReport extends Report {
 						+ '\n';
 			}
 		}
-		//System.out.println(text);
+		System.out.println(text);
 		reportText.write(text);
 	}
 	
