@@ -6,8 +6,17 @@
 
 import java.util.Scanner;
 
+/**
+ * this method is the main menu of the whole Chocan System
+ * @author Parker Jones
+ * @version 1.0
+ */
 public class Driver {
 
+    /**
+     * this is the Main method and the Main Menu of the whole ChocAn system
+     * @param args
+     */
     public static void main (String[] args) {
 
         DatabaseController.setup();

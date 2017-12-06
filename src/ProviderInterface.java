@@ -35,7 +35,7 @@ public class ProviderInterface {
     public void MainMenu(int providerNumber) {
         ProviderNum = providerNumber;
         int input = 0;
-        System.out.println("\nMenu: \n1. Give Service\n2. Create Service Record\n3. View Provider Directory\n4. Add Service to Directory\n5. Log out");
+        System.out.println("\nMenu: \n1. Give Service\n2. Create Service Record\n3. View Provider Directory\n4. Add Service to Directory\n5. Generate Provider Reoport\n\"quit\" to Log out");
         boolean logout = false;
         switch (scan.nextLine()) {
             case "1":
@@ -51,19 +51,22 @@ public class ProviderInterface {
                 AddService();
                 break;
             case "5":
+                generateProviderReport();
+                break;
+            case "quit":
                 logout = true;
                 break;
             default:
                 System.out.println("Invalid Input");
 
                 break;
-        } if (!logout) MainMenu(ProviderNum);
+        }
+        if (!logout) MainMenu(ProviderNum);
     }
 
     /**
      * This lets someone add a service.
      */
-
     public void AddService() {
         String serviceName;
         double serviceFee = 0.0;
@@ -103,18 +106,18 @@ public class ProviderInterface {
         if (temp.getUserID() == -1) i = 0;
         while (i == 1) {
             if (temp.isSuspended) {
-                System.out.println("Sorry, this member is suspended and cannot receive service."); i = 0;
-            }
-            else {
+                System.out.println("Sorry, this member is suspended and cannot receive service.");
+                i = 0;
+            } else {
                 System.out.println("\nNow give the service. When done, enter 'Y' to create a service record, or 'N' to wait until later.");
                 char input = TryAgain();
                 if (input == 'Y' || input == 'y') {
-                    CreateServiceRecord(); i=0;
+                    CreateServiceRecord();
+                    i = 0;
                 }
             }
         }
     }
-
 
 
     /**
@@ -145,33 +148,58 @@ public class ProviderInterface {
         return input;
     }
 
+
     /**
      * This validates a member.
      *
      * @return int
      */
-
-    public int ValidateMember(){
+    public int ValidateMember() {
         System.out.println("Please enter your client's member number: ");
         int ID = 0;
         try {
             ID = Integer.parseInt(scan.nextLine());
-        }
-        catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             System.out.println("Please enter a valid number.");
         }
         Member temp = DatabaseController.getMember(ID);
-        if (temp.getUserID()==-1){
+        if (temp.getUserID() == -1) {
             System.out.println("\nSorry, that member number is invalid. Would you like to try again?");
             char response = TryAgain();
-            if (response == 'y' || response == 'Y'){
-            ValidateMember();
-            }
-            else {
+            if (response == 'y' || response == 'Y') {
+                ValidateMember();
+            } else {
                 System.out.println("\nSorry, returning to main menu.");
             }
         }
         return ID;
+    }
+
+
+    /**
+     * Generates provider report
+     */
+    public void generateProviderReport() {
+
+        try {
+            Provider tempProvider = DatabaseController.getProvider(ProviderNum);
+            if (tempProvider.getUserID() != -1) {
+                System.out.println("Generate Provider Report for " + DatabaseController.getProvider(tempProvider.getUserID()).getName() + "? Y/N");
+                if (scan.nextLine().toLowerCase().equals("y")) {
+                    System.out.println("Generating Provider Report...");
+                    ProviderReport providerReport = new ProviderReport(tempProvider);
+                    providerReport.writeReport();
+                } else {
+                    System.out.println("Report generation aborted.");
+                }
+            } else {
+                System.out.println("That is not a valid provider ID;");
+                generateProviderReport();
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Please enter a valid ID");
+            generateProviderReport();
+        }
     }
 
 }

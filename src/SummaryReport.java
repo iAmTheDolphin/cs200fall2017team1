@@ -61,7 +61,7 @@ public class SummaryReport extends Report {
                 + "Total Number of Consultations This Week: " + totalServices + '\n'
                 + "Total Fees to be Paid This Week: " + totalFees + '\n';
 
-		//System.out.println(text);
+		System.out.println(text);
         reportText.write(text);
     }
     

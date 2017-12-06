@@ -4,6 +4,8 @@
  * Database Controller
  */
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.io.*;
 import java.nio.file.Files;
@@ -15,6 +17,7 @@ import java.nio.charset.*;
  * This class maintains and controlls access to the data
  *
  * @author Parker Jones
+ * @version 1.0
  *
  */
 
@@ -33,6 +36,7 @@ public class DatabaseController {
     private static File memberIn = new File("./data/members.txt");
     private static File providerIn = new File("./data/providers.txt");
     private static File serviceCodesIn = new File("./data/serviceCodes.txt");
+    private static File serviceRecordsIn = new File("./data/serviceRecords.txt");
 
 
     /**
@@ -186,6 +190,66 @@ public class DatabaseController {
 
             try {
                 if(!serviceCodesIn.createNewFile()) System.out.println("ERROR: COULD NOT CREATE SERVICE CODE DATA FILE");
+            }
+            catch (IOException e) {
+                System.out.println("Tried creating file but file already exists! : " + e);
+            }
+        }
+
+
+        if(serviceRecordsIn.exists()) {
+            System.out.println("Service Record Data exists. Reading data...");
+            SimpleDateFormat parserSDF = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy", Locale.ENGLISH);
+
+
+            try{
+                List<String> lines = Files.readAllLines(Paths.get("./data/serviceRecords.txt"));
+
+                //parses the string for the information then adds it to the members ArrayList
+                for(int x = 0; x < lines.size(); x++) {
+                    String[] parsedServiceRecord = lines.get(x).split("[|]");
+                    for (int y = 0; y < parsedServiceRecord.length; y++) {
+                        if( parsedServiceRecord[y].charAt(0) == ' ') {
+                            parsedServiceRecord[y] = parsedServiceRecord[y].substring(1, parsedServiceRecord[y].length());
+                        }
+                        if(parsedServiceRecord[y].charAt(parsedServiceRecord[y].length()-1) == ' ') {
+                            parsedServiceRecord[y] = parsedServiceRecord[y].substring(0, parsedServiceRecord[y].length()-1);
+                        }
+                    }
+                    String providerName = parsedServiceRecord[0];
+                    int providerID = Integer.parseInt(parsedServiceRecord[1]);
+                    String memberName = parsedServiceRecord[2];
+                    int memberID = Integer.parseInt(parsedServiceRecord[3]);
+                    String serviceName = parsedServiceRecord[4];
+                    int serviceCode = Integer.parseInt(parsedServiceRecord[5]);
+                    Double fee = Double.parseDouble(parsedServiceRecord[6]);
+                    String notes = parsedServiceRecord[9];
+                    Date serviceDate;
+                    Date currentDate;
+                    try{
+                        serviceDate = parserSDF.parse(parsedServiceRecord[7]);
+                        currentDate = parserSDF.parse(parsedServiceRecord[8]);
+                        ServiceCode service = DatabaseController.searchServiceCodes(serviceCode);
+                        ServiceRecord newServiceRecord = new ServiceRecord(providerID, memberID, providerName, memberName, notes, serviceDate, currentDate, service);
+                        serviceRecords.add(newServiceRecord);
+                    }
+                    catch(ParseException e) {
+                        System.out.println("ERROR PARSING SERVICE RECORD TIMESTAMPS. LOADING NEXT ONE");
+                    }
+                }
+
+                System.out.println(serviceRecords.size() + " services records loaded from file.");
+
+            }
+            catch (IOException e) {
+                System.out.println("Failed to read from file. Starting with empty service record list. " + e);
+            }
+        }
+        else {
+            System.out.println("Service Record file doesn't exist. Creating...");
+
+            try {
+                if(!serviceRecordsIn.createNewFile()) System.out.println("ERROR: COULD NOT CREATE SERVICE RECORD DATA FILE");
             }
             catch (IOException e) {
                 System.out.println("Tried creating file but file already exists! : " + e);
@@ -560,6 +624,23 @@ public class DatabaseController {
 
     }
 
+    /**
+     * adds a service record to the arrayList
+     * @param record
+     */
+    static void addServiceRecord(ServiceRecord record) {
+        serviceRecords.add(record);
+        try(FileWriter fw = new FileWriter("./data/serviceRecords.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw))
+        {
+            System.out.println("Writing \n" + record.toString() + "\nto file");
+            out.print("\n" + record.toFileString());
+
+        } catch (IOException e) {
+            System.out.println("ERROR: FAILED TO WRITE NEW SERVICE CODE TO FILE " + e);
+        }
+    }
 
     /**
      * this updates the corresponding members first name in the arrayList and the data file
