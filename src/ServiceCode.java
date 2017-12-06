@@ -29,7 +29,11 @@ public class ServiceCode {
         serviceCode = code;
         serviceFee = fee;
     }
-
+    
+    /**
+     * This converts service code data into a readable string
+     * @return String
+     */
     public String toString() {
         return serviceName + " | " + serviceCode + " | " + serviceFee;
     }
