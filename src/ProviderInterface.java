@@ -161,8 +161,8 @@ public class ProviderInterface {
         catch(NumberFormatException e) {
             System.out.println("Please enter a valid number.");
         }
-        String name = DatabaseController.getMember(ID).getName();
-        if (name.equals("-1")){
+        Member temp = DatabaseController.getMember(ID);
+        if (temp.getUserID()==-1){
             System.out.println("\nSorry, that member number is invalid. Would you like to try again?");
             char response = TryAgain();
             if (response == 'y' || response == 'Y'){
