@@ -261,14 +261,14 @@ public class DatabaseController {
 
     /**
      *  This method creates a new member object in the member arrayList and adds them to the data file
-     * @param firstName
-     * @param lastName
-     * @param streetAddress
-     * @param city
-     * @param state
-     * @param zipCode
-     * @param email
-     * @param phoneNumber
+     * @param firstName The member's first name
+     * @param lastName The member's last name
+     * @param streetAddress Member's street address
+     * @param city Member's city
+     * @param state Member's state
+     * @param zipCode Member's zip code
+     * @param email Member's email
+     * @param phoneNumber Member's phone number
      * @return Member
      */
     static Member newMember(String firstName, String lastName, String streetAddress,
@@ -302,14 +302,14 @@ public class DatabaseController {
 
     /**
      * This method creates a new Provider object in the provider arrayList and adds them to the data file
-     * @param firstName
-     * @param lastName
-     * @param streetAddress
-     * @param city
-     * @param state
-     * @param zipCode
-     * @param email
-     * @param phoneNumber
+     * @param firstName Provider's first name
+     * @param lastName Provider's last name
+     * @param streetAddress Provider's street address
+     * @param city Provider's city
+     * @param state Provider's state
+     * @param zipCode Provider's zip code
+     * @param email Provider's email
+     * @param phoneNumber Provider's phone number
      * @return Provider
      */
     static Provider newProvider(String firstName, String lastName, String streetAddress,
@@ -345,7 +345,7 @@ public class DatabaseController {
 
     /**
      * This method deletes a Member from the arrayList and the data file
-     * @param userID
+     * @param userID The User's identification number
      */
     public static void deleteMember(int userID) {
         Member tempMember = getMember(userID);
@@ -368,7 +368,7 @@ public class DatabaseController {
 
     /**
      * this method deletes a Provider from the arrayList and the data file
-     * @param userID
+     * @param userID The User's identification number
      */
     public static void deleteProvider(int userID) {
         Provider tempProvider = getProvider(userID);
@@ -391,7 +391,7 @@ public class DatabaseController {
 
     /**
      * This method suspends the member with the given ID
-     * @param userID
+     * @param userID The User's identification number
      */
     static void suspendMember(int userID) {
         getMember(userID).suspend();
@@ -410,7 +410,7 @@ public class DatabaseController {
 
     /**
      * this method reactivates the member with the corresponding ID
-     * @param userID
+     * @param userID The User's identification number
      */
     static void reactivateMember(int userID) {
         getMember(userID).setActive();
@@ -428,7 +428,7 @@ public class DatabaseController {
 
     /**
      * returns the member object represented by the ID
-     * @param userID
+     * @param userID The User's identification number
      * @return Member
      */
     static Member getMember(int userID) {
@@ -445,7 +445,7 @@ public class DatabaseController {
 
     /**
      * returns the index of the Member with the given ID in the ArrayList
-     * @param userID
+     * @param userID The User's identification number
      * @return int
      */
     private static int getMemberIndex(int userID) {
@@ -463,7 +463,7 @@ public class DatabaseController {
 
     /**
      * returns the provider Object associated with the given ID
-     * @param userID
+     * @param userID The User's identification number
      * @return Provider
      */
     static Provider getProvider(int userID) {
@@ -480,7 +480,7 @@ public class DatabaseController {
 
     /**
      * returns the index of the provider with the given ID
-     * @param userID
+     * @param userID The User's identification number
      * @return int
      */
     private static int getProviderIndex (int userID) {
@@ -498,8 +498,8 @@ public class DatabaseController {
 
     /**
      * adds a service code to the arrayList and to the data file
-     * @param name
-     * @param fee
+     * @param name The name of the service
+     * @param fee The fee for the service
      */
     static void addServiceCode(String name, double fee) {
 
@@ -528,7 +528,7 @@ public class DatabaseController {
 
     /**
      * searches for a serviceCode by name
-     * @param name
+     * @param name The name of the service
      * @return ServiceCode
      */
     static ServiceCode searchServiceCodes(String name) {
@@ -548,7 +548,7 @@ public class DatabaseController {
 
     /**
      * search the ServiceCodes by the actual service code
-     * @param code
+     * @param code The numeric code assigned to a service
      * @return
      */
     static ServiceCode searchServiceCodes(int code) {
@@ -585,8 +585,8 @@ public class DatabaseController {
 
 
     /**
-     * this searches the service Records by the member associated with that record
-     * @param member
+     * this searches the service records by the member associated with that record
+     * @param member The member associated to the service record
      * @return
      */
     static ServiceRecord[] searchServiceRecords(Member member) {
@@ -606,7 +606,7 @@ public class DatabaseController {
 
     /**
      * this searches the service records by the provider associated with that record
-     * @param provider
+     * @param provider The provider associated to the service record
      * @return
      */
     static ServiceRecord[] searchServiceRecords(Provider provider){
@@ -626,7 +626,7 @@ public class DatabaseController {
 
     /**
      * adds a service record to the arrayList
-     * @param record
+     * @param record The service record being added
      */
     static void addServiceRecord(ServiceRecord record) {
         serviceRecords.add(record);
@@ -644,8 +644,8 @@ public class DatabaseController {
 
     /**
      * this updates the corresponding members first name in the arrayList and the data file
-     * @param memberID
-     * @param newFirstName
+     * @param memberID The Member's identification number
+     * @param newFirstName The Member's new first name
      */
     static void updateMemberFirstName(int memberID, String newFirstName) {
 
@@ -672,8 +672,8 @@ public class DatabaseController {
 
     /**
      * updates the corresponding member's last name in the arrayList and the data file
-     * @param memberID
-     * @param newLastName
+     * @param memberID The Member's identification number
+     * @param newLastName The Member's updated last name
      */
     static void updateMemberLastName(int memberID, String newLastName) {
 
@@ -700,8 +700,8 @@ public class DatabaseController {
 
     /**
      * updates the corresponding member's address in the arrayList and the data file
-     * @param memberID
-     * @param newAddress
+     * @param memberID The Member's identification number
+     * @param newAddress Member's updated address
      */
     static void updateMemberAddress(int memberID, String newAddress) {
 
@@ -727,8 +727,8 @@ public class DatabaseController {
 
     /**
      * updates the corresponding member's city in the arrayList and the data file
-     * @param memberID
-     * @param newCity
+     * @param memberID The Member's identification number
+     * @param newCity Member's updated city
      */
     static void updateMemberCity(int memberID, String newCity) {
 
@@ -749,8 +749,8 @@ public class DatabaseController {
 
     /**
      * this updates the corresponding member's State in the arrayList and the data file
-     * @param memberID
-     * @param newState
+     * @param memberID The Member's identification number
+     * @param newState Member's updated state
      */
     static void updateMemberState(int memberID, String newState) {
 
@@ -771,8 +771,8 @@ public class DatabaseController {
 
     /**
      * this updates the corresponding member's zip code in the arrayList and the data file
-     * @param memberID
-     * @param newZip
+     * @param memberID The Member's identification number
+     * @param newZip Member's updated zip
      */
     static void updateMemberZip(int memberID, String newZip) {
 
@@ -793,8 +793,8 @@ public class DatabaseController {
 
     /**
      * this updates the corresponding member's phone number in the arrayList and the data file
-     * @param memberID
-     * @param newPhone
+     * @param memberID The Member's identification number
+     * @param newPhone Member's updated phone
      */
     static void updateMemberPhone(int memberID, String newPhone) {
 
@@ -814,8 +814,8 @@ public class DatabaseController {
 
     /**
      * this updates the corresponding member's email in the arrayList and the data file
-     * @param memberID
-     * @param newEmail
+     * @param memberID The Member's identification number
+     * @param newEmail Member's updated email
      */
     static void updateMemberEmail(int memberID, String newEmail) {
 
@@ -838,8 +838,8 @@ public class DatabaseController {
 
     /**
      * this updates the corresponding provider's first name in the arrayList and the data file
-     * @param providerID
-     * @param newFirstName
+     * @param providerID The Provider's identification number
+     * @param newFirstName Provider's updated first name
      */
     public static void updateProviderFirstName(int providerID, String newFirstName) {
 
@@ -867,8 +867,8 @@ public class DatabaseController {
 
     /**
      * this updates the corresponding provider's first name in the arrayList and the data file
-     * @param providerID
-     * @param newLastName
+     * @param providerID The Provider's identification number
+     * @param newLastName Provider's updated last name
      */
     static void updateProviderLastName(int providerID, String newLastName) {
 
@@ -895,8 +895,8 @@ public class DatabaseController {
 
     /**
      * this updates the corresponding provider's address in the arrayList and the data file
-     * @param providerID
-     * @param newAddress
+     * @param providerID The Provider's identification number
+     * @param newAddress Provider's updated address
      */
     static void updateProviderAddress(int providerID, String newAddress) {
 
@@ -922,8 +922,8 @@ public class DatabaseController {
 
     /**
      * this updates the corresponding provider's city in the arrayList and the data file
-     * @param providerID
-     * @param newCity
+     * @param providerID The Provider's identification number
+     * @param newCity Provider's updated city
      */
     static void updateProviderCity(int providerID, String newCity) {
 
@@ -944,8 +944,8 @@ public class DatabaseController {
 
     /**
      * this updates the corresponding provider's state in the arrayList and the data file
-     * @param providerID
-     * @param newState
+     * @param providerID The Provider's identification number
+     * @param newState Provider's updated state
      */
     static void updateProviderState(int providerID, String newState) {
 
@@ -966,8 +966,8 @@ public class DatabaseController {
 
     /**
      * this updates the corresponding provider's zip code in the arrayList and the data file
-     * @param providerID
-     * @param newZip
+     * @param providerID The Provider's identification number
+     * @param newZip Provider's updated zip
      */
     static void updateProviderZip(int providerID, String newZip) {
 
@@ -988,8 +988,8 @@ public class DatabaseController {
 
     /**
      * this updates the corresponding provider's phone number in the arrayList and the data file
-     * @param providerID
-     * @param newPhone
+     * @param providerID The Provider's identification number
+     * @param newPhone Provider's updated phone
      */
     static void updateProviderPhone(int providerID, String newPhone) {
 
@@ -1009,8 +1009,8 @@ public class DatabaseController {
 
     /**
      * this updates the corresponding provider's email in the arrayList and the data file
-     * @param providerID
-     * @param newEmail
+     * @param providerID The Provider's identification number
+     * @param newEmail Provider's updated email
      */
     static void updateProviderEmail(int providerID, String newEmail) {
 
