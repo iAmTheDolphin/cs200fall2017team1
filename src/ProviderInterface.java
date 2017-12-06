@@ -97,12 +97,10 @@ public class ProviderInterface {
         int MemberNumber = -1;
 
         MemberNumber = ValidateMember();
-        String name = DatabaseController.getMember(MemberNumber).getName();
+        Member temp = DatabaseController.getMember(MemberNumber);
         int i = 1;
-        if (name == "-1") i = 0;
+        if (temp.getUserID() == -1) i = 0;
         do {
-            if (name.equals("-1")) break;
-            Member temp = DatabaseController.getMember(MemberNumber);
             if (temp.isSuspended) {
                 System.out.println("Sorry, this member is suspended and cannot receive service.");
             } else {
@@ -116,6 +114,7 @@ public class ProviderInterface {
             }
 
         } while (i==1);
+
     }
 
 
