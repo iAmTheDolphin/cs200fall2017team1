@@ -1,3 +1,5 @@
+import java.util.Date;
+
 //need to make for past week
 //add date and time of entry
 
@@ -6,6 +8,9 @@ public class ProviderReport extends Report {
     private int numServices;
     private double totalFees;
     ServiceRecord[] recordDB;
+    private long ONE_DAY = 1000*60*60*24;
+	Date checkDate = new Date(System.currentTimeMillis()-(7*ONE_DAY));
+	Date servDate = new Date();
 
     public ProviderReport(Provider provider) {
         this.provider = provider;
@@ -13,7 +18,7 @@ public class ProviderReport extends Report {
         recordDB = DatabaseController.searchServiceRecords(provider);
     }
 
-    /*
+    
     //writes to file
     protected void writeToFile() {
         String text = "Provider Name: " + provider.getName() + '\n';
@@ -28,18 +33,21 @@ public class ProviderReport extends Report {
             numServices++;
             ServiceCode service = DatabaseController.searchServiceCodes(record.Service.serviceName);
             totalFees += service.serviceFee;
-            text += "Date of Service: " + record.ServiceTime + '\n'
-                    + "Date and Time of Entry: " + '\n'
-                    + "Member Name: " + record.MemberName + '\n'
-                    + "Member Number: " + record.MemberNumber + '\n'
-                    + "Service Code: " + service.serviceCode + '\n'
-                    + "Service Fee: " + service.serviceFee + '\n'
-                    + '\n';
+			servDate = record.ServiceTime;
+			if (servDate.after(checkDate)) {
+	            text += "Date of Service: " + record.ServiceTime + '\n'
+	                    + "Date and Time of Entry: " + '\n'
+	                    + "Member Name: " + record.MemberName + '\n'
+	                    + "Member Number: " + record.MemberNumber + '\n'
+	                    + "Service Code: " + service.serviceCode + '\n'
+	                    + "Service Fee: " + service.serviceFee + '\n'
+	                    + '\n';
+			}
         }
         text += "Total Number of Consultations: " + numServices + '\n';
         text += "Total Fees for Week: " + totalFees + '\n';
 
         reportText.write(text);
     }
-    */
+   
 }
