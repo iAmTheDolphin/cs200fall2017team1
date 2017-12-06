@@ -136,7 +136,7 @@ public class ProviderInterface {
      */
     public char TryAgain() {
 
-        System.out.println(scan.nextLine());
+        //System.out.println(scan.nextLine());
         char input = scan.nextLine()
                 .charAt(0);
         while (input != 'y' && input != 'Y' && input != 'n' && input != 'N') {
