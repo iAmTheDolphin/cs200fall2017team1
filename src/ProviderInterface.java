@@ -103,7 +103,7 @@ public class ProviderInterface {
         if (temp.getUserID() == -1) i = 0;
         while (i == 1) {
             if (temp.isSuspended) {
-                System.out.println("Sorry, this member is suspended and cannot receive service.");
+                System.out.println("Sorry, this member is suspended and cannot receive service."); i = 0;
             } else {
                 System.out.println("\nNow give the service. When done, enter 'Y' to create a service record, or 'N' to wait until later.");
                 char input = TryAgain();
@@ -114,7 +114,7 @@ public class ProviderInterface {
 
             }
 
-        };
+        }
         MainMenu();
     }
 
