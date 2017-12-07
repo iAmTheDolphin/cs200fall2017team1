@@ -3,11 +3,10 @@ package ChocAn;
 import java.util.Date;
 
 /**
- * Creates a Summary Report for the past week and determines what information should be written in it
  * @author Riley Manning
+ * @version 1.0
+ * Creates a Summary Report for the past week and determines what information should be written in it
  */
-
-//name filePath based on current date/time
 
 public class SummaryReport extends Report {
     private int provServices;
@@ -31,6 +30,7 @@ public class SummaryReport extends Report {
 	/**
 	 * Determines what information should be written to file and writes to command line
 	 */
+	
     @Override
     protected void writeToFile() {
         String text = "";

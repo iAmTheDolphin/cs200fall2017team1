@@ -3,8 +3,9 @@ package ChocAn;
 import java.util.Date;
 
 /**
- * This generates a Provider Report and determines what information should be written to the report
  * @author Riley Manning
+ * @version 1.0
+ * This generates a Provider Report and determines what information should be written to the report
  */
 
 public class ProviderReport extends Report {
@@ -31,6 +32,7 @@ public class ProviderReport extends Report {
     /**
      * Finds information to write to file and writes to command line
      */
+    
     @Override
     protected void writeToFile() {
         String text = "Provider Name: " + provider.getName() + '\n';
