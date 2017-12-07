@@ -20,7 +20,11 @@ class MemberReportTest {
 
 	MemberReport report;
 	Member member;
-	
+
+	/**
+	 * this adds some dummy service Records and a dummy member. then it creates a new member report with that member
+	 * @throws Exception
+	 */
 	@BeforeEach
 	void setUp() throws Exception {
 		member = new Member("Member", "Name", "address", "city", "state", "zip", "email", "phonenum", 6565650);
@@ -28,16 +32,26 @@ class MemberReportTest {
 		report = new MemberReport(member);
 	}
 
+	/**
+	 * this tests to make sure that the member on record is the dummy member we set up
+	 */
 	@Test
 	void testForSuccess() {
 		assertTrue(report.member.equals(member));
 	}
-	
+
+	/**
+	 * this tests to make sure the date on the report is not the wrong date
+	 */
 	@Test
 	void testForFailure() {
 		assertFalse(report.servDate == new Date(0));
 	}
-	
+
+	/**
+	 * this makes sure that the member is assigned to the report then when a new report is generated with a different
+	 * member, the other member is the one attatched.
+	 */
 	@Test
 	void testForSanity() {
 		assertTrue(report.member.equals(member));
