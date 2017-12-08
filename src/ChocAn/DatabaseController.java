@@ -24,8 +24,8 @@ import java.nio.charset.*;
 
 public class DatabaseController {
 
-    private static Path membersPath = Paths.get("./data/members.txt");
-    private static Path providersPath = Paths.get("./data/providers.txt"); // double check
+    private static Path membersPath = Paths.get("data/members.txt");
+    private static Path providersPath = Paths.get("data/providers.txt"); // double check
     private static Charset charset = StandardCharsets.UTF_8;
 
 
@@ -34,10 +34,10 @@ public class DatabaseController {
     private static ArrayList<ServiceRecord> serviceRecords = new ArrayList<ServiceRecord>();
     private static ArrayList<ServiceCode> serviceCodes = new ArrayList<ServiceCode>();
 
-    private static File memberIn = new File("./data/members.txt");
-    private static File providerIn = new File("./data/providers.txt");
-    private static File serviceCodesIn = new File("./data/serviceCodes.txt");
-    private static File serviceRecordsIn = new File("./data/serviceRecords.txt");
+    private static File memberIn = new File("data/members.txt");
+    private static File providerIn = new File("data/providers.txt");
+    private static File serviceCodesIn = new File("data/serviceCodes.txt");
+    private static File serviceRecordsIn = new File("data/serviceRecords.txt");
 
 
     /**
@@ -55,7 +55,7 @@ public class DatabaseController {
 
 
             try{
-                List<String> lines = Files.readAllLines(Paths.get("./data/members.txt"));
+                List<String> lines = Files.readAllLines(Paths.get("data/members.txt"));
 
                 //parses the string for the information then adds it to the members ArrayList
                 for(int x = 0; x < lines.size(); x++) {
@@ -105,7 +105,7 @@ public class DatabaseController {
             System.out.println("Provider Data exists. Reading data...");
 
             try{
-                List<String> providerLines = Files.readAllLines(Paths.get("./data/providers.txt"));
+                List<String> providerLines = Files.readAllLines(Paths.get("data/providers.txt"));
 
                 //parses the string for the information then adds it to the members ArrayList
                 for(int x = 0; x < providerLines.size(); x++) {
@@ -155,7 +155,7 @@ public class DatabaseController {
 
 
             try{
-                List<String> lines = Files.readAllLines(Paths.get("./data/serviceCodes.txt"));
+                List<String> lines = Files.readAllLines(Paths.get("data/serviceCodes.txt"));
 
                 //parses the string for the information then adds it to the members ArrayList
                 for(int x = 0; x < lines.size(); x++) {
@@ -201,7 +201,7 @@ public class DatabaseController {
 
 
             try{
-                List<String> lines = Files.readAllLines(Paths.get("./data/serviceRecords.txt"));
+                List<String> lines = Files.readAllLines(Paths.get("data/serviceRecords.txt"));
 
                 //parses the string for the information then adds it to the members ArrayList
                 for(int x = 0; x < lines.size(); x++) {
@@ -283,7 +283,7 @@ public class DatabaseController {
 
         members.add(newMember);
 
-        try(FileWriter fw = new FileWriter("./data/members.txt", true);
+        try(FileWriter fw = new FileWriter("data/members.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw))
         {
@@ -326,7 +326,7 @@ public class DatabaseController {
 
         providers.add(provider);
 
-        try(FileWriter fw = new FileWriter("./data/providers.txt", true);
+        try(FileWriter fw = new FileWriter("data/providers.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw))
         {
@@ -511,7 +511,7 @@ public class DatabaseController {
 
         serviceCodes.add(serviceCode);
 
-        try(FileWriter fw = new FileWriter("./data/serviceCodes.txt", true);
+        try(FileWriter fw = new FileWriter("data/serviceCodes.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw))
         {
@@ -628,7 +628,7 @@ public class DatabaseController {
      */
     public static void addServiceRecord(ServiceRecord record) {
         serviceRecords.add(record);
-        try(FileWriter fw = new FileWriter("./data/serviceRecords.txt", true);
+        try(FileWriter fw = new FileWriter("data/serviceRecords.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw))
         {
