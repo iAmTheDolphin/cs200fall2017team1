@@ -3,8 +3,9 @@ package ChocAn;
 import java.io.*;
 
 /**
- * This create the file for the report and writes to the file
  * @author Riley Manning
+ * @version 1.0
+ * This create the file for the report and writes to the file
  */
 
 public abstract class Report {
@@ -19,6 +20,7 @@ public abstract class Report {
 	/**
 	 * Writes data to a report file
 	 */
+	
 	/*
 	public void writeReport() {
 		writeToFile();

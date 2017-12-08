@@ -3,9 +3,11 @@ package ChocAn;
 import java.util.Date;
 
 /**
- * This generates a Member Report and determines what information to write to the report
  * @author Riley Manning
+ * @version 1.0
+ * This generates a Member Report and determines what information to write to the report
  */
+
 
 /**
  * Declares and initializes necessary variables
@@ -32,6 +34,7 @@ public class MemberReport extends Report {
 	/**
 	 * Finds information to write to file and prints to command line
 	 */
+	 
 	@Override
 	protected void writeToFile() {
 		String text = '\n' + "Member Name: " + member.getName() + '\n'

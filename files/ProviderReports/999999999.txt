@@ -1,0 +1,456 @@
+Provider Name: awesome Jones
+Provider ID: 999999999 
+Provider Address: 15th Street
+Provider City: Tuscaloosa
+Provider State: AL
+Provider Zip Code: 35401
+
+Date of Service: Wed Dec 06 12:30:00 CST 2017
+Date and Time of Entry: Wed Dec 06 08:08:05 CST 2017
+Member Name: testy mctestface
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:25:57 CST 2017
+Date and Time of Entry: Wed Dec 06 10:25:57 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:25:57 CST 2017
+Date and Time of Entry: Wed Dec 06 10:25:57 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:26:54 CST 2017
+Date and Time of Entry: Wed Dec 06 10:26:54 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:26:54 CST 2017
+Date and Time of Entry: Wed Dec 06 10:26:54 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:26:54 CST 2017
+Date and Time of Entry: Wed Dec 06 10:26:54 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:28:06 CST 2017
+Date and Time of Entry: Wed Dec 06 10:28:06 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:28:07 CST 2017
+Date and Time of Entry: Wed Dec 06 10:28:07 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:29:27 CST 2017
+Date and Time of Entry: Wed Dec 06 10:29:27 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:29:27 CST 2017
+Date and Time of Entry: Wed Dec 06 10:29:27 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:29:44 CST 2017
+Date and Time of Entry: Wed Dec 06 10:29:44 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:29:44 CST 2017
+Date and Time of Entry: Wed Dec 06 10:29:44 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:30:18 CST 2017
+Date and Time of Entry: Wed Dec 06 10:30:18 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:30:18 CST 2017
+Date and Time of Entry: Wed Dec 06 10:30:18 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:30:55 CST 2017
+Date and Time of Entry: Wed Dec 06 10:30:55 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:30:55 CST 2017
+Date and Time of Entry: Wed Dec 06 10:30:55 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:31:30 CST 2017
+Date and Time of Entry: Wed Dec 06 10:31:30 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:31:30 CST 2017
+Date and Time of Entry: Wed Dec 06 10:31:30 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:31:48 CST 2017
+Date and Time of Entry: Wed Dec 06 10:31:48 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:31:48 CST 2017
+Date and Time of Entry: Wed Dec 06 10:31:48 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:32:49 CST 2017
+Date and Time of Entry: Wed Dec 06 10:32:49 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:32:49 CST 2017
+Date and Time of Entry: Wed Dec 06 10:32:49 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:33:07 CST 2017
+Date and Time of Entry: Wed Dec 06 10:33:07 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:33:07 CST 2017
+Date and Time of Entry: Wed Dec 06 10:33:07 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:34:03 CST 2017
+Date and Time of Entry: Wed Dec 06 10:34:03 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:34:03 CST 2017
+Date and Time of Entry: Wed Dec 06 10:34:03 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:35:42 CST 2017
+Date and Time of Entry: Wed Dec 06 10:35:42 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:35:42 CST 2017
+Date and Time of Entry: Wed Dec 06 10:35:42 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:35:53 CST 2017
+Date and Time of Entry: Wed Dec 06 10:35:53 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:35:53 CST 2017
+Date and Time of Entry: Wed Dec 06 10:35:53 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:35:53 CST 2017
+Date and Time of Entry: Wed Dec 06 10:35:53 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:39:01 CST 2017
+Date and Time of Entry: Wed Dec 06 10:39:01 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:39:01 CST 2017
+Date and Time of Entry: Wed Dec 06 10:39:01 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:39:01 CST 2017
+Date and Time of Entry: Wed Dec 06 10:39:01 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:39:23 CST 2017
+Date and Time of Entry: Wed Dec 06 10:39:23 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:39:23 CST 2017
+Date and Time of Entry: Wed Dec 06 10:39:23 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:39:23 CST 2017
+Date and Time of Entry: Wed Dec 06 10:39:23 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:39:59 CST 2017
+Date and Time of Entry: Wed Dec 06 10:39:59 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:39:59 CST 2017
+Date and Time of Entry: Wed Dec 06 10:39:59 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:39:59 CST 2017
+Date and Time of Entry: Wed Dec 06 10:39:59 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:40:35 CST 2017
+Date and Time of Entry: Wed Dec 06 10:40:35 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:40:35 CST 2017
+Date and Time of Entry: Wed Dec 06 10:40:35 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:40:35 CST 2017
+Date and Time of Entry: Wed Dec 06 10:40:35 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:41:01 CST 2017
+Date and Time of Entry: Wed Dec 06 10:41:01 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:41:01 CST 2017
+Date and Time of Entry: Wed Dec 06 10:41:01 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:41:01 CST 2017
+Date and Time of Entry: Wed Dec 06 10:41:01 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:42:38 CST 2017
+Date and Time of Entry: Wed Dec 06 10:42:38 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:42:38 CST 2017
+Date and Time of Entry: Wed Dec 06 10:42:38 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:42:38 CST 2017
+Date and Time of Entry: Wed Dec 06 10:42:38 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:44:42 CST 2017
+Date and Time of Entry: Wed Dec 06 10:44:42 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:44:42 CST 2017
+Date and Time of Entry: Wed Dec 06 10:44:42 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:44:42 CST 2017
+Date and Time of Entry: Wed Dec 06 10:44:42 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:44:56 CST 2017
+Date and Time of Entry: Wed Dec 06 10:44:56 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:44:56 CST 2017
+Date and Time of Entry: Wed Dec 06 10:44:56 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 10:44:56 CST 2017
+Date and Time of Entry: Wed Dec 06 10:44:56 CST 2017
+Member Name: Member Name
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+
+Date of Service: Wed Dec 06 11:37:48 CST 2017
+Date and Time of Entry: Wed Dec 06 11:37:48 CST 2017
+Member Name: testy mctestface
+Member Number: 100000001
+Service Code: 100000
+Service Fee: 50.0
+
+Total Number of Consultations: 56
+Total Fees for Week: 2800.0

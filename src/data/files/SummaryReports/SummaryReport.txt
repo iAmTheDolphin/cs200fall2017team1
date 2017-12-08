@@ -1,0 +1,9 @@
+
+Provider Name:awesome Jones
+Number of Consultations This Week: 56
+Total Fees This Week: 2800.0
+
+
+Number of Providers Who Provided Services: 1
+Total Number of Consultations This Week: 56
+Total Fees to be Paid This Week: 2800.0
